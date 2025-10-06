@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Paintings | Treasury of Flair</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { 
+      font-family:'Poppins',sans-serif; 
+      background:#f5f5f5; 
+      color:#333; 
+      overflow-x:hidden;
+    }
+
+    /* Navbar - Matching home.html */
+    nav {
+      background:white;
+      padding:12px 20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      box-shadow:0 2px 10px rgba(0,0,0,0.1);
+      position:fixed;
+      top:0; left:0; right:0;
+      z-index:1000;
+      height:80px;
+    }
+
+    .logo-section {
+      display:flex;
+      align-items:center;
+      gap:15px;
+    }
+
+    .logo {
+      width:50px; height:50px;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-weight:700;
+      font-size:20px;
+    }
+
+    .logo-text h2 { 
+      font-size:20px; 
+      font-weight:600;
+      color:#333;
+      margin-bottom:2px; 
+    }
+    .logo-text p { 
+      font-size:12px; 
+      color:#666; 
+    }
+
+    .nav-links {
+      display:flex; 
+      gap:40px; 
+      align-items:center;
+    }
+
+    .nav-links a {
+      text-decoration:none;
+      color:#666;
+      font-weight:500;
+      padding:8px 16px;
+      border-radius:8px;
+      transition:all 0.3s ease;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color:#8E2DE2;
+      background:rgba(142,45,226,0.1);
+    }
+
+    /* Page Container */
+    .container {
+      max-width:1400px;
+      margin:100px auto 60px;
+      padding:40px;
+    }
+
+    .page-header {
+      text-align:center;
+      margin-bottom:50px;
+    }
+
+    .page-header h1 {
+      font-size:2.5rem;
+      font-weight:600;
+      color:#333;
+      margin-bottom:15px;
+    }
+
+    .page-header p {
+      color:#666;
+      font-size:1.1rem;
+      max-width:700px;
+      margin:0 auto;
+      line-height:1.6;
+    }
+
+    /* Art Grid - Matching home.html cards */
+    .art-grid {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap:25px;
+    }
+
+    .art-card {
+      background:white;
+      border-radius:20px;
+      box-shadow:0 5px 20px rgba(0,0,0,0.1);
+      overflow:hidden;
+      transition:all 0.3s ease;
+      display:flex;
+      flex-direction:column;
+      position:relative;
+    }
+
+    .art-card::before {
+      content:'';
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      height:4px;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      transform:scaleX(0);
+      transition:transform 0.3s ease;
+    }
+
+    .art-card:hover {
+      transform:translateY(-5px);
+      box-shadow:0 15px 35px rgba(0,0,0,0.15);
+    }
+
+    .art-card:hover::before {
+      transform:scaleX(1);
+    }
+
+    .art-image {
+      width:100%;
+      height:250px;
+      overflow:hidden;
+    }
+
+    .art-image img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform 0.4s ease;
+      display:block;
+    }
+
+    .art-card:hover .art-image img {
+      transform:scale(1.08);
+    }
+
+    .art-content {
+      padding:25px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      flex:1;
+    }
+
+    .art-title {
+      font-size:1.15rem;
+      font-weight:600;
+      color:#333;
+      margin-bottom:8px;
+    }
+
+    .artist-name {
+      color:#8E2DE2;
+      font-weight:500;
+      margin-bottom:12px;
+      font-size:0.95rem;
+    }
+
+    .art-desc {
+      color:#666;
+      font-size:0.9rem;
+      line-height:1.6;
+      flex-grow:1;
+      margin-bottom:15px;
+    }
+
+    .price {
+      font-weight:600;
+      color:#333;
+      font-size:1.2rem;
+      margin-bottom:15px;
+    }
+
+    .buy-btn {
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      border:none;
+      color:white;
+      padding:12px 20px;
+      border-radius:10px;
+      font-weight:500;
+      cursor:pointer;
+      width:100%;
+      transition:all 0.3s ease;
+      font-size:0.95rem;
+    }
+
+    .buy-btn:hover { 
+      transform:translateY(-1px);
+      box-shadow:0 5px 15px rgba(142,45,226,0.3);
+    }
+
+    /* Animation */
+    @keyframes slideInUp {
+      from {
+        opacity:0;
+        transform:translateY(30px);
+      }
+      to {
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .art-card {
+      animation:slideInUp 0.6s ease-out forwards;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width:1024px) {
+      .container { 
+        padding:30px; 
+      }
+    }
+
+    @media (max-width:768px) {
+      .page-header h1 { 
+        font-size:2rem; 
+      }
+      .container { 
+        padding:20px; 
+        margin-top:100px;
+      }
+      .nav-links {
+        gap:20px;
+      }
+      .nav-links a {
+        padding:6px 12px;
+        font-size:0.9rem;
+      }
+    }
+
+    @media (max-width:480px) {
+      .art-grid { 
+        grid-template-columns:1fr; 
+      }
+      .art-image { 
+        height:200px; 
+      }
+      .page-header h1 {
+        font-size:1.75rem;
+      }
+      .page-header p {
+        font-size:1rem;
+      }
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width:8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background:#f1f1f1;
+      border-radius:10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      border-radius:10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background:linear-gradient(135deg,#7A28C7,#E63E1B);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo-section">
+      <div class="logo">TF</div>
+      <div class="logo-text">
+        <h2>Treasury of Flair</h2>
+        <p>Marketplace for artists</p>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="home.html">Home</a>
+      <a href="categories_page.html" class="active">Categories</a>
+      <a href="reels.html">Reels</a>
+      <a href="MyOrders.html">My Orders</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="page-header">
+      <h1>Paintings Collection</h1>
+      <p>Explore handpicked painting styles - classic oils, watercolor, abstract, and more. Each piece tells a unique story.</p>
+    </div>
+
+    <div class="art-grid">
+      <div class="art-card">
+        <div class="art-image"><img src="https://media.istockphoto.com/id/2170496135/photo/golden-hour-greeting.webp?a=1&b=1&s=612x612&w=0&k=20&c=JTV6L3Z3cSFU2iQQzT4F6U_MfZuDU6pKrwY5XP9Klt0="></div>
+        <div class="art-content">
+          <div class="art-title">Golden Hour Portrait</div>
+          <div class="artist-name">By Clara Smith</div>
+          <div class="art-desc">Oil on canvas capturing the warm light of dusk - bold yet delicate strokes.</div>
+          <div class="price">$250</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <div class="art-card">
+        <div class="art-image"><img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=900&q=80" alt="Landscape painting"></div>
+        <div class="art-content">
+          <div class="art-title">Whispering Mountains</div>
+          <div class="artist-name">By Daniel Grey</div>
+          <div class="art-desc">Soft gradients of mountain air - blending realism and imagination.</div>
+          <div class="price">$180</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <div class="art-card">
+        <div class="art-image"><img src="https://media.istockphoto.com/id/2235609371/photo/conceptual-image-of-person-in-digital-fragments.webp?a=1&b=1&s=612x612&w=0&k=20&c=9fpKVSYKZPcUzgz_xZAQstYtLwPr-QIqTUqj5rB7AMQ=" alt="Abstract art"></div>
+        <div class="art-content">
+          <div class="art-title">Fragments of Thought</div>
+          <div class="artist-name">By Riya Kapoor</div>
+          <div class="art-desc">Acrylic abstraction exploring the chaos and rhythm of human emotion.</div>
+          <div class="price">$220</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <div class="art-card">
+        <div class="art-image"><img src="https://media.istockphoto.com/id/1138329703/photo/spring-blossom.webp?a=1&b=1&s=612x612&w=0&k=20&c=pzWJmSrcDxXCZ2AkDwDi1Cjqx-Fb_TrRC53GFgUGckw=" alt="Watercolor art"></div>
+        <div class="art-content">
+          <div class="art-title">Dreamy Petals</div>
+          <div class="artist-name">By Hana Li</div>
+          <div class="art-desc">Soft watercolor florals that bloom gently across the paper.</div>
+          <div class="price">$130</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <div class="art-card">
+        <div class="art-image"><img src="https://media.istockphoto.com/id/527372799/photo/mindscapes.webp?a=1&b=1&s=612x612&w=0&k=20&c=6FXmLlQgh4ZNboRjDYrhqijsYc5Q-N4GNSvKkxEzbIg=" alt="Surreal painting"></div>
+        <div class="art-content">
+          <div class="art-title">Mindscapes</div>
+          <div class="artist-name">By Ethan Cole</div>
+          <div class="art-desc">A surreal oil painting merging inner thoughts with dreamy visuals.</div>
+          <div class="price">$340</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <div class="art-card">
+        <div class="art-image"><img src="https://media.istockphoto.com/id/1325299873/photo/blue-sky-over-the-sea.webp?a=1&b=1&s=612x612&w=0&k=20&c=x-lp1qrccn5p-VWNSVVlc2ahi5v2frsYsyqxgLOWwTc=" alt="Seascape"></div>
+        <div class="art-content">
+          <div class="art-title">Blue Horizon</div>
+          <div class="artist-name">By Lucas James</div>
+          <div class="art-desc">Oil seascape reflecting stillness and motion of the ocean.</div>
+          <div class="price">$290</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <div class="art-card">
+        <div class="art-image"><img src="https://media.istockphoto.com/id/108329959/photo/time-is-damage.webp?a=1&b=1&s=612x612&w=0&k=20&c=c7JSejIRbD0bkPWryTSlnsEobmcRsguXtyeNDxJwBYc=" alt="Portrait art"></div>
+        <div class="art-content">
+          <div class="art-title">Eternal Gaze</div>
+          <div class="artist-name">By Noor Rahman</div>
+          <div class="art-desc">Expressive acrylic portrait exploring depth through minimal brushwork.</div>
+          <div class="price">$200</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <div class="art-card">
+        <div class="art-image"><img src="https://media.istockphoto.com/id/2077712938/photo/beautiful-lanscape-sunset-nature-rural-background-field-of-grass-during-sunset-dark-evening.webp?a=1&b=1&s=612x612&w=0&k=20&c=0sfXvuefR4WfcWmVFQC1YBkIHtaq8VA4avSRifhWi4M=" alt="Modern art"></div>
+        <div class="art-content">
+          <div class="art-title">Color Fields</div>
+          <div class="artist-name">By Jade Chen</div>
+          <div class="art-desc">Inspired by color field expressionism - silence through pigment.</div>
+          <div class="price">$400</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <div class="art-card">
+        <div class="art-image"><img src="https://media.istockphoto.com/id/1314176728/photo/misty-sunrise-over-a-lake-during-blue-hour-oisterwijk-dutch-landscape.webp?a=1&b=1&s=612x612&w=0&k=20&c=z4pUIvlDMYK7HzbzR2qCkqUsBDwjfZR_eOwVSdD2J9k=" alt="Impressionist art"></div>
+        <div class="art-content">
+          <div class="art-title">Morning at the Lake</div>
+          <div class="artist-name">By Amelia Brooks</div>
+          <div class="art-desc">Impressionist brushwork - the still water reflecting dawn light.</div>
+          <div class="price">$180</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <div class="art-card">
+        <div class="art-image"><img src="https://media.istockphoto.com/id/157373207/photo/balanced-stones-on-a-pebble-beach-during-sunset.webp?a=1&b=1&s=612x612&w=0&k=20&c=ztFBmSoSiffYbKiIIi60HhnfR0KbPc9excFHh6nROJU=" alt="Miniature art"></div>
+        <div class="art-content">
+          <div class="art-title">Miniature Wonders</div>
+          <div class="artist-name">By Arjun Mehta</div>
+          <div class="art-desc">Fine-detail miniature painting on handmade paper with gold tones.</div>
+          <div class="price">$150</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Animate cards on load
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.art-card');
+      cards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        
+        setTimeout(() => {
+          card.style.transition = 'all 0.6s ease-out';
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, index * 100);
+      });
+    });
+
+    // Button interactions
+    const buyButtons = document.querySelectorAll('.buy-btn');
+    buyButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.style.transform = 'translateY(-1px) scale(0.98)';
+        setTimeout(() => {
+          btn.style.transform = 'translateY(-1px)';
+        }, 150);
+      });
+    });
+  </script>
+</body>
+</html>

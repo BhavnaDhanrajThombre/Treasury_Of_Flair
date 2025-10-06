@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "name": "Paintings",
+    "description": "Oil, acrylic, watercolor and mixed-media paintings — portraits, landscapes and abstracts.",
+    "image_url": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1400&q=80",
+    "badge": "Classic",
+    "artwork_count": 2400,
+    "artist_count": 450,
+    "price_range": "$25 - $2K",
+    "tags": ["Oil", "Acrylic", "Watercolor", "Landscape"]
+  },
+  {
+    "id": 2,
+    "name": "Photography",
+    "description": "Fine-art prints, editorial, landscape and portrait photography captured by professionals.",
+    "image_url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1400&q=80",
+    "badge": "Trending",
+    "artwork_count": 1800,
+    "artist_count": 320,
+    "price_range": "$15 - $800",
+    "tags": ["Portrait", "Nature", "Street", "Fine Art"]
+  },
+  {
+    "id": 3,
+    "name": "Digital Art",
+    "description": "Illustrations, concept art, generative and NFT-style pieces — digital creativity at its best.",
+    "image_url": "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=1400&q=80",
+    "badge": "Modern",
+    "artwork_count": 3100,
+    "artist_count": 280,
+    "price_range": "$10 - $1.5K",
+    "tags": ["Illustration", "Concept", "3D", "NFT"]
+  },
+  {
+    "id": 4,
+    "name": "Sculpture",
+    "description": "Three-dimensional works — stone, metal, wood and mixed-material sculptures and reliefs.",
+    "image_url": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1400&q=80",
+    "badge": "3D",
+    "artwork_count": 890,
+    "artist_count": 160,
+    "price_range": "$50 - $5K",
+    "tags": ["Ceramic", "Wood", "Metal", "Stone"]
+  },
+  {
+    "id": 5,
+    "name": "Printmaking",
+    "description": "Etchings, lithographs, screenprints and other reproducible printed artworks.",
+    "image_url": "https://images.unsplash.com/photo-1504198453319-5ce911bafcde?w=1400&q=80",
+    "badge": "Limited",
+    "artwork_count": 420,
+    "artist_count": 95,
+    "price_range": "$30 - $700",
+    "tags": ["Screenprint", "Etching", "Litho"]
+  },
+  {
+    "id": 6,
+    "name": "Ceramics",
+    "description": "Functional and sculptural ceramics — pottery, wheel-thrown pieces and glazed art objects.",
+    "image_url": "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1400&q=80",
+    "badge": "Handmade",
+    "artwork_count": 670,
+    "artist_count": 140,
+    "price_range": "$20 - $600",
+    "tags": ["Pottery", "Wheel-thrown", "Glazed"]
+  },
+  {
+    "id": 7,
+    "name": "Street Art",
+    "description": "Murals, graffiti and site-specific urban interventions from contemporary street artists.",
+    "image_url": "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=1400&q=80",
+    "badge": "Urban",
+    "artwork_count": 530,
+    "artist_count": 200,
+    "price_range": "$0 - $3K",
+    "tags": ["Mural", "Graffiti", "Stencil"]
+  },
+  {
+    "id": 8,
+    "name": "Collage & Mixed Media",
+    "description": "Works combining paper, textiles, paint and found materials to create layered compositions.",
+    "image_url": "https://images.unsplash.com/photo-1549880338-65ddcdfd017b?w=1400&q=80",
+    "badge": "Eclectic",
+    "artwork_count": 310,
+    "artist_count": 120,
+    "price_range": "$20 - $900",
+    "tags": ["Paper", "Found", "Assemblage"]
+  },
+  {
+    "id": 9,
+    "name": "Textile & Fiber",
+    "description": "Weaving, embroidery, quilting and sculptural fiber pieces — soft art with texture and depth.",
+    "image_url": "https://images.unsplash.com/photo-1520975698515-1b4d2a3e9b7f?w=1400&q=80",
+    "badge": "Tactile",
+    "artwork_count": 240,
+    "artist_count": 90,
+    "price_range": "$15 - $1.2K",
+    "tags": ["Weaving", "Embroidery", "Quilt"]
+  },
+  {
+    "id": 10,
+    "name": "Installation Art",
+    "description": "Large-scale and immersive works that transform spaces and invite viewer interaction.",
+    "image_url": "https://images.unsplash.com/photo-1494198453319-5ce911bafcde?w=1400&q=80",
+    "badge": "Experiential",
+    "artwork_count": 110,
+    "artist_count": 70,
+    "price_range": "Varies",
+    "tags": ["Site-specific", "Immersive"]
+  }
+]

@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders - Treasury of Flair</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f5f5f7;
+            min-height: 100vh;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: white;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #7c3aed 0%, #FF4B2B 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .brand-info h1 {
+            font-size: 20px;
+            color: #1f2937;
+            font-weight: 600;
+        }
+
+        .brand-info p {
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #6b7280;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #7c3aed;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #f3f4f6;
+            padding: 8px 15px;
+            border-radius: 25px;
+            gap: 8px;
+        }
+
+        .search-box input {
+            border: none;
+            background: none;
+            outline: none;
+            color: #6b7280;
+            font-size: 14px;
+            width: 200px;
+        }
+
+        .search-btn {
+            background: #7c3aed;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .search-btn:hover {
+            background: #6d28d9;
+            transform: scale(1.05);
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #7c3aed 0%, #FF4B2B 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Main Container */
+        .main-container {
+            display: flex;
+            min-height: calc(100vh - 80px);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            background: white;
+            padding: 30px 20px;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+        }
+
+        .account-section {
+            margin-bottom: 30px;
+        }
+
+        .account-section h2 {
+            font-size: 18px;
+            color: #1f2937;
+            margin-bottom: 20px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .user-info-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #7c3aed 0%, #FF4B2B 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .user-details h3 {
+            font-size: 16px;
+            color: #1f2937;
+            font-weight: 600;
+        }
+
+        .user-details p {
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-orders {
+            background: linear-gradient(135deg, #7c3aed 0%, #FF4B2B 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .btn-edit {
+            background: white;
+            color: #6b7280;
+            border: 1px solid #e5e7eb;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .orders-section {
+            margin-top: 30px;
+        }
+
+        .orders-section h3 {
+            font-size: 16px;
+            color: #1f2937;
+            margin-bottom: 10px;
+        }
+
+        .orders-section p {
+            font-size: 13px;
+            color: #6b7280;
+            margin-bottom: 15px;
+        }
+
+        .empty-orders {
+            font-size: 13px;
+            color: #9ca3af;
+        }
+
+        /* Content Area */
+        .content {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .page-header {
+            margin-bottom: 30px;
+        }
+
+        .page-header h1 {
+            font-size: 32px;
+            color: #1f2937;
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            color: #6b7280;
+            font-size: 15px;
+        }
+
+        /* Filters */
+        .filters {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            border: 1px solid #e5e7eb;
+            border-radius: 25px;
+            background: white;
+            color: #6b7280;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover {
+            border-color: #7c3aed;
+            color: #7c3aed;
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, #7c3aed 0%, #FF4B2B 100%);
+            color: white;
+            border-color: transparent;
+        }
+
+        /* Orders Grid */
+        .orders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 25px;
+        }
+
+        .order-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid #f3f4f6;
+        }
+
+        .order-card:hover {
+            box-shadow: 0 8px 25px rgba(124, 58, 237, 0.15);
+            transform: translateY(-3px);
+        }
+
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 15px;
+        }
+
+        .order-number {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .status-badge {
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: capitalize;
+        }
+
+        .status-pending {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .status-processing {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .status-shipped {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .status-delivered {
+            background: #d1fae5;
+            color: #064e3b;
+        }
+
+        .order-date {
+            color: #9ca3af;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .order-items {
+            margin-bottom: 20px;
+        }
+
+        .order-item {
+            display: flex;
+            gap: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .order-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .item-details {
+            flex: 1;
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 4px;
+            font-size: 14px;
+        }
+
+        .item-type {
+            color: #9ca3af;
+            font-size: 13px;
+        }
+
+        .item-price {
+            font-weight: 600;
+            color: #7c3aed;
+            font-size: 15px;
+        }
+
+        .order-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 2px solid #f3f4f6;
+        }
+
+        .order-total {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1f2937;
+        }
+
+        .view-details-btn {
+            padding: 8px 20px;
+            background: linear-gradient(135deg, #7c3aed 0%, #FF4B2B 100%);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.3s ease;
+        }
+
+        .view-details-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            max-width: 650px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #9ca3af;
+            transition: color 0.3s ease;
+        }
+
+        .close-modal:hover {
+            color: #1f2937;
+        }
+
+        .modal-header {
+            margin-bottom: 25px;
+        }
+
+        .modal-header h2 {
+            color: #1f2937;
+            margin-bottom: 8px;
+            font-size: 24px;
+        }
+
+        .modal-subheader {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .tracking-timeline {
+            margin: 30px 0;
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .tracking-timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e5e7eb;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -29px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #e5e7eb;
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px #e5e7eb;
+        }
+
+        .timeline-dot.active {
+            background: #7c3aed;
+            box-shadow: 0 0 0 2px #7c3aed;
+        }
+
+        .timeline-content h4 {
+            color: #1f2937;
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+
+        .timeline-content p {
+            color: #9ca3af;
+            font-size: 13px;
+        }
+
+        .modal-section-title {
+            font-size: 18px;
+            color: #1f2937;
+            margin: 25px 0 15px 0;
+            font-weight: 600;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 80px 20px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .empty-state-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+            opacity: 0.3;
+        }
+
+        .empty-state h3 {
+            color: #1f2937;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .empty-state p {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        @media (max-width: 1024px) {
+            .sidebar {
+                display: none;
+            }
+
+            .orders-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .search-box input {
+                width: 150px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .page-header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo-section">
+            <div class="logo">TF</div>
+            <div class="brand-info">
+                <h1>Treasury of Flair</h1>
+                <p>Marketplace for artists</p>
+            </div>
+        </div>
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="categories_page.html">Categories</a>
+            <a href="reels.html">Reels</a>
+            <a href="MyOrders.html" class="active">My Orders</a>
+        </div>
+        <div class="nav-right">
+            <div class="search-box">
+               
+                <input type="text" placeholder="Search art, materials or creators">
+            </div>
+            <button class="search-btn">Search</button>
+            
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="account-section">
+                <h2>Your Account</h2>
+                <div class="user-info">
+                    <!-- <div style="width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#8E2DE2,#FF4B2B);display:flex;align-items:center;justify-content:center;color:#fff">N</div> -->
+                    <div class="user-avatar" id="user-avatar">U</div>
+                    <div class="user-details">
+                        <h4 id="username-display">User</h4>
+                        
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn-orders">My Orders</button>
+                    <button class="btn-edit">Edit</button>
+                </div>
+            </div>
+
+            <div class="orders-section">
+                <h3>My Orders</h3>
+                <p>Your purchases will appear here.</p>
+                <p class="empty-orders">No orders yet. Buy something from the Marketplace.</p>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content">
+            <div class="page-header">
+                <h1>My Orders</h1>
+                <p>Track and manage your art purchases</p>
+            </div>
+
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">All Orders</button>
+                <button class="filter-btn" data-filter="pending">Pending</button>
+                <button class="filter-btn" data-filter="processing">Processing</button>
+                <button class="filter-btn" data-filter="shipped">Shipped</button>
+                <button class="filter-btn" data-filter="delivered">Delivered</button>
+            </div>
+
+            <div class="orders-grid" id="ordersGrid"></div>
+        </main>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="orderModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script>
+        const orders = [
+            {
+                id: 'ORD-2024-001',
+                date: '2024-09-15',
+                status: 'delivered',
+                items: [
+                    {
+                        title: 'Ocean Sunset Canvas',
+                        type: 'Canvas Print',
+                        price: 299,
+                        image: 'https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=200&h=200&fit=crop'
+                    },
+                    {
+                        title: 'Mountain Dreams',
+                        type: 'Digital Download',
+                        price: 49,
+                        image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=200&h=200&fit=crop'
+                    }
+                ],
+                total: 348,
+                tracking: [
+                    { status: 'Order Placed', date: 'Sep 15, 2024', active: true },
+                    { status: 'Processing', date: 'Sep 16, 2024', active: true },
+                    { status: 'Shipped', date: 'Sep 18, 2024', active: true },
+                    { status: 'Delivered', date: 'Sep 22, 2024', active: true }
+                ]
+            },
+            {
+                id: 'ORD-2024-002',
+                date: '2024-09-20',
+                status: 'shipped',
+                items: [
+                    {
+                        title: 'Abstract Harmony',
+                        type: 'Framed Print',
+                        price: 425,
+                        image: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=200&h=200&fit=crop'
+                    }
+                ],
+                total: 425,
+                tracking: [
+                    { status: 'Order Placed', date: 'Sep 20, 2024', active: true },
+                    { status: 'Processing', date: 'Sep 21, 2024', active: true },
+                    { status: 'Shipped', date: 'Sep 23, 2024', active: true },
+                    { status: 'Out for Delivery', date: 'Pending', active: false }
+                ]
+            },
+            {
+                id: 'ORD-2024-003',
+                date: '2024-09-25',
+                status: 'processing',
+                items: [
+                    {
+                        title: 'Urban Landscape Series',
+                        type: 'Photo Print Set',
+                        price: 189,
+                        image: 'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=200&h=200&fit=crop'
+                    },
+                    {
+                        title: 'Minimalist Portrait',
+                        type: 'Canvas Print',
+                        price: 275,
+                        image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&h=200&fit=crop'
+                    }
+                ],
+                total: 464,
+                tracking: [
+                    { status: 'Order Placed', date: 'Sep 25, 2024', active: true },
+                    { status: 'Processing', date: 'Sep 26, 2024', active: true },
+                    { status: 'Shipped', date: 'Pending', active: false },
+                    { status: 'Delivered', date: 'Pending', active: false }
+                ]
+            },
+            {
+                id: 'ORD-2024-004',
+                date: '2024-09-28',
+                status: 'pending',
+                items: [
+                    {
+                        title: 'Botanical Collection',
+                        type: 'Digital Art Pack',
+                        price: 89,
+                        image: 'https://images.unsplash.com/photo-1466781783364-36c955e42a7f?w=200&h=200&fit=crop'
+                    }
+                ],
+                total: 89,
+                tracking: [
+                    { status: 'Order Placed', date: 'Sep 28, 2024', active: true },
+                    { status: 'Processing', date: 'Pending', active: false },
+                    { status: 'Shipped', date: 'Pending', active: false },
+                    { status: 'Delivered', date: 'Pending', active: false }
+                ]
+            }
+        ];
+
+        let currentFilter = 'all';
+
+        function renderOrders() {
+            const grid = document.getElementById('ordersGrid');
+            const filtered = currentFilter === 'all' 
+                ? orders 
+                : orders.filter(o => o.status === currentFilter);
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">📦</div>
+                        <h3>No orders found</h3>
+                        <p>Try adjusting your filters or make your first purchase</p>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = filtered.map(order => `
+                <div class="order-card" onclick="showOrderDetails('${order.id}')">
+                    <div class="order-header">
+                        <div class="order-number">${order.id}</div>
+                        <span class="status-badge status-${order.status}">${order.status}</span>
+                    </div>
+                    <div class="order-date">Ordered on ${new Date(order.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</div>
+                    <div class="order-items">
+                        ${order.items.map(item => `
+                            <div class="order-item">
+                                <img src="${item.image}" alt="${item.title}" class="item-image">
+                                <div class="item-details">
+                                    <div class="item-title">${item.title}</div>
+                                    <div class="item-type">${item.type}</div>
+                                </div>
+                                <div class="item-price">$${item.price}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="order-footer">
+                        <div class="order-total">$${order.total}</div>
+                        <button class="view-details-btn" onclick="event.stopPropagation(); showOrderDetails('${order.id}')">View Details</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function showOrderDetails(orderId) {
+            const order = orders.find(o => o.id === orderId);
+            const modal = document.getElementById('orderModal');
+            const modalBody = document.getElementById('modalBody');
+
+            modalBody.innerHTML = `
+                <div class="modal-header">
+                    <h2>Order Details</h2>
+                    <div class="modal-subheader">Order ${order.id} • ${new Date(order.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</div>
+                </div>
+
+                <h3 class="modal-section-title">Tracking Information</h3>
+                <div class="tracking-timeline">
+                    ${order.tracking.map(t => `
+                        <div class="timeline-item">
+                            <div class="timeline-dot ${t.active ? 'active' : ''}"></div>
+                            <div class="timeline-content">
+                                <h4>${t.status}</h4>
+                                <p>${t.date}</p>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+
+                <h3 class="modal-section-title">Order Items</h3>
+                <div class="order-items">
+                    ${order.items.map(item => `
+                        <div class="order-item">
+                            <img src="${item.image}" alt="${item.title}" class="item-image">
+                            <div class="item-details">
+                                <div class="item-title">${item.title}</div>
+                                <div class="item-type">${item.type}</div>
+                            </div>
+                            <div class="item-price">$${item.price}</div>
+                        </div>
+                    `).join('')}
+                </div>
+
+                <div class="order-footer" style="margin-top: 20px;">
+                    <div style="color: #6b7280; font-weight: 600;">Total Amount</div>
+                    <div class="order-total">$${order.total}</div>
+                </div>
+            `;
+
+            modal.classList.add('active');
+        }
+
+        document.getElementById('closeModal').addEventListener('click', () => {
+            document.getElementById('orderModal').classList.remove('active');
+        });
+
+        document.getElementById('orderModal').addEventListener('click', (e) => {
+            if (e.target.id === 'orderModal') {
+                document.getElementById('orderModal').classList.remove('active');
+            }
+        });
+
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                currentFilter = e.target.dataset.filter;
+                renderOrders();
+            });
+        });
+
+        renderOrders();
+
+        async function loadUser() {
+            try {
+                const res = await fetch("http://localhost:5000/home", {
+                    method: "GET",
+                    credentials: "include", // keep session cookies
+                    headers: { "Accept": "application/json" }
+                });
+                const data = await res.json();
+
+                if (data.username) {
+                    // Show username
+                    document.getElementById("username-display").textContent = data.username;
+
+                    // Avatar = first letter
+                    const initial = data.username.charAt(0).toUpperCase();
+                    document.getElementById("user-avatar").textContent = initial;
+                    document.getElementById("sidebar-avatar").textContent = initial;
+                }
+
+                if (data.email) {
+                    // Show email
+                    document.getElementById("user-email").textContent = data.email;
+                }
+            } catch (err) {
+                console.error("Error fetching user:", err);
+            }
+        }
+
+        // Run after DOM loads
+        document.addEventListener("DOMContentLoaded", loadUser);
+ 
+        
+    </script>
+</body>
+</html>

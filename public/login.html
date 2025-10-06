@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login - Treasury of Flair</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--gradient:linear-gradient(135deg,#8E2DE2,#FF4B2B);--card:#fff;--muted:#666;--radius:12px}
+    *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',sans-serif}
+    body{min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--gradient);padding:20px}
+    .card{width:100%;max-width:380px;background:var(--card);border-radius:12px;padding:30px;box-shadow:0 12px 30px rgba(0,0,0,0.12)}
+    h2{margin-bottom:8px}
+    p.sub{font-size:13px;color:var(--muted);margin-bottom:16px}
+    label{display:block;font-size:13px;color:#333;margin-top:12px;margin-bottom:8px;font-weight:600}
+    input{width:100%;padding:12px;border-radius:10px;border:1px solid #eee;background:#fbfbfb;font-size:14px}
+    .actions{display:flex;gap:10px;margin-top:18px}
+    .btn{padding:11px 14px;border-radius:10px;border:0;font-weight:700;cursor:pointer}
+    .btn-primary{background:var(--gradient);color:#fff;flex:1}
+    .btn-ghost{background:transparent;border:1px solid rgba(0,0,0,0.06);flex:0}
+    .message{margin-top:12px;display:none;padding:10px 12px;border-radius:8px;font-size:13px}
+    .message.show{display:block}
+    .message.error{background:#ffecec;color:#d62828}
+    .message.success{background:#e9f7ef;color:#1a8a3b}
+    .link-row{margin-top:12px;font-size:13px;color:var(--muted)}
+    .link-row a{color:#8E2DE2;font-weight:600;text-decoration:none;margin-left:6px}
+  </style>
+</head>
+<body>
+  <div class="card" role="main" aria-labelledby="loginTitle">
+    <h2 id="loginTitle">Welcome back</h2>
+    <p class="sub">Sign in to your Treasury of Flair account</p>
+
+    <form id="loginForm" novalidate>
+      <label for="identity">Email or Name</label>
+      <input id="identity" name="identity" type="text" placeholder="you@example.com or Your Name" required>
+
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" placeholder="Your password" required>
+
+      <div class="actions">
+        <button type="submit" class="btn btn-primary">Login</button>
+        <a href="signup.html" class="btn btn-ghost" style="display:inline-flex;align-items:center;text-decoration:none;color:inherit;padding:10px 12px;border-radius:10px">Signup</a>
+      </div>
+
+      <div id="msg" class="message" role="status" aria-live="polite"></div>
+
+      <div class="link-row">Forgot password? <a href="#">Reset</a></div>
+    </form>
+  </div>
+
+  <script>
+  const $ = id => document.getElementById(id);
+  function showMsg(text,type='error'){ const m=$('msg'); m.textContent=text; m.className='message show ' + (type==='success'?'success':'error'); }
+  function clearMsg(){ const m=$('msg'); m.className='message'; m.textContent=''; }
+  function normalize(s){ return (''+(s||'')).trim().toLowerCase(); }
+
+  function readUsers(){ try { return JSON.parse(localStorage.getItem('tof_users')) || []; } catch(e){ return []; } }
+
+  const form=$('loginForm');
+  form.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    clearMsg();
+
+    const identity=normalize($('identity').value);
+    const password=$('password').value;
+    if(!identity) return showMsg('Please enter your email or name.');
+    if(!password) return showMsg('Please enter your password.');
+
+    try {
+      // ✅ Check with backend (MySQL)
+      const res = await fetch("http://localhost:5000/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ identity, password })
+      });
+      const data = await res.json();
+
+      if (!res.ok) {
+        return showMsg(data.error || "Login failed.");
+      }
+
+      // ✅ If success, also update localStorage session
+      localStorage.setItem('tof_current', JSON.stringify(data.user));
+
+      showMsg('Login successful! Redirecting...', 'success');
+      setTimeout(()=>{ window.location.href='home.html'; },900);
+    } catch(err){
+      // fallback to localStorage check if server fails
+      const users = readUsers();
+      const found = users.find(u => normalize(u.email)===identity || normalize(u.name)===identity);
+      if(found && found.password===password){
+        localStorage.setItem('tof_current', JSON.stringify(found));
+        showMsg('Login successful (local only)! Redirecting...', 'success');
+        setTimeout(()=>{ window.location.href='home.html'; },900);
+      } else {
+        showMsg("Server error or invalid credentials.");
+      }
+    }
+  });
+
+  ['identity','password'].forEach(id=>$(id).addEventListener('input', clearMsg));
+</script>

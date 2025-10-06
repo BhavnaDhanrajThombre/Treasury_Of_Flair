@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Treasury of Flair - Reels</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Poppins',sans-serif;background:#f5f5f5;color:#333;-webkit-font-smoothing:antialiased}
+        .navbar{
+            background:white;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;
+            box-shadow:0 2px 10px rgba(0,0,0,.06);position:fixed;top:0;left:0;right:0;z-index:1000;height:80px
+        }
+        .logo-section{display:flex;align-items:center;gap:15px}
+        .logo{width:50px;height:50px;background:linear-gradient(135deg,#8E2DE2,#FF4B2B);border-radius:12px;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:20px}
+        .logo-text h2{font-size:20px;font-weight:600;color:#333;margin-bottom:2px}
+        .nav-center{display:flex;gap:40px;align-items:center}
+        .nav-center a{text-decoration:none;color:#666;font-weight:500;padding:8px 16px;border-radius:8px;transition:all .3s}
+        .nav-center a:hover,.nav-center a.active{color:#8E2DE2;background:rgba(142,45,226,.08)}
+        .nav-right{display:flex;align-items:center;gap:20px}
+        .search-box{position:relative}
+        .search-box input{padding:12px 20px 12px 45px;border:1px solid #ddd;border-radius:25px;width:300px;font-size:14px;outline:none}
+        .search-box i{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:#666}
+        .search-btn{background:#8E2DE2;color:white;border:none;padding:12px 20px;border-radius:25px;cursor:pointer}
+        .user-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;background:linear-gradient(135deg,#FF4B2B,#8E2DE2);font-weight:600;cursor:pointer}
+
+        /* layout using flex (sidebar + content) */
+        .main-layout{display:flex;gap:0;margin-top:80px;min-height:calc(100vh - 80px)}
+        /* Sidebar: a flex child (sticky) rather than position:fixed to avoid double spacing */
+        .sidebar{
+            width:300px;flex:0 0 300px;background:white;padding:28px;box-shadow:2px 0 10px rgba(0,0,0,.04);
+            position:sticky;top:80px;height:calc(100vh - 80px);overflow:auto;border-right:0;
+        }
+
+        /* Main content no margin-left — flex layout handles the spacing */
+        .main-content{flex:1;padding:28px 40px;min-height:calc(100vh - 80px);overflow:hidden;background:transparent;display:flex;align-items:flex-start;justify-content:center}
+
+        /* center and limit reel column width so layout resembles Instagram reels */
+        .reel-column{
+            width:100%;
+            max-width:920px; /* change to taste */
+            height:calc(100vh - 120px);
+            overflow-y:auto;
+            scroll-snap-type:y mandatory;
+            -webkit-overflow-scrolling:touch;
+            border-radius:12px;
+        }
+        .reel-column::-webkit-scrollbar{width:8px}
+        .reel-column::-webkit-scrollbar-thumb{background:rgba(0,0,0,0.08);border-radius:8px}
+
+        .reel-item{
+            height:calc(100vh - 120px);
+            position:relative;
+            scroll-snap-align:start;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            background:#000;
+            border-radius:12px;
+            margin-bottom:16px;
+            overflow:hidden;
+        }
+
+        /* video / iframe fill area and keep cover behavior */
+        .reel-video{width:100%;height:100%;position:relative;display:flex;align-items:center;justify-content:center;background:#000}
+        .reel-video video,.reel-video iframe{width:100%;height:100%;object-fit:cover;border:0;display:block}
+        .reel-video::before{content:'';position:absolute;inset:0;background:linear-gradient(transparent, rgba(0,0,0,.35));z-index:1;pointer-events:none}
+
+        .play-pause-btn{
+            position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:6;
+            font-size:2.6rem;color:rgba(255,255,255,.95);cursor:pointer;
+            opacity:0;background:rgba(0,0,0,.45);border-radius:50%;width:78px;height:78px;
+            display:flex;align-items:center;justify-content:center;transition:opacity .18s,transform .12s;
+        }
+        .reel-item:hover .play-pause-btn{opacity:1;transform:translate(-50%,-50%) scale(1.02)}
+
+        .reel-overlay{
+            position:absolute;bottom:0;left:0;right:0;padding:22px 20px;color:#fff;z-index:5;
+            display:flex;gap:18px;align-items:flex-end;justify-content:space-between;
+        }
+
+        .reel-content{max-width:72%}
+        .artist-info{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+        .artist-avatar{width:46px;height:46px;border-radius:8px;background:linear-gradient(135deg,#8E2DE2,#FF4B2B);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+        .follow-btn{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);color:#fff;padding:8px 12px;border-radius:24px;cursor:pointer;margin-left:auto}
+
+        .reel-title{font-size:18px;font-weight:600;margin-bottom:6px}
+        .reel-description{font-size:14px;opacity:.95;margin-bottom:8px}
+        .reel-hashtags .hashtag{color:#4ECDC4;margin-right:8px;text-decoration:none;font-weight:600}
+
+        .reel-actions{display:flex;flex-direction:column;align-items:center;gap:20px;min-width:68px}
+        .action-btn{background:rgba(255,255,255,.08);border:none;color:white;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer}
+        .action-btn.liked{color:#FF4B2B;background:rgba(255,75,43,.12)}
+        .action-count{font-size:12px;margin-top:6px;text-align:center;color:#fff}
+
+        /* small screen adjustments */
+        @media (max-width:920px){
+            .sidebar{display:none;flex-basis:0;width:0}
+            .main-content{padding:12px}
+            .reel-column{max-width:100%}
+            .reel-overlay{padding:14px}
+            .reel-content{max-width:68%}
+        }
+
+        @media (max-width:480px){
+            .search-box input{width:140px}
+            .play-pause-btn{width:64px;height:64px;font-size:2rem}
+            .reel-title{font-size:16px}
+            .artist-avatar{width:40px;height:40px}
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo-section">
+            <div class="logo">TF</div>
+            <div class="logo-text">
+                <h2>Treasury of Flair</h2>
+                <p style="font-size:12px;color:#666;margin-top:2px">Marketplace for artists</p>
+            </div>
+        </div>
+
+        <div class="nav-center">
+            <a href="home.html">Home</a>
+            <a href="categories_page.html">Categories</a>
+            <a href="reels.html" class="active">Reels</a>
+            <a href="MyOrders.html">My Orders</a>
+        </div>
+
+        <div class="nav-right">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search art, materials or creators">
+            </div>
+            <button class="search-btn">Search</button>
+            
+        </div>
+    </nav>
+
+    <div class="main-layout">
+        <!-- Sidebar (sticky) -->
+        <aside class="sidebar">
+            <div style="background:#f8f9fa;padding:18px;border-radius:12px;margin-bottom:20px">
+                <h3 style="margin-bottom:12px">Your Account</h3>
+                <div style="display:flex;align-items:center;gap:12px">
+                    <!-- <div style="width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#8E2DE2,#FF4B2B);display:flex;align-items:center;justify-content:center;color:#fff">N</div> -->
+                    <div>
+                        <!-- Navbar Avatar -->
+                    <div class="user-avatar" id="user-avatar">U</div>
+                    <div class="user-details">
+                        <h4 id="username-display">User</h4>
+                    </div>
+                    </div>
+                </div>
+                <div style="margin-top:12px;display:flex;gap:8px">
+                    <button style="background:linear-gradient(135deg,#8E2DE2,#FF4B2B);color:#fff;border:none;padding:8px 12px;border-radius:8px;cursor:pointer">My Orders</button>
+                    <button style="border:1px solid #ddd;background:#fff;padding:8px 12px;border-radius:8px;cursor:pointer">Edit</button>
+                </div>
+            </div>
+            <div style="background:#f8f9fa;padding:14px;border-radius:12px">
+                <h3 style="margin-bottom:8px">My Orders</h3>
+                <p style="color:#666;font-size:14px">Your purchases will appear here. No orders yet — buy something awesome!</p>
+            </div>
+        </aside>
+
+        <!-- Main reels area -->
+        <main class="main-content">
+            <div class="reel-column" id="reelsColumn">
+                <!-- Reel items follow (kept your examples, mp4 + YouTube lazy embeds) -->
+
+                <!-- === Reel 1: HTML5 public MP4 (watercolor process) === -->
+                <div class="reel-item">
+                    <div class="reel-video">
+                        <video muted playsinline preload="metadata" loop data-title="Watercolor Portrait" loading="lazy">
+                            <source src="Video1.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <i class="fas fa-play play-pause-btn" aria-hidden="true" onclick="togglePlay(this)"></i>
+                    </div>
+                    <div class="reel-overlay">
+                        <div class="reel-content">
+                            <div class="artist-info">
+                                <div class="artist-avatar">S</div>
+                                <div class="artist-details">
+                                    <h4>Sarah Chen</h4>
+                                    <p style="opacity:.85">Watercolor Artist</p>
+                                </div>
+                                <button class="follow-btn">Follow</button>
+                            </div>
+                            <div class="reel-title">Watercolor Portrait Magic ✨</div>
+                            <div class="reel-description">Watch me create a dreamy watercolor portrait from sketch to finish — layering is the secret.</div>
+                            <div class="reel-hashtags">
+                                <a class="hashtag" href="#">#watercolor</a>
+                                <a class="hashtag" href="#">#portrait</a>
+                                <a class="hashtag" href="#">#artistprocess</a>
+                            </div>
+                        </div>
+                        <div class="reel-actions">
+                            <div><button class="action-btn" onclick="toggleLike(this)"><i class="fas fa-heart"></i></button><div class="action-count">12.4K</div></div>
+                            <div><button class="action-btn"><i class="fas fa-comment"></i></button><div class="action-count">856</div></div>
+                            <div><button class="action-btn"><i class="fas fa-share"></i></button><div class="action-count">289</div></div>
+                            <div><button class="action-btn"><i class="fas fa-bookmark"></i></button></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- === Reel 2: YouTube embed (loaded on demand) - clay sculpture time-lapse === -->
+                <div class="reel-item">
+                    <div class="reel-video">
+                         <video muted playsinline preload="metadata" loop data-title="Digital Fantasy Art" loading="lazy">
+                            <source src="Video2.mp4" type="video/mp4">
+                        </video>
+                         <i class="fas fa-play play-pause-btn" aria-hidden="true" onclick="togglePlay(this)"></i>
+                    </div>
+                    <div class="reel-overlay">
+                        <div class="reel-content">
+                            <div class="artist-info">
+                                <div class="artist-avatar">M</div>
+                                <div class="artist-details">
+                                    <h4>Marcus Rivera</h4>
+                                    <p style="opacity:.85">Ceramic Artist</p>
+                                </div>
+                                <button class="follow-btn">Follow</button>
+                            </div>
+                            <div class="reel-title">Pottery Wheel Meditation 🧘‍♂️</div>
+                            <div class="reel-description">6 hours of work in 30 seconds — therapeutic and meditative.</div>
+                            <div class="reel-hashtags">
+                                <a class="hashtag" href="#">#pottery</a>
+                                <a class="hashtag" href="#">#ceramics</a>
+                            </div>
+                        </div>
+                        <div class="reel-actions">
+                            <div><button class="action-btn liked" onclick="toggleLike(this)"><i class="fas fa-heart"></i></button><div class="action-count">18.2K</div></div>
+                            <div><button class="action-btn"><i class="fas fa-comment"></i></button><div class="action-count">1.2K</div></div>
+                            <div><button class="action-btn"><i class="fas fa-share"></i></button><div class="action-count">567</div></div>
+                            <div><button class="action-btn"><i class="fas fa-bookmark"></i></button></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- === Reel 3: HTML5 public MP4 (digital art process) === -->
+                <div class="reel-item">
+                    <div class="reel-video">
+                        <video muted playsinline preload="metadata" loop data-title="Digital Fantasy Art" loading="lazy">
+                            <source src="Video3.mp4" type="video/mp4">
+                        </video>
+                        <i class="fas fa-play play-pause-btn" aria-hidden="true" onclick="togglePlay(this)"></i>
+                    </div>
+                    <div class="reel-overlay">
+                        <div class="reel-content">
+                            <div class="artist-info">
+                                <div class="artist-avatar">L</div>
+                                <div class="artist-details">
+                                    <h4>Luna Park</h4>
+                                    <p style="opacity:.85">Digital Illustrator</p>
+                                </div>
+                                <button class="follow-btn">Follow</button>
+                            </div>
+                            <div class="reel-title">Digital Fantasy Art ✨</div>
+                            <div class="reel-description">Character design workflow in Procreate — step-by-step.</div>
+                            <div class="reel-hashtags">
+                                <a class="hashtag" href="#">#digitalart</a>
+                                <a class="hashtag" href="#">#procreate</a>
+                            </div>
+                        </div>
+                        <div class="reel-actions">
+                            <div><button class="action-btn" onclick="toggleLike(this)"><i class="fas fa-heart"></i></button><div class="action-count">24.7K</div></div>
+                            <div><button class="action-btn"><i class="fas fa-comment"></i></button><div class="action-count">1.8K</div></div>
+                            <div><button class="action-btn"><i class="fas fa-share"></i></button><div class="action-count">892</div></div>
+                            <div><button class="action-btn"><i class="fas fa-bookmark"></i></button></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- more reels ... (kept your other examples) -->
+            </div>
+        </main>
+    </div>
+
+    <script>
+        /* toggle like simple */
+        function toggleLike(btn){
+            btn.classList.toggle('liked');
+            const root = btn.closest('div');
+            const countEl = root.querySelector('.action-count');
+            let val = countEl.textContent || '0';
+            const parsed = parseLikeString(val);
+            // add/subtract 0.1K to keep format similar
+            let newVal = parsed + (btn.classList.contains('liked') ? 0.1 : -0.1);
+            if (newVal < 0) newVal = 0;
+            countEl.textContent = formatLikeString(newVal);
+        }
+        function parseLikeString(s){
+            s = (s||'0').toString().trim().toUpperCase();
+            if (s.endsWith('K')) return parseFloat(s.replace('K','')) ;
+            if (s.endsWith('M')) return parseFloat(s.replace('M','')) * 1000;
+            return parseFloat(s) || 0;
+        }
+        function formatLikeString(n){
+            // n is in 'K' units (e.g. 12.4 => "12.4K"). If very large convert to M
+            if (n >= 1000) return (n/1000).toFixed(1) + 'M';
+            return n.toFixed(1) + 'K';
+        }
+
+        /* play/pause for HTML5 video */
+        function togglePlay(button){
+            const reelItem = button.closest('.reel-item');
+            const video = reelItem.querySelector('video');
+            if (!video) { toggleIFrame(button); return; }
+            if (video.paused){
+                // pause other videos first
+                pauseAllExcept(reelItem);
+                video.play().catch(()=>{});
+                button.classList.remove('fa-play'); button.classList.add('fa-pause');
+            } else {
+                video.pause();
+                button.classList.remove('fa-pause'); button.classList.add('fa-play');
+            }
+        }
+
+        /* IFrame toggle: set/unset src so embed is lazy */
+        function toggleIFrame(button){
+            const reelItem = button.closest('.reel-item');
+            const iframe = reelItem.querySelector('iframe.lazy-embed');
+            if (!iframe) return;
+            const dataSrc = iframe.getAttribute('data-src');
+            if (!iframe.src || iframe.src === ''){
+                // attach src with autoplay & mute so browsers allow autoplay
+                iframe.src = dataSrc + (dataSrc.includes('?') ? '&' : '?') + 'autoplay=1&mute=1';
+                button.classList.remove('fa-play'); button.classList.add('fa-pause');
+            } else {
+                iframe.src = '';
+                button.classList.remove('fa-pause'); button.classList.add('fa-play');
+            }
+        }
+
+        /* IntersectionObserver to autoplay the visible reel (videos + lazy iframes) */
+        (function initObserver(){
+            const container = document.getElementById('reelsColumn');
+            const options = { root: container, threshold: 0.6 };
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    const item = entry.target;
+                    const video = item.querySelector('video');
+                    const iframe = item.querySelector('iframe.lazy-embed');
+                    const btn = item.querySelector('.play-pause-btn');
+
+                    if (entry.isIntersecting){
+                        pauseAllExcept(item);
+
+                        if (video){
+                            video.play().catch(()=>{});
+                            if (btn){ btn.classList.remove('fa-play'); btn.classList.add('fa-pause'); }
+                        } else if (iframe){
+                            const dataSrc = iframe.getAttribute('data-src');
+                            if (!iframe.src || iframe.src === ''){
+                                iframe.src = dataSrc + (dataSrc.includes('?') ? '&' : '?') + 'autoplay=1&mute=1';
+                            }
+                            if (btn){ btn.classList.remove('fa-play'); btn.classList.add('fa-pause'); }
+                        }
+                    } else {
+                        if (video){
+                            video.pause();
+                            if (btn){ btn.classList.remove('fa-pause'); btn.classList.add('fa-play'); }
+                        }
+                        if (iframe){
+                            iframe.src = '';
+                            if (btn){ btn.classList.remove('fa-pause'); btn.classList.add('fa-play'); }
+                        }
+                    }
+                });
+            }, options);
+
+            document.querySelectorAll('.reel-item').forEach(item => observer.observe(item));
+
+            window.pauseAllExcept = function(active){
+                document.querySelectorAll('.reel-item').forEach(item => {
+                    if (item === active) return;
+                    const v = item.querySelector('video');
+                    if (v){ v.pause(); const b=item.querySelector('.play-pause-btn'); if (b){ b.classList.remove('fa-pause'); b.classList.add('fa-play'); } }
+                    const f = item.querySelector('iframe.lazy-embed');
+                    if (f && f.src){ f.src = ''; const b=item.querySelector('.play-pause-btn'); if (b){ b.classList.remove('fa-pause'); b.classList.add('fa-play'); } }
+                });
+            };
+        })();
+
+        /* clicking video toggles play */
+        document.addEventListener('click', function(e){
+            if (e.target && e.target.tagName === 'VIDEO'){
+                const reelItem = e.target.closest('.reel-item');
+                const btn = reelItem.querySelector('.play-pause-btn');
+                togglePlay(btn);
+            }
+        });
+
+        /* pause when page hidden to save CPU */
+        document.addEventListener('visibilitychange', function(){
+            if (document.hidden){
+                document.querySelectorAll('.reel-item video').forEach(v => v.pause());
+                document.querySelectorAll('iframe.lazy-embed').forEach(f => { if (f.src) f.src = ''; });
+                document.querySelectorAll('.play-pause-btn').forEach(b => { b.classList.remove('fa-pause'); b.classList.add('fa-play'); });
+            }
+        });
+
+         async function loadUser() {
+            try {
+                const res = await fetch("http://localhost:5000/home", {
+                    method: "GET",
+                    credentials: "include", // keep session cookies
+                    headers: { "Accept": "application/json" }
+                });
+                const data = await res.json();
+
+                if (data.username) {
+                    // Show username
+                    document.getElementById("username-display").textContent = data.username;
+
+                    // Avatar = first letter
+                    const initial = data.username.charAt(0).toUpperCase();
+                    document.getElementById("user-avatar").textContent = initial;
+                    document.getElementById("sidebar-avatar").textContent = initial;
+                }
+
+                if (data.email) {
+                    // Show email
+                    document.getElementById("user-email").textContent = data.email;
+                }
+            } catch (err) {
+                console.error("Error fetching user:", err);
+            }
+        }
+
+        // Run after DOM loads
+        document.addEventListener("DOMContentLoaded", loadUser);
+    </script>
+</body>
+</html>

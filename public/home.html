@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treasury of Flair - Marketplace for Artists</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        /* Navbar (matching your design) */
+        .navbar {
+            background: white;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: 80px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #8E2DE2, #FF4B2B);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .logo-text h2 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 2px;
+        }
+
+        .logo-text p {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .nav-center {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-center a {
+            text-decoration: none;
+            color: #666;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-center a:hover,
+        .nav-center a.active {
+            color: #8E2DE2;
+            background: rgba(142, 45, 226, 0.1);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            padding: 12px 20px 12px 45px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            width: 300px;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input:focus {
+            border-color: #8E2DE2;
+            box-shadow: 0 0 0 3px rgba(142, 45, 226, 0.1);
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+        }
+
+        .search-btn {
+            background: #8E2DE2;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .search-btn:hover {
+            background: #7A28C7;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #FF4B2B, #8E2DE2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Main Layout */
+        .main-layout {
+            display: flex;
+            margin-top: 80px;
+            min-height: calc(100vh - 80px);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 300px;
+            background: white;
+            padding: 30px 20px;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            height: calc(100vh - 80px);
+            overflow-y: auto;
+        }
+
+        .account-section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .account-section h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .user-info .avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #8E2DE2, #FF4B2B);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 20px;
+        }
+
+        .user-details h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .user-details p {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .account-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-orders {
+            background: linear-gradient(135deg, #8E2DE2, #FF4B2B);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: 500;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-edit {
+            background: transparent;
+            color: #666;
+            border: 1px solid #ddd;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: 500;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-edit:hover {
+            border-color: #8E2DE2;
+            color: #8E2DE2;
+        }
+
+        .orders-section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .orders-section h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .orders-section p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            margin-left: 300px;
+            flex: 1;
+            padding: 40px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 25px;
+            padding: 60px 40px;
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            50% {
+                transform: translate(-50%, -50%) rotate(180deg);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-section p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-primary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #8E2DE2;
+            border: 2px solid white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: transparent;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Categories Section */
+        .categories-section {
+            margin-bottom: 40px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .view-all-btn {
+            color: #8E2DE2;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 20px;
+            border: 1px solid #8E2DE2;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .view-all-btn:hover {
+            background: #8E2DE2;
+            color: white;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #8E2DE2, #FF4B2B);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .category-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #8E2DE2, #FF4B2B);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 24px;
+        }
+
+        .category-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .category-card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Featured Artists Section */
+        .featured-section {
+            margin-bottom: 40px;
+        }
+
+        .artists-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .artist-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .artist-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .artist-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .artist-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #8E2DE2, #FF4B2B);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .artist-info h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .artist-info p {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .artist-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 20px;
+            font-weight: 600;
+            color: #8E2DE2;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .artist-preview {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .preview-item {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            flex-shrink: 0;
+        }
+
+        .follow-artist-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #8E2DE2, #FF4B2B);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .follow-artist-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 5px 15px rgba(142, 45, 226, 0.3);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .stat-card .stat-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #8E2DE2, #FF4B2B);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 30px;
+        }
+
+        .stat-card h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #8E2DE2;
+            margin-bottom: 10px;
+        }
+
+        .stat-card p {
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 250px;
+            }
+
+            .main-content {
+                margin-left: 250px;
+                padding: 30px;
+            }
+
+            .search-box input {
+                width: 250px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 10px 15px;
+            }
+
+            .nav-center {
+                display: none;
+            }
+
+            .search-box input {
+                width: 200px;
+            }
+
+            .sidebar {
+                width: 100%;
+                position: static;
+                height: auto;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+
+            .main-layout {
+                flex-direction: column;
+            }
+
+            .hero-section {
+                padding: 40px 20px;
+            }
+
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .categories-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 15px;
+            }
+
+            .artists-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+
+            .hero-section p {
+                font-size: 1.1rem;
+            }
+
+            .section-header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .category-card,
+        .artist-card {
+            animation: slideInUp 0.6s ease-out forwards;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #8E2DE2, #FF4B2B);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #7A28C7, #E63E1B);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Fixed Navbar -->
+    <nav class="navbar">
+        <div class="logo-section">
+            <div class="logo">TF</div>
+            <div class="logo-text">
+                <h2>Treasury of Flair</h2>
+                <p>Marketplace for artists</p>
+            </div>
+        </div>
+
+        <div class="nav-center">
+            <a href="home.html" onclick="switchSection('home')" class="active">Home</a>
+            <a href="categories_page.html" onclick="switchSection('categories')">Categories</a>
+            <a href="reels.html" onclick="switchSection('reels')">Reels</a>
+            <a href="MyOrders.html" onclick="switchSection('orders')">My Orders</a>
+        </div>
+
+        <div class="nav-right">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search art, materials or creators">
+            </div>
+            <button class="search-btn">Search</button>
+            <!-- Navbar Avatar -->
+            <!-- <div class="user-avatar" id="user-avatar">U</div> -->
+
+        </div>
+    </nav>
+
+    <!-- Main Layout -->
+    <div class="main-layout">
+        <!-- Fixed Sidebar -->
+        <aside class="sidebar">
+            <div class="account-section">
+                <h3>Your Account</h3>
+                <div class="user-info">
+                    <!-- Navbar Avatar -->
+                    <div class="user-avatar" id="user-avatar">U</div>
+
+                    <div class="user-details">
+                        <h4 id="username-display">User</h4>
+                    </div>
+                </div>
+                <div class="account-buttons">
+                    <a href="MyOrders.html" <button class="btn-orders">My Orders</button></a>
+                    <button class="btn-edit">Edit</button>
+                </div>
+            </div>
+
+            <div class="orders-section">
+                <h3>My Orders</h3>
+                <p>Your purchases will appear here.</p>
+                <br>
+                <p>No orders yet. Buy something from the Marketplace.</p>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1>Discover Amazing Art</h1>
+                    <p>Connect with talented artists, buy unique artwork, and showcase your creativity in our vibrant
+                        community marketplace</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn-primary">Explore Marketplace</a>
+                        <a href="#" class="btn-secondary">Join as Artist</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Categories Section -->
+            <section class="categories-section">
+                <div class="section-header">
+                    <h2>Browse by Category</h2>
+                    <a href="#" class="view-all-btn">View All</a>
+                </div>
+                <div class="categories-grid">
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3>Paintings</h3>
+                        <p>Original oil, acrylic, and watercolor paintings from talented artists worldwide</p>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <h3>Photography</h3>
+                        <p>Stunning photographs, prints, and digital art from professional photographers</p>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <h3>Sculpture</h3>
+                        <p>Unique 3D artworks, ceramics, and handcrafted sculptures in various materials</p>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-pen-nib"></i>
+                        </div>
+                        <h3>Digital Art</h3>
+                        <p>Modern digital illustrations, NFTs, and computer-generated artistic creations</p>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <h3>Jewelry</h3>
+                        <p>Handcrafted jewelry, custom pieces, and artistic accessories by skilled artisans</p>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                        <h3>Materials</h3>
+                        <p>Art supplies, tools, and materials for artists and creative professionals</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Artists Section -->
+            <section class="featured-section">
+                <div class="section-header">
+                    <h2>Featured Artists</h2>
+                    <a href="#" class="view-all-btn">View All Artists</a>
+                </div>
+                <div class="artists-grid">
+                    <div class="artist-card">
+                        <div class="artist-header">
+                            <div class="artist-avatar">S</div>
+                            <div class="artist-info">
+                                <h4>Sarah Chen</h4>
+                                <p>Watercolor Specialist</p>
+                            </div>
+                        </div>
+                        <div class="artist-stats">
+                            <div class="stat">
+                                <div class="stat-number">156</div>
+                                <div class="stat-label">Artworks</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">2.4K</div>
+                                <div class="stat-label">Followers</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">4.9</div>
+                                <div class="stat-label">Rating</div>
+                            </div>
+                        </div>
+                        <div class="artist-preview">
+                            <div class="preview-item"></div>
+                            <div class="preview-item"></div>
+                            <div class="preview-item"></div>
+                            <div class="preview-item"></div>
+                        </div>
+                        <button class="follow-artist-btn">Follow Artist</button>
+                    </div>
+
+                    <div class="artist-card">
+                        <div class="artist-header">
+                            <div class="artist-avatar">M</div>
+                            <div class="artist-info">
+                                <h4>Marcus Rivera</h4>
+                                <p>Ceramic Artist</p>
+                            </div>
+                        </div>
+                        <div class="artist-stats">
+                            <div class="stat">
+                                <div class="stat-number">89</div>
+                                <div class="stat-label">Artworks</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">1.8K</div>
+                                <div class="stat-label">Followers</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">4.8</div>
+                                <div class="stat-label">Rating</div>
+                            </div>
+                        </div>
+                        <div class="artist-preview">
+                            <div class="preview-item"></div>
+                            <div class="preview-item"></div>
+                            <div class="preview-item"></div>
+                            <div class="preview-item"></div>
+                        </div>
+                        <button class="follow-artist-btn">Follow Artist</button>
+                    </div>
+
+                    <div class="artist-card">
+                        <div class="artist-header">
+                            <div class="artist-avatar">L</div>
+                            <div class="artist-info">
+                                <h4>Luna Park</h4>
+                                <p>Digital Illustrator</p>
+                            </div>
+                        </div>
+                        <div class="artist-stats">
+                            <div class="stat">
+                                <div class="stat-number">234</div>
+                                <div class="stat-label">Artworks</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">3.2K</div>
+                                <div class="stat-label">Followers</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">4.9</div>
+                                <div class="stat-label">Rating</div>
+                            </div>
+                        </div>
+                        <div class="artist-preview">
+                            <div class="preview-item"></div>
+                            <div class="preview-item"></div>
+                            <div class="preview-item"></div>
+                            <div class="preview-item"></div>
+                        </div>
+                        <button class="follow-artist-btn">Follow Artist</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stats Section -->
+            <section class="stats-section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>15K+</h3>
+                        <p>Active Artists</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        <h3>50K+</h3>
+                        <p>Artworks Sold</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>98%</h3>
+                        <p>Satisfaction Rate</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3>120+</h3>
+                        <p>Countries Served</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Navigation functionality for switching sections
+        function switchSection(sectionName) {
+            // Update active nav link
+            const navLinks = document.querySelectorAll('.nav-center a');
+            navLinks.forEach(link => link.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Here you would typically show/hide different sections
+            // For demonstration, we'll just log the section change
+            console.log('Switching to section:', sectionName);
+
+            // In a real application, you would:
+            // 1. Hide current content
+            // 2. Show content for the selected section
+            // 3. Update URL if using routing
+        }
+
+        // Category card interactions
+        const categoryCards = document.querySelectorAll('.category-card');
+        categoryCards.forEach(card => {
+            card.addEventListener('click', () => {
+                // Add click animation
+                card.style.transform = 'translateY(-5px) scale(0.98)';
+                setTimeout(() => {
+                    card.style.transform = 'translateY(-5px)';
+                }, 150);
+
+                // In a real app, this would navigate to the category page
+                console.log('Category clicked:', card.querySelector('h3').textContent);
+            });
+        });
+
+        // Artist card interactions
+        const artistCards = document.querySelectorAll('.artist-card');
+        artistCards.forEach(card => {
+            card.addEventListener('click', (e) => {
+                if (!e.target.classList.contains('follow-artist-btn')) {
+                    // Navigate to artist profile (in a real app)
+                    console.log('Artist clicked:', card.querySelector('.artist-info h4').textContent);
+                }
+            });
+        });
+
+        // Follow button functionality
+        const followButtons = document.querySelectorAll('.follow-artist-btn');
+        followButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+
+                if (btn.textContent === 'Follow Artist') {
+                    btn.textContent = 'Following';
+                    btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+
+                    // Update follower count
+                    const followerStat = btn.closest('.artist-card').querySelector('.stat:nth-child(2) .stat-number');
+                    let count = parseFloat(followerStat.textContent);
+                    if (followerStat.textContent.includes('K')) {
+                        count = count * 1000 + 1;
+                        followerStat.textContent = (count / 1000).toFixed(1) + 'K';
+                    } else {
+                        followerStat.textContent = count + 1;
+                    }
+                } else {
+                    btn.textContent = 'Follow Artist';
+                    btn.style.background = 'linear-gradient(135deg, #8E2DE2, #FF4B2B)';
+
+                    // Update follower count
+                    const followerStat = btn.closest('.artist-card').querySelector('.stat:nth-child(2) .stat-number');
+                    let count = parseFloat(followerStat.textContent);
+                    if (followerStat.textContent.includes('K')) {
+                        count = count * 1000 - 1;
+                        followerStat.textContent = (count / 1000).toFixed(1) + 'K';
+                    } else {
+                        followerStat.textContent = count - 1;
+                    }
+                }
+            });
+        });
+
+        // Hero button interactions
+        document.querySelectorAll('.btn-primary, .btn-secondary').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                // Add click animation
+                btn.style.transform = 'translateY(-2px) scale(0.98)';
+                setTimeout(() => {
+                    btn.style.transform = 'translateY(-2px)';
+                }, 150);
+
+                // In a real app, this would navigate to the appropriate page
+                if (btn.textContent === 'Explore Marketplace') {
+                    console.log('Navigating to marketplace...');
+                } else if (btn.textContent === 'Join as Artist') {
+                    console.log('Navigating to artist registration...');
+                }
+            });
+        });
+
+        // Search functionality
+        const searchInput = document.querySelector('.search-box input');
+        const searchBtn = document.querySelector('.search-btn');
+
+        searchBtn.addEventListener('click', () => {
+            const query = searchInput.value.trim();
+            if (query) {
+                console.log('Searching for:', query);
+                // In a real app, this would perform the search
+            }
+        });
+
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                searchBtn.click();
+            }
+        });
+
+        // Animate stats on scroll
+        const statCards = document.querySelectorAll('.stat-card');
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px'
+        };
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumber = entry.target.querySelector('h3');
+                    const finalValue = statNumber.textContent;
+
+                    // Animate the number counting up
+                    let current = 0;
+                    const increment = parseInt(finalValue) / 50;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= parseInt(finalValue)) {
+                            statNumber.textContent = finalValue;
+                            clearInterval(timer);
+                        } else {
+                            if (finalValue.includes('K')) {
+                                statNumber.textContent = Math.floor(current / 1000) + 'K+';
+                            } else if (finalValue.includes('%')) {
+                                statNumber.textContent = Math.floor(current) + '%';
+                            } else {
+                                statNumber.textContent = Math.floor(current) + '+';
+                            }
+                        }
+                    }, 30);
+
+                    // Only animate once
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        statCards.forEach(card => {
+            statsObserver.observe(card);
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add loading states to interactive elements
+        function addLoadingState(element, duration = 1000) {
+            const originalText = element.textContent;
+            element.style.opacity = '0.7';
+            element.style.cursor = 'not-allowed';
+
+            setTimeout(() => {
+                element.style.opacity = '1';
+                element.style.cursor = 'pointer';
+            }, duration);
+        }
+
+        // Enhanced hover effects for cards
+        const allCards = document.querySelectorAll('.category-card, .artist-card');
+        allCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transition = 'all 0.3s ease';
+            });
+        });
+
+        // Initialize page animations
+        document.addEventListener('DOMContentLoaded', () => {
+            // Fade in elements on page load
+            const elementsToAnimate = document.querySelectorAll('.category-card, .artist-card');
+            elementsToAnimate.forEach((element, index) => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+
+                setTimeout(() => {
+                    element.style.transition = 'all 0.6s ease-out';
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+
+        // Mobile menu functionality (for responsive design)
+        const userAvatar = document.querySelector('.user-avatar');
+        userAvatar.addEventListener('click', () => {
+            // In a real app, this would open a user menu
+            console.log('User menu clicked');
+        });
+
+        // Keyboard navigation support
+        document.addEventListener('keydown', (e) => {
+            // Add keyboard shortcuts for better accessibility
+            if (e.ctrlKey && e.key === '/') {
+                e.preventDefault();
+                searchInput.focus();
+            }
+
+            if (e.key === 'Escape') {
+                searchInput.blur();
+            }
+        });
+
+        // Navigation functionality for switching sections
+        function switchSection(sectionName) {
+            const navLinks = document.querySelectorAll('.nav-center a');
+            navLinks.forEach(link => link.classList.remove('active'));
+            event.target.classList.add('active');
+            console.log('Switching to section:', sectionName);
+        }
+
+        async function loadUser() {
+            try {
+                const res = await fetch("http://localhost:5000/home", {
+                    method: "GET",
+                    credentials: "include", // keep session cookies
+                    headers: { "Accept": "application/json" }
+                });
+                const data = await res.json();
+
+                if (data.username) {
+                    // Show username
+                    document.getElementById("username-display").textContent = data.username;
+
+                    // Avatar = first letter
+                    const initial = data.username.charAt(0).toUpperCase();
+                    document.getElementById("user-avatar").textContent = initial;
+                    document.getElementById("sidebar-avatar").textContent = initial;
+                }
+
+                if (data.email) {
+                    // Show email
+                    document.getElementById("user-email").textContent = data.email;
+                }
+            } catch (err) {
+                console.error("Error fetching user:", err);
+            }
+        }
+
+        // Run after DOM loads
+        document.addEventListener("DOMContentLoaded", loadUser);
+
+    </script>
+</body>
+</html>

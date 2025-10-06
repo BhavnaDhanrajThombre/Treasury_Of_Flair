@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Treasury of Flair - Categories</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        * { margin:0; padding:0; box-sizing: border-box; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+        }
+
+        /* Navbar - Matching home.html */
+        .navbar {
+            background: white;
+            padding: 12px 20px;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            top:0; left:0; right:0;
+            z-index:1000;
+            height:80px;
+        }
+        
+        .logo-section { display:flex; gap:15px; align-items:center; }
+        
+        .logo { 
+            width:50px; 
+            height:50px; 
+            border-radius:12px; 
+            display:flex; 
+            align-items:center; 
+            justify-content:center; 
+            color:white;
+            font-weight:700; 
+            font-size:20px; 
+            background: linear-gradient(135deg,#8E2DE2,#FF4B2B); 
+        }
+        
+        .logo-text h2 { 
+            font-size:20px; 
+            font-weight:600;
+            color:#333;
+            margin-bottom:2px; 
+        }
+        
+        .logo-text p { 
+            font-size:12px; 
+            color:#666; 
+        }
+
+        .nav-center { 
+            display:flex; 
+            gap:40px; 
+            align-items:center; 
+        }
+        
+        .nav-center a { 
+            text-decoration:none; 
+            color:#666; 
+            padding:8px 16px; 
+            border-radius:8px; 
+            font-weight:500;
+            transition:all 0.3s ease;
+        }
+        
+        .nav-center a.active, 
+        .nav-center a:hover { 
+            color:#8E2DE2; 
+            background: rgba(142,45,226,0.1); 
+        }
+
+        .nav-right { 
+            display:flex; 
+            gap:20px; 
+            align-items:center; 
+        }
+        
+        .search-box { 
+            position:relative; 
+        }
+        
+        .search-box i { 
+            position:absolute; 
+            left:15px; 
+            top:50%; 
+            transform:translateY(-50%); 
+            color:#666; 
+        }
+        
+        .search-box input {
+            padding:12px 20px 12px 45px; 
+            border-radius:25px; 
+            border:1px solid #ddd; 
+            width:300px;
+            font-size:14px;
+            outline:none; 
+            transition: all 0.3s ease;
+        }
+        
+        .search-box input:focus { 
+            border-color:#8E2DE2; 
+            box-shadow:0 0 0 3px rgba(142,45,226,0.1); 
+        }
+        
+        .search-btn { 
+            background:#8E2DE2; 
+            color:white; 
+            border:none; 
+            padding:12px 20px; 
+            border-radius:25px; 
+            cursor:pointer;
+            font-weight:500;
+            transition:all 0.3s ease;
+        }
+        
+        .search-btn:hover {
+            background:#7A28C7;
+        }
+        
+        .user-avatar { 
+            width:40px; 
+            height:40px; 
+            border-radius:50%; 
+            display:flex; 
+            align-items:center; 
+            justify-content:center;
+            color:white; 
+            background: linear-gradient(135deg,#FF4B2B,#8E2DE2); 
+            font-weight:600; 
+            cursor:pointer; 
+        }
+
+        /* Layout */
+        .main-layout { 
+            display:flex; 
+            margin-top:80px; 
+            min-height: calc(100vh - 80px); 
+        }
+
+        /* Sidebar - Matching home.html */
+        .sidebar {
+            width:300px; 
+            background:white; 
+            padding:30px 20px; 
+            box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+            position: fixed; 
+            height: calc(100vh - 80px); 
+            overflow-y:auto;
+        }
+        
+        .account-section { 
+            background:#f8f9fa; 
+            padding:20px; 
+            border-radius:15px; 
+            margin-bottom:30px; 
+        }
+        
+        .account-section h3 {
+            font-size:18px;
+            margin-bottom:20px;
+            color:#333;
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+        
+        .avatar { 
+            width:60px; 
+            height:60px; 
+            border-radius:15px; 
+            display:flex; 
+            align-items:center; 
+            justify-content:center;
+            color:white; 
+            background: linear-gradient(135deg,#8E2DE2,#FF4B2B); 
+            font-weight:600; 
+            font-size:20px; 
+        }
+        
+        .user-details h3 {
+            font-size: 16px;
+            color: #1f2937;
+            font-weight: 600;
+        }
+        
+        .user-details p {
+            font-size: 12px;
+            color: #6b7280;
+        }
+        
+        .btn-orders, 
+        .btn-edit { 
+            padding:10px 20px; 
+            border-radius:10px; 
+            cursor:pointer; 
+            border:none; 
+            font-weight:500;
+            font-size:12px;
+            transition:all 0.3s ease;
+        }
+        
+        .btn-orders { 
+            background: linear-gradient(135deg,#8E2DE2,#FF4B2B); 
+            color:white; 
+        }
+        
+        .btn-edit { 
+            background:transparent; 
+            color:#666; 
+            border:1px solid #ddd; 
+        }
+        
+        .btn-edit:hover {
+            border-color:#8E2DE2;
+            color:#8E2DE2;
+        }
+        
+        .orders-section {
+            background:#f8f9fa;
+            border-radius:15px;
+            padding:20px;
+        }
+        
+        .orders-section h3 {
+            font-size:18px;
+            margin-bottom:15px;
+            color:#333;
+        }
+        
+        .orders-section p {
+            font-size:14px;
+            color:#666;
+            line-height:1.6;
+        }
+
+        /* Main content */
+        .main-content { 
+            margin-left:300px;
+            flex:1; 
+            padding:40px; 
+        }
+
+        .categories-header h1 { 
+            font-size:2.5rem; 
+            font-weight:600;
+            color:#333;
+            margin-bottom:10px; 
+        }
+        
+        .categories-header p { 
+            color:#666; 
+            font-size:1.1rem; 
+            margin-bottom:40px;
+            line-height:1.6;
+        }
+
+        .filter-bar {
+            background:white; 
+            padding:20px; 
+            border-radius:20px; 
+            box-shadow:0 5px 20px rgba(0,0,0,0.1);
+            display:flex; 
+            gap:20px; 
+            align-items:center; 
+            justify-content:space-between; 
+            flex-wrap:wrap; 
+            margin-bottom:40px;
+        }
+        
+        .filter-group { 
+            display:flex; 
+            align-items:center; 
+            gap:10px; 
+        }
+        
+        .filter-group label {
+            color:#666;
+            font-weight:500;
+            font-size:14px;
+        }
+        
+        .filter-select { 
+            padding:10px 16px; 
+            border-radius:10px; 
+            border:1px solid #ddd; 
+            outline:none;
+            font-family:'Poppins', sans-serif;
+            font-size:14px;
+            color:#333;
+            transition:all 0.3s ease;
+        }
+        
+        .filter-select:focus {
+            border-color:#8E2DE2;
+            box-shadow:0 0 0 3px rgba(142,45,226,0.1);
+        }
+        
+        .view-toggle { 
+            display:flex; 
+            background:#f8f9fa; 
+            padding:5px; 
+            border-radius:10px; 
+        }
+        
+        .view-btn { 
+            background:none; 
+            border:none; 
+            padding:8px 12px; 
+            border-radius:8px; 
+            cursor:pointer; 
+            color:#666;
+            transition:all 0.3s ease;
+        }
+        
+        .view-btn.active { 
+            background:#8E2DE2; 
+            color:white; 
+        }
+        
+        .results-info {
+            color:#666;
+            font-size:14px;
+            font-weight:500;
+        }
+
+        /* Grid - Matching home.html card style */
+        .categories-grid {
+            display:grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+            gap:25px;
+        }
+        
+        .category-card {
+            background:white; 
+            border-radius:20px; 
+            overflow:hidden; 
+            box-shadow:0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            display:flex; 
+            flex-direction:column;
+            position:relative;
+            cursor:pointer;
+        }
+        
+        .category-card::before {
+            content:'';
+            position:absolute;
+            top:0;
+            left:0;
+            right:0;
+            height:4px;
+            background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+            transform:scaleX(0);
+            transition:transform 0.3s ease;
+        }
+        
+        .category-card:hover { 
+            transform: translateY(-5px); 
+            box-shadow:0 15px 35px rgba(0,0,0,0.15); 
+        }
+        
+        .category-card:hover::before {
+            transform:scaleX(1);
+        }
+
+        .category-image { 
+            width:100%; 
+            height:200px; 
+            overflow:hidden; 
+            position:relative; 
+            background:#e5e7eb; 
+        }
+        
+        .category-image img { 
+            width:100%; 
+            height:100%; 
+            object-fit:cover; 
+            display:block;
+            transition:transform 0.4s ease;
+        }
+        
+        .category-card:hover .category-image img {
+            transform:scale(1.08);
+        }
+        
+        .category-badge { 
+            position:absolute; 
+            top:12px; 
+            right:12px; 
+            z-index:2; 
+            background:rgba(255,255,255,0.95); 
+            color:#8E2DE2; 
+            padding:6px 12px; 
+            border-radius:20px; 
+            font-weight:600; 
+            font-size:12px; 
+            box-shadow:0 4px 12px rgba(0,0,0,0.1); 
+        }
+
+        .category-content { 
+            padding:25px; 
+            display:flex; 
+            flex-direction:column; 
+            gap:15px; 
+            flex:1; 
+        }
+        
+        .category-title { 
+            font-size:1.15rem; 
+            font-weight:600; 
+            color:#333; 
+        }
+        
+        .category-description { 
+            color:#666; 
+            font-size:0.9rem; 
+            line-height:1.6; 
+        }
+
+        .category-stats { 
+            display:flex; 
+            gap:10px; 
+            justify-content:space-between; 
+            background:#f8f9fa; 
+            padding:15px; 
+            border-radius:10px; 
+        }
+        
+        .stat-item { 
+            text-align:center; 
+            flex:1; 
+        }
+        
+        .stat-number { 
+            font-weight:600; 
+            color:#8E2DE2; 
+            font-size:16px;
+        }
+        
+        .stat-label { 
+            font-size:11px; 
+            color:#666; 
+            margin-top:4px; 
+        }
+
+        .category-tags { 
+            display:flex; 
+            gap:8px; 
+            flex-wrap:wrap; 
+        }
+        
+        .tag { 
+            background:rgba(142,45,226,0.1); 
+            color:#8E2DE2; 
+            padding:6px 12px; 
+            border-radius:20px; 
+            font-weight:500; 
+            font-size:12px;
+            transition:all 0.3s ease;
+        }
+        
+        .tag:hover {
+            background:rgba(142,45,226,0.15);
+            transform:scale(1.05);
+        }
+
+        .explore-btn { 
+            margin-top:auto; 
+            border:none; 
+            padding:12px 20px; 
+            border-radius:10px; 
+            background:linear-gradient(135deg,#8E2DE2,#FF4B2B); 
+            color:white; 
+            cursor:pointer; 
+            font-weight:500;
+            transition:all 0.3s ease;
+        }
+        
+        .explore-btn:hover {
+            transform:translateY(-1px);
+            box-shadow:0 5px 15px rgba(142,45,226,0.3);
+        }
+
+        /* Animation */
+        @keyframes slideInUp {
+            from {
+                opacity:0;
+                transform:translateY(30px);
+            }
+            to {
+                opacity:1;
+                transform:translateY(0);
+            }
+        }
+
+        .category-card {
+            animation:slideInUp 0.6s ease-out forwards;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width:8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background:#f1f1f1;
+            border-radius:10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+            border-radius:10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background:linear-gradient(135deg,#7A28C7,#E63E1B);
+        }
+
+        /* List view */
+        .categories-list { 
+            display:none; 
+        }
+        
+        .categories-list.active { 
+            display:block; 
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .sidebar { 
+                width:250px; 
+            }
+            
+            .main-content { 
+                margin-left:250px; 
+                padding:30px; 
+            }
+            
+            .search-box input {
+                width:250px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-center { 
+                display:none; 
+            }
+            
+            .search-box input { 
+                width:200px; 
+            }
+            
+            .sidebar { 
+                position:static; 
+                width:100%; 
+                height:auto; 
+            }
+            
+            .main-content { 
+                margin-left:0; 
+                padding:20px; 
+            }
+            
+            .main-layout {
+                flex-direction:column;
+            }
+            
+            .categories-grid { 
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            }
+            
+            .categories-header h1 {
+                font-size:2rem;
+            }
+        }
+        
+        @media (max-width:480px) {
+            .categories-grid { 
+                grid-template-columns:1fr; 
+            }
+            
+            .search-box input { 
+                width:150px; 
+            }
+            
+            .categories-header h1 {
+                font-size:1.75rem;
+            }
+            
+            .filter-bar {
+                padding:15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo-section">
+            <div class="logo">TF</div>
+            <div class="logo-text">
+                <h2>Treasury of Flair</h2>
+                <p>Marketplace for artists</p>
+            </div>
+        </div>
+
+        <div class="nav-center">
+            <a href="home.html">Home</a>
+            <a href="categories_page.html" class="active">Categories</a>
+            <a href="reels.html">Reels</a>
+            <a href="MyOrders.html">My Orders</a>
+        </div>
+
+        <div class="nav-right">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search art, materials or creators">
+            </div>
+            <button class="search-btn">Search</button>
+           
+        </div>
+    </nav>
+
+    <div class="main-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="account-section">
+                <h3>Your Account</h3>
+                <div class="user-info">
+                    
+                    <div class="user-details">
+                        
+                        <!-- Navbar Avatar -->
+                    <div class="user-avatar" id="user-avatar">U</div>
+
+                    <div class="user-details">
+                        <h4 id="username-display">User</h4>
+                    </div>
+                        
+                    </div>
+                </div>
+                <div style="display:flex; gap:10px;">
+                    <button class="btn-orders">My Orders</button>
+                    <button class="btn-edit">Edit</button>
+                </div>
+            </div>
+
+            <div class="orders-section">
+                <h3>My Orders</h3>
+                <p>Your purchases will appear here.</p>
+                <br>
+                <p>Find something you love from our categories!</p>
+            </div>
+        </aside>
+
+        <!-- Main content -->
+        <main class="main-content">
+            <div class="categories-header">
+                <h1>Browse Categories</h1>
+                <p>Discover amazing artwork across many creative disciplines - curated collections to help you explore each style.</p>
+            </div>
+
+            <div class="filter-bar">
+                <div class="filter-group">
+                    <label for="sort-by">Sort by:</label>
+                    <select id="sort-by" class="filter-select">
+                        <option value="popular">Most Popular</option>
+                        <option value="newest">Newest</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="name">Name A-Z</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="price-range">Price Range:</label>
+                    <select id="price-range" class="filter-select">
+                        <option value="all">All Prices</option>
+                        <option value="under-50">Under $50</option>
+                        <option value="50-200">$50 - $200</option>
+                        <option value="200-500">$200 - $500</option>
+                        <option value="over-500">Over $500</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="availability">Availability:</label>
+                    <select id="availability" class="filter-select">
+                        <option value="all">All Items</option>
+                        <option value="in-stock">In Stock</option>
+                        <option value="custom-order">Custom Order</option>
+                        <option value="pre-order">Pre-Order</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <div class="view-toggle">
+                        <button class="view-btn active" id="grid-view" title="Grid view"><i class="fas fa-th"></i></button>
+                        <button class="view-btn" id="list-view" title="List view"><i class="fas fa-list"></i></button>
+                    </div>
+                </div>
+
+                <div class="results-info">Showing <span id="results-count">10</span> categories</div>
+            </div>
+
+            <!-- Categories Grid -->
+            <div class="categories-grid" id="grid-container">
+                <!-- 1 Paintings -->
+                <div class="category-card" data-category="paintings">
+                    <div class="category-image">
+                        <img src="Painting.jpg" alt="Paintings">
+                        <div class="category-badge">Classic</div>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">Paintings</h3>
+                        <p class="category-description">Oil, acrylic, watercolor and mixed-media paintings - portraits, landscapes and abstracts.</p>
+
+                        <div class="category-stats">
+                            <div class="stat-item"><div class="stat-number">2.4K</div><div class="stat-label">Artworks</div></div>
+                            <div class="stat-item"><div class="stat-number">450</div><div class="stat-label">Artists</div></div>
+                            <div class="stat-item"><div class="stat-number">$25-2K</div><div class="stat-label">Price Range</div></div>
+                        </div>
+
+                        <div class="category-tags">
+                            <span class="tag">Oil</span><span class="tag">Acrylic</span><span class="tag">Watercolor</span><span class="tag">Landscape</span>
+                        </div>
+
+                        <a href="Painting.html"><button class="explore-btn">Explore Paintings</button></a>
+                    </div>
+                </div>
+
+                <!-- 2 Pop Art -->
+                <div class="category-card" data-category="Pop Art">
+                    <div class="category-image">
+                        <img src="PopArt.jpg" alt="Pop Art">
+                        <div class="category-badge">Trending</div>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">Pop Art</h3>
+                        <p class="category-description">Bold, vibrant pieces inspired by popular culture and contemporary aesthetics.</p>
+
+                        <div class="category-stats">
+                            <div class="stat-item"><div class="stat-number">1.8K</div><div class="stat-label">Artworks</div></div>
+                            <div class="stat-item"><div class="stat-number">320</div><div class="stat-label">Artists</div></div>
+                            <div class="stat-item"><div class="stat-number">$15-800</div><div class="stat-label">Price Range</div></div>
+                        </div>
+
+                        <div class="category-tags">
+                            <span class="tag">Bold</span><span class="tag">Colorful</span><span class="tag">Modern</span><span class="tag">Icon</span>
+                        </div>
+
+                        <button class="explore-btn">Explore Pop Art</button>
+                    </div>
+                </div>
+
+                <!-- 3 Digital Art -->
+                <div class="category-card" data-category="Digital Art">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=1400&q=80&auto=format&fit=crop" alt="Digital Art">
+                        <div class="category-badge">Modern</div>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">Digital Art</h3>
+                        <p class="category-description">Illustrations, concept art, generative and NFT-style pieces - digital creativity at its best.</p>
+
+                        <div class="category-stats">
+                            <div class="stat-item"><div class="stat-number">3.1K</div><div class="stat-label">Artworks</div></div>
+                            <div class="stat-item"><div class="stat-number">280</div><div class="stat-label">Artists</div></div>
+                            <div class="stat-item"><div class="stat-number">$10-1.5K</div><div class="stat-label">Price Range</div></div>
+                        </div>
+
+                        <div class="category-tags">
+                            <span class="tag">Illustration</span><span class="tag">Concept</span><span class="tag">3D</span><span class="tag">NFT</span>
+                        </div>
+
+                        <button class="explore-btn">Explore Digital Art</button>
+                    </div>
+                </div>
+
+                <!-- 4 Sculpture -->
+                <div class="category-card" data-category="sculpture">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1400&q=80&auto=format&fit=crop" alt="Sculpture">
+                        <div class="category-badge">3D</div>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">Sculpture</h3>
+                        <p class="category-description">Three-dimensional works - stone, metal, wood and mixed-material sculptures and reliefs.</p>
+
+                        <div class="category-stats">
+                            <div class="stat-item"><div class="stat-number">890</div><div class="stat-label">Artworks</div></div>
+                            <div class="stat-item"><div class="stat-number">160</div><div class="stat-label">Artists</div></div>
+                            <div class="stat-item"><div class="stat-number">$50-5K</div><div class="stat-label">Price Range</div></div>
+                        </div>
+
+                        <div class="category-tags">
+                            <span class="tag">Ceramic</span><span class="tag">Wood</span><span class="tag">Metal</span><span class="tag">Stone</span>
+                        </div>
+
+                        <button class="explore-btn">Explore Sculpture</button>
+                    </div>
+                </div>
+
+                <!-- 5 Printmaking -->
+                <div class="category-card" data-category="printmaking">
+                    <div class="category-image">
+                        <img src="Printmaking.jpg" alt="Printmaking">
+                        <div class="category-badge">Limited</div>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">Printmaking</h3>
+                        <p class="category-description">Etchings, lithographs, screenprints and other reproducible, high-quality printed artworks.</p>
+
+                        <div class="category-stats">
+                            <div class="stat-item"><div class="stat-number">420</div><div class="stat-label">Editions</div></div>
+                            <div class="stat-item"><div class="stat-number">95</div><div class="stat-label">Artists</div></div>
+                            <div class="stat-item"><div class="stat-number">$30-700</div><div class="stat-label">Price Range</div></div>
+                        </div>
+
+                        <div class="category-tags">
+                            <span class="tag">Screenprint</span><span class="tag">Etching</span><span class="tag">Litho</span>
+                        </div>
+
+                        <button class="explore-btn">Explore Printmaking</button>
+                    </div>
+                </div>
+
+                <!-- 6 Ceramics -->
+                <div class="category-card" data-category="ceramics">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1400&q=80&auto=format&fit=crop" alt="Ceramics">
+                        <div class="category-badge">Handmade</div>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">Ceramics</h3>
+                        <p class="category-description">Functional and sculptural ceramics - pottery, wheel-thrown pieces and glazed art objects.</p>
+
+                        <div class="category-stats">
+                            <div class="stat-item"><div class="stat-number">670</div><div class="stat-label">Works</div></div>
+                            <div class="stat-item"><div class="stat-number">140</div><div class="stat-label">Artists</div></div>
+                            <div class="stat-item"><div class="stat-number">$20-600</div><div class="stat-label">Price Range</div></div>
+                        </div>
+
+                        <div class="category-tags">
+                            <span class="tag">Pottery</span><span class="tag">Wheel-thrown</span><span class="tag">Glazed</span>
+                        </div>
+
+                        <button class="explore-btn">Explore Ceramics</button>
+                    </div>
+                </div>
+
+                <!-- 7 Street Art -->
+                <div class="category-card" data-category="street">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=1400&q=80&auto=format&fit=crop" alt="Street Art">
+                        <div class="category-badge">Urban</div>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">Street Art</h3>
+                        <p class="category-description">Murals, graffiti and site-specific urban interventions from contemporary street artists.</p>
+
+                        <div class="category-stats">
+                            <div class="stat-item"><div class="stat-number">530</div><div class="stat-label">Pieces</div></div>
+                            <div class="stat-item"><div class="stat-number">200</div><div class="stat-label">Artists</div></div>
+                            <div class="stat-item"><div class="stat-number">$0-3K</div><div class="stat-label">Price Range</div></div>
+                        </div>
+
+                        <div class="category-tags">
+                            <span class="tag">Mural</span><span class="tag">Graffiti</span><span class="tag">Stencil</span>
+                        </div>
+
+                        <button class="explore-btn">Explore Street Art</button>
+                    </div>
+                </div>
+
+                <!-- 8 Collage & Mixed Media -->
+                <div class="category-card" data-category="collage">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?w=1400&q=80&auto=format&fit=crop" alt="Mixed Media">
+                        <div class="category-badge">Eclectic</div>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">Collage & Mixed Media</h3>
+                        <p class="category-description">Works combining paper, textiles, paint and found materials to create layered compositions.</p>
+
+                        <div class="category-stats">
+                            <div class="stat-item"><div class="stat-number">310</div><div class="stat-label">Works</div></div>
+                            <div class="stat-item"><div class="stat-number">120</div><div class="stat-label">Artists</div></div>
+                            <div class="stat-item"><div class="stat-number">$20-900</div><div class="stat-label">Price Range</div></div>
+                        </div>
+
+                        <div class="category-tags">
+                            <span class="tag">Paper</span><span class="tag">Found</span><span class="tag">Assemblage</span>
+                        </div>
+
+                        <button class="explore-btn">Explore Mixed Media</button>
+                    </div>
+                </div>
+
+                <!-- 9 Textile & Fiber -->
+                <div class="category-card" data-category="textile">
+                    <div class="category-image">
+                        <img src="TextileArt.jpg" alt="Textile & Fiber">
+                        <div class="category-badge">Tactile</div>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">Textile & Fiber</h3>
+                        <p class="category-description">Weaving, embroidery, quilting and sculptural fiber pieces - soft art with texture and depth.</p>
+
+                        <div class="category-stats">
+                            <div class="stat-item"><div class="stat-number">240</div><div class="stat-label">Works</div></div>
+                            <div class="stat-item"><div class="stat-number">90</div><div class="stat-label">Artists</div></div>
+                            <div class="stat-item"><div class="stat-number">$15-1.2K</div><div class="stat-label">Price Range</div></div>
+                        </div>
+
+                        <div class="category-tags">
+                            <span class="tag">Weaving</span><span class="tag">Embroidery</span><span class="tag">Quilt</span>
+                        </div>
+
+                        <button class="explore-btn">Explore Textiles</button>
+                    </div>
+                </div>
+
+                <!-- 10 Abstract art -->
+                <div class="category-card" data-category="Abstract art">
+                    <div class="category-image">
+                        <img src="Abstract art.jpg" alt="Abstract Art">
+                        <div class="category-badge">Experiential</div>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">Abstract Art</h3>
+                        <p class="category-description">Non-representational works exploring form, color, and composition without literal subjects.</p>
+
+                        <div class="category-stats">
+                            <div class="stat-item"><div class="stat-number">110</div><div class="stat-label">Works</div></div>
+                            <div class="stat-item"><div class="stat-number">70</div><div class="stat-label">Artists</div></div>
+                            <div class="stat-item"><div class="stat-number">Varies</div><div class="stat-label">Price Range</div></div>
+                        </div>
+
+                        <div class="category-tags">
+                            <span class="tag">Expressive</span><span class="tag">Immersive</span>
+                        </div>
+
+                        <button class="explore-btn">Explore Abstract Art</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Optional: list view container (hidden by default) -->
+            <div class="categories-list" id="list-container">
+                <!-- if you implement list view, populate this area -->
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // View toggle and results count update
+        const gridBtn = document.getElementById('grid-view');
+        const listBtn = document.getElementById('list-view');
+        const gridContainer = document.getElementById('grid-container');
+        const listContainer = document.getElementById('list-container');
+        const resultsCount = document.getElementById('results-count');
+
+        gridBtn.addEventListener('click', () => {
+            gridBtn.classList.add('active');
+            listBtn.classList.remove('active');
+            gridContainer.style.display = 'grid';
+            listContainer.classList.remove('active');
+            resultsCount.textContent = gridContainer.children.length;
+        });
+        
+        listBtn.addEventListener('click', () => {
+            listBtn.classList.add('active');
+            gridBtn.classList.remove('active');
+            gridContainer.style.display = 'none';
+            listContainer.classList.add('active');
+            listContainer.innerHTML = '<p style="padding:20px;background:white;border-radius:20px;box-shadow:0 5px 20px rgba(0,0,0,0.1);color:#666;">List view - feature coming soon.</p>';
+            resultsCount.textContent = 0;
+        });
+
+        // Ensure initial count
+        resultsCount.textContent = gridContainer.children.length;
+
+        // Animate cards on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.category-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'all 0.6s ease-out';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+
+        // Button interactions
+        const exploreButtons = document.querySelectorAll('.explore-btn');
+        exploreButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                btn.style.transform = 'translateY(-1px) scale(0.98)';
+                setTimeout(() => {
+                    btn.style.transform = 'translateY(-1px)';
+                }, 150);
+            });
+        });
+
+        async function loadUser() {
+            try {
+                const res = await fetch("http://localhost:5000/home", {
+                    method: "GET",
+                    credentials: "include", // keep session cookies
+                    headers: { "Accept": "application/json" }
+                });
+                const data = await res.json();
+
+                if (data.username) {
+                    // Show username
+                    document.getElementById("username-display").textContent = data.username;
+
+                    // Avatar = first letter
+                    const initial = data.username.charAt(0).toUpperCase();
+                    document.getElementById("user-avatar").textContent = initial;
+                    document.getElementById("sidebar-avatar").textContent = initial;
+                }
+
+                if (data.email) {
+                    // Show email
+                    document.getElementById("user-email").textContent = data.email;
+                }
+            } catch (err) {
+                console.error("Error fetching user:", err);
+            }
+        }
+
+        // Run after DOM loads
+        document.addEventListener("DOMContentLoaded", loadUser);
+    </script>
+</body>
+</html>
