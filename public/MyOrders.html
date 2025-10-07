@@ -743,7 +743,7 @@
                 <input type="text" placeholder="Search art, materials or creators">
             </div>
             <button class="search-btn">Search</button>
-            <div class="user-avatar">N</div>
+            
         </div>
     </nav>
 
@@ -753,11 +753,13 @@
             <div class="account-section">
                 <h2>Your Account</h2>
                 <div class="user-info">
-                    <div class="user-info-avatar">N</div>
+                    <!-- Navbar Avatar -->
+                    <div class="user-avatar" id="user-avatar">U</div>
+
                     <div class="user-details">
-                        <h3>Nikita</h3>
-                        <p>nikita.codehub@gmail.com</p>
+                        <h4 id="username-display">User</h4>
                     </div>
+
                 </div>
                 <div class="action-buttons">
                     <button class="btn-orders">My Orders</button>
@@ -1026,6 +1028,50 @@
         window.location.href = 'Account.html';
     });
 });
+
+async function loadUser() {
+            try {
+                const res = await fetch("http://localhost:5000/home", {
+                    method: "GET",
+                    credentials: "include", // keep session cookies
+                    headers: { "Accept": "application/json" }
+                });
+                const data = await res.json();
+
+                if (data.username) {
+                    // Show username
+                    document.getElementById("username-display").textContent = data.username;
+
+                    // Avatar = first letter
+                    const initial = data.username.charAt(0).toUpperCase();
+                    document.getElementById("user-avatar").textContent = initial;
+                    document.getElementById("sidebar-avatar").textContent = initial;
+                }
+
+                if (data.email) {
+                    // Show email
+                    document.getElementById("user-email").textContent = data.email;
+                }
+            } catch (err) {
+                console.error("Error fetching user:", err);
+            }
+        }
+
+        // Run after DOM loads
+        document.addEventListener("DOMContentLoaded", loadUser);
+
+        document.addEventListener('DOMContentLoaded', () => {
+    // Navbar avatar click
+    document.getElementById('user-avatar').addEventListener('click', () => {
+        window.location.href = 'Account.html';
+    });
+    
+    // Sidebar user info click
+    document.querySelector('.sidebar .user-info').addEventListener('click', () => {
+        window.location.href = 'Account.html';
+    });
+});
+
     </script>
 </body>
 </html>
