@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Orders - Treasury of Flair</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,179 +14,202 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #f5f5f7;
+            font-family: 'Poppins', sans-serif;
+            background: #f5f5f5;
+            color: #333;
             min-height: 100vh;
         }
 
-        /* Navbar */
+        /* Navbar - Matching home.html */
         .navbar {
             background: white;
-            padding: 15px 40px;
+            padding: 12px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: sticky;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
             top: 0;
-            z-index: 100;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: 80px;
         }
 
         .logo-section {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
         }
 
         .logo {
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, #7c3aed 0%, #FF4B2B 100%);
+            background: linear-gradient(135deg, #8E2DE2, #FF4B2B);
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-weight: bold;
+            font-weight: 700;
             font-size: 20px;
         }
 
         .brand-info h1 {
             font-size: 20px;
-            color: #1f2937;
             font-weight: 600;
+            color: #333;
+            margin-bottom: 2px;
         }
 
         .brand-info p {
             font-size: 12px;
-            color: #6b7280;
+            color: #666;
         }
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 40px;
             align-items: center;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: #6b7280;
-            font-size: 15px;
+            color: #666;
             font-weight: 500;
-            transition: color 0.3s;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
         }
 
         .nav-links a:hover,
         .nav-links a.active {
-            color: #7c3aed;
+            color: #8E2DE2;
+            background: rgba(142, 45, 226, 0.1);
         }
 
         .nav-right {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
         }
 
         .search-box {
-            display: flex;
-            align-items: center;
-            background: #f3f4f6;
-            padding: 8px 15px;
-            border-radius: 25px;
-            gap: 8px;
+            position: relative;
         }
 
         .search-box input {
-            border: none;
-            background: none;
-            outline: none;
-            color: #6b7280;
+            padding: 12px 20px 12px 45px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            width: 300px;
             font-size: 14px;
-            width: 200px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input:focus {
+            border-color: #8E2DE2;
+            box-shadow: 0 0 0 3px rgba(142, 45, 226, 0.1);
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
         }
 
         .search-btn {
-            background: #7c3aed;
+            background: #8E2DE2;
             color: white;
             border: none;
-            padding: 8px 20px;
+            padding: 12px 20px;
             border-radius: 25px;
+            font-weight: 500;
             cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
         }
 
         .search-btn:hover {
-            background: #6d28d9;
-            transform: scale(1.05);
+            background: #7A28C7;
         }
 
         .user-avatar {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, #7c3aed 0%, #FF4B2B 100%);
+            background: linear-gradient(135deg, #FF4B2B, #8E2DE2);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-weight: bold;
+            font-weight: 600;
             cursor: pointer;
         }
 
         /* Main Container */
         .main-container {
             display: flex;
+            margin-top: 80px;
             min-height: calc(100vh - 80px);
         }
 
-        /* Sidebar */
+        /* Sidebar - Matching home.html */
         .sidebar {
-            width: 280px;
+            width: 300px;
             background: white;
             padding: 30px 20px;
             box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+            position: fixed;
+            height: calc(100vh - 80px);
+            overflow-y: auto;
         }
 
         .account-section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
             margin-bottom: 30px;
         }
 
         .account-section h2 {
             font-size: 18px;
-            color: #1f2937;
             margin-bottom: 20px;
+            color: #333;
         }
 
         .user-info {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 15px;
+            gap: 15px;
+            margin-bottom: 20px;
         }
 
         .user-info-avatar {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #7c3aed 0%, #FF4B2B 100%);
-            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #8E2DE2, #FF4B2B);
+            border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-weight: bold;
+            font-weight: 600;
             font-size: 20px;
         }
 
         .user-details h3 {
             font-size: 16px;
-            color: #1f2937;
             font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
         }
 
         .user-details p {
             font-size: 12px;
-            color: #6b7280;
+            color: #666;
         }
 
         .action-buttons {
@@ -193,83 +218,89 @@
         }
 
         .btn-orders {
-            background: linear-gradient(135deg, #7c3aed 0%, #FF4B2B 100%);
+            background: linear-gradient(135deg, #8E2DE2, #FF4B2B);
             color: white;
             border: none;
             padding: 10px 20px;
             border-radius: 10px;
+            font-weight: 500;
             cursor: pointer;
-            font-weight: 600;
-            font-size: 13px;
+            font-size: 12px;
+            transition: all 0.3s ease;
         }
 
         .btn-edit {
-            background: white;
-            color: #6b7280;
-            border: 1px solid #e5e7eb;
-            padding: 8px 16px;
-            border-radius: 20px;
+            background: transparent;
+            color: #666;
+            border: 1px solid #ddd;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: 500;
             cursor: pointer;
-            font-weight: 600;
-            font-size: 13px;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-edit:hover {
+            border-color: #8E2DE2;
+            color: #8E2DE2;
         }
 
         .orders-section {
-            margin-top: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
         }
 
         .orders-section h3 {
-            font-size: 16px;
-            color: #1f2937;
-            margin-bottom: 10px;
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #333;
         }
 
         .orders-section p {
-            font-size: 13px;
-            color: #6b7280;
-            margin-bottom: 15px;
-        }
-
-        .empty-orders {
-            font-size: 13px;
-            color: #9ca3af;
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
         }
 
         /* Content Area */
         .content {
+            margin-left: 300px;
             flex: 1;
             padding: 40px;
         }
 
         .page-header {
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
         .page-header h1 {
-            font-size: 32px;
-            color: #1f2937;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #333;
             margin-bottom: 10px;
         }
 
         .page-header p {
-            color: #6b7280;
-            font-size: 15px;
+            color: #666;
+            font-size: 1.1rem;
         }
 
         /* Filters */
         .filters {
             display: flex;
-            gap: 12px;
-            margin-bottom: 30px;
+            gap: 15px;
+            margin-bottom: 40px;
             flex-wrap: wrap;
         }
 
         .filter-btn {
             padding: 10px 20px;
-            border: 1px solid #e5e7eb;
+            border: 1px solid #ddd;
             border-radius: 25px;
             background: white;
-            color: #6b7280;
+            color: #666;
             font-size: 14px;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -277,36 +308,53 @@
         }
 
         .filter-btn:hover {
-            border-color: #7c3aed;
-            color: #7c3aed;
+            border-color: #8E2DE2;
+            color: #8E2DE2;
         }
 
         .filter-btn.active {
-            background: linear-gradient(135deg, #7c3aed 0%, #FF4B2B 100%);
+            background: linear-gradient(135deg, #8E2DE2, #FF4B2B);
             color: white;
             border-color: transparent;
         }
 
-        /* Orders Grid */
+        /* Orders Grid - Matching home.html card style */
         .orders-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
             gap: 25px;
         }
 
         .order-card {
             background: white;
-            border-radius: 16px;
-            padding: 24px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
             cursor: pointer;
-            border: 1px solid #f3f4f6;
+            position: relative;
+        }
+
+        .order-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #8E2DE2, #FF4B2B);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            border-radius: 20px 20px 0 0;
         }
 
         .order-card:hover {
-            box-shadow: 0 8px 25px rgba(124, 58, 237, 0.15);
-            transform: translateY(-3px);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .order-card:hover::before {
+            transform: scaleX(1);
         }
 
         .order-header {
@@ -319,7 +367,7 @@
         .order-number {
             font-size: 16px;
             font-weight: 600;
-            color: #1f2937;
+            color: #333;
         }
 
         .status-badge {
@@ -351,7 +399,7 @@
         }
 
         .order-date {
-            color: #9ca3af;
+            color: #666;
             font-size: 13px;
             margin-bottom: 20px;
         }
@@ -384,19 +432,19 @@
 
         .item-title {
             font-weight: 600;
-            color: #1f2937;
+            color: #333;
             margin-bottom: 4px;
             font-size: 14px;
         }
 
         .item-type {
-            color: #9ca3af;
+            color: #666;
             font-size: 13px;
         }
 
         .item-price {
             font-weight: 600;
-            color: #7c3aed;
+            color: #8E2DE2;
             font-size: 15px;
         }
 
@@ -411,24 +459,24 @@
         .order-total {
             font-size: 20px;
             font-weight: 700;
-            color: #1f2937;
+            color: #333;
         }
 
         .view-details-btn {
-            padding: 8px 20px;
-            background: linear-gradient(135deg, #7c3aed 0%, #FF4B2B 100%);
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #8E2DE2, #FF4B2B);
             color: white;
             border: none;
-            border-radius: 20px;
+            border-radius: 10px;
             cursor: pointer;
-            font-weight: 600;
+            font-weight: 500;
             font-size: 13px;
             transition: all 0.3s ease;
         }
 
         .view-details-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+            transform: translateY(-1px);
+            box-shadow: 0 5px 15px rgba(142, 45, 226, 0.3);
         }
 
         /* Modal */
@@ -459,6 +507,7 @@
             max-height: 90vh;
             overflow-y: auto;
             position: relative;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.2);
         }
 
         .close-modal {
@@ -467,12 +516,12 @@
             right: 25px;
             font-size: 28px;
             cursor: pointer;
-            color: #9ca3af;
+            color: #666;
             transition: color 0.3s ease;
         }
 
         .close-modal:hover {
-            color: #1f2937;
+            color: #333;
         }
 
         .modal-header {
@@ -480,13 +529,14 @@
         }
 
         .modal-header h2 {
-            color: #1f2937;
+            color: #333;
             margin-bottom: 8px;
             font-size: 24px;
+            font-weight: 600;
         }
 
         .modal-subheader {
-            color: #6b7280;
+            color: #666;
             font-size: 14px;
         }
 
@@ -524,24 +574,25 @@
         }
 
         .timeline-dot.active {
-            background: #7c3aed;
-            box-shadow: 0 0 0 2px #7c3aed;
+            background: #8E2DE2;
+            box-shadow: 0 0 0 2px #8E2DE2;
         }
 
         .timeline-content h4 {
-            color: #1f2937;
+            color: #333;
             margin-bottom: 5px;
             font-size: 15px;
+            font-weight: 600;
         }
 
         .timeline-content p {
-            color: #9ca3af;
+            color: #666;
             font-size: 13px;
         }
 
         .modal-section-title {
             font-size: 18px;
-            color: #1f2937;
+            color: #333;
             margin: 25px 0 15px 0;
             font-weight: 600;
         }
@@ -550,8 +601,8 @@
             text-align: center;
             padding: 80px 20px;
             background: white;
-            border-radius: 16px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
 
         .empty-state-icon {
@@ -561,19 +612,64 @@
         }
 
         .empty-state h3 {
-            color: #1f2937;
+            color: #333;
             margin-bottom: 10px;
             font-size: 20px;
+            font-weight: 600;
         }
 
         .empty-state p {
-            color: #6b7280;
+            color: #666;
             font-size: 14px;
+        }
+
+        /* Animation */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .order-card {
+            animation: slideInUp 0.6s ease-out forwards;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #8E2DE2, #FF4B2B);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #7A28C7, #E63E1B);
         }
 
         @media (max-width: 1024px) {
             .sidebar {
-                display: none;
+                width: 250px;
+            }
+            
+            .content {
+                margin-left: 250px;
+                padding: 30px;
+            }
+            
+            .search-box input {
+                width: 250px;
             }
 
             .orders-grid {
@@ -583,23 +679,44 @@
 
         @media (max-width: 768px) {
             .navbar {
-                padding: 15px 20px;
+                padding: 10px 15px;
             }
-
+            
             .nav-links {
                 display: none;
             }
 
             .search-box input {
-                width: 150px;
+                width: 200px;
             }
-
+            
+            .sidebar {
+                width: 100%;
+                position: static;
+                height: auto;
+            }
+            
             .content {
+                margin-left: 0;
                 padding: 20px;
+            }
+            
+            .main-container {
+                flex-direction: column;
             }
 
             .page-header h1 {
-                font-size: 24px;
+                font-size: 2rem;
+            }
+
+            .orders-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 1.75rem;
             }
         }
     </style>
@@ -622,11 +739,11 @@
         </div>
         <div class="nav-right">
             <div class="search-box">
-               
+                <i class="fas fa-search"></i>
                 <input type="text" placeholder="Search art, materials or creators">
             </div>
             <button class="search-btn">Search</button>
-            
+            <div class="user-avatar">N</div>
         </div>
     </nav>
 
@@ -636,11 +753,10 @@
             <div class="account-section">
                 <h2>Your Account</h2>
                 <div class="user-info">
-                    <!-- <div style="width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#8E2DE2,#FF4B2B);display:flex;align-items:center;justify-content:center;color:#fff">N</div> -->
-                    <div class="user-avatar" id="user-avatar">U</div>
+                    <div class="user-info-avatar">N</div>
                     <div class="user-details">
-                        <h4 id="username-display">User</h4>
-                        
+                        <h3>Nikita</h3>
+                        <p>nikita.codehub@gmail.com</p>
                     </div>
                 </div>
                 <div class="action-buttons">
@@ -652,7 +768,8 @@
             <div class="orders-section">
                 <h3>My Orders</h3>
                 <p>Your purchases will appear here.</p>
-                <p class="empty-orders">No orders yet. Buy something from the Marketplace.</p>
+                <br>
+                <p>Track and manage all your art purchases.</p>
             </div>
         </aside>
 
@@ -798,8 +915,8 @@
                 return;
             }
 
-            grid.innerHTML = filtered.map(order => `
-                <div class="order-card" onclick="showOrderDetails('${order.id}')">
+            grid.innerHTML = filtered.map((order, index) => `
+                <div class="order-card" onclick="showOrderDetails('${order.id}')" style="animation-delay: ${index * 0.1}s">
                     <div class="order-header">
                         <div class="order-number">${order.id}</div>
                         <span class="status-badge status-${order.status}">${order.status}</span>
@@ -858,14 +975,14 @@
                                 <div class="item-title">${item.title}</div>
                                 <div class="item-type">${item.type}</div>
                             </div>
-                            <div class="item-price">$${item.price}</div>
+                            <div class="item-price">${item.price}</div>
                         </div>
                     `).join('')}
                 </div>
 
                 <div class="order-footer" style="margin-top: 20px;">
-                    <div style="color: #6b7280; font-weight: 600;">Total Amount</div>
-                    <div class="order-total">$${order.total}</div>
+                    <div style="color: #666; font-weight: 600;">Total Amount</div>
+                    <div class="order-total">${order.total}</div>
                 </div>
             `;
 
@@ -891,40 +1008,24 @@
             });
         });
 
+        // Animate cards on load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderOrders();
+        });
+
         renderOrders();
 
-        async function loadUser() {
-            try {
-                const res = await fetch("http://localhost:5000/home", {
-                    method: "GET",
-                    credentials: "include", // keep session cookies
-                    headers: { "Accept": "application/json" }
-                });
-                const data = await res.json();
-
-                if (data.username) {
-                    // Show username
-                    document.getElementById("username-display").textContent = data.username;
-
-                    // Avatar = first letter
-                    const initial = data.username.charAt(0).toUpperCase();
-                    document.getElementById("user-avatar").textContent = initial;
-                    document.getElementById("sidebar-avatar").textContent = initial;
-                }
-
-                if (data.email) {
-                    // Show email
-                    document.getElementById("user-email").textContent = data.email;
-                }
-            } catch (err) {
-                console.error("Error fetching user:", err);
-            }
-        }
-
-        // Run after DOM loads
-        document.addEventListener("DOMContentLoaded", loadUser);
- 
-        
+        document.addEventListener('DOMContentLoaded', () => {
+    // Navbar avatar click
+    document.getElementById('user-avatar').addEventListener('click', () => {
+        window.location.href = 'Account.html';
+    });
+    
+    // Sidebar user info click
+    document.querySelector('.sidebar .user-info').addEventListener('click', () => {
+        window.location.href = 'Account.html';
+    });
+});
     </script>
 </body>
 </html>

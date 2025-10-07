@@ -1292,6 +1292,18 @@
         // Run after DOM loads
         document.addEventListener("DOMContentLoaded", loadUser);
 
+        document.addEventListener('DOMContentLoaded', () => {
+    // Navbar avatar click
+    document.getElementById('user-avatar').addEventListener('click', () => {
+        window.location.href = 'Account.html';
+    });
+    
+    // Sidebar user info click
+    document.querySelector('.sidebar .user-info').addEventListener('click', () => {
+        window.location.href = 'Account.html';
+    });
+});
+
     </script>
 </body>
 </html>

@@ -489,6 +489,7 @@
             cursor:pointer; 
             font-weight:500;
             transition:all 0.3s ease;
+            width: 100%;
         }
         
         .explore-btn:hover {
@@ -788,7 +789,7 @@
                             <span class="tag">Illustration</span><span class="tag">Concept</span><span class="tag">3D</span><span class="tag">NFT</span>
                         </div>
 
-                        <button class="explore-btn">Explore Digital Art</button>
+                        <a href="DigitalArt.html"><button class="explore-btn">Explore Digital Art</button></a>
                     </div>
                 </div>
 
@@ -836,7 +837,7 @@
                             <span class="tag">Screenprint</span><span class="tag">Etching</span><span class="tag">Litho</span>
                         </div>
 
-                        <button class="explore-btn">Explore Printmaking</button>
+                         <a href="PrintMaking.html"><button class="explore-btn">Explore Print Making Art</button></a>
                     </div>
                 </div>
 
@@ -1053,6 +1054,18 @@
 
         // Run after DOM loads
         document.addEventListener("DOMContentLoaded", loadUser);
+
+        document.addEventListener('DOMContentLoaded', () => {
+    // Navbar avatar click
+    document.getElementById('user-avatar').addEventListener('click', () => {
+        window.location.href = 'Account.html';
+    });
+    
+    // Sidebar user info click
+    document.querySelector('.sidebar .user-info').addEventListener('click', () => {
+        window.location.href = 'Account.html';
+    });
+});
     </script>
 </body>
 </html>

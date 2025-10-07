@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Printmaking | Treasury of Flair</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { 
+      font-family:'Poppins',sans-serif; 
+      background:#f5f5f5; 
+      color:#333; 
+      overflow-x:hidden;
+    }
+
+    /* Navbar - Matching home.html */
+    nav {
+      background:white;
+      padding:12px 20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      box-shadow:0 2px 10px rgba(0,0,0,0.1);
+      position:fixed;
+      top:0; left:0; right:0;
+      z-index:1000;
+      height:80px;
+    }
+
+    .logo-section {
+      display:flex;
+      align-items:center;
+      gap:15px;
+    }
+
+    .logo {
+      width:50px; height:50px;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-weight:700;
+      font-size:20px;
+    }
+
+    .logo-text h2 { 
+      font-size:20px; 
+      font-weight:600;
+      color:#333;
+      margin-bottom:2px; 
+    }
+    .logo-text p { 
+      font-size:12px; 
+      color:#666; 
+    }
+
+    .nav-links {
+      display:flex; 
+      gap:40px; 
+      align-items:center;
+    }
+
+    .nav-links a {
+      text-decoration:none;
+      color:#666;
+      font-weight:500;
+      padding:8px 16px;
+      border-radius:8px;
+      transition:all 0.3s ease;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color:#8E2DE2;
+      background:rgba(142,45,226,0.1);
+    }
+
+    /* Page Container */
+    .container {
+      max-width:1400px;
+      margin:100px auto 60px;
+      padding:40px;
+    }
+
+    .page-header {
+      text-align:center;
+      margin-bottom:50px;
+    }
+
+    .page-header h1 {
+      font-size:2.5rem;
+      font-weight:600;
+      color:#333;
+      margin-bottom:15px;
+    }
+
+    .page-header p {
+      color:#666;
+      font-size:1.1rem;
+      max-width:700px;
+      margin:0 auto;
+      line-height:1.6;
+    }
+
+    /* Art Grid - Matching home.html cards */
+    .art-grid {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap:25px;
+    }
+
+    .art-card {
+      background:white;
+      border-radius:20px;
+      box-shadow:0 5px 20px rgba(0,0,0,0.1);
+      overflow:hidden;
+      transition:all 0.3s ease;
+      display:flex;
+      flex-direction:column;
+      position:relative;
+    }
+
+    .art-card::before {
+      content:'';
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      height:4px;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      transform:scaleX(0);
+      transition:transform 0.3s ease;
+    }
+
+    .art-card:hover {
+      transform:translateY(-5px);
+      box-shadow:0 15px 35px rgba(0,0,0,0.15);
+    }
+
+    .art-card:hover::before {
+      transform:scaleX(1);
+    }
+
+    .art-image {
+      width:100%;
+      height:250px;
+      overflow:hidden;
+      background:#e5e7eb;
+    }
+
+    .art-image img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform 0.4s ease;
+      display:block;
+    }
+
+    .art-card:hover .art-image img {
+      transform:scale(1.08);
+    }
+
+    .art-content {
+      padding:25px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      flex:1;
+    }
+
+    .art-title {
+      font-size:1.15rem;
+      font-weight:600;
+      color:#333;
+      margin-bottom:8px;
+    }
+
+    .artist-name {
+      color:#8E2DE2;
+      font-weight:500;
+      margin-bottom:12px;
+      font-size:0.95rem;
+    }
+
+    .art-desc {
+      color:#666;
+      font-size:0.9rem;
+      line-height:1.6;
+      flex-grow:1;
+      margin-bottom:15px;
+    }
+
+    .edition-info {
+      background:#f8f9fa;
+      padding:8px 12px;
+      border-radius:8px;
+      font-size:0.85rem;
+      color:#666;
+      margin-bottom:12px;
+      text-align:center;
+      font-weight:500;
+    }
+
+    .price {
+      font-weight:600;
+      color:#333;
+      font-size:1.2rem;
+      margin-bottom:15px;
+    }
+
+    .buy-btn {
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      border:none;
+      color:white;
+      padding:12px 20px;
+      border-radius:10px;
+      font-weight:500;
+      cursor:pointer;
+      width:100%;
+      transition:all 0.3s ease;
+      font-size:0.95rem;
+    }
+
+    .buy-btn:hover { 
+      transform:translateY(-1px);
+      box-shadow:0 5px 15px rgba(142,45,226,0.3);
+    }
+
+    /* Animation */
+    @keyframes slideInUp {
+      from {
+        opacity:0;
+        transform:translateY(30px);
+      }
+      to {
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .art-card {
+      animation:slideInUp 0.6s ease-out forwards;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width:1024px) {
+      .container { 
+        padding:30px; 
+      }
+    }
+
+    @media (max-width:768px) {
+      .page-header h1 { 
+        font-size:2rem; 
+      }
+      .container { 
+        padding:20px; 
+        margin-top:100px;
+      }
+      .nav-links {
+        gap:20px;
+      }
+      .nav-links a {
+        padding:6px 12px;
+        font-size:0.9rem;
+      }
+    }
+
+    @media (max-width:480px) {
+      .art-grid { 
+        grid-template-columns:1fr; 
+      }
+      .art-image { 
+        height:200px; 
+      }
+      .page-header h1 {
+        font-size:1.75rem;
+      }
+      .page-header p {
+        font-size:1rem;
+      }
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width:8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background:#f1f1f1;
+      border-radius:10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      border-radius:10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background:linear-gradient(135deg,#7A28C7,#E63E1B);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo-section">
+      <div class="logo">TF</div>
+      <div class="logo-text">
+        <h2>Treasury of Flair</h2>
+        <p>Marketplace for artists</p>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="home.html">Home</a>
+      <a href="categories_page.html" class="active">Categories</a>
+      <a href="reels.html">Reels</a>
+      <a href="MyOrders.html">My Orders</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="page-header">
+      <h1>Printmaking Collection</h1>
+      <p>Discover limited edition prints - etchings, lithographs, screenprints and more. Each piece is part of a numbered series, making them unique and collectible.</p>
+    </div>
+
+    <div class="art-grid">
+      <!-- Card 1 -->
+      <div class="art-card">
+        <div class="art-image"><img src="https://images.unsplash.com/photo-1577083552431-6e5fd01988ec?w=900&q=80" alt="Etching art"></div>
+        <div class="art-content">
+          <div class="art-title">Botanical Study I</div>
+          <div class="artist-name">By Eleanor Wright</div>
+          <div class="art-desc">Delicate copper plate etching showcasing intricate botanical details with fine linework.</div>
+          <div class="edition-info">Edition 12/50</div>
+          <div class="price">₹8,200</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="art-card">
+        <div class="art-image"><img src="https://images.unsplash.com/photo-1549887534-1541e9326642?w=900&q=80" alt="Screenprint"></div>
+        <div class="art-content">
+          <div class="art-title">Urban Rhythm</div>
+          <div class="artist-name">By Marcus Taylor</div>
+          <div class="art-desc">Bold screenprint featuring vibrant layers and geometric patterns inspired by city life.</div>
+          <div class="edition-info">Edition 8/25</div>
+          <div class="price">₹12,500</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="art-card">
+        <div class="art-image"><img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=900&q=80" alt="Lithograph"></div>
+        <div class="art-content">
+          <div class="art-title">Mountain Solitude</div>
+          <div class="artist-name">By Akiko Tanaka</div>
+          <div class="art-desc">Stone lithograph capturing misty mountain landscapes with subtle tonal variations.</div>
+          <div class="edition-info">Edition 15/40</div>
+          <div class="price">₹15,800</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="art-card">
+        <div class="art-image"><img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=900&q=80" alt="Woodcut print"></div>
+        <div class="art-content">
+          <div class="art-title">Forest Tales</div>
+          <div class="artist-name">By Henrik Larsen</div>
+          <div class="art-desc">Traditional woodcut print with bold contrasts and expressive carved textures.</div>
+          <div class="edition-info">Edition 10/30</div>
+          <div class="price">₹9,500</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="art-card">
+        <div class="art-image"><img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=900&q=80" alt="Monotype"></div>
+        <div class="art-content">
+          <div class="art-title">Abstract Flow</div>
+          <div class="artist-name">By Isabella Costa</div>
+          <div class="art-desc">Unique monotype print with fluid ink patterns creating one-of-a-kind impressions.</div>
+          <div class="edition-info">Unique 1/1</div>
+          <div class="price">₹18,900</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="art-card">
+        <div class="art-image"><img src="https://images.unsplash.com/photo-1515405295579-ba7b45403062?w=900&q=80" alt="Linocut"></div>
+        <div class="art-content">
+          <div class="art-title">Ocean Waves</div>
+          <div class="artist-name">By Rajesh Kumar</div>
+          <div class="art-desc">Dynamic linocut print capturing the movement and energy of ocean waves.</div>
+          <div class="edition-info">Edition 7/20</div>
+          <div class="price">₹7,800</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="art-card">
+        <div class="art-image"><img src="https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=900&q=80" alt="Serigraph"></div>
+        <div class="art-content">
+          <div class="art-title">Pop Culture Icons</div>
+          <div class="artist-name">By Nina Patel</div>
+          <div class="art-desc">Multi-layered serigraph with bright colors and contemporary pop art references.</div>
+          <div class="edition-info">Edition 18/75</div>
+          <div class="price">₹14,200</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="art-card">
+        <div class="art-image"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=900&q=80" alt="Aquatint"></div>
+        <div class="art-content">
+          <div class="art-title">Twilight Portrait</div>
+          <div class="artist-name">By Sofia Alvarez</div>
+          <div class="art-desc">Aquatint etching with rich tonal depth and atmospheric portrait qualities.</div>
+          <div class="edition-info">Edition 5/35</div>
+          <div class="price">₹16,500</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 9 -->
+      <div class="art-card">
+        <div class="art-image"><img src="https://images.unsplash.com/photo-1502989642968-94fbdc9eace4?w=900&q=80" alt="Mixed media print"></div>
+        <div class="art-content">
+          <div class="art-title">Industrial Dreams</div>
+          <div class="artist-name">By Thomas Berg</div>
+          <div class="art-desc">Mixed media print combining etching, screenprint and collage elements.</div>
+          <div class="edition-info">Edition 9/25</div>
+          <div class="price">₹19,800</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 10 -->
+      <div class="art-card">
+        <div class="art-image"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=900&q=80" alt="Relief print"></div>
+        <div class="art-content">
+          <div class="art-title">Garden Memory</div>
+          <div class="artist-name">By Mei Lin</div>
+          <div class="art-desc">Elegant relief print with delicate floral motifs and subtle color gradations.</div>
+          <div class="edition-info">Edition 20/60</div>
+          <div class="price">₹11,400</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Animate cards on load
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.art-card');
+      cards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        
+        setTimeout(() => {
+          card.style.transition = 'all 0.6s ease-out';
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, index * 100);
+      });
+    });
+
+    // Button interactions
+    const buyButtons = document.querySelectorAll('.buy-btn');
+    buyButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.style.transform = 'translateY(-1px) scale(0.98)';
+        setTimeout(() => {
+          btn.style.transform = 'translateY(-1px)';
+        }, 150);
+      });
+    });
+  </script>
+</body>
+</html>

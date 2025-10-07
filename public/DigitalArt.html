@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Digital Art | Treasury of Flair</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { 
+      font-family:'Poppins',sans-serif; 
+      background:#f5f5f5; 
+      color:#333; 
+      overflow-x:hidden;
+    }
+
+    /* Navbar - Matching home.html */
+    nav {
+      background:white;
+      padding:12px 20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      box-shadow:0 2px 10px rgba(0,0,0,0.1);
+      position:fixed;
+      top:0; left:0; right:0;
+      z-index:1000;
+      height:80px;
+    }
+
+    .logo-section {
+      display:flex;
+      align-items:center;
+      gap:15px;
+    }
+
+    .logo {
+      width:50px; height:50px;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-weight:700;
+      font-size:20px;
+    }
+
+    .logo-text h2 { 
+      font-size:20px; 
+      font-weight:600;
+      color:#333;
+      margin-bottom:2px; 
+    }
+    .logo-text p { 
+      font-size:12px; 
+      color:#666; 
+    }
+
+    .nav-links {
+      display:flex; 
+      gap:40px; 
+      align-items:center;
+    }
+
+    .nav-links a {
+      text-decoration:none;
+      color:#666;
+      font-weight:500;
+      padding:8px 16px;
+      border-radius:8px;
+      transition:all 0.3s ease;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color:#8E2DE2;
+      background:rgba(142,45,226,0.1);
+    }
+
+    /* Page Container */
+    .container {
+      max-width:1400px;
+      margin:100px auto 60px;
+      padding:40px;
+    }
+
+    .page-header {
+      text-align:center;
+      margin-bottom:50px;
+    }
+
+    .page-header h1 {
+      font-size:2.5rem;
+      font-weight:600;
+      color:#333;
+      margin-bottom:15px;
+    }
+
+    .page-header p {
+      color:#666;
+      font-size:1.1rem;
+      max-width:700px;
+      margin:0 auto;
+      line-height:1.6;
+    }
+
+    /* Art Grid - Matching home.html cards */
+    .art-grid {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap:25px;
+    }
+
+    .art-card {
+      background:white;
+      border-radius:20px;
+      box-shadow:0 5px 20px rgba(0,0,0,0.1);
+      overflow:hidden;
+      transition:all 0.3s ease;
+      display:flex;
+      flex-direction:column;
+      position:relative;
+    }
+
+    .art-card::before {
+      content:'';
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      height:4px;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      transform:scaleX(0);
+      transition:transform 0.3s ease;
+    }
+
+    .art-card:hover {
+      transform:translateY(-5px);
+      box-shadow:0 15px 35px rgba(0,0,0,0.15);
+    }
+
+    .art-card:hover::before {
+      transform:scaleX(1);
+    }
+
+    .art-image {
+      width:100%;
+      height:250px;
+      overflow:hidden;
+      background:#e5e7eb;
+    }
+
+    .art-image img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform 0.4s ease;
+      display:block;
+    }
+
+    .art-card:hover .art-image img {
+      transform:scale(1.08);
+    }
+
+    .art-content {
+      padding:25px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      flex:1;
+    }
+
+    .art-title {
+      font-size:1.15rem;
+      font-weight:600;
+      color:#333;
+      margin-bottom:8px;
+    }
+
+    .artist-name {
+      color:#8E2DE2;
+      font-weight:500;
+      margin-bottom:12px;
+      font-size:0.95rem;
+    }
+
+    .art-desc {
+      color:#666;
+      font-size:0.9rem;
+      line-height:1.6;
+      flex-grow:1;
+      margin-bottom:15px;
+    }
+
+    .price {
+      font-weight:600;
+      color:#333;
+      font-size:1.2rem;
+      margin-bottom:15px;
+    }
+
+    .buy-btn {
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      border:none;
+      color:white;
+      padding:12px 20px;
+      border-radius:10px;
+      font-weight:500;
+      cursor:pointer;
+      width:100%;
+      transition:all 0.3s ease;
+      font-size:0.95rem;
+    }
+
+    .buy-btn:hover { 
+      transform:translateY(-1px);
+      box-shadow:0 5px 15px rgba(142,45,226,0.3);
+    }
+
+    /* Animation */
+    @keyframes slideInUp {
+      from {
+        opacity:0;
+        transform:translateY(30px);
+      }
+      to {
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .art-card {
+      animation:slideInUp 0.6s ease-out forwards;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width:1024px) {
+      .container { 
+        padding:30px; 
+      }
+    }
+
+    @media (max-width:768px) {
+      .page-header h1 { 
+        font-size:2rem; 
+      }
+      .container { 
+        padding:20px; 
+        margin-top:100px;
+      }
+      .nav-links {
+        gap:20px;
+      }
+      .nav-links a {
+        padding:6px 12px;
+        font-size:0.9rem;
+      }
+    }
+
+    @media (max-width:480px) {
+      .art-grid { 
+        grid-template-columns:1fr; 
+      }
+      .art-image { 
+        height:200px; 
+      }
+      .page-header h1 {
+        font-size:1.75rem;
+      }
+      .page-header p {
+        font-size:1rem;
+      }
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width:8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background:#f1f1f1;
+      border-radius:10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      border-radius:10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background:linear-gradient(135deg,#7A28C7,#E63E1B);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo-section">
+      <div class="logo">TF</div>
+      <div class="logo-text">
+        <h2>Treasury of Flair</h2>
+        <p>Marketplace for artists</p>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="home.html">Home</a>
+      <a href="categories_page.html" class="active">Categories</a>
+      <a href="reels.html">Reels</a>
+      <a href="MyOrders.html">My Orders</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="page-header">
+      <h1>Digital Art Collection</h1>
+      <p>Explore cutting-edge digital artworks - illustrations, concept art, 3D renders, and NFT-style pieces. Where technology meets creativity.</p>
+    </div>
+
+    <div class="art-grid">
+      <!-- Card 1 -->
+      <div class="art-card">
+        <div class="art-image"><img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=900&q=80" alt="Cyberpunk art"></div>
+        <div class="art-content">
+          <div class="art-title">Neon Dreams</div>
+          <div class="artist-name">By Alex Cipher</div>
+          <div class="art-desc">Cyberpunk-inspired digital illustration featuring neon lights and futuristic cityscapes.</div>
+          <div class="price">₹26,500</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="art-card">
+        <div class="art-image"><img src="https://images.unsplash.com/photo-1634986666676-ec8fd927c23d?w=900&q=80" alt="3D character"></div>
+        <div class="art-content">
+          <div class="art-title">Cosmic Guardian</div>
+          <div class="artist-name">By Maya Rodriguez</div>
+          <div class="art-desc">3D character design blending sci-fi elements with mystical aesthetics.</div>
+          <div class="price">₹37,200</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="art-card">
+        <div class="art-image"><img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=900&q=80" alt="Abstract digital"></div>
+        <div class="art-content">
+          <div class="art-title">Digital Fragments</div>
+          <div class="artist-name">By Kai Nakamura</div>
+          <div class="art-desc">Generative art exploring geometric patterns and vibrant color palettes.</div>
+          <div class="price">₹23,150</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="art-card">
+        <div class="art-image"><img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=900&q=80" alt="Fantasy illustration"></div>
+        <div class="art-content">
+          <div class="art-title">Enchanted Forest</div>
+          <div class="artist-name">By Sofia Martinez</div>
+          <div class="art-desc">Fantasy digital painting with magical creatures and ethereal lighting effects.</div>
+          <div class="price">₹31,400</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="art-card">
+        <div class="art-image"><img src="https://images.unsplash.com/photo-1618556450994-a6a128ef0d9d?w=900&q=80" alt="Surreal digital"></div>
+        <div class="art-content">
+          <div class="art-title">Beyond Reality</div>
+          <div class="artist-name">By David Chen</div>
+          <div class="art-desc">Surreal digital composition merging dreams with digital manipulation techniques.</div>
+          <div class="price">₹34,700</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="art-card">
+        <div class="art-image"><img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=900&q=80" alt="NFT art"></div>
+        <div class="art-content">
+          <div class="art-title">Quantum Collector</div>
+          <div class="artist-name">By Zara Williams</div>
+          <div class="art-desc">NFT-style artwork featuring bold colors and modern digital aesthetics.</div>
+          <div class="price">₹45,450</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="art-card">
+        <div class="art-image"><img src="https://images.unsplash.com/photo-1618172193622-ae2d025f4032?w=900&q=80" alt="Concept art"></div>
+        <div class="art-content">
+          <div class="art-title">Future Metropolis</div>
+          <div class="artist-name">By Lucas Kim</div>
+          <div class="art-desc">Detailed concept art of futuristic architecture and urban landscapes.</div>
+          <div class="price">₹40,500</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="art-card">
+        <div class="art-image"><img src="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=900&q=80" alt="Character design"></div>
+        <div class="art-content">
+          <div class="art-title">Avatar Genesis</div>
+          <div class="artist-name">By Emma Thompson</div>
+          <div class="art-desc">Character design illustration with intricate details and dynamic poses.</div>
+          <div class="price">₹28,900</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 9 -->
+      <div class="art-card">
+        <div class="art-image"><img src="https://images.unsplash.com/photo-1618556450991-2f1af64e8191?w=900&q=80" alt="Glitch art"></div>
+        <div class="art-content">
+          <div class="art-title">Glitch Symphony</div>
+          <div class="artist-name">By Ryan Park</div>
+          <div class="art-desc">Experimental glitch art combining digital distortion with artistic expression.</div>
+          <div class="price">₹23,950</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 10 -->
+      <div class="art-card">
+        <div class="art-image"><img src="https://images.unsplash.com/photo-1617791160505-6f00504e3519?w=900&q=80" alt="Digital landscape"></div>
+        <div class="art-content">
+          <div class="art-title">Digital Horizons</div>
+          <div class="artist-name">By Priya Sharma</div>
+          <div class="art-desc">Breathtaking digital landscape with stunning lighting and atmospheric depth.</div>
+          <div class="price">₹33,850</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Animate cards on load
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.art-card');
+      cards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        
+        setTimeout(() => {
+          card.style.transition = 'all 0.6s ease-out';
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, index * 100);
+      });
+    });
+
+    // Button interactions
+    const buyButtons = document.querySelectorAll('.buy-btn');
+    buyButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.style.transform = 'translateY(-1px) scale(0.98)';
+        setTimeout(() => {
+          btn.style.transform = 'translateY(-1px)';
+        }, 150);
+      });
+    });
+  </script>
+</body>
+</html>
