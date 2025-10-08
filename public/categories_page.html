@@ -551,8 +551,12 @@
       }
 
      .no-results {
-    /* styles for no results message */
-     }
+    text-align: center;
+    color: #888;
+    padding: 20px;
+    font-size: 14px;
+}
+
 
         /* Responsive adjustments */
         @media (max-width: 1024px) {
@@ -940,106 +944,103 @@
     </div>
 
     <script>
-        // View toggle and results count update
-        const gridBtn = document.getElementById('grid-view');
-        const listBtn = document.getElementById('list-view');
-        const gridContainer = document.getElementById('grid-container');
-        const listContainer = document.getElementById('list-container');
-        const resultsCount = document.getElementById('results-count');
-        // ========== SEARCH FUNCTIONALITY ==========
-        const searchInput = document.getElementById('search-input');
-        const searchButton = document.getElementById('search-button');
-// ... rest of the search code
+    // View toggle and results count update
+    const gridBtn = document.getElementById('grid-view');
+    const listBtn = document.getElementById('list-view');
+    const gridContainer = document.getElementById('grid-container');
+    const listContainer = document.getElementById('list-container');
+    const resultsCount = document.getElementById('results-count');
+    const searchInput = document.getElementById('search-input');
+    const searchButton = document.getElementById('search-button');
 
+    if (gridBtn && listBtn) {
         gridBtn.addEventListener('click', () => {
             gridBtn.classList.add('active');
             listBtn.classList.remove('active');
             gridContainer.style.display = 'grid';
             listContainer.classList.remove('active');
-            resultsCount.textContent = gridContainer.children.length;
+            if (resultsCount) resultsCount.textContent = gridContainer.children.length;
         });
-        
+
         listBtn.addEventListener('click', () => {
             listBtn.classList.add('active');
             gridBtn.classList.remove('active');
             gridContainer.style.display = 'none';
             listContainer.classList.add('active');
             listContainer.innerHTML = '<p style="padding:20px;background:white;border-radius:20px;box-shadow:0 5px 20px rgba(0,0,0,0.1);color:#666;">List view - feature coming soon.</p>';
-            resultsCount.textContent = 0;
+            if (resultsCount) resultsCount.textContent = 0;
         });
 
-        // Ensure initial count
-        resultsCount.textContent = gridContainer.children.length;
+        if (resultsCount) resultsCount.textContent = gridContainer.children.length;
+    }
 
-        // Animate cards on load
-        document.addEventListener('DOMContentLoaded', () => {
-            const cards = document.querySelectorAll('.category-card');
-            cards.forEach((card, index) => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(30px)';
-                
-                setTimeout(() => {
-                    card.style.transition = 'all 0.6s ease-out';
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, index * 100);
+    // Animate cards on load
+    document.addEventListener('DOMContentLoaded', () => {
+        const cards = document.querySelectorAll('.category-card');
+        cards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            setTimeout(() => {
+                card.style.transition = 'all 0.6s ease-out';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, index * 100);
+        });
+    });
+
+    // Button animations
+    const exploreButtons = document.querySelectorAll('.explore-btn');
+    exploreButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.style.transform = 'translateY(-1px) scale(0.98)';
+            setTimeout(() => {
+                btn.style.transform = 'translateY(-1px)';
+            }, 150);
+        });
+    });
+
+    // Load user data safely
+    async function loadUser() {
+        try {
+            const res = await fetch("http://localhost:5000/home", {
+                method: "GET",
+                credentials: "include",
+                headers: { "Accept": "application/json" }
             });
-        });
+            const data = await res.json();
 
-        // Button interactions
-        const exploreButtons = document.querySelectorAll('.explore-btn');
-        exploreButtons.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                btn.style.transform = 'translateY(-1px) scale(0.98)';
-                setTimeout(() => {
-                    btn.style.transform = 'translateY(-1px)';
-                }, 150);
-            });
-        });
-
-        async function loadUser() {
-            try {
-                const res = await fetch("http://localhost:5000/home", {
-                    method: "GET",
-                    credentials: "include", // keep session cookies
-                    headers: { "Accept": "application/json" }
-                });
-                const data = await res.json();
-
-                if (data.username) {
-                    // Show username
-                    document.getElementById("username-display").textContent = data.username;
-
-                    // Avatar = first letter
-                    const initial = data.username.charAt(0).toUpperCase();
-                    document.getElementById("user-avatar").textContent = initial;
-                    document.getElementById("sidebar-avatar").textContent = initial;
-                }
-
-                if (data.email) {
-                    // Show email
-                    document.getElementById("user-email").textContent = data.email;
-                }
-            } catch (err) {
-                console.error("Error fetching user:", err);
+            if (data.username) {
+                const nameElem = document.getElementById("username-display");
+                const avatarElem = document.getElementById("user-avatar");
+                if (nameElem) nameElem.textContent = data.username;
+                if (avatarElem) avatarElem.textContent = data.username.charAt(0).toUpperCase();
             }
+        } catch (err) {
+            console.error("Error fetching user:", err);
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        loadUser();
+
+        // Navbar avatar click
+        const avatar = document.getElementById('user-avatar');
+        if (avatar) {
+            avatar.addEventListener('click', () => {
+                window.location.href = 'Account.html';
+            });
         }
 
-        // Run after DOM loads
-        document.addEventListener("DOMContentLoaded", loadUser);
+        // Sidebar click
+        const sidebarUser = document.querySelector('.sidebar .user-info');
+        if (sidebarUser) {
+            sidebarUser.addEventListener('click', () => {
+                window.location.href = 'Account.html';
+            });
+        }
+    });
+</script>
 
-        document.addEventListener('DOMContentLoaded', () => {
-    // Navbar avatar click
-    document.getElementById('user-avatar').addEventListener('click', () => {
-        window.location.href = 'Account.html';
-    });
-    
-    // Sidebar user info click
-    document.querySelector('.sidebar .user-info').addEventListener('click', () => {
-        window.location.href = 'Account.html';
-    });
-});
-    </script>
 </body>
 </html>
