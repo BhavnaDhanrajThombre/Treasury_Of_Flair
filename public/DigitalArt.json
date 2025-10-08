@@ -1,0 +1,115 @@
+{
+  "category": "Digital Art",
+  "description": "Explore cutting-edge digital artworks - illustrations, concept art, 3D renders, and NFT-style pieces. Where technology meets creativity.",
+  "artworks": [
+    {
+      "id": 1,
+      "title": "Neon Dreams",
+      "artist": "Alex Cipher",
+      "description": "Cyberpunk-inspired digital illustration featuring neon lights and futuristic cityscapes.",
+      "price": 26500,
+      "currency": "INR",
+      "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=900&q=80",
+      "imageAlt": "Cyberpunk art"
+    },
+    {
+      "id": 2,
+      "title": "Cosmic Guardian",
+      "artist": "Maya Rodriguez",
+      "description": "3D character design blending sci-fi elements with mystical aesthetics.",
+      "price": 37200,
+      "currency": "INR",
+      "image": "https://images.unsplash.com/photo-1634986666676-ec8fd927c23d?w=900&q=80",
+      "imageAlt": "3D character"
+    },
+    {
+      "id": 3,
+      "title": "Digital Fragments",
+      "artist": "Kai Nakamura",
+      "description": "Generative art exploring geometric patterns and vibrant color palettes.",
+      "price": 23150,
+      "currency": "INR",
+      "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=900&q=80",
+      "imageAlt": "Abstract digital"
+    },
+    {
+      "id": 4,
+      "title": "Enchanted Forest",
+      "artist": "Sofia Martinez",
+      "description": "Fantasy digital painting with magical creatures and ethereal lighting effects.",
+      "price": 31400,
+      "currency": "INR",
+      "image": "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=900&q=80",
+      "imageAlt": "Fantasy illustration"
+    },
+    {
+      "id": 5,
+      "title": "Beyond Reality",
+      "artist": "David Chen",
+      "description": "Surreal digital composition merging dreams with digital manipulation techniques.",
+      "price": 34700,
+      "currency": "INR",
+      "image": "https://images.unsplash.com/photo-1618556450994-a6a128ef0d9d?w=900&q=80",
+      "imageAlt": "Surreal digital"
+    },
+    {
+      "id": 6,
+      "title": "Quantum Collector",
+      "artist": "Zara Williams",
+      "description": "NFT-style artwork featuring bold colors and modern digital aesthetics.",
+      "price": 45450,
+      "currency": "INR",
+      "image": "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=900&q=80",
+      "imageAlt": "NFT art"
+    },
+    {
+      "id": 7,
+      "title": "Future Metropolis",
+      "artist": "Lucas Kim",
+      "description": "Detailed concept art of futuristic architecture and urban landscapes.",
+      "price": 40500,
+      "currency": "INR",
+      "image": "https://images.unsplash.com/photo-1618172193622-ae2d025f4032?w=900&q=80",
+      "imageAlt": "Concept art"
+    },
+    {
+      "id": 8,
+      "title": "Avatar Genesis",
+      "artist": "Emma Thompson",
+      "description": "Character design illustration with intricate details and dynamic poses.",
+      "price": 28900,
+      "currency": "INR",
+      "image": "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=900&q=80",
+      "imageAlt": "Character design"
+    },
+    {
+      "id": 9,
+      "title": "Glitch Symphony",
+      "artist": "Ryan Park",
+      "description": "Experimental glitch art combining digital distortion with artistic expression.",
+      "price": 23950,
+      "currency": "INR",
+      "image": "https://images.unsplash.com/photo-1618556450991-2f1af64e8191?w=900&q=80",
+      "imageAlt": "Glitch art"
+    },
+    {
+      "id": 10,
+      "title": "Digital Horizons",
+      "artist": "Priya Sharma",
+      "description": "Breathtaking digital landscape with stunning lighting and atmospheric depth.",
+      "price": 33850,
+      "currency": "INR",
+      "image": "https://images.unsplash.com/photo-1617791160505-6f00504e3519?w=900&q=80",
+      "imageAlt": "Digital landscape"
+    }
+  ],
+  "metadata": {
+    "totalArtworks": 10,
+    "priceRange": {
+      "min": 23150,
+      "max": 45450,
+      "currency": "INR"
+    },
+    "lastUpdated": "2025-10-08"
+  }
+}

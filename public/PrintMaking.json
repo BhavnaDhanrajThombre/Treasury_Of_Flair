@@ -1,0 +1,191 @@
+{
+  "category": "Printmaking",
+  "description": "Discover limited edition prints - etchings, lithographs, screenprints and more. Each piece is part of a numbered series, making them unique and collectible.",
+  "artworks": [
+    {
+      "id": 1,
+      "title": "Botanical Study I",
+      "artist": "Eleanor Wright",
+      "description": "Delicate copper plate etching showcasing intricate botanical details with fine linework.",
+      "price": 8200,
+      "currency": "INR",
+      "technique": "Etching",
+      "edition": {
+        "current": 12,
+        "total": 50,
+        "display": "Edition 12/50"
+      },
+      "image": "data:image/jpeg;base64,...",
+      "imageAlt": "Etching art"
+    },
+    {
+      "id": 2,
+      "title": "Urban Rhythm",
+      "artist": "Marcus Taylor",
+      "description": "Bold screenprint featuring vibrant layers and geometric patterns inspired by city life.",
+      "price": 12500,
+      "currency": "INR",
+      "technique": "Screenprint",
+      "edition": {
+        "current": 8,
+        "total": 25,
+        "display": "Edition 8/25"
+      },
+      "image": "data:image/jpeg;base64,...",
+      "imageAlt": "Screenprint"
+    },
+    {
+      "id": 3,
+      "title": "Mountain Solitude",
+      "artist": "Akiko Tanaka",
+      "description": "Stone lithograph capturing misty mountain landscapes with subtle tonal variations.",
+      "price": 15800,
+      "currency": "INR",
+      "technique": "Lithograph",
+      "edition": {
+        "current": 15,
+        "total": 40,
+        "display": "Edition 15/40"
+      },
+      "image": "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=900&q=80",
+      "imageAlt": "Lithograph"
+    },
+    {
+      "id": 4,
+      "title": "Forest Tales",
+      "artist": "Henrik Larsen",
+      "description": "Traditional woodcut print with bold contrasts and expressive carved textures.",
+      "price": 9500,
+      "currency": "INR",
+      "technique": "Woodcut",
+      "edition": {
+        "current": 10,
+        "total": 30,
+        "display": "Edition 10/30"
+      },
+      "image": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=900&q=80",
+      "imageAlt": "Woodcut print"
+    },
+    {
+      "id": 5,
+      "title": "Abstract Flow",
+      "artist": "Isabella Costa",
+      "description": "Unique monotype print with fluid ink patterns creating one-of-a-kind impressions.",
+      "price": 18900,
+      "currency": "INR",
+      "technique": "Monotype",
+      "edition": {
+        "current": 1,
+        "total": 1,
+        "display": "Unique 1/1"
+      },
+      "image": "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=900&q=80",
+      "imageAlt": "Monotype"
+    },
+    {
+      "id": 6,
+      "title": "Ocean Waves",
+      "artist": "Rajesh Kumar",
+      "description": "Dynamic linocut print capturing the movement and energy of ocean waves.",
+      "price": 7800,
+      "currency": "INR",
+      "technique": "Linocut",
+      "edition": {
+        "current": 7,
+        "total": 20,
+        "display": "Edition 7/20"
+      },
+      "image": "https://images.unsplash.com/photo-1515405295579-ba7b45403062?w=900&q=80",
+      "imageAlt": "Linocut"
+    },
+    {
+      "id": 7,
+      "title": "Pop Culture Icons",
+      "artist": "Nina Patel",
+      "description": "Multi-layered serigraph with bright colors and contemporary pop art references.",
+      "price": 14200,
+      "currency": "INR",
+      "technique": "Serigraph",
+      "edition": {
+        "current": 18,
+        "total": 75,
+        "display": "Edition 18/75"
+      },
+      "image": "https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=900&q=80",
+      "imageAlt": "Serigraph"
+    },
+    {
+      "id": 8,
+      "title": "Twilight Portrait",
+      "artist": "Sofia Alvarez",
+      "description": "Aquatint etching with rich tonal depth and atmospheric portrait qualities.",
+      "price": 16500,
+      "currency": "INR",
+      "technique": "Aquatint",
+      "edition": {
+        "current": 5,
+        "total": 35,
+        "display": "Edition 5/35"
+      },
+      "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=900&q=80",
+      "imageAlt": "Aquatint"
+    },
+    {
+      "id": 9,
+      "title": "Industrial Dreams",
+      "artist": "Thomas Berg",
+      "description": "Mixed media print combining etching, screenprint and collage elements.",
+      "price": 19800,
+      "currency": "INR",
+      "technique": "Mixed Media",
+      "edition": {
+        "current": 9,
+        "total": 25,
+        "display": "Edition 9/25"
+      },
+      "image": "https://images.unsplash.com/photo-1502989642968-94fbdc9eace4?w=900&q=80",
+      "imageAlt": "Mixed media print"
+    },
+    {
+      "id": 10,
+      "title": "Garden Memory",
+      "artist": "Mei Lin",
+      "description": "Elegant relief print with delicate floral motifs and subtle color gradations.",
+      "price": 11400,
+      "currency": "INR",
+      "technique": "Relief Print",
+      "edition": {
+        "current": 20,
+        "total": 60,
+        "display": "Edition 20/60"
+      },
+      "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=900&q=80",
+      "imageAlt": "Relief print"
+    }
+  ],
+  "techniques": [
+    "Etching",
+    "Screenprint",
+    "Lithograph",
+    "Woodcut",
+    "Monotype",
+    "Linocut",
+    "Serigraph",
+    "Aquatint",
+    "Mixed Media",
+    "Relief Print"
+  ],
+  "metadata": {
+    "totalArtworks": 10,
+    "priceRange": {
+      "min": 7800,
+      "max": 19800,
+      "currency": "INR"
+    },
+    "editionSizes": {
+      "smallest": 1,
+      "largest": 75
+    },
+    "lastUpdated": "2025-10-08"
+  }
+}

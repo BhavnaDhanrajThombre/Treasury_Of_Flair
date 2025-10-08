@@ -541,6 +541,19 @@
             display:block; 
         }
 
+        .search-box input.active {
+        border-color:#8E2DE2;
+        background: rgba(142,45,226,0.05);
+        }
+
+       .category-card.hidden {
+       display: none;
+      }
+
+     .no-results {
+    /* styles for no results message */
+     }
+
         /* Responsive adjustments */
         @media (max-width: 1024px) {
             .sidebar { 
@@ -628,12 +641,11 @@
         </div>
 
         <div class="nav-right">
-            <div class="search-box">
-                <i class="fas fa-search"></i>
-                <input type="text" placeholder="Search art, materials or creators">
-            </div>
-            <button class="search-btn">Search</button>
-           
+        <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" id="search-input" placeholder="Search art, materials or creators">
+        </div>
+        <button class="search-btn" id="search-button">Search</button>
         </div>
     </nav>
 
@@ -676,49 +688,7 @@
                 <p>Discover amazing artwork across many creative disciplines - curated collections to help you explore each style.</p>
             </div>
 
-            <div class="filter-bar">
-                <div class="filter-group">
-                    <label for="sort-by">Sort by:</label>
-                    <select id="sort-by" class="filter-select">
-                        <option value="popular">Most Popular</option>
-                        <option value="newest">Newest</option>
-                        <option value="price-low">Price: Low to High</option>
-                        <option value="price-high">Price: High to Low</option>
-                        <option value="name">Name A-Z</option>
-                    </select>
-                </div>
-
-                <div class="filter-group">
-                    <label for="price-range">Price Range:</label>
-                    <select id="price-range" class="filter-select">
-                        <option value="all">All Prices</option>
-                        <option value="under-50">Under $50</option>
-                        <option value="50-200">$50 - $200</option>
-                        <option value="200-500">$200 - $500</option>
-                        <option value="over-500">Over $500</option>
-                    </select>
-                </div>
-
-                <div class="filter-group">
-                    <label for="availability">Availability:</label>
-                    <select id="availability" class="filter-select">
-                        <option value="all">All Items</option>
-                        <option value="in-stock">In Stock</option>
-                        <option value="custom-order">Custom Order</option>
-                        <option value="pre-order">Pre-Order</option>
-                    </select>
-                </div>
-
-                <div class="filter-group">
-                    <div class="view-toggle">
-                        <button class="view-btn active" id="grid-view" title="Grid view"><i class="fas fa-th"></i></button>
-                        <button class="view-btn" id="list-view" title="List view"><i class="fas fa-list"></i></button>
-                    </div>
-                </div>
-
-                <div class="results-info">Showing <span id="results-count">10</span> categories</div>
-            </div>
-
+            
             <!-- Categories Grid -->
             <div class="categories-grid" id="grid-container">
                 <!-- 1 Paintings -->
@@ -734,7 +704,7 @@
                         <div class="category-stats">
                             <div class="stat-item"><div class="stat-number">2.4K</div><div class="stat-label">Artworks</div></div>
                             <div class="stat-item"><div class="stat-number">450</div><div class="stat-label">Artists</div></div>
-                            <div class="stat-item"><div class="stat-number">$25-2K</div><div class="stat-label">Price Range</div></div>
+                            <div class="stat-item"><div class="stat-number">₹25-2K</div><div class="stat-label">Price Range</div></div>
                         </div>
 
                         <div class="category-tags">
@@ -758,7 +728,7 @@
                         <div class="category-stats">
                             <div class="stat-item"><div class="stat-number">1.8K</div><div class="stat-label">Artworks</div></div>
                             <div class="stat-item"><div class="stat-number">320</div><div class="stat-label">Artists</div></div>
-                            <div class="stat-item"><div class="stat-number">$15-800</div><div class="stat-label">Price Range</div></div>
+                            <div class="stat-item"><div class="stat-number">₹15-800</div><div class="stat-label">Price Range</div></div>
                         </div>
 
                         <div class="category-tags">
@@ -782,7 +752,7 @@
                         <div class="category-stats">
                             <div class="stat-item"><div class="stat-number">3.1K</div><div class="stat-label">Artworks</div></div>
                             <div class="stat-item"><div class="stat-number">280</div><div class="stat-label">Artists</div></div>
-                            <div class="stat-item"><div class="stat-number">$10-1.5K</div><div class="stat-label">Price Range</div></div>
+                            <div class="stat-item"><div class="stat-number">₹10-1.5K</div><div class="stat-label">Price Range</div></div>
                         </div>
 
                         <div class="category-tags">
@@ -806,7 +776,7 @@
                         <div class="category-stats">
                             <div class="stat-item"><div class="stat-number">890</div><div class="stat-label">Artworks</div></div>
                             <div class="stat-item"><div class="stat-number">160</div><div class="stat-label">Artists</div></div>
-                            <div class="stat-item"><div class="stat-number">$50-5K</div><div class="stat-label">Price Range</div></div>
+                            <div class="stat-item"><div class="stat-number">₹50-5K</div><div class="stat-label">Price Range</div></div>
                         </div>
 
                         <div class="category-tags">
@@ -830,7 +800,7 @@
                         <div class="category-stats">
                             <div class="stat-item"><div class="stat-number">420</div><div class="stat-label">Editions</div></div>
                             <div class="stat-item"><div class="stat-number">95</div><div class="stat-label">Artists</div></div>
-                            <div class="stat-item"><div class="stat-number">$30-700</div><div class="stat-label">Price Range</div></div>
+                            <div class="stat-item"><div class="stat-number">₹30-700</div><div class="stat-label">Price Range</div></div>
                         </div>
 
                         <div class="category-tags">
@@ -854,7 +824,7 @@
                         <div class="category-stats">
                             <div class="stat-item"><div class="stat-number">670</div><div class="stat-label">Works</div></div>
                             <div class="stat-item"><div class="stat-number">140</div><div class="stat-label">Artists</div></div>
-                            <div class="stat-item"><div class="stat-number">$20-600</div><div class="stat-label">Price Range</div></div>
+                            <div class="stat-item"><div class="stat-number">₹20-600</div><div class="stat-label">Price Range</div></div>
                         </div>
 
                         <div class="category-tags">
@@ -878,7 +848,7 @@
                         <div class="category-stats">
                             <div class="stat-item"><div class="stat-number">530</div><div class="stat-label">Pieces</div></div>
                             <div class="stat-item"><div class="stat-number">200</div><div class="stat-label">Artists</div></div>
-                            <div class="stat-item"><div class="stat-number">$0-3K</div><div class="stat-label">Price Range</div></div>
+                            <div class="stat-item"><div class="stat-number">₹0-3K</div><div class="stat-label">Price Range</div></div>
                         </div>
 
                         <div class="category-tags">
@@ -902,7 +872,7 @@
                         <div class="category-stats">
                             <div class="stat-item"><div class="stat-number">310</div><div class="stat-label">Works</div></div>
                             <div class="stat-item"><div class="stat-number">120</div><div class="stat-label">Artists</div></div>
-                            <div class="stat-item"><div class="stat-number">$20-900</div><div class="stat-label">Price Range</div></div>
+                            <div class="stat-item"><div class="stat-number">₹20-900</div><div class="stat-label">Price Range</div></div>
                         </div>
 
                         <div class="category-tags">
@@ -926,7 +896,7 @@
                         <div class="category-stats">
                             <div class="stat-item"><div class="stat-number">240</div><div class="stat-label">Works</div></div>
                             <div class="stat-item"><div class="stat-number">90</div><div class="stat-label">Artists</div></div>
-                            <div class="stat-item"><div class="stat-number">$15-1.2K</div><div class="stat-label">Price Range</div></div>
+                            <div class="stat-item"><div class="stat-number">₹15-1.2K</div><div class="stat-label">Price Range</div></div>
                         </div>
 
                         <div class="category-tags">
@@ -976,6 +946,10 @@
         const gridContainer = document.getElementById('grid-container');
         const listContainer = document.getElementById('list-container');
         const resultsCount = document.getElementById('results-count');
+        // ========== SEARCH FUNCTIONALITY ==========
+        const searchInput = document.getElementById('search-input');
+        const searchButton = document.getElementById('search-button');
+// ... rest of the search code
 
         gridBtn.addEventListener('click', () => {
             gridBtn.classList.add('active');
