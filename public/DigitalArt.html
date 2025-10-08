@@ -89,7 +89,7 @@
 
     .page-header {
       text-align:center;
-      margin-bottom:50px;
+      margin-bottom:30px;
     }
 
     .page-header h1 {
@@ -107,11 +107,151 @@
       line-height:1.6;
     }
 
+    /* Search and Filter Section */
+    .search-filter-section {
+      background:white;
+      padding:25px;
+      border-radius:20px;
+      box-shadow:0 5px 20px rgba(0,0,0,0.1);
+      margin-bottom:30px;
+    }
+
+    .search-bar-container {
+      display:flex;
+      gap:15px;
+      margin-bottom:20px;
+      align-items:center;
+    }
+
+    .search-input-wrapper {
+      position:relative;
+      flex:1;
+    }
+
+    .search-input-wrapper i {
+      position:absolute;
+      left:20px;
+      top:50%;
+      transform:translateY(-50%);
+      color:#666;
+      font-size:16px;
+    }
+
+    .search-input-wrapper input {
+      width:100%;
+      padding:15px 20px 15px 50px;
+      border:2px solid #e0e0e0;
+      border-radius:30px;
+      font-size:15px;
+      outline:none;
+      transition:all 0.3s ease;
+      font-family:'Poppins',sans-serif;
+    }
+
+    .search-input-wrapper input:focus {
+      border-color:#8E2DE2;
+      box-shadow:0 0 0 3px rgba(142,45,226,0.1);
+    }
+
+    .search-button {
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      color:white;
+      border:none;
+      padding:15px 40px;
+      border-radius:30px;
+      font-weight:500;
+      cursor:pointer;
+      transition:all 0.3s ease;
+      font-size:15px;
+      white-space:nowrap;
+    }
+
+    .search-button:hover {
+      transform:translateY(-2px);
+      box-shadow:0 5px 15px rgba(142,45,226,0.3);
+    }
+
+    .filters-row {
+      display:flex;
+      gap:20px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .filter-group {
+      display:flex;
+      align-items:center;
+      gap:15px;
+    }
+
+    .filter-label {
+      font-weight:500;
+      color:#333;
+      font-size:15px;
+      white-space:nowrap;
+    }
+
+    .filter-select {
+      padding:12px 40px 12px 20px;
+      border:2px solid #e0e0e0;
+      border-radius:25px;
+      font-size:14px;
+      outline:none;
+      cursor:pointer;
+      background:white;
+      font-family:'Poppins',sans-serif;
+      font-weight:500;
+      color:#333;
+      transition:all 0.3s ease;
+      appearance:none;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+      background-repeat:no-repeat;
+      background-position:right 15px center;
+      min-width:180px;
+    }
+
+    .filter-select:hover {
+      border-color:#8E2DE2;
+    }
+
+    .filter-select:focus {
+      border-color:#8E2DE2;
+      box-shadow:0 0 0 3px rgba(142,45,226,0.1);
+    }
+
+    .view-toggle {
+      margin-left:auto;
+      display:flex;
+      gap:10px;
+    }
+
+    .view-btn {
+      width:45px;
+      height:45px;
+      border:2px solid #e0e0e0;
+      border-radius:12px;
+      background:white;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#666;
+      transition:all 0.3s ease;
+      font-size:18px;
+    }
+
+    .view-btn:hover, .view-btn.active {
+      border-color:#8E2DE2;
+      color:#8E2DE2;
+      background:rgba(142,45,226,0.05);
+    }
+
     /* Art Grid - Matching home.html cards */
     .art-grid {
       display:grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap:25px;
+      transition:all 0.3s ease;
     }
 
     .art-card {
@@ -241,6 +381,12 @@
       .container { 
         padding:30px; 
       }
+      .filters-row {
+        gap:15px;
+      }
+      .filter-select {
+        min-width:150px;
+      }
     }
 
     @media (max-width:768px) {
@@ -257,6 +403,28 @@
       .nav-links a {
         padding:6px 12px;
         font-size:0.9rem;
+      }
+      .search-bar-container {
+        flex-direction:column;
+      }
+      .search-button {
+        width:100%;
+      }
+      .filters-row {
+        flex-direction:column;
+        align-items:stretch;
+      }
+      .filter-group {
+        flex-direction:column;
+        align-items:stretch;
+        gap:10px;
+      }
+      .view-toggle {
+        margin-left:0;
+        justify-content:center;
+      }
+      .search-filter-section {
+        padding:20px;
       }
     }
 
@@ -317,6 +485,59 @@
     <div class="page-header">
       <h1>Digital Art Collection</h1>
       <p>Explore cutting-edge digital artworks - illustrations, concept art, 3D renders, and NFT-style pieces. Where technology meets creativity.</p>
+    </div>
+
+    <!-- Search and Filter Section -->
+    <div class="search-filter-section">
+      <div class="search-bar-container">
+        <div class="search-input-wrapper">
+          <i class="fas fa-search"></i>
+          <input type="text" id="searchInput" placeholder="Search digital art, artists, or styles...">
+        </div>
+        <button class="search-button" id="searchBtn">Search</button>
+      </div>
+
+      <div class="filters-row">
+        <div class="filter-group">
+          <span class="filter-label">Sort by:</span>
+          <select class="filter-select" id="sortSelect">
+            <option value="popular">Most Popular</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="newest">Newest First</option>
+            <option value="artist">Artist Name</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <span class="filter-label">Price Range:</span>
+          <select class="filter-select" id="priceSelect">
+            <option value="all">All Prices</option>
+            <option value="0-25000">Under ₹25,000</option>
+            <option value="25000-35000">₹25,000 - ₹35,000</option>
+            <option value="35000-45000">₹35,000 - ₹45,000</option>
+            <option value="45000+">Above ₹45,000</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <span class="filter-label">Availability:</span>
+          <select class="filter-select" id="availabilitySelect">
+            <option value="all">All Items</option>
+            <option value="in-stock">In Stock</option>
+            <option value="limited">Limited Edition</option>
+          </select>
+        </div>
+
+        <div class="view-toggle">
+          <button class="view-btn active" id="gridViewBtn" title="Grid View">
+            <i class="fas fa-th"></i>
+          </button>
+          <button class="view-btn" id="listViewBtn" title="List View">
+            <i class="fas fa-list"></i>
+          </button>
+        </div>
+      </div>
     </div>
 
     <div class="art-grid">
@@ -467,6 +688,125 @@
           btn.style.transform = 'translateY(-1px)';
         }, 150);
       });
+    });
+
+    // Search functionality
+    const searchInput = document.getElementById('searchInput');
+    const searchBtn = document.getElementById('searchBtn');
+    
+    searchBtn.addEventListener('click', performSearch);
+    searchInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        performSearch();
+      }
+    });
+
+    function performSearch() {
+      const query = searchInput.value.toLowerCase().trim();
+      const cards = document.querySelectorAll('.art-card');
+      
+      cards.forEach(card => {
+        const title = card.querySelector('.art-title').textContent.toLowerCase();
+        const artist = card.querySelector('.artist-name').textContent.toLowerCase();
+        const desc = card.querySelector('.art-desc').textContent.toLowerCase();
+        
+        if (title.includes(query) || artist.includes(query) || desc.includes(query) || query === '') {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Sort functionality
+    const sortSelect = document.getElementById('sortSelect');
+    sortSelect.addEventListener('change', sortArtworks);
+
+    function sortArtworks() {
+      const grid = document.querySelector('.art-grid');
+      const cards = Array.from(document.querySelectorAll('.art-card'));
+      const sortValue = sortSelect.value;
+      
+      let sortedCards = [...cards];
+      
+      switch(sortValue) {
+        case 'price-low':
+          sortedCards.sort((a, b) => {
+            const priceA = parseInt(a.querySelector('.price').textContent.replace(/₹|,/g, ''));
+            const priceB = parseInt(b.querySelector('.price').textContent.replace(/₹|,/g, ''));
+            return priceA - priceB;
+          });
+          break;
+        case 'price-high':
+          sortedCards.sort((a, b) => {
+            const priceA = parseInt(a.querySelector('.price').textContent.replace(/₹|,/g, ''));
+            const priceB = parseInt(b.querySelector('.price').textContent.replace(/₹|,/g, ''));
+            return priceB - priceA;
+          });
+          break;
+        case 'artist':
+          sortedCards.sort((a, b) => {
+            const artistA = a.querySelector('.artist-name').textContent;
+            const artistB = b.querySelector('.artist-name').textContent;
+            return artistA.localeCompare(artistB);
+          });
+          break;
+        case 'newest':
+          sortedCards.reverse();
+          break;
+      }
+      
+      // Clear and re-append sorted cards
+      grid.innerHTML = '';
+      sortedCards.forEach(card => grid.appendChild(card));
+    }
+
+    // Price filter functionality
+    const priceSelect = document.getElementById('priceSelect');
+    priceSelect.addEventListener('change', filterByPrice);
+
+    function filterByPrice() {
+      const priceRange = priceSelect.value;
+      const cards = document.querySelectorAll('.art-card');
+      
+      cards.forEach(card => {
+        const price = parseInt(card.querySelector('.price').textContent.replace(/₹|,/g, ''));
+        let show = true;
+        
+        switch(priceRange) {
+          case '0-25000':
+            show = price < 25000;
+            break;
+          case '25000-35000':
+            show = price >= 25000 && price <= 35000;
+            break;
+          case '35000-45000':
+            show = price >= 35000 && price <= 45000;
+            break;
+          case '45000+':
+            show = price > 45000;
+            break;
+        }
+        
+        card.style.display = show ? '' : 'none';
+      });
+    }
+
+    // View toggle functionality
+    const gridViewBtn = document.getElementById('gridViewBtn');
+    const listViewBtn = document.getElementById('listViewBtn');
+    const artGrid = document.querySelector('.art-grid');
+
+    gridViewBtn.addEventListener('click', () => {
+      gridViewBtn.classList.add('active');
+      listViewBtn.classList.remove('active');
+      artGrid.style.gridTemplateColumns = 'repeat(auto-fit, minmax(280px, 1fr))';
+    });
+
+    listViewBtn.addEventListener('click', () => {
+      listViewBtn.classList.add('active');
+      gridViewBtn.classList.remove('active');
+      artGrid.style.gridTemplateColumns = '1fr';
     });
   </script>
 </body>
