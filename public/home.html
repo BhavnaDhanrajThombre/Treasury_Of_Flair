@@ -782,12 +782,7 @@
             <form action="search_page.html">
   <button class="search-btn" type="submit">Search</button>
 </form>
-
-             
-            <!-- Navbar Avatar -->
-            <!-- <div class="user-avatar" id="user-avatar">U</div> -->
-
-        </div>
+</div>
     </nav>
 
     <!-- Main Layout -->
@@ -1306,6 +1301,16 @@
     document.querySelector('.sidebar .user-info').addEventListener('click', () => {
         window.location.href = 'Account.html';
     });
+});
+
+
+// Navigate to search page when user clicks/focuses the search input
+searchInput.addEventListener('focus', () => {
+    window.location.href = 'search_page.html';
+});
+
+searchInput.addEventListener('click', () => {
+    window.location.href = 'search_page.html';
 });
 
     </script>

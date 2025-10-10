@@ -1040,6 +1040,15 @@
             });
         }
     });
+
+    // Navigate to search page on input focus
+const searchInputField = document.getElementById('search-input');
+if (searchInputField) {
+    searchInputField.addEventListener('focus', () => {
+        window.location.href = 'search_page.html'; // Change to your actual search page URL
+    });
+}
+
 </script>
 
 </body>

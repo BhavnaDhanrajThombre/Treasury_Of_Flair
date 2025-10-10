@@ -396,10 +396,10 @@
             <li><a href="home.html">Home</a></li>
             <li><a href="categories_page.html">Categories</a></li>
             <li><a href="reels.html">Reels</a></li>
-            <li><a href="orders.html">My Orders</a></li>
+            <li><a href="MyOrders.html">My Orders</a></li>
         </ul>
         <div class="nav-right">
-            <div class="user-avatar">P</div>
+            <div class="user-avatar" id="user-avatar">U</div>
         </div>
     </nav>
 
@@ -518,6 +518,41 @@ window.onload = () => {
         performSearch();
     }
 };
+
+async function loadUser() {
+    try {
+        const res = await fetch("http://localhost:5000/home", {
+            method: "GET",
+            credentials: "include",
+            headers: { "Accept": "application/json" }
+        });
+        const data = await res.json();
+
+        if (data.username) {
+            // Set avatars to first letter of username
+            const initial = data.username.charAt(0).toUpperCase();
+            document.getElementById("user-avatar").textContent = initial;
+            document.getElementById("sidebar-avatar").textContent = initial;
+        }
+    } catch (err) {
+        console.error("Error fetching user:", err);
+    }
+}
+
+// Run after DOM loads
+document.addEventListener("DOMContentLoaded", loadUser);
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Navbar avatar click
+    document.getElementById('user-avatar').addEventListener('click', () => {
+        window.location.href = 'Account.html';
+    });
+    
+    // Sidebar avatar click
+    document.getElementById('sidebar-avatar').addEventListener('click', () => {
+        window.location.href = 'Account.html';
+    });
+});
 
   </script>
 </body>
