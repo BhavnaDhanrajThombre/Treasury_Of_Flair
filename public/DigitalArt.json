@@ -1,115 +1,478 @@
 {
-  "category": "Digital Art",
-  "description": "Explore cutting-edge digital artworks - illustrations, concept art, 3D renders, and NFT-style pieces. Where technology meets creativity.",
+  "metadata": {
+    "database_name": "Treasury of Flair - Digital Art Collection",
+    "version": "1.0",
+    "last_updated": "2025-10-11",
+    "total_artworks": 10,
+    "category": "Digital Art"
+  },
   "artworks": [
     {
-      "id": 1,
+      "id": "DA001",
       "title": "Neon Dreams",
-      "artist": "Alex Cipher",
+      "artist": {
+        "name": "Alex Cipher",
+        "id": "ART001"
+      },
       "description": "Cyberpunk-inspired digital illustration featuring neon lights and futuristic cityscapes.",
-      "price": 26500,
-      "currency": "INR",
-      "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=900&q=80",
-      "imageAlt": "Cyberpunk art"
+      "price": {
+        "amount": 26500,
+        "currency": "INR",
+        "formatted": "₹26,500"
+      },
+      "image": {
+        "path": "Images/Neon Dreams.jpeg",
+        "alt": "Cyberpunk art"
+      },
+      "category": "Digital Art",
+      "subcategory": "Cyberpunk",
+      "tags": ["cyberpunk", "neon", "futuristic", "cityscape", "illustration"],
+      "availability": "in-stock",
+      "edition": "limited",
+      "dimensions": {
+        "width": 3840,
+        "height": 2160,
+        "unit": "pixels"
+      },
+      "file_format": "JPEG",
+      "created_date": "2025-09-15",
+      "popularity_score": 8.5
     },
     {
-      "id": 2,
+      "id": "DA002",
       "title": "Cosmic Guardian",
-      "artist": "Maya Rodriguez",
+      "artist": {
+        "name": "Maya Rodriguez",
+        "id": "ART002"
+      },
       "description": "3D character design blending sci-fi elements with mystical aesthetics.",
-      "price": 37200,
-      "currency": "INR",
-      "image": "https://images.unsplash.com/photo-1634986666676-ec8fd927c23d?w=900&q=80",
-      "imageAlt": "3D character"
+      "price": {
+        "amount": 37200,
+        "currency": "INR",
+        "formatted": "₹37,200"
+      },
+      "image": {
+        "path": "Images/Cosmic Guardian.jpeg",
+        "alt": "3D character"
+      },
+      "category": "Digital Art",
+      "subcategory": "3D Character Design",
+      "tags": ["3d", "character", "sci-fi", "mystical", "design"],
+      "availability": "in-stock",
+      "edition": "limited",
+      "dimensions": {
+        "width": 4096,
+        "height": 4096,
+        "unit": "pixels"
+      },
+      "file_format": "JPEG",
+      "created_date": "2025-09-20",
+      "popularity_score": 9.2
     },
     {
-      "id": 3,
+      "id": "DA003",
       "title": "Digital Fragments",
-      "artist": "Kai Nakamura",
+      "artist": {
+        "name": "Kai Nakamura",
+        "id": "ART003"
+      },
       "description": "Generative art exploring geometric patterns and vibrant color palettes.",
-      "price": 23150,
-      "currency": "INR",
-      "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=900&q=80",
-      "imageAlt": "Abstract digital"
+      "price": {
+        "amount": 23150,
+        "currency": "INR",
+        "formatted": "₹23,150"
+      },
+      "image": {
+        "path": "Images/Digital Fragments.jpeg",
+        "alt": "Abstract digital"
+      },
+      "category": "Digital Art",
+      "subcategory": "Generative Art",
+      "tags": ["generative", "geometric", "abstract", "patterns", "colorful"],
+      "availability": "in-stock",
+      "edition": "standard",
+      "dimensions": {
+        "width": 3000,
+        "height": 3000,
+        "unit": "pixels"
+      },
+      "file_format": "JPEG",
+      "created_date": "2025-08-30",
+      "popularity_score": 7.8
     },
     {
-      "id": 4,
+      "id": "DA004",
       "title": "Enchanted Forest",
-      "artist": "Sofia Martinez",
+      "artist": {
+        "name": "Sofia Martinez",
+        "id": "ART004"
+      },
       "description": "Fantasy digital painting with magical creatures and ethereal lighting effects.",
-      "price": 31400,
-      "currency": "INR",
-      "image": "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=900&q=80",
-      "imageAlt": "Fantasy illustration"
+      "price": {
+        "amount": 31400,
+        "currency": "INR",
+        "formatted": "₹31,400"
+      },
+      "image": {
+        "path": "Images/Enchanted Forest.jpeg",
+        "alt": "Fantasy illustration"
+      },
+      "category": "Digital Art",
+      "subcategory": "Fantasy Painting",
+      "tags": ["fantasy", "magical", "creatures", "forest", "painting"],
+      "availability": "in-stock",
+      "edition": "limited",
+      "dimensions": {
+        "width": 3600,
+        "height": 2400,
+        "unit": "pixels"
+      },
+      "file_format": "JPEG",
+      "created_date": "2025-09-10",
+      "popularity_score": 8.9
     },
     {
-      "id": 5,
+      "id": "DA005",
       "title": "Beyond Reality",
-      "artist": "David Chen",
+      "artist": {
+        "name": "David Chen",
+        "id": "ART005"
+      },
       "description": "Surreal digital composition merging dreams with digital manipulation techniques.",
-      "price": 34700,
-      "currency": "INR",
-      "image": "https://images.unsplash.com/photo-1618556450994-a6a128ef0d9d?w=900&q=80",
-      "imageAlt": "Surreal digital"
+      "price": {
+        "amount": 34700,
+        "currency": "INR",
+        "formatted": "₹34,700"
+      },
+      "image": {
+        "path": "Images/Beyond Reality.jpeg",
+        "alt": "Surreal digital"
+      },
+      "category": "Digital Art",
+      "subcategory": "Surrealism",
+      "tags": ["surreal", "dreams", "manipulation", "abstract", "composition"],
+      "availability": "in-stock",
+      "edition": "limited",
+      "dimensions": {
+        "width": 4000,
+        "height": 3000,
+        "unit": "pixels"
+      },
+      "file_format": "JPEG",
+      "created_date": "2025-09-18",
+      "popularity_score": 8.7
     },
     {
-      "id": 6,
+      "id": "DA006",
       "title": "Quantum Collector",
-      "artist": "Zara Williams",
+      "artist": {
+        "name": "Zara Williams",
+        "id": "ART006"
+      },
       "description": "NFT-style artwork featuring bold colors and modern digital aesthetics.",
-      "price": 45450,
-      "currency": "INR",
-      "image": "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=900&q=80",
-      "imageAlt": "NFT art"
+      "price": {
+        "amount": 45450,
+        "currency": "INR",
+        "formatted": "₹45,450"
+      },
+      "image": {
+        "path": "Images/Quantum Collector.jpeg",
+        "alt": "NFT art"
+      },
+      "category": "Digital Art",
+      "subcategory": "NFT Style",
+      "tags": ["nft", "bold", "modern", "digital", "collectible"],
+      "availability": "in-stock",
+      "edition": "limited",
+      "dimensions": {
+        "width": 3000,
+        "height": 3000,
+        "unit": "pixels"
+      },
+      "file_format": "JPEG",
+      "created_date": "2025-09-25",
+      "popularity_score": 9.5
     },
     {
-      "id": 7,
+      "id": "DA007",
       "title": "Future Metropolis",
-      "artist": "Lucas Kim",
+      "artist": {
+        "name": "Lucas Kim",
+        "id": "ART007"
+      },
       "description": "Detailed concept art of futuristic architecture and urban landscapes.",
-      "price": 40500,
-      "currency": "INR",
-      "image": "https://images.unsplash.com/photo-1618172193622-ae2d025f4032?w=900&q=80",
-      "imageAlt": "Concept art"
+      "price": {
+        "amount": 40500,
+        "currency": "INR",
+        "formatted": "₹40,500"
+      },
+      "image": {
+        "path": "Images/Future Metropolis.jpeg",
+        "alt": "Concept art"
+      },
+      "category": "Digital Art",
+      "subcategory": "Concept Art",
+      "tags": ["concept", "futuristic", "architecture", "urban", "cityscape"],
+      "availability": "in-stock",
+      "edition": "limited",
+      "dimensions": {
+        "width": 5120,
+        "height": 2880,
+        "unit": "pixels"
+      },
+      "file_format": "JPEG",
+      "created_date": "2025-09-22",
+      "popularity_score": 9.0
     },
     {
-      "id": 8,
+      "id": "DA008",
       "title": "Avatar Genesis",
-      "artist": "Emma Thompson",
+      "artist": {
+        "name": "Emma Thompson",
+        "id": "ART008"
+      },
       "description": "Character design illustration with intricate details and dynamic poses.",
-      "price": 28900,
-      "currency": "INR",
-      "image": "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=900&q=80",
-      "imageAlt": "Character design"
+      "price": {
+        "amount": 28900,
+        "currency": "INR",
+        "formatted": "₹28,900"
+      },
+      "image": {
+        "path": "Images/Avatar Genesis.jpeg",
+        "alt": "Character design"
+      },
+      "category": "Digital Art",
+      "subcategory": "Character Design",
+      "tags": ["character", "design", "illustration", "avatar", "dynamic"],
+      "availability": "in-stock",
+      "edition": "standard",
+      "dimensions": {
+        "width": 2400,
+        "height": 3200,
+        "unit": "pixels"
+      },
+      "file_format": "JPEG",
+      "created_date": "2025-09-12",
+      "popularity_score": 8.3
     },
     {
-      "id": 9,
+      "id": "DA009",
       "title": "Glitch Symphony",
-      "artist": "Ryan Park",
+      "artist": {
+        "name": "Ryan Park",
+        "id": "ART009"
+      },
       "description": "Experimental glitch art combining digital distortion with artistic expression.",
-      "price": 23950,
-      "currency": "INR",
-      "image": "https://images.unsplash.com/photo-1618556450991-2f1af64e8191?w=900&q=80",
-      "imageAlt": "Glitch art"
+      "price": {
+        "amount": 23950,
+        "currency": "INR",
+        "formatted": "₹23,950"
+      },
+      "image": {
+        "path": "Images/Glitch Symphony.jpeg",
+        "alt": "Glitch art"
+      },
+      "category": "Digital Art",
+      "subcategory": "Glitch Art",
+      "tags": ["glitch", "experimental", "distortion", "digital", "abstract"],
+      "availability": "in-stock",
+      "edition": "standard",
+      "dimensions": {
+        "width": 3200,
+        "height": 3200,
+        "unit": "pixels"
+      },
+      "file_format": "JPEG",
+      "created_date": "2025-09-05",
+      "popularity_score": 7.5
     },
     {
-      "id": 10,
+      "id": "DA010",
       "title": "Digital Horizons",
-      "artist": "Priya Sharma",
+      "artist": {
+        "name": "Priya Sharma",
+        "id": "ART010"
+      },
       "description": "Breathtaking digital landscape with stunning lighting and atmospheric depth.",
-      "price": 33850,
-      "currency": "INR",
-      "image": "https://images.unsplash.com/photo-1617791160505-6f00504e3519?w=900&q=80",
-      "imageAlt": "Digital landscape"
+      "price": {
+        "amount": 33850,
+        "currency": "INR",
+        "formatted": "₹33,850"
+      },
+      "image": {
+        "path": "Images/Digital Horizons.jpeg",
+        "alt": "Digital landscape"
+      },
+      "category": "Digital Art",
+      "subcategory": "Digital Landscape",
+      "tags": ["landscape", "lighting", "atmospheric", "scenery", "breathtaking"],
+      "availability": "in-stock",
+      "edition": "limited",
+      "dimensions": {
+        "width": 4800,
+        "height": 2700,
+        "unit": "pixels"
+      },
+      "file_format": "JPEG",
+      "created_date": "2025-09-28",
+      "popularity_score": 8.8
     }
   ],
-  "metadata": {
-    "totalArtworks": 10,
-    "priceRange": {
-      "min": 23150,
-      "max": 45450,
-      "currency": "INR"
+  "artists": [
+    {
+      "id": "ART001",
+      "name": "Alex Cipher",
+      "specialty": "Cyberpunk & Futuristic Art",
+      "bio": "Digital artist specializing in neon-infused cyberpunk aesthetics",
+      "artworks_count": 1
     },
-    "lastUpdated": "2025-10-08"
+    {
+      "id": "ART002",
+      "name": "Maya Rodriguez",
+      "specialty": "3D Character Design",
+      "bio": "3D artist creating unique characters that blend multiple genres",
+      "artworks_count": 1
+    },
+    {
+      "id": "ART003",
+      "name": "Kai Nakamura",
+      "specialty": "Generative & Abstract Art",
+      "bio": "Explores the intersection of code and creativity through generative art",
+      "artworks_count": 1
+    },
+    {
+      "id": "ART004",
+      "name": "Sofia Martinez",
+      "specialty": "Fantasy Digital Painting",
+      "bio": "Creates magical worlds filled with wonder and ethereal beauty",
+      "artworks_count": 1
+    },
+    {
+      "id": "ART005",
+      "name": "David Chen",
+      "specialty": "Surreal Digital Art",
+      "bio": "Master of digital manipulation creating dreamlike compositions",
+      "artworks_count": 1
+    },
+    {
+      "id": "ART006",
+      "name": "Zara Williams",
+      "specialty": "NFT & Contemporary Digital",
+      "bio": "Pushing boundaries with bold, modern digital aesthetics",
+      "artworks_count": 1
+    },
+    {
+      "id": "ART007",
+      "name": "Lucas Kim",
+      "specialty": "Concept Art & Architecture",
+      "bio": "Visionary concept artist designing the cities of tomorrow",
+      "artworks_count": 1
+    },
+    {
+      "id": "ART008",
+      "name": "Emma Thompson",
+      "specialty": "Character Illustration",
+      "bio": "Bringing characters to life with dynamic poses and intricate details",
+      "artworks_count": 1
+    },
+    {
+      "id": "ART009",
+      "name": "Ryan Park",
+      "specialty": "Experimental & Glitch Art",
+      "bio": "Experimental artist exploring digital distortion as an art form",
+      "artworks_count": 1
+    },
+    {
+      "id": "ART010",
+      "name": "Priya Sharma",
+      "specialty": "Digital Landscapes",
+      "bio": "Creating breathtaking digital landscapes with cinematic lighting",
+      "artworks_count": 1
+    }
+  ],
+  "categories": {
+    "main": "Digital Art",
+    "subcategories": [
+      "Cyberpunk",
+      "3D Character Design",
+      "Generative Art",
+      "Fantasy Painting",
+      "Surrealism",
+      "NFT Style",
+      "Concept Art",
+      "Character Design",
+      "Glitch Art",
+      "Digital Landscape"
+    ]
+  },
+  "filters": {
+    "price_ranges": [
+      {
+        "id": "all",
+        "label": "All Prices",
+        "min": 0,
+        "max": null
+      },
+      {
+        "id": "0-25000",
+        "label": "Under ₹25,000",
+        "min": 0,
+        "max": 25000
+      },
+      {
+        "id": "25000-35000",
+        "label": "₹25,000 - ₹35,000",
+        "min": 25000,
+        "max": 35000
+      },
+      {
+        "id": "35000-45000",
+        "label": "₹35,000 - ₹45,000",
+        "min": 35000,
+        "max": 45000
+      },
+      {
+        "id": "45000+",
+        "label": "Above ₹45,000",
+        "min": 45000,
+        "max": null
+      }
+    ],
+    "sort_options": [
+      {
+        "id": "popular",
+        "label": "Most Popular"
+      },
+      {
+        "id": "price-low",
+        "label": "Price: Low to High"
+      },
+      {
+        "id": "price-high",
+        "label": "Price: High to Low"
+      },
+      {
+        "id": "newest",
+        "label": "Newest First"
+      },
+      {
+        "id": "artist",
+        "label": "Artist Name"
+      }
+    ],
+    "availability_options": [
+      {
+        "id": "all",
+        "label": "All Items"
+      },
+      {
+        "id": "in-stock",
+        "label": "In Stock"
+      },
+      {
+        "id": "limited",
+        "label": "Limited Edition"
+      }
+    ]
   }
 }

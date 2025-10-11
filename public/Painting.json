@@ -1,280 +1,493 @@
 {
-  "category": "Paintings",
-  "category_id": "paintings_001",
-  "description": "Explore handpicked painting styles - classic oils, watercolor, abstract, and more. Each piece tells a unique story.",
-  "total_artworks": 10,
+  "metadata": {
+    "database_name": "Treasury of Flair - Paintings Collection",
+    "version": "1.0",
+    "last_updated": "2025-10-11",
+    "total_artworks": 10,
+    "category": "Paintings"
+  },
   "artworks": [
     {
-      "id": "paint_001",
+      "id": "PA001",
       "title": "Golden Hour Portrait",
       "artist": {
         "name": "Clara Smith",
-        "id": "artist_001"
+        "id": "ART011"
       },
       "description": "Oil on canvas capturing the warm light of dusk - bold yet delicate strokes.",
-      "price": 250,
-      "currency": "INR",
+      "price": {
+        "amount": 250,
+        "currency": "INR",
+        "formatted": "₹250"
+      },
+      "image": {
+        "path": "Images/Golden Hour Portrait.jpeg",
+        "alt": "Portrait painting"
+      },
+      "category": "Paintings",
+      "subcategory": "Portrait",
       "medium": "Oil on Canvas",
-      "style": ["Portrait", "Realism", "Contemporary"],
+      "tags": ["portrait", "oil", "golden hour", "dusk", "warm light"],
+      "availability": "in-stock",
+      "edition": "limited",
       "dimensions": {
         "width": 24,
         "height": 36,
         "unit": "inches"
       },
-      "image_url": "https://media.istockphoto.com/id/2170496135/photo/golden-hour-greeting.webp?a=1&b=1&s=612x612&w=0&k=20&c=JTV6L3Z3cSFU2iQQzT4F6U_MfZuDU6pKrwY5XP9Klt0=",
-      "availability": "in_stock",
-      "quantity": 1,
-      "tags": ["oil", "portrait", "warm", "contemporary", "dusk"],
-      "created_date": "2024-01-15",
-      "rating": 4.8,
-      "reviews_count": 24
+      "year": 2025,
+      "created_date": "2025-08-15",
+      "popularity_score": 9.1
     },
     {
-      "id": "paint_002",
+      "id": "PA002",
       "title": "Whispering Mountains",
       "artist": {
         "name": "Daniel Grey",
-        "id": "artist_002"
+        "id": "ART012"
       },
       "description": "Soft gradients of mountain air - blending realism and imagination.",
-      "price": 180,
-      "currency": "INR",
+      "price": {
+        "amount": 180,
+        "currency": "INR",
+        "formatted": "₹180"
+      },
+      "image": {
+        "path": "Images/Whispering Mountains.jpeg",
+        "alt": "Landscape painting"
+      },
+      "category": "Paintings",
+      "subcategory": "Landscape",
       "medium": "Oil on Canvas",
-      "style": ["Landscape", "Realism", "Impressionism"],
+      "tags": ["landscape", "mountains", "realism", "nature", "gradients"],
+      "availability": "in-stock",
+      "edition": "standard",
       "dimensions": {
         "width": 30,
         "height": 20,
         "unit": "inches"
       },
-      "image_url": "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=900&q=80",
-      "availability": "in_stock",
-      "quantity": 1,
-      "tags": ["landscape", "mountains", "oil", "realism", "nature"],
-      "created_date": "2024-02-10",
-      "rating": 4.6,
-      "reviews_count": 18
+      "year": 2025,
+      "created_date": "2025-07-22",
+      "popularity_score": 8.4
     },
     {
-      "id": "paint_003",
+      "id": "PA003",
       "title": "Fragments of Thought",
       "artist": {
         "name": "Riya Kapoor",
-        "id": "artist_003"
+        "id": "ART013"
       },
       "description": "Acrylic abstraction exploring the chaos and rhythm of human emotion.",
-      "price": 220,
-      "currency": "INR",
+      "price": {
+        "amount": 220,
+        "currency": "INR",
+        "formatted": "₹220"
+      },
+      "image": {
+        "path": "Images/Fragments of Thought.jpeg",
+        "alt": "Abstract art"
+      },
+      "category": "Paintings",
+      "subcategory": "Abstract",
       "medium": "Acrylic on Canvas",
-      "style": ["Abstract", "Contemporary", "Expressionism"],
+      "tags": ["abstract", "acrylic", "emotion", "chaos", "contemporary"],
+      "availability": "in-stock",
+      "edition": "limited",
       "dimensions": {
-        "width": 28,
-        "height": 28,
+        "width": 36,
+        "height": 36,
         "unit": "inches"
       },
-      "image_url": "https://media.istockphoto.com/id/2235609371/photo/conceptual-image-of-person-in-digital-fragments.webp?a=1&b=1&s=612x612&w=0&k=20&c=9fpKVSYKZPcUzgz_xZAQstYtLwPr-QIqTUqj5rB7AMQ=",
-      "availability": "in_stock",
-      "quantity": 1,
-      "tags": ["abstract", "acrylic", "emotion", "contemporary", "expressionism"],
-      "created_date": "2024-01-28",
-      "rating": 4.9,
-      "reviews_count": 32
+      "year": 2025,
+      "created_date": "2025-08-05",
+      "popularity_score": 8.7
     },
     {
-      "id": "paint_004",
+      "id": "PA004",
       "title": "Dreamy Petals",
       "artist": {
         "name": "Hana Li",
-        "id": "artist_004"
+        "id": "ART014"
       },
       "description": "Soft watercolor florals that bloom gently across the paper.",
-      "price": 130,
-      "currency": "INR",
+      "price": {
+        "amount": 130,
+        "currency": "INR",
+        "formatted": "₹130"
+      },
+      "image": {
+        "path": "Images/Dreamy Petals.jpeg",
+        "alt": "Watercolor art"
+      },
+      "category": "Paintings",
+      "subcategory": "Watercolor",
       "medium": "Watercolor on Paper",
-      "style": ["Floral", "Watercolor", "Botanical"],
+      "tags": ["watercolor", "floral", "soft", "nature", "delicate"],
+      "availability": "in-stock",
+      "edition": "standard",
       "dimensions": {
         "width": 16,
         "height": 20,
         "unit": "inches"
       },
-      "image_url": "https://media.istockphoto.com/id/1138329703/photo/spring-blossom.webp?a=1&b=1&s=612x612&w=0&k=20&c=pzWJmSrcDxXCZ2AkDwDi1Cjqx-Fb_TrRC53GFgUGckw=",
-      "availability": "in_stock",
-      "quantity": 2,
-      "tags": ["watercolor", "floral", "botanical", "soft", "spring"],
-      "created_date": "2024-03-05",
-      "rating": 4.7,
-      "reviews_count": 21
+      "year": 2025,
+      "created_date": "2025-06-18",
+      "popularity_score": 7.9
     },
     {
-      "id": "paint_005",
+      "id": "PA005",
       "title": "Mindscapes",
       "artist": {
         "name": "Ethan Cole",
-        "id": "artist_005"
+        "id": "ART015"
       },
       "description": "A surreal oil painting merging inner thoughts with dreamy visuals.",
-      "price": 340,
-      "currency": "INR",
+      "price": {
+        "amount": 340,
+        "currency": "INR",
+        "formatted": "₹340"
+      },
+      "image": {
+        "path": "Images/Mindscapes.jpeg",
+        "alt": "Surreal painting"
+      },
+      "category": "Paintings",
+      "subcategory": "Surrealism",
       "medium": "Oil on Canvas",
-      "style": ["Surrealism", "Abstract", "Contemporary"],
+      "tags": ["surreal", "oil", "dreamlike", "thought", "imagination"],
+      "availability": "in-stock",
+      "edition": "limited",
       "dimensions": {
-        "width": 32,
-        "height": 40,
-        "unit": "inches"
-      },
-      "image_url": "https://media.istockphoto.com/id/527372799/photo/mindscapes.webp?a=1&b=1&s=612x612&w=0&k=20&c=6FXmLlQgh4ZNboRjDYrhqijsYc5Q-N4GNSvKkxEzbIg=",
-      "availability": "in_stock",
-      "quantity": 1,
-      "tags": ["surreal", "oil", "abstract", "dreamlike", "contemporary"],
-      "created_date": "2024-01-20",
-      "rating": 5.0,
-      "reviews_count": 41
-    },
-    {
-      "id": "paint_006",
-      "title": "Blue Horizon",
-      "artist": {
-        "name": "Lucas James",
-        "id": "artist_006"
-      },
-      "description": "Oil seascape reflecting stillness and motion of the ocean.",
-      "price": 290,
-      "currency": "INR",
-      "medium": "Oil on Canvas",
-      "style": ["Seascape", "Realism", "Marine"],
-      "dimensions": {
-        "width": 36,
-        "height": 24,
-        "unit": "inches"
-      },
-      "image_url": "https://media.istockphoto.com/id/1325299873/photo/blue-sky-over-the-sea.webp?a=1&b=1&s=612x612&w=0&k=20&c=x-lp1qrccn5p-VWNSVVlc2ahi5v2frsYsyqxgLOWwTc=",
-      "availability": "in_stock",
-      "quantity": 1,
-      "tags": ["seascape", "ocean", "oil", "blue", "realism"],
-      "created_date": "2024-02-18",
-      "rating": 4.8,
-      "reviews_count": 28
-    },
-    {
-      "id": "paint_007",
-      "title": "Eternal Gaze",
-      "artist": {
-        "name": "Noor Rahman",
-        "id": "artist_007"
-      },
-      "description": "Expressive acrylic portrait exploring depth through minimal brushwork.",
-      "price": 200,
-      "currency": "INR",
-      "medium": "Acrylic on Canvas",
-      "style": ["Portrait", "Expressionism", "Contemporary"],
-      "dimensions": {
-        "width": 20,
+        "width": 40,
         "height": 30,
         "unit": "inches"
       },
-      "image_url": "https://media.istockphoto.com/id/108329959/photo/time-is-damage.webp?a=1&b=1&s=612x612&w=0&k=20&c=c7JSejIRbD0bkPWryTSlnsEobmcRsguXtyeNDxJwBYc=",
-      "availability": "in_stock",
-      "quantity": 1,
-      "tags": ["portrait", "acrylic", "expressionism", "minimal", "depth"],
-      "created_date": "2024-03-12",
-      "rating": 4.6,
-      "reviews_count": 19
+      "year": 2025,
+      "created_date": "2025-09-01",
+      "popularity_score": 9.3
     },
     {
-      "id": "paint_008",
-      "title": "Color Fields",
+      "id": "PA006",
+      "title": "Blue Horizon",
       "artist": {
-        "name": "Jade Chen",
-        "id": "artist_008"
+        "name": "Lucas James",
+        "id": "ART016"
       },
-      "description": "Inspired by color field expressionism - silence through pigment.",
-      "price": 400,
-      "currency": "INR",
-      "medium": "Acrylic on Canvas",
-      "style": ["Abstract", "Color Field", "Modern"],
+      "description": "Oil seascape reflecting stillness and motion of the ocean.",
+      "price": {
+        "amount": 290,
+        "currency": "INR",
+        "formatted": "₹290"
+      },
+      "image": {
+        "path": "Images/Blue Horizon.jpeg",
+        "alt": "Seascape"
+      },
+      "category": "Paintings",
+      "subcategory": "Seascape",
+      "medium": "Oil on Canvas",
+      "tags": ["seascape", "ocean", "blue", "horizon", "calm"],
+      "availability": "in-stock",
+      "edition": "limited",
       "dimensions": {
         "width": 48,
-        "height": 36,
-        "unit": "inches"
-      },
-      "image_url": "https://media.istockphoto.com/id/2077712938/photo/beautiful-lanscape-sunset-nature-rural-background-field-of-grass-during-sunset-dark-evening.webp?a=1&b=1&s=612x612&w=0&k=20&c=0sfXvuefR4WfcWmVFQC1YBkIHtaq8VA4avSRifhWi4M=",
-      "availability": "in_stock",
-      "quantity": 1,
-      "tags": ["abstract", "color field", "modern", "expressionism", "large"],
-      "created_date": "2024-01-08",
-      "rating": 4.9,
-      "reviews_count": 35
-    },
-    {
-      "id": "paint_009",
-      "title": "Morning at the Lake",
-      "artist": {
-        "name": "Amelia Brooks",
-        "id": "artist_009"
-      },
-      "description": "Impressionist brushwork - the still water reflecting dawn light.",
-      "price": 180,
-      "currency": "INR",
-      "medium": "Oil on Canvas",
-      "style": ["Landscape", "Impressionism", "Nature"],
-      "dimensions": {
-        "width": 30,
         "height": 24,
         "unit": "inches"
       },
-      "image_url": "https://media.istockphoto.com/id/1314176728/photo/misty-sunrise-over-a-lake-during-blue-hour-oisterwijk-dutch-landscape.webp?a=1&b=1&s=612x612&w=0&k=20&c=z4pUIvlDMYK7HzbzR2qCkqUsBDwjfZR_eOwVSdD2J9k=",
-      "availability": "in_stock",
-      "quantity": 1,
-      "tags": ["landscape", "impressionism", "lake", "dawn", "nature"],
-      "created_date": "2024-02-25",
-      "rating": 4.7,
-      "reviews_count": 26
+      "year": 2025,
+      "created_date": "2025-08-20",
+      "popularity_score": 8.8
     },
     {
-      "id": "paint_010",
+      "id": "PA007",
+      "title": "Eternal Gaze",
+      "artist": {
+        "name": "Noor Rahman",
+        "id": "ART017"
+      },
+      "description": "Expressive acrylic portrait exploring depth through minimal brushwork.",
+      "price": {
+        "amount": 200,
+        "currency": "INR",
+        "formatted": "₹200"
+      },
+      "image": {
+        "path": "Images/Eternal Gaze.jpeg",
+        "alt": "Portrait art"
+      },
+      "category": "Paintings",
+      "subcategory": "Portrait",
+      "medium": "Acrylic on Canvas",
+      "tags": ["portrait", "acrylic", "expressive", "minimal", "depth"],
+      "availability": "in-stock",
+      "edition": "standard",
+      "dimensions": {
+        "width": 20,
+        "height": 24,
+        "unit": "inches"
+      },
+      "year": 2025,
+      "created_date": "2025-07-10",
+      "popularity_score": 8.2
+    },
+    {
+      "id": "PA008",
+      "title": "Color Fields",
+      "artist": {
+        "name": "Jade Chen",
+        "id": "ART018"
+      },
+      "description": "Inspired by color field expressionism - silence through pigment.",
+      "price": {
+        "amount": 400,
+        "currency": "INR",
+        "formatted": "₹400"
+      },
+      "image": {
+        "path": "Images/Color Fields.jpeg",
+        "alt": "Modern art"
+      },
+      "category": "Paintings",
+      "subcategory": "Color Field",
+      "medium": "Acrylic on Canvas",
+      "tags": ["color field", "expressionism", "modern", "abstract", "pigment"],
+      "availability": "in-stock",
+      "edition": "limited",
+      "dimensions": {
+        "width": 60,
+        "height": 48,
+        "unit": "inches"
+      },
+      "year": 2025,
+      "created_date": "2025-09-15",
+      "popularity_score": 9.6
+    },
+    {
+      "id": "PA009",
+      "title": "Morning at the Lake",
+      "artist": {
+        "name": "Amelia Brooks",
+        "id": "ART019"
+      },
+      "description": "Impressionist brushwork - the still water reflecting dawn light.",
+      "price": {
+        "amount": 180,
+        "currency": "INR",
+        "formatted": "₹180"
+      },
+      "image": {
+        "path": "Images/Morning at the Lake.jpeg",
+        "alt": "Impressionist art"
+      },
+      "category": "Paintings",
+      "subcategory": "Impressionism",
+      "medium": "Oil on Canvas",
+      "tags": ["impressionist", "lake", "morning", "dawn", "water"],
+      "availability": "in-stock",
+      "edition": "standard",
+      "dimensions": {
+        "width": 28,
+        "height": 20,
+        "unit": "inches"
+      },
+      "year": 2025,
+      "created_date": "2025-07-28",
+      "popularity_score": 8.0
+    },
+    {
+      "id": "PA010",
       "title": "Miniature Wonders",
       "artist": {
         "name": "Arjun Mehta",
-        "id": "artist_010"
+        "id": "ART020"
       },
       "description": "Fine-detail miniature painting on handmade paper with gold tones.",
-      "price": 150,
-      "currency": "INR",
-      "medium": "Miniature on Paper",
-      "style": ["Miniature", "Traditional", "Detail Work"],
+      "price": {
+        "amount": 150,
+        "currency": "INR",
+        "formatted": "₹150"
+      },
+      "image": {
+        "path": "Images/Miniature Wonders.jpeg",
+        "alt": "Miniature art"
+      },
+      "category": "Paintings",
+      "subcategory": "Miniature",
+      "medium": "Watercolor on Handmade Paper",
+      "tags": ["miniature", "fine detail", "gold", "traditional", "handmade"],
+      "availability": "in-stock",
+      "edition": "limited",
       "dimensions": {
         "width": 8,
         "height": 10,
         "unit": "inches"
       },
-      "image_url": "https://media.istockphoto.com/id/157373207/photo/balanced-stones-on-a-pebble-beach-during-sunset.webp?a=1&b=1&s=612x612&w=0&k=20&c=ztFBmSoSiffYbKiIIi60HhnfR0KbPc9excFHh6nROJU=",
-      "availability": "in_stock",
-      "quantity": 1,
-      "tags": ["miniature", "traditional", "detail", "gold", "handmade"],
-      "created_date": "2024-03-20",
-      "rating": 4.8,
-      "reviews_count": 22
+      "year": 2025,
+      "created_date": "2025-06-25",
+      "popularity_score": 7.6
     }
   ],
+  "artists": [
+    {
+      "id": "ART011",
+      "name": "Clara Smith",
+      "specialty": "Portrait & Oil Painting",
+      "bio": "Contemporary portrait artist capturing emotion through light and color",
+      "artworks_count": 1
+    },
+    {
+      "id": "ART012",
+      "name": "Daniel Grey",
+      "specialty": "Landscape Painting",
+      "bio": "Landscape artist blending realism with imaginative interpretations",
+      "artworks_count": 1
+    },
+    {
+      "id": "ART013",
+      "name": "Riya Kapoor",
+      "specialty": "Abstract Expressionism",
+      "bio": "Abstract artist exploring human emotion through color and form",
+      "artworks_count": 1
+    },
+    {
+      "id": "ART014",
+      "name": "Hana Li",
+      "specialty": "Watercolor & Botanical Art",
+      "bio": "Watercolor artist bringing delicate florals to life with soft brushwork",
+      "artworks_count": 1
+    },
+    {
+      "id": "ART015",
+      "name": "Ethan Cole",
+      "specialty": "Surrealism",
+      "bio": "Surrealist painter merging dreams with reality through oil painting",
+      "artworks_count": 1
+    },
+    {
+      "id": "ART016",
+      "name": "Lucas James",
+      "specialty": "Seascapes & Marine Art",
+      "bio": "Marine artist capturing the essence of ocean through oil painting",
+      "artworks_count": 1
+    },
+    {
+      "id": "ART017",
+      "name": "Noor Rahman",
+      "specialty": "Contemporary Portraits",
+      "bio": "Expressive portrait artist exploring depth through minimal brushwork",
+      "artworks_count": 1
+    },
+    {
+      "id": "ART018",
+      "name": "Jade Chen",
+      "specialty": "Color Field & Modern Art",
+      "bio": "Modern artist inspired by color field expressionism and minimalism",
+      "artworks_count": 1
+    },
+    {
+      "id": "ART019",
+      "name": "Amelia Brooks",
+      "specialty": "Impressionism",
+      "bio": "Impressionist painter capturing fleeting moments of natural beauty",
+      "artworks_count": 1
+    },
+    {
+      "id": "ART020",
+      "name": "Arjun Mehta",
+      "specialty": "Miniature & Traditional Art",
+      "bio": "Master of miniature painting combining traditional techniques with gold leaf",
+      "artworks_count": 1
+    }
+  ],
+  "categories": {
+    "main": "Paintings",
+    "subcategories": [
+      "Portrait",
+      "Landscape",
+      "Abstract",
+      "Watercolor",
+      "Surrealism",
+      "Seascape",
+      "Color Field",
+      "Impressionism",
+      "Miniature"
+    ],
+    "mediums": [
+      "Oil on Canvas",
+      "Acrylic on Canvas",
+      "Watercolor on Paper",
+      "Watercolor on Handmade Paper"
+    ]
+  },
   "filters": {
     "price_ranges": [
-      {"label": "Under ₹200", "min": 0, "max": 200},
-      {"label": "₹200 - ₹300", "min": 200, "max": 300},
-      {"label": "₹300 - ₹400", "min": 300, "max": 400},
-      {"label": "Over ₹400", "min": 400, "max": 999999}
+      {
+        "id": "all",
+        "label": "All Prices",
+        "min": 0,
+        "max": null
+      },
+      {
+        "id": "0-150",
+        "label": "Under ₹150",
+        "min": 0,
+        "max": 150
+      },
+      {
+        "id": "150-250",
+        "label": "₹150 - ₹250",
+        "min": 150,
+        "max": 250
+      },
+      {
+        "id": "250-350",
+        "label": "₹250 - ₹350",
+        "min": 250,
+        "max": 350
+      },
+      {
+        "id": "350+",
+        "label": "Above ₹350",
+        "min": 350,
+        "max": null
+      }
     ],
-    "mediums": ["Oil on Canvas", "Acrylic on Canvas", "Watercolor on Paper", "Miniature on Paper"],
-    "styles": ["Portrait", "Landscape", "Abstract", "Realism", "Impressionism", "Contemporary", "Surrealism", "Expressionism", "Seascape", "Floral"],
-    "availability": ["in_stock", "custom_order", "pre_order"]
-  },
-  "metadata": {
-    "last_updated": "2024-03-25",
-    "category_featured": true,
-    "category_trending": false,
-    "total_artists": 10,
-    "price_range": {
-      "min": 130,
-      "max": 400,
-      "currency": "INR"
-    }
+    "sort_options": [
+      {
+        "id": "popular",
+        "label": "Most Popular"
+      },
+      {
+        "id": "price-low",
+        "label": "Price: Low to High"
+      },
+      {
+        "id": "price-high",
+        "label": "Price: High to Low"
+      },
+      {
+        "id": "newest",
+        "label": "Newest First"
+      },
+      {
+        "id": "artist",
+        "label": "Artist Name"
+      }
+    ],
+    "availability_options": [
+      {
+        "id": "all",
+        "label": "All Items"
+      },
+      {
+        "id": "in-stock",
+        "label": "In Stock"
+      },
+      {
+        "id": "limited",
+        "label": "Limited Edition"
+      }
+    ]
   }
 }
