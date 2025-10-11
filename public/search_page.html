@@ -478,45 +478,21 @@
         }
 
         function displayResults(artworks) {
-            const resultsGrid = document.getElementById('resultsGrid');
-            resultsGrid.innerHTML = '';
+    const resultsGrid = document.getElementById('resultsGrid');
+    resultsGrid.innerHTML = '';
 
-            artworks.forEach(art => {
+    artworks.forEach(art => {
+        // Handle missing or relative image URLs
+        let imageSrc = art.image_url ? art.image_url.trim() : '';
+        if (!imageSrc) {
+            imageSrc = '/images/placeholder.jpg';
+        } else if (!imageSrc.startsWith('http')) {
+            imageSrc = `/images/${imageSrc.replace(/^\/?images\//, '')}`;
+        }
 
-                let imageSrc = art.image_url ? art.image_url.trim() : '';
-                if (!imageSrc) {
-                    imageSrc = '/images/placeholder.jpg';
-                } else if (!imageSrc.startsWith('http')) {
-                    imageSrc = `/images/${imageSrc.replace(/^\/?images\//, '')}`;
-                }
-
-                function displayResults(artworks) {
-                    const resultsGrid = document.getElementById('resultsGrid');
-                    resultsGrid.innerHTML = '';
-
-                    artworks.forEach(art => {
-                        let imageSrc = art.image_url;
-                        if (imageSrc && !imageSrc.startsWith('http')) {
-                            imageSrc = `/images/${imageSrc.replace(/^\/?images\//, '')}`;
-                        }
-
-                        const card = document.createElement('div');
-                        card.className = 'art-card';
-                        card.innerHTML = `
-            <div class="art-image-container">
-                <img src="${imageSrc}" alt="${art.title}" class="art-image">
-            </div>
-            ...
-        `;
-                        resultsGrid.appendChild(card);
-                    });
-                }
-
-
-
-                const card = document.createElement('div');
-                card.className = 'art-card';
-                card.innerHTML = `
+        const card = document.createElement('div');
+        card.className = 'art-card';
+        card.innerHTML = `
             <div class="art-image-container">
                 <img src="${imageSrc}" alt="${art.title}" class="art-image"
                      crossOrigin="anonymous"
@@ -532,12 +508,12 @@
                 </div>
             </div>
         `;
-                resultsGrid.appendChild(card);
-            });
+        resultsGrid.appendChild(card);
+    });
 
-            resultsGrid.style.display = 'grid';
-            document.getElementById('noResults').style.display = 'none';
-        }
+    resultsGrid.style.display = 'grid';
+    document.getElementById('noResults').style.display = 'none';
+}
 
 
         async function loadUser() {

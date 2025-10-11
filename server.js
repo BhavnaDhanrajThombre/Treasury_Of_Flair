@@ -113,26 +113,8 @@ app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 // server.js
-
-
 const searchRoutes = require('./artwork_search');
-
-
-
 // ✅ Enable CORS for frontend
 app.use(cors());
 app.use(express.json());
