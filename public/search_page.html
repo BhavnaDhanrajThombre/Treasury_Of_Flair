@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -212,6 +213,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -382,6 +384,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Navbar -->
     <nav class="navbar">
@@ -405,9 +408,7 @@
 
     <!-- Search Header -->
     <header class="search-header">
-        <div class="breadcrumb">
-            
-        </div>
+        <div class="breadcrumb"></div>
         <h1>Find Your Perfect Artwork</h1>
         <div class="search-box-container">
             <input type="text" class="search-input" id="searchInput" placeholder="Search art, materials or creators">
@@ -436,124 +437,143 @@
     </div>
 
     <script>
-        
-async function performSearch() {
-    const searchTerm = document.getElementById('searchInput').value.trim();
-    const resultsGrid = document.getElementById('resultsGrid');
-    const noResults = document.getElementById('noResults');
-    const loadingState = document.getElementById('loadingState');
-    const resultsCount = document.getElementById('resultsCount');
+        async function performSearch() {
+            const searchTerm = document.getElementById('searchInput').value.trim();
+            const resultsGrid = document.getElementById('resultsGrid');
+            const noResults = document.getElementById('noResults');
+            const loadingState = document.getElementById('loadingState');
+            const resultsCount = document.getElementById('resultsCount');
 
-    if (!searchTerm) return;
+            if (!searchTerm) return;
 
-    loadingState.style.display = 'block';
-    resultsGrid.style.display = 'none';
-    noResults.style.display = 'none';
+            loadingState.style.display = 'block';
+            resultsGrid.style.display = 'none';
+            noResults.style.display = 'none';
 
-    try {
-        // 🔹 Call Node.js backend API
-        const response = await fetch(`http://localhost:5000/api/search?q=${encodeURIComponent(searchTerm)}`);
-        const artworks = await response.json();
+            try {
+                // 🔹 Call Node.js backend API
+                const response = await fetch(`http://localhost:5000/api/search?q=${encodeURIComponent(searchTerm)}`);
 
-        loadingState.style.display = 'none';
+                // ✅ Check if response is OK
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
 
-        if (!artworks || artworks.length === 0) {
-            noResults.style.display = 'block';
-            resultsCount.textContent = '';
-        } else {
-            resultsCount.textContent = `${artworks.length} artwork${artworks.length > 1 ? 's' : ''} found`;
-            displayResults(artworks);
+                const artworks = await response.json();
+
+                loadingState.style.display = 'none';
+
+                if (!artworks || artworks.length === 0) {
+                    noResults.style.display = 'block';
+                    resultsCount.textContent = '';
+                } else {
+                    resultsCount.textContent = `${artworks.length} artwork${artworks.length > 1 ? 's' : ''} found`;
+                    displayResults(artworks);
+                }
+            } catch (error) {
+                console.error("Error fetching search results:", error);
+                loadingState.style.display = 'none';
+                noResults.style.display = 'block';
+            }
         }
-    } catch (error) {
-        console.error("Error fetching search results:", error);
-        loadingState.style.display = 'none';
-        noResults.style.display = 'block';
-    }
-}
 
-// ✅ Single displayResults function using image_url
-function displayResults(artworks) {
-    const resultsGrid = document.getElementById('resultsGrid');
-    resultsGrid.style.display = 'grid';
-    resultsGrid.innerHTML = '';
+        function displayResults(artworks) {
+            const resultsGrid = document.getElementById('resultsGrid');
+            resultsGrid.innerHTML = '';
 
-    artworks.forEach(art => {
-        const card = document.createElement('div');
-        card.className = 'art-card';
-        card.innerHTML = `
+            artworks.forEach(art => {
+
+                let imageSrc = art.image_url ? art.image_url.trim() : '';
+                if (!imageSrc) {
+                    imageSrc = '/images/placeholder.jpg';
+                } else if (!imageSrc.startsWith('http')) {
+                    imageSrc = `/images/${imageSrc.replace(/^\/?images\//, '')}`;
+                }
+
+                function displayResults(artworks) {
+                    const resultsGrid = document.getElementById('resultsGrid');
+                    resultsGrid.innerHTML = '';
+
+                    artworks.forEach(art => {
+                        let imageSrc = art.image_url;
+                        if (imageSrc && !imageSrc.startsWith('http')) {
+                            imageSrc = `/images/${imageSrc.replace(/^\/?images\//, '')}`;
+                        }
+
+                        const card = document.createElement('div');
+                        card.className = 'art-card';
+                        card.innerHTML = `
             <div class="art-image-container">
-                <img src="${art.image_url}" alt="${art.title}" class="art-image">
+                <img src="${imageSrc}" alt="${art.title}" class="art-image">
+            </div>
+            ...
+        `;
+                        resultsGrid.appendChild(card);
+                    });
+                }
+
+
+
+                const card = document.createElement('div');
+                card.className = 'art-card';
+                card.innerHTML = `
+            <div class="art-image-container">
+                <img src="${imageSrc}" alt="${art.title}" class="art-image"
+                     crossOrigin="anonymous"
+                     onerror="this.onerror=null;this.src='/images/placeholder.jpg';">
             </div>
             <div class="art-info">
                 <span class="art-category">${art.category}</span>
                 <div class="art-title">${art.title}</div>
                 <div class="art-artist">by ${art.artist}</div>
                 <div class="art-footer">
-                    <div class="art-price">$${art.price}</div>
+                    <div class="art-price">Rs ${art.price}/-</div>
                     <button class="view-btn" onclick="viewArtwork(${art.id})">View Details</button>
                 </div>
             </div>
         `;
-        resultsGrid.appendChild(card);
-    });
-}
+                resultsGrid.appendChild(card);
+            });
 
-function viewArtwork(id) {
-    alert(`Viewing artwork #${id}`);
-}
-
-// Search on Enter key
-document.getElementById('searchInput').addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-        performSearch();
-    }
-});
-
-// Search if query is present in URL
-window.onload = () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const query = urlParams.get('q');
-    if (query) {
-        document.getElementById('searchInput').value = query;
-        performSearch();
-    }
-};
-
-async function loadUser() {
-    try {
-        const res = await fetch("http://localhost:5000/home", {
-            method: "GET",
-            credentials: "include",
-            headers: { "Accept": "application/json" }
-        });
-        const data = await res.json();
-
-        if (data.username) {
-            // Set avatars to first letter of username
-            const initial = data.username.charAt(0).toUpperCase();
-            document.getElementById("user-avatar").textContent = initial;
-            document.getElementById("sidebar-avatar").textContent = initial;
+            resultsGrid.style.display = 'grid';
+            document.getElementById('noResults').style.display = 'none';
         }
-    } catch (err) {
-        console.error("Error fetching user:", err);
-    }
-}
 
-// Run after DOM loads
-document.addEventListener("DOMContentLoaded", loadUser);
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Navbar avatar click
-    document.getElementById('user-avatar').addEventListener('click', () => {
-        window.location.href = 'Account.html';
-    });
-    
-    // Sidebar avatar click
-    document.getElementById('sidebar-avatar').addEventListener('click', () => {
-        window.location.href = 'Account.html';
-    });
-});
+        async function loadUser() {
+            try {
+                const res = await fetch("http://localhost:5000/home", {
+                    method: "GET",
+                    credentials: "include",
+                    headers: { "Accept": "application/json" }
+                });
+                const data = await res.json();
 
-  </script>
+                if (data.username) {
+                    const initial = data.username.charAt(0).toUpperCase();
+                    document.getElementById("user-avatar").textContent = initial;
+                    document.getElementById("sidebar-avatar").textContent = initial;
+                }
+            } catch (err) {
+                console.error("Error fetching user:", err);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", loadUser);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('user-avatar').addEventListener('click', () => {
+                window.location.href = 'Account.html';
+            });
+
+            const sidebarAvatar = document.getElementById('sidebar-avatar');
+            if (sidebarAvatar) {
+                sidebarAvatar.addEventListener('click', () => {
+                    window.location.href = 'Account.html';
+                });
+            }
+        });
+    </script>
 </body>
+
 </html>
