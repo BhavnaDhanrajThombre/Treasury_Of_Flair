@@ -24,97 +24,101 @@ mysql> desc users;
 
 ***************************************************************************************************
 
--- ==========================================================
--- ✅ Create Unified Artworks Table (Search-Optimized)
--- ==========================================================
-CREATE TABLE artworks (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  category VARCHAR(100) NOT NULL,         -- e.g. 'Digital', 'Paintings', 'Printmaking'
-  title VARCHAR(255) NOT NULL,
-  artist VARCHAR(255) NOT NULL,
-  description TEXT,
-  image_url VARCHAR(500),
-  price INT,
-  availability ENUM('in-stock','limited') DEFAULT 'in-stock',
-  popularity INT DEFAULT 0,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FULLTEXT KEY ft_title_desc (title, description, artist)
-);
+mysql> -- ✅ Create Unified Artworks Table (Search-Optimized)
+mysql> -- ==========================================================
+mysql> CREATE TABLE artworks (
+    ->   id INT AUTO_INCREMENT PRIMARY KEY,
+    ->   category VARCHAR(100) NOT NULL,         -- e.g. 'Digital Art', 'Paintings', 'Printmaking'
+    ->   title VARCHAR(255) NOT NULL,
+    ->   artist VARCHAR(255) NOT NULL,
+    ->   description TEXT,
+    ->   image_path VARCHAR(500),
+    ->   price INT,
+    ->   availability ENUM('in-stock','limited') DEFAULT 'in-stock',
+    ->   popularity INT DEFAULT 0,
+    ->   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ->   FULLTEXT KEY ft_title_desc (title, description, artist)
+    -> );
+Query OK, 0 rows affected (0.29 sec)
 
--- ==========================================================
--- 🎨 Insert All Artworks (Paintings + Printmaking + Digital)
--- ==========================================================
-INSERT INTO artworks (category, title, artist, description, image_url, price, availability, popularity)
-VALUES
--- 🎨 Paintings
-('Paintings', 'Golden Hour Portrait', 'Clara Smith', 'Oil on canvas capturing the warm light of dusk - bold yet delicate strokes.', 'https://media.istockphoto.com/id/2170496135/photo/golden-hour-greeting.webp', 250, 'in-stock', 92),
-('Paintings', 'Whispering Mountains', 'Daniel Grey', 'Soft gradients of mountain air - blending realism and imagination.', 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=900&q=80', 180, 'in-stock', 88),
-('Paintings', 'Fragments of Thought', 'Riya Kapoor', 'Acrylic abstraction exploring the chaos and rhythm of human emotion.', 'https://media.istockphoto.com/id/2235609371/photo/conceptual-image-of-person-in-digital-fragments.webp', 220, 'limited', 95),
-('Paintings', 'Dreamy Petals', 'Hana Li', 'Soft watercolor florals that bloom gently across the paper.', 'https://media.istockphoto.com/id/1138329703/photo/spring-blossom.webp', 130, 'in-stock', 80),
-('Paintings', 'Mindscapes', 'Ethan Cole', 'A surreal oil painting merging inner thoughts with dreamy visuals.', 'https://media.istockphoto.com/id/527372799/photo/mindscapes.webp', 340, 'limited', 97),
-('Paintings', 'Blue Horizon', 'Lucas James', 'Oil seascape reflecting stillness and motion of the ocean.', 'https://media.istockphoto.com/id/1325299873/photo/blue-sky-over-the-sea.webp', 290, 'in-stock', 86),
-('Paintings', 'Eternal Gaze', 'Noor Rahman', 'Expressive acrylic portrait exploring depth through minimal brushwork.', 'https://media.istockphoto.com/id/108329959/photo/time-is-damage.webp', 200, 'limited', 83),
-('Paintings', 'Color Fields', 'Jade Chen', 'Inspired by color field expressionism - silence through pigment.', 'https://media.istockphoto.com/id/2077712938/photo/beautiful-lanscape-sunset-nature-rural-background-field-of-grass-during-sunset-dark-evening.webp', 400, 'in-stock', 89),
-('Paintings', 'Morning at the Lake', 'Amelia Brooks', 'Impressionist brushwork - the still water reflecting dawn light.', 'https://media.istockphoto.com/id/1314176728/photo/misty-sunrise-over-a-lake-during-blue-hour-oisterwijk-dutch-landscape.webp', 180, 'in-stock', 85),
-('Paintings', 'Miniature Wonders', 'Arjun Mehta', 'Fine-detail miniature painting on handmade paper with gold tones.', 'https://media.istockphoto.com/id/157373207/photo/balanced-stones-on-a-pebble-beach-during-sunset.webp', 150, 'limited', 91),
+mysql>
+mysql> -- ==========================================================
+mysql> -- 🎨 Insert All Artworks (Digital Art + Paintings + Printmaking)
+mysql> -- ==========================================================
+mysql> INSERT INTO artworks (category, title, artist, description, image_path, price, availability, popularity)
+    -> VALUES
+    -> -- 🌐 Digital Art
+    -> ('Digital Art', 'Neon Dreams', 'Alex Cipher', 'Cyberpunk-inspired digital illustration featuring neon lights and futuristic cityscapes.', 'Images/Neon Dreams.jpeg', 26500, 'in-stock', 95),
+    -> ('Digital Art', 'Cosmic Guardian', 'Maya Rodriguez', '3D character design blending sci-fi elements with mystical aesthetics.', 'Images/Cosmic Guardian.jpeg', 37200, 'limited', 87),
+    -> ('Digital Art', 'Digital Fragments', 'Kai Nakamura', 'Generative art exploring geometric patterns and vibrant color palettes.', 'Images/Digital Fragments.jpeg', 23150, 'in-stock', 78),
+    -> ('Digital Art', 'Enchanted Forest', 'Sofia Martinez', 'Fantasy digital painting with magical creatures and ethereal lighting effects.', 'Images/Enchanted Forest.jpeg', 31400, 'limited', 90),
+    -> ('Digital Art', 'Beyond Reality', 'David Chen', 'Surreal digital composition merging dreams with digital manipulation techniques.', 'Images/Beyond Reality.jpeg', 34700, 'in-stock', 88),
+    -> ('Digital Art', 'Quantum Collector', 'Zara Williams', 'NFT-style artwork featuring bold colors and modern digital aesthetics.', 'Images/Quantum Collector.jpeg', 45450, 'limited', 93),
+    -> ('Digital Art', 'Future Metropolis', 'Lucas Kim', 'Detailed concept art of futuristic architecture and urban landscapes.', 'Images/Future Metropolis.jpeg', 40500, 'in-stock', 85),
+    -> ('Digital Art', 'Avatar Genesis', 'Emma Thompson', 'Character design illustration with intricate details and dynamic poses.', 'Images/Avatar Genesis.jpeg', 28900, 'in-stock', 80),
+    -> ('Digital Art', 'Glitch Symphony', 'Ryan Park', 'Experimental glitch art combining digital distortion with artistic expression.', 'Images/Glitch Symphony.jpeg', 23950, 'in-stock', 75),
+    -> ('Digital Art', 'Digital Horizons', 'Priya Sharma', 'Breathtaking digital landscape with stunning lighting and atmospheric depth.', 'Images/Digital Horizons.jpeg', 33850, 'limited', 82),
+    ->
+    -> -- 🖌️ Paintings
+    -> ('Paintings', 'Golden Hour Portrait', 'Clara Smith', 'Oil on canvas capturing the warm light of dusk - bold yet delicate strokes.', 'Images/Golden Hour Portrait.jpeg', 250, 'in-stock', 92),
+    -> ('Paintings', 'Whispering Mountains', 'Daniel Grey', 'Soft gradients of mountain air - blending realism and imagination.', 'Images/Whispering Mountains.jpeg', 180, 'in-stock', 88),
+    -> ('Paintings', 'Fragments of Thought', 'Riya Kapoor', 'Acrylic abstraction exploring the chaos and rhythm of human emotion.', 'Images/Fragments of Thought.jpeg', 220, 'limited', 95),
+    -> ('Paintings', 'Dreamy Petals', 'Hana Li', 'Soft watercolor florals that bloom gently across the paper.', 'Images/Dreamy Petals.jpeg', 130, 'in-stock', 80),
+    -> ('Paintings', 'Mindscapes', 'Ethan Cole', 'A surreal oil painting merging inner thoughts with dreamy visuals.', 'Images/Mindscapes.jpeg', 340, 'limited', 97),
+    -> ('Paintings', 'Blue Horizon', 'Lucas James', 'Oil seascape reflecting stillness and motion of the ocean.', 'Images/Blue Horizon.jpeg', 290, 'in-stock', 86),
+    -> ('Paintings', 'Eternal Gaze', 'Noor Rahman', 'Expressive acrylic portrait exploring depth through minimal brushwork.', 'Images/Eternal Gaze.jpeg', 200, 'limited', 83),
+    -> ('Paintings', 'Color Fields', 'Jade Chen', 'Inspired by color field expressionism - silence through pigment.', 'Images/Color Fields.jpeg', 400, 'in-stock', 89),
+    -> ('Paintings', 'Morning at the Lake', 'Amelia Brooks', 'Impressionist brushwork - the still water reflecting dawn light.', 'Images/Morning at the Lake.jpeg', 180, 'in-stock', 85),
+    -> ('Paintings', 'Miniature Wonders', 'Arjun Mehta', 'Fine-detail miniature painting on handmade paper with gold tones.', 'Images/Miniature Wonders.jpeg', 150, 'limited', 91),
+    ->
+    -> -- 🖨️ Printmaking
+    -> ('Printmaking', 'Botanical Study I', 'Eleanor Wright', 'Delicate copper plate etching showcasing intricate botanical details with fine linework.', 'Images/Botanical Study I.jpeg', 8200, 'limited', 8),
+    -> ('Printmaking', 'Urban Rhythm', 'Marcus Taylor', 'Bold screenprint featuring vibrant layers and geometric patterns inspired by city life.', 'Images/Urban Rhythm.jpeg', 12500, 'limited', 9),
+    -> ('Printmaking', 'Mountain Solitude', 'Akiko Tanaka', 'Stone lithograph capturing misty mountain landscapes with subtle tonal variations.', 'Images/Mountain Solitude.jpeg', 15800, 'limited', 9),
+    -> ('Printmaking', 'Forest Tales', 'Henrik Larsen', 'Traditional woodcut print with bold contrasts and expressive carved textures.', 'Images/Forest Tales.jpeg', 9500, 'limited', 8),
+    -> ('Printmaking', 'Abstract Flow', 'Isabella Costa', 'Unique monotype print with fluid ink patterns creating one-of-a-kind impressions.', 'Images/Abstract Flow.jpeg', 18900, 'in-stock', 10),
+    -> ('Printmaking', 'Ocean Waves', 'Rajesh Kumar', 'Dynamic linocut print capturing the movement and energy of ocean waves.', 'Images/Ocean Waves.jpeg', 7800, 'limited', 8),
+    -> ('Printmaking', 'Pop Culture Icons', 'Nina Patel', 'Multi-layered serigraph with bright colors and contemporary pop art references.', 'Images/Pop Culture Icons.jpeg', 14200, 'limited', 9),
+    -> ('Printmaking', 'Twilight Portrait', 'Sofia Alvarez', 'Aquatint etching with rich tonal depth and atmospheric portrait qualities.', 'Images/Twilight Portrait.jpeg', 16500, 'limited', 9),
+    -> ('Printmaking', 'Industrial Dreams', 'Thomas Berg', 'Mixed media print combining etching, screenprint and collage elements.', 'Images/Industrial Dreams.jpeg', 19800, 'limited', 9),
+    -> ('Printmaking', 'Garden Memory', 'Mei Lin', 'Elegant relief print with delicate floral motifs and subtle color gradations.', 'Images/Garden Memory.jpeg', 11400, 'limited', 8);-- ==========================================================
+Query OK, 30 rows affected (0.02 sec)
+Records: 30  Duplicates: 0  Warnings: 0
 
--- 🖨️ Printmaking
-('Printmaking', 'Botanical Study I', 'Eleanor Wright', 'Delicate copper plate etching showcasing intricate botanical details with fine linework.', 'https://images.unsplash.com/photo-1620050457895-12e9e8851c91?w=900&q=80', 8200, 'limited', 92),
-('Printmaking', 'Urban Geometry', 'Ravi Sharma', 'Screenprint inspired by modern architectural symmetry and balance.', 'https://images.unsplash.com/photo-1602526218574-70df5f4b885e?w=900&q=80', 7200, 'in-stock', 85),
-('Printmaking', 'Seaside Etchings', 'Anna López', 'A gentle lithograph capturing the texture and calm of ocean waves.', 'https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?w=900&q=80', 9500, 'limited', 90),
-('Printmaking', 'Monochrome Dreams', 'Elena Petrova', 'Lithograph exploring light and shadow using only grayscale tones.', 'https://images.unsplash.com/photo-1589310243389-458c3b78801d?w=900&q=80', 6700, 'in-stock', 77),
-('Printmaking', 'Floral Silhouettes', 'Rajesh Gupta', 'Serigraph print combining traditional motifs with modern texture work.', 'https://images.unsplash.com/photo-1587897038581-284c7c1ed3f7?w=900&q=80', 7800, 'in-stock', 83),
-('Printmaking', 'Metropolis Lines', 'Hannah White', 'Etching that layers city elements with subtle metallic ink.', 'https://images.unsplash.com/photo-1624378439575-77b74ac8d9a5?w=900&q=80', 8600, 'limited', 89),
-('Printmaking', 'Desert Mirage', 'Noah Ali', 'Screenprint reflecting heat shimmer and optical illusions of sandscapes.', 'https://images.unsplash.com/photo-1613946069910-8e99cb8eae57?w=900&q=80', 7900, 'in-stock', 82),
-('Printmaking', 'Harmony in Red', 'Suki Tanaka', 'Minimalist print using bold red tones and abstract balance.', 'https://images.unsplash.com/photo-1618213837799-8f2b85e9929a?w=900&q=80', 7300, 'limited', 87),
-('Printmaking', 'Woodland Whispers', 'Olivia Brooks', 'Woodcut print representing quiet forest harmony.', 'https://images.unsplash.com/photo-1563089145-599997674d42?w=900&q=80', 8100, 'in-stock', 84),
-('Printmaking', 'Celestial Circles', 'Leonard Moore', 'Experimental relief print inspired by cosmic geometry.', 'https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?w=900&q=80', 8800, 'limited', 90),
-
--- 💻 Digital Art
-('Digital', 'Neon Dreams', 'Alex Cipher', 'Cyberpunk-inspired digital illustration featuring neon lights and futuristic cityscapes.', 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=900&q=80', 26500, 'in-stock', 95),
-('Digital', 'Cosmic Guardian', 'Maya Rodriguez', '3D character design blending sci-fi elements with mystical aesthetics.', 'https://images.unsplash.com/photo-1634986666676-ec8fd927c23d?w=900&q=80', 37200, 'limited', 87),
-('Digital', 'Digital Fragments', 'Kai Nakamura', 'Generative art exploring geometric patterns and vibrant color palettes.', 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=900&q=80', 23150, 'in-stock', 78),
-('Digital', 'Enchanted Forest', 'Sofia Martinez', 'Fantasy digital painting with magical creatures and ethereal lighting effects.', 'https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=900&q=80', 31400, 'limited', 90),
-('Digital', 'Beyond Reality', 'David Chen', 'Surreal digital composition merging dreams with digital manipulation techniques.', 'https://images.unsplash.com/photo-1618556450994-a6a128ef0d9d?w=900&q=80', 34700, 'in-stock', 88),
-('Digital', 'Quantum Collector', 'Zara Williams', 'NFT-style artwork featuring bold colors and modern digital aesthetics.', 'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=900&q=80', 45450, 'limited', 93),
-('Digital', 'Future Metropolis', 'Lucas Kim', 'Detailed concept art of futuristic architecture and urban landscapes.', 'https://images.unsplash.com/photo-1618172193622-ae2d025f4032?w=900&q=80', 40500, 'in-stock', 85),
-('Digital', 'Avatar Genesis', 'Emma Thompson', 'Character design illustration with intricate details and dynamic poses.', 'https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=900&q=80', 28900, 'in-stock', 80),
-('Digital', 'Glitch Symphony', 'Ryan Park', 'Experimental glitch art combining digital distortion with artistic expression.', 'https://images.unsplash.com/photo-1618556450991-2f1af64e8191?w=900&q=80', 23950, 'in-stock', 75),
-('Digital', 'Digital Horizons', 'Priya Sharma', 'Breathtaking digital landscape with stunning lighting and atmospheric depth.', 'https://images.unsplash.com/photo-1617791160505-6f00504e3519?w=900&q=80', 33850, 'limited', 82);
-
-mysql> SELECT *FROM artworks;
-+----+-------------+----------------------+----------------+------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+-------+--------------+------------+---------------------+
-| id | category    | title                | artist         | description                                                                              | image_url                                                                                                                                          | price | availability | popularity | created_at          |
-+----+-------------+----------------------+----------------+------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+-------+--------------+------------+---------------------+
-|  1 | Paintings   | Golden Hour Portrait | Clara Smith    | Oil on canvas capturing the warm light of dusk - bold yet delicate strokes.              | https://media.istockphoto.com/id/2170496135/photo/golden-hour-greeting.webp                                                                        |   250 | in-stock     |         92 | 2025-10-11 17:38:24 |
-|  2 | Paintings   | Whispering Mountains | Daniel Grey    | Soft gradients of mountain air - blending realism and imagination.                       | https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=900&q=80                                                                            |   180 | in-stock     |         88 | 2025-10-11 17:38:24 |
-|  3 | Paintings   | Fragments of Thought | Riya Kapoor    | Acrylic abstraction exploring the chaos and rhythm of human emotion.                     | https://media.istockphoto.com/id/2235609371/photo/conceptual-image-of-person-in-digital-fragments.webp                                             |   220 | limited      |         95 | 2025-10-11 17:38:24 |
-|  4 | Paintings   | Dreamy Petals        | Hana Li        | Soft watercolor florals that bloom gently across the paper.                              | https://media.istockphoto.com/id/1138329703/photo/spring-blossom.webp                                                                              |   130 | in-stock     |         80 | 2025-10-11 17:38:24 |
-|  5 | Paintings   | Mindscapes           | Ethan Cole     | A surreal oil painting merging inner thoughts with dreamy visuals.                       | https://media.istockphoto.com/id/527372799/photo/mindscapes.webp                                                                                   |   340 | limited      |         97 | 2025-10-11 17:38:24 |
-|  6 | Paintings   | Blue Horizon         | Lucas James    | Oil seascape reflecting stillness and motion of the ocean.                               | https://media.istockphoto.com/id/1325299873/photo/blue-sky-over-the-sea.webp                                                                       |   290 | in-stock     |         86 | 2025-10-11 17:38:24 |
-|  7 | Paintings   | Eternal Gaze         | Noor Rahman    | Expressive acrylic portrait exploring depth through minimal brushwork.                   | https://media.istockphoto.com/id/108329959/photo/time-is-damage.webp                                                                               |   200 | limited      |         83 | 2025-10-11 17:38:24 |
-|  8 | Paintings   | Color Fields         | Jade Chen      | Inspired by color field expressionism - silence through pigment.                         | https://media.istockphoto.com/id/2077712938/photo/beautiful-lanscape-sunset-nature-rural-background-field-of-grass-during-sunset-dark-evening.webp |   400 | in-stock     |         89 | 2025-10-11 17:38:24 |
-|  9 | Paintings   | Morning at the Lake  | Amelia Brooks  | Impressionist brushwork - the still water reflecting dawn light.                         | https://media.istockphoto.com/id/1314176728/photo/misty-sunrise-over-a-lake-during-blue-hour-oisterwijk-dutch-landscape.webp                       |   180 | in-stock     |         85 | 2025-10-11 17:38:24 |
-| 10 | Paintings   | Miniature Wonders    | Arjun Mehta    | Fine-detail miniature painting on handmade paper with gold tones.                        | https://media.istockphoto.com/id/157373207/photo/balanced-stones-on-a-pebble-beach-during-sunset.webp                                              |   150 | limited      |         91 | 2025-10-11 17:38:24 |
-| 11 | Printmaking | Botanical Study I    | Eleanor Wright | Delicate copper plate etching showcasing intricate botanical details with fine linework. | https://images.unsplash.com/photo-1620050457895-12e9e8851c91?w=900&q=80                                                                            |  8200 | limited      |         92 | 2025-10-11 17:38:24 |
-| 12 | Printmaking | Urban Geometry       | Ravi Sharma    | Screenprint inspired by modern architectural symmetry and balance.                       | https://images.unsplash.com/photo-1602526218574-70df5f4b885e?w=900&q=80                                                                            |  7200 | in-stock     |         85 | 2025-10-11 17:38:24 |
-| 13 | Printmaking | Seaside Etchings     | Anna López     | A gentle lithograph capturing the texture and calm of ocean waves.                       | https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?w=900&q=80                                                                            |  9500 | limited      |         90 | 2025-10-11 17:38:24 |
-| 14 | Printmaking | Monochrome Dreams    | Elena Petrova  | Lithograph exploring light and shadow using only grayscale tones.                        | https://images.unsplash.com/photo-1589310243389-458c3b78801d?w=900&q=80                                                                            |  6700 | in-stock     |         77 | 2025-10-11 17:38:24 |
-| 15 | Printmaking | Floral Silhouettes   | Rajesh Gupta   | Serigraph print combining traditional motifs with modern texture work.                   | https://images.unsplash.com/photo-1587897038581-284c7c1ed3f7?w=900&q=80                                                                            |  7800 | in-stock     |         83 | 2025-10-11 17:38:24 |
-| 16 | Printmaking | Metropolis Lines     | Hannah White   | Etching that layers city elements with subtle metallic ink.                              | https://images.unsplash.com/photo-1624378439575-77b74ac8d9a5?w=900&q=80                                                                            |  8600 | limited      |         89 | 2025-10-11 17:38:24 |
-| 17 | Printmaking | Desert Mirage        | Noah Ali       | Screenprint reflecting heat shimmer and optical illusions of sandscapes.                 | https://images.unsplash.com/photo-1613946069910-8e99cb8eae57?w=900&q=80                                                                            |  7900 | in-stock     |         82 | 2025-10-11 17:38:24 |
-| 18 | Printmaking | Harmony in Red       | Suki Tanaka    | Minimalist print using bold red tones and abstract balance.                              | https://images.unsplash.com/photo-1618213837799-8f2b85e9929a?w=900&q=80                                                                            |  7300 | limited      |         87 | 2025-10-11 17:38:24 |
-| 19 | Printmaking | Woodland Whispers    | Olivia Brooks  | Woodcut print representing quiet forest harmony.                                         | https://images.unsplash.com/photo-1563089145-599997674d42?w=900&q=80                                                                               |  8100 | in-stock     |         84 | 2025-10-11 17:38:24 |
-| 20 | Printmaking | Celestial Circles    | Leonard Moore  | Experimental relief print inspired by cosmic geometry.                                   | https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?w=900&q=80                                                                            |  8800 | limited      |         90 | 2025-10-11 17:38:24 |
-| 21 | Digital     | Neon Dreams          | Alex Cipher    | Cyberpunk-inspired digital illustration featuring neon lights and futuristic cityscapes. | https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=900&q=80                                                                            | 26500 | in-stock     |         95 | 2025-10-11 17:38:24 |
-| 22 | Digital     | Cosmic Guardian      | Maya Rodriguez | 3D character design blending sci-fi elements with mystical aesthetics.                   | https://images.unsplash.com/photo-1634986666676-ec8fd927c23d?w=900&q=80                                                                            | 37200 | limited      |         87 | 2025-10-11 17:38:24 |
-| 23 | Digital     | Digital Fragments    | Kai Nakamura   | Generative art exploring geometric patterns and vibrant color palettes.                  | https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=900&q=80                                                                               | 23150 | in-stock     |         78 | 2025-10-11 17:38:24 |
-| 24 | Digital     | Enchanted Forest     | Sofia Martinez | Fantasy digital painting with magical creatures and ethereal lighting effects.           | https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=900&q=80                                                                            | 31400 | limited      |         90 | 2025-10-11 17:38:24 |
-| 25 | Digital     | Beyond Reality       | David Chen     | Surreal digital composition merging dreams with digital manipulation techniques.         | https://images.unsplash.com/photo-1618556450994-a6a128ef0d9d?w=900&q=80                                                                            | 34700 | in-stock     |         88 | 2025-10-11 17:38:24 |
-| 26 | Digital     | Quantum Collector    | Zara Williams  | NFT-style artwork featuring bold colors and modern digital aesthetics.                   | https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=900&q=80                                                                            | 45450 | limited      |         93 | 2025-10-11 17:38:24 |
-| 27 | Digital     | Future Metropolis    | Lucas Kim      | Detailed concept art of futuristic architecture and urban landscapes.                    | https://images.unsplash.com/photo-1618172193622-ae2d025f4032?w=900&q=80                                                                            | 40500 | in-stock     |         85 | 2025-10-11 17:38:24 |
-| 28 | Digital     | Avatar Genesis       | Emma Thompson  | Character design illustration with intricate details and dynamic poses.                  | https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=900&q=80                                                                            | 28900 | in-stock     |         80 | 2025-10-11 17:38:24 |
-| 29 | Digital     | Glitch Symphony      | Ryan Park      | Experimental glitch art combining digital distortion with artistic expression.           | https://images.unsplash.com/photo-1618556450991-2f1af64e8191?w=900&q=80                                                                            | 23950 | in-stock     |         75 | 2025-10-11 17:38:24 |
-| 30 | Digital     | Digital Horizons     | Priya Sharma   | Breathtaking digital landscape with stunning lighting and atmospheric depth.             | https://images.unsplash.com/photo-1617791160505-6f00504e3519?w=900&q=80                                                                            | 33850 | limited      |         82 | 2025-10-11 17:38:24 |
-+----+-------------+----------------------+----------------+------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+-------+--------------+------------+---------------------+
+mysql> -- View all artworks
+mysql> SELECT * FROM artworks;
++----+-------------+----------------------+----------------+------------------------------------------------------------------------------------------+----------------------------------+-------+--------------+------------+---------------------+
+| id | category    | title                | artist         | description                                                                              | image_path                       | price | availability | popularity | created_at          |
++----+-------------+----------------------+----------------+------------------------------------------------------------------------------------------+----------------------------------+-------+--------------+------------+---------------------+
+|  1 | Digital Art | Neon Dreams          | Alex Cipher    | Cyberpunk-inspired digital illustration featuring neon lights and futuristic cityscapes. | Images/Neon Dreams.jpeg          | 26500 | in-stock     |         95 | 2025-10-12 20:43:07 |
+|  2 | Digital Art | Cosmic Guardian      | Maya Rodriguez | 3D character design blending sci-fi elements with mystical aesthetics.                   | Images/Cosmic Guardian.jpeg      | 37200 | limited      |         87 | 2025-10-12 20:43:07 |
+|  3 | Digital Art | Digital Fragments    | Kai Nakamura   | Generative art exploring geometric patterns and vibrant color palettes.                  | Images/Digital Fragments.jpeg    | 23150 | in-stock     |         78 | 2025-10-12 20:43:07 |
+|  4 | Digital Art | Enchanted Forest     | Sofia Martinez | Fantasy digital painting with magical creatures and ethereal lighting effects.           | Images/Enchanted Forest.jpeg     | 31400 | limited      |         90 | 2025-10-12 20:43:07 |
+|  5 | Digital Art | Beyond Reality       | David Chen     | Surreal digital composition merging dreams with digital manipulation techniques.         | Images/Beyond Reality.jpeg       | 34700 | in-stock     |         88 | 2025-10-12 20:43:07 |
+|  6 | Digital Art | Quantum Collector    | Zara Williams  | NFT-style artwork featuring bold colors and modern digital aesthetics.                   | Images/Quantum Collector.jpeg    | 45450 | limited      |         93 | 2025-10-12 20:43:07 |
+|  7 | Digital Art | Future Metropolis    | Lucas Kim      | Detailed concept art of futuristic architecture and urban landscapes.                    | Images/Future Metropolis.jpeg    | 40500 | in-stock     |         85 | 2025-10-12 20:43:07 |
+|  8 | Digital Art | Avatar Genesis       | Emma Thompson  | Character design illustration with intricate details and dynamic poses.                  | Images/Avatar Genesis.jpeg       | 28900 | in-stock     |         80 | 2025-10-12 20:43:07 |
+|  9 | Digital Art | Glitch Symphony      | Ryan Park      | Experimental glitch art combining digital distortion with artistic expression.           | Images/Glitch Symphony.jpeg      | 23950 | in-stock     |         75 | 2025-10-12 20:43:07 |
+| 10 | Digital Art | Digital Horizons     | Priya Sharma   | Breathtaking digital landscape with stunning lighting and atmospheric depth.             | Images/Digital Horizons.jpeg     | 33850 | limited      |         82 | 2025-10-12 20:43:07 |
+| 11 | Paintings   | Golden Hour Portrait | Clara Smith    | Oil on canvas capturing the warm light of dusk - bold yet delicate strokes.              | Images/Golden Hour Portrait.jpeg |   250 | in-stock     |         92 | 2025-10-12 20:43:07 |
+| 12 | Paintings   | Whispering Mountains | Daniel Grey    | Soft gradients of mountain air - blending realism and imagination.                       | Images/Whispering Mountains.jpeg |   180 | in-stock     |         88 | 2025-10-12 20:43:07 |
+| 13 | Paintings   | Fragments of Thought | Riya Kapoor    | Acrylic abstraction exploring the chaos and rhythm of human emotion.                     | Images/Fragments of Thought.jpeg |   220 | limited      |         95 | 2025-10-12 20:43:07 |
+| 14 | Paintings   | Dreamy Petals        | Hana Li        | Soft watercolor florals that bloom gently across the paper.                              | Images/Dreamy Petals.jpeg        |   130 | in-stock     |         80 | 2025-10-12 20:43:07 |
+| 15 | Paintings   | Mindscapes           | Ethan Cole     | A surreal oil painting merging inner thoughts with dreamy visuals.                       | Images/Mindscapes.jpeg           |   340 | limited      |         97 | 2025-10-12 20:43:07 |
+| 16 | Paintings   | Blue Horizon         | Lucas James    | Oil seascape reflecting stillness and motion of the ocean.                               | Images/Blue Horizon.jpeg         |   290 | in-stock     |         86 | 2025-10-12 20:43:07 |
+| 17 | Paintings   | Eternal Gaze         | Noor Rahman    | Expressive acrylic portrait exploring depth through minimal brushwork.                   | Images/Eternal Gaze.jpeg         |   200 | limited      |         83 | 2025-10-12 20:43:07 |
+| 18 | Paintings   | Color Fields         | Jade Chen      | Inspired by color field expressionism - silence through pigment.                         | Images/Color Fields.jpeg         |   400 | in-stock     |         89 | 2025-10-12 20:43:07 |
+| 19 | Paintings   | Morning at the Lake  | Amelia Brooks  | Impressionist brushwork - the still water reflecting dawn light.                         | Images/Morning at the Lake.jpeg  |   180 | in-stock     |         85 | 2025-10-12 20:43:07 |
+| 20 | Paintings   | Miniature Wonders    | Arjun Mehta    | Fine-detail miniature painting on handmade paper with gold tones.                        | Images/Miniature Wonders.jpeg    |   150 | limited      |         91 | 2025-10-12 20:43:07 |
+| 21 | Printmaking | Botanical Study I    | Eleanor Wright | Delicate copper plate etching showcasing intricate botanical details with fine linework. | Images/Botanical Study I.jpeg    |  8200 | limited      |          8 | 2025-10-12 20:43:07 |
+| 22 | Printmaking | Urban Rhythm         | Marcus Taylor  | Bold screenprint featuring vibrant layers and geometric patterns inspired by city life.  | Images/Urban Rhythm.jpeg         | 12500 | limited      |          9 | 2025-10-12 20:43:07 |
+| 23 | Printmaking | Mountain Solitude    | Akiko Tanaka   | Stone lithograph capturing misty mountain landscapes with subtle tonal variations.       | Images/Mountain Solitude.jpeg    | 15800 | limited      |          9 | 2025-10-12 20:43:07 |
+| 24 | Printmaking | Forest Tales         | Henrik Larsen  | Traditional woodcut print with bold contrasts and expressive carved textures.            | Images/Forest Tales.jpeg         |  9500 | limited      |          8 | 2025-10-12 20:43:07 |
+| 25 | Printmaking | Abstract Flow        | Isabella Costa | Unique monotype print with fluid ink patterns creating one-of-a-kind impressions.        | Images/Abstract Flow.jpeg        | 18900 | in-stock     |         10 | 2025-10-12 20:43:07 |
+| 26 | Printmaking | Ocean Waves          | Rajesh Kumar   | Dynamic linocut print capturing the movement and energy of ocean waves.                  | Images/Ocean Waves.jpeg          |  7800 | limited      |          8 | 2025-10-12 20:43:07 |
+| 27 | Printmaking | Pop Culture Icons    | Nina Patel     | Multi-layered serigraph with bright colors and contemporary pop art references.          | Images/Pop Culture Icons.jpeg    | 14200 | limited      |          9 | 2025-10-12 20:43:07 |
+| 28 | Printmaking | Twilight Portrait    | Sofia Alvarez  | Aquatint etching with rich tonal depth and atmospheric portrait qualities.               | Images/Twilight Portrait.jpeg    | 16500 | limited      |          9 | 2025-10-12 20:43:07 |
+| 29 | Printmaking | Industrial Dreams    | Thomas Berg    | Mixed media print combining etching, screenprint and collage elements.                   | Images/Industrial Dreams.jpeg    | 19800 | limited      |          9 | 2025-10-12 20:43:07 |
+| 30 | Printmaking | Garden Memory        | Mei Lin        | Elegant relief print with delicate floral motifs and subtle color gradations.            | Images/Garden Memory.jpeg        | 11400 | limited      |          8 | 2025-10-12 20:43:07 |
++----+-------------+----------------------+----------------+------------------------------------------------------------------------------------------+----------------------------------+-------+--------------+------------+---------------------+
 30 rows in set (0.00 sec)

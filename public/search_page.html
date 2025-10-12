@@ -477,18 +477,57 @@
             }
         }
 
-        function displayResults(artworks) {
+//         function displayResults(artworks) {
+//     const resultsGrid = document.getElementById('resultsGrid');
+//     resultsGrid.innerHTML = '';
+
+//     artworks.forEach(art => {
+//         // Handle missing or relative image URLs
+//         let imageSrc = art.image_url ? art.image_url.trim() : '';
+//         if (!imageSrc) {
+//             imageSrc = '/images/placeholder.jpg';
+//         } else if (!imageSrc.startsWith('http')) {
+//             imageSrc = `/images/${imageSrc.replace(/^\/?images\//, '')}`;
+//         }
+
+//         const card = document.createElement('div');
+//         card.className = 'art-card';
+//         card.innerHTML = `
+//             <div class="art-image-container">
+//                 <img src="${imageSrc}" alt="${art.title}" class="art-image"
+//                      crossOrigin="anonymous"
+//                      onerror="this.onerror=null;this.src='/images/placeholder.jpg';">
+//             </div>
+//             <div class="art-info">
+//                 <span class="art-category">${art.category}</span>
+//                 <div class="art-title">${art.title}</div>
+//                 <div class="art-artist">by ${art.artist}</div>
+//                 <div class="art-footer">
+//                     <div class="art-price">Rs ${art.price}/-</div>
+//                     <button class="view-btn" onclick="viewArtwork(${art.id})">View Details</button>
+//                 </div>
+//             </div>
+//         `;
+//         resultsGrid.appendChild(card);
+//     });
+
+//     resultsGrid.style.display = 'grid';
+//     document.getElementById('noResults').style.display = 'none';
+// }
+function displayResults(artworks) {
     const resultsGrid = document.getElementById('resultsGrid');
     resultsGrid.innerHTML = '';
 
     artworks.forEach(art => {
-        // Handle missing or relative image URLs
-        let imageSrc = art.image_url ? art.image_url.trim() : '';
-        if (!imageSrc) {
-            imageSrc = '/images/placeholder.jpg';
-        } else if (!imageSrc.startsWith('http')) {
-            imageSrc = `/images/${imageSrc.replace(/^\/?images\//, '')}`;
-        }
+        // ✅ Convert DB path to browser-friendly URL
+        // let imageSrc = art.image_path ? `/` + art.image_path.replace(/\\/g, '/') : '/images/placeholder.jpg';
+
+        // let imageSrc = art.image_path ? '/' + encodeURI(art.image_path.replace(/\\/g, '/')) : '/images/placeholder.jpg';
+
+        let imageSrc = art.image_path 
+    ? '/' + encodeURI(art.image_path.replace(/\\/g, '/')) 
+    : '/images/placeholder.jpg';
+
 
         const card = document.createElement('div');
         card.className = 'art-card';
@@ -514,6 +553,9 @@
     resultsGrid.style.display = 'grid';
     document.getElementById('noResults').style.display = 'none';
 }
+
+
+
 
 
         async function loadUser() {

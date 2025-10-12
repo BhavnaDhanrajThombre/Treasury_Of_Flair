@@ -24,7 +24,7 @@ router.get('/', async (req, res) => {
         }
 
         const [rows] = await db.query(
-  `SELECT id, category, title, artist, description, image_url, price
+  `SELECT id, category, title, artist, description, image_path, price
    FROM artworks
    WHERE MATCH(title, description, artist) AGAINST(? IN NATURAL LANGUAGE MODE)
    OR LOWER(title) LIKE LOWER(?) 
