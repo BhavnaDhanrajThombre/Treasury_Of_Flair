@@ -1,112 +1,499 @@
-[
-  {
-    "id": 1,
-    "name": "Paintings",
-    "description": "Oil, acrylic, watercolor and mixed-media paintings — portraits, landscapes and abstracts.",
-    "image_url": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1400&q=80",
-    "badge": "Classic",
-    "artwork_count": 2400,
-    "artist_count": 450,
-    "price_range": "$25 - $2K",
-    "tags": ["Oil", "Acrylic", "Watercolor", "Landscape"]
-  },
-  {
-    "id": 2,
-    "name": "Photography",
-    "description": "Fine-art prints, editorial, landscape and portrait photography captured by professionals.",
-    "image_url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1400&q=80",
-    "badge": "Trending",
-    "artwork_count": 1800,
-    "artist_count": 320,
-    "price_range": "$15 - $800",
-    "tags": ["Portrait", "Nature", "Street", "Fine Art"]
-  },
-  {
-    "id": 3,
-    "name": "Digital Art",
-    "description": "Illustrations, concept art, generative and NFT-style pieces — digital creativity at its best.",
-    "image_url": "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=1400&q=80",
-    "badge": "Modern",
-    "artwork_count": 3100,
-    "artist_count": 280,
-    "price_range": "$10 - $1.5K",
-    "tags": ["Illustration", "Concept", "3D", "NFT"]
-  },
-  {
-    "id": 4,
-    "name": "Sculpture",
-    "description": "Three-dimensional works — stone, metal, wood and mixed-material sculptures and reliefs.",
-    "image_url": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1400&q=80",
-    "badge": "3D",
-    "artwork_count": 890,
-    "artist_count": 160,
-    "price_range": "$50 - $5K",
-    "tags": ["Ceramic", "Wood", "Metal", "Stone"]
-  },
-  {
-    "id": 5,
-    "name": "Printmaking",
-    "description": "Etchings, lithographs, screenprints and other reproducible printed artworks.",
-    "image_url": "https://images.unsplash.com/photo-1504198453319-5ce911bafcde?w=1400&q=80",
-    "badge": "Limited",
-    "artwork_count": 420,
-    "artist_count": 95,
-    "price_range": "$30 - $700",
-    "tags": ["Screenprint", "Etching", "Litho"]
-  },
-  {
-    "id": 6,
-    "name": "Ceramics",
-    "description": "Functional and sculptural ceramics — pottery, wheel-thrown pieces and glazed art objects.",
-    "image_url": "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1400&q=80",
-    "badge": "Handmade",
-    "artwork_count": 670,
-    "artist_count": 140,
-    "price_range": "$20 - $600",
-    "tags": ["Pottery", "Wheel-thrown", "Glazed"]
-  },
-  {
-    "id": 7,
-    "name": "Street Art",
-    "description": "Murals, graffiti and site-specific urban interventions from contemporary street artists.",
-    "image_url": "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=1400&q=80",
-    "badge": "Urban",
-    "artwork_count": 530,
-    "artist_count": 200,
-    "price_range": "$0 - $3K",
-    "tags": ["Mural", "Graffiti", "Stencil"]
-  },
-  {
-    "id": 8,
-    "name": "Collage & Mixed Media",
-    "description": "Works combining paper, textiles, paint and found materials to create layered compositions.",
-    "image_url": "https://images.unsplash.com/photo-1549880338-65ddcdfd017b?w=1400&q=80",
-    "badge": "Eclectic",
-    "artwork_count": 310,
-    "artist_count": 120,
-    "price_range": "$20 - $900",
-    "tags": ["Paper", "Found", "Assemblage"]
-  },
-  {
-    "id": 9,
-    "name": "Textile & Fiber",
-    "description": "Weaving, embroidery, quilting and sculptural fiber pieces — soft art with texture and depth.",
-    "image_url": "https://images.unsplash.com/photo-1520975698515-1b4d2a3e9b7f?w=1400&q=80",
-    "badge": "Tactile",
-    "artwork_count": 240,
-    "artist_count": 90,
-    "price_range": "$15 - $1.2K",
-    "tags": ["Weaving", "Embroidery", "Quilt"]
-  },
-  {
-    "id": 10,
-    "name": "Installation Art",
-    "description": "Large-scale and immersive works that transform spaces and invite viewer interaction.",
-    "image_url": "https://images.unsplash.com/photo-1494198453319-5ce911bafcde?w=1400&q=80",
-    "badge": "Experiential",
-    "artwork_count": 110,
-    "artist_count": 70,
-    "price_range": "Varies",
-    "tags": ["Site-specific", "Immersive"]
+{
+  "categories": [
+    {
+      "id": "cat_001",
+      "name": "Paintings",
+      "slug": "paintings",
+      "description": "Oil, acrylic, watercolor and mixed-media paintings - portraits, landscapes and abstracts.",
+      "badge": "Classic",
+      "image": "Images/Paintings.jpeg",
+      "stats": {
+        "artworks": 2400,
+        "artists": 450,
+        "priceRange": "₹25-2K"
+      },
+      "tags": ["Oil", "Acrylic", "Watercolor", "Landscape"],
+      "featured": true
+    },
+    {
+      "id": "cat_002",
+      "name": "Pop Art",
+      "slug": "pop-art",
+      "description": "Bold, vibrant pieces inspired by popular culture and contemporary aesthetics.",
+      "badge": "Trending",
+      "image": "Images/Pop Art.jpeg",
+      "stats": {
+        "artworks": 1800,
+        "artists": 320,
+        "priceRange": "₹15-800"
+      },
+      "tags": ["Bold", "Colorful", "Modern", "Icon"],
+      "featured": true
+    },
+    {
+      "id": "cat_003",
+      "name": "Digital Art",
+      "slug": "digital-art",
+      "description": "Illustrations, concept art, generative and NFT-style pieces - digital creativity at its best.",
+      "badge": "Modern",
+      "image": "Images/Digital Art.jpeg",
+      "stats": {
+        "artworks": 3100,
+        "artists": 280,
+        "priceRange": "₹10-1.5K"
+      },
+      "tags": ["Illustration", "Concept", "3D", "NFT"],
+      "featured": true
+    },
+    {
+      "id": "cat_004",
+      "name": "Sculpture",
+      "slug": "sculpture",
+      "description": "Three-dimensional works - stone, metal, wood and mixed-material sculptures and reliefs.",
+      "badge": "3D",
+      "image": "Images/Sculpture.jpeg",
+      "stats": {
+        "artworks": 890,
+        "artists": 160,
+        "priceRange": "₹50-5K"
+      },
+      "tags": ["Ceramic", "Wood", "Metal", "Stone"],
+      "featured": false
+    },
+    {
+      "id": "cat_005",
+      "name": "Printmaking",
+      "slug": "printmaking",
+      "description": "Etchings, lithographs, screenprints and other reproducible, high-quality printed artworks.",
+      "badge": "Limited",
+      "image": "Images/Printmaking.jpeg",
+      "stats": {
+        "artworks": 420,
+        "artists": 95,
+        "priceRange": "₹30-700"
+      },
+      "tags": ["Screenprint", "Etching", "Litho"],
+      "featured": false
+    },
+    {
+      "id": "cat_006",
+      "name": "Ceramics",
+      "slug": "ceramics",
+      "description": "Functional and sculptural ceramics - pottery, wheel-thrown pieces and glazed art objects.",
+      "badge": "Handmade",
+      "image": "Images/Ceramics.jpeg",
+      "stats": {
+        "artworks": 670,
+        "artists": 140,
+        "priceRange": "₹20-600"
+      },
+      "tags": ["Pottery", "Wheel-thrown", "Glazed"],
+      "featured": false
+    },
+    {
+      "id": "cat_007",
+      "name": "Street Art",
+      "slug": "street-art",
+      "description": "Murals, graffiti and site-specific urban interventions from contemporary street artists.",
+      "badge": "Urban",
+      "image": "Images/Street Art.jpeg",
+      "stats": {
+        "artworks": 530,
+        "artists": 200,
+        "priceRange": "₹0-3K"
+      },
+      "tags": ["Mural", "Graffiti", "Stencil"],
+      "featured": false
+    },
+    {
+      "id": "cat_008",
+      "name": "Collage & Mixed Media",
+      "slug": "collage",
+      "description": "Works combining paper, textiles, paint and found materials to create layered compositions.",
+      "badge": "Eclectic",
+      "image": "Images/Collage & Mixed Media.jpeg",
+      "stats": {
+        "artworks": 310,
+        "artists": 120,
+        "priceRange": "₹20-900"
+      },
+      "tags": ["Paper", "Found", "Assemblage"],
+      "featured": false
+    },
+    {
+      "id": "cat_009",
+      "name": "Textile & Fiber",
+      "slug": "textile",
+      "description": "Weaving, embroidery, quilting and sculptural fiber pieces - soft art with texture and depth.",
+      "badge": "Tactile",
+      "image": "Images/Textile & Fiber.jpeg",
+      "stats": {
+        "artworks": 240,
+        "artists": 90,
+        "priceRange": "₹15-1.2K"
+      },
+      "tags": ["Weaving", "Embroidery", "Quilt"],
+      "featured": false
+    },
+    {
+      "id": "cat_010",
+      "name": "Abstract Art",
+      "slug": "abstract-art",
+      "description": "Non-representational works exploring form, color, and composition without literal subjects.",
+      "badge": "Experiential",
+      "image": "Images/Abstract Art.jpeg",
+      "stats": {
+        "artworks": 110,
+        "artists": 70,
+        "priceRange": "Varies"
+      },
+      "tags": ["Expressive", "Immersive"],
+      "featured": false
+    }
+  ],
+  "artists": [
+    {
+      "id": "artist_001",
+      "username": "priya_sharma",
+      "displayName": "Priya Sharma",
+      "email": "priya.sharma@example.com",
+      "avatar": "PS",
+      "bio": "Contemporary artist specializing in abstract paintings and mixed media.",
+      "location": "Mumbai, India",
+      "categories": ["cat_001", "cat_008", "cat_010"],
+      "totalArtworks": 45,
+      "totalSales": 127,
+      "rating": 4.8,
+      "joinedDate": "2023-01-15",
+      "verified": true,
+      "socialMedia": {
+        "instagram": "@priya.art",
+        "website": "https://priyasharma.art"
+      }
+    },
+    {
+      "id": "artist_002",
+      "username": "rajesh_kumar",
+      "displayName": "Rajesh Kumar",
+      "email": "rajesh.k@example.com",
+      "avatar": "RK",
+      "bio": "Digital artist creating stunning concept art and illustrations.",
+      "location": "Bangalore, India",
+      "categories": ["cat_003"],
+      "totalArtworks": 78,
+      "totalSales": 234,
+      "rating": 4.9,
+      "joinedDate": "2022-08-22",
+      "verified": true,
+      "socialMedia": {
+        "instagram": "@rajesh_digital",
+        "twitter": "@rajeshkumar_art"
+      }
+    },
+    {
+      "id": "artist_003",
+      "username": "anita_patel",
+      "displayName": "Anita Patel",
+      "email": "anita.patel@example.com",
+      "avatar": "AP",
+      "bio": "Ceramic artist crafting unique pottery and sculptural pieces.",
+      "location": "Ahmedabad, India",
+      "categories": ["cat_006"],
+      "totalArtworks": 32,
+      "totalSales": 89,
+      "rating": 4.7,
+      "joinedDate": "2023-03-10",
+      "verified": true,
+      "socialMedia": {
+        "instagram": "@anita_ceramics"
+      }
+    }
+  ],
+  "artworks": [
+    {
+      "id": "art_001",
+      "title": "Sunset Dreams",
+      "artistId": "artist_001",
+      "categoryId": "cat_001",
+      "description": "A vibrant oil painting capturing the essence of a tropical sunset with bold colors and expressive brushwork.",
+      "price": 1500,
+      "currency": "INR",
+      "image": "Images/artwork_sunset_dreams.jpg",
+      "dimensions": {
+        "width": 60,
+        "height": 80,
+        "unit": "cm"
+      },
+      "medium": "Oil on Canvas",
+      "year": 2024,
+      "tags": ["landscape", "sunset", "colorful", "oil"],
+      "available": true,
+      "featured": true,
+      "views": 1247,
+      "likes": 89,
+      "createdAt": "2024-01-15T10:30:00Z",
+      "updatedAt": "2024-10-01T14:20:00Z"
+    },
+    {
+      "id": "art_002",
+      "title": "Cyber Warrior",
+      "artistId": "artist_002",
+      "categoryId": "cat_003",
+      "description": "Futuristic character design showcasing advanced digital painting techniques and sci-fi aesthetics.",
+      "price": 800,
+      "currency": "INR",
+      "image": "Images/artwork_cyber_warrior.jpg",
+      "dimensions": {
+        "width": 3000,
+        "height": 4000,
+        "unit": "px"
+      },
+      "medium": "Digital Art",
+      "year": 2024,
+      "tags": ["sci-fi", "character", "digital", "concept"],
+      "available": true,
+      "featured": true,
+      "views": 2341,
+      "likes": 156,
+      "createdAt": "2024-02-20T09:15:00Z",
+      "updatedAt": "2024-09-28T16:45:00Z"
+    },
+    {
+      "id": "art_003",
+      "title": "Blue Vessel",
+      "artistId": "artist_003",
+      "categoryId": "cat_006",
+      "description": "Hand-thrown ceramic vase with stunning cobalt blue glaze and intricate texture.",
+      "price": 450,
+      "currency": "INR",
+      "image": "Images/artwork_blue_vessel.jpg",
+      "dimensions": {
+        "width": 15,
+        "height": 25,
+        "depth": 15,
+        "unit": "cm"
+      },
+      "medium": "Ceramic",
+      "year": 2024,
+      "tags": ["pottery", "vase", "blue", "handmade"],
+      "available": true,
+      "featured": false,
+      "views": 567,
+      "likes": 43,
+      "createdAt": "2024-03-05T11:00:00Z",
+      "updatedAt": "2024-10-05T10:30:00Z"
+    },
+    {
+      "id": "art_004",
+      "title": "Urban Echo",
+      "artistId": "artist_001",
+      "categoryId": "cat_002",
+      "description": "Bold pop art piece featuring iconic urban imagery with vibrant colors and graphic elements.",
+      "price": 650,
+      "currency": "INR",
+      "image": "Images/artwork_urban_echo.jpg",
+      "dimensions": {
+        "width": 50,
+        "height": 70,
+        "unit": "cm"
+      },
+      "medium": "Acrylic on Canvas",
+      "year": 2024,
+      "tags": ["pop art", "urban", "colorful", "modern"],
+      "available": true,
+      "featured": true,
+      "views": 892,
+      "likes": 67,
+      "createdAt": "2024-04-12T13:20:00Z",
+      "updatedAt": "2024-10-08T09:15:00Z"
+    },
+    {
+      "id": "art_005",
+      "title": "Abstract Flow",
+      "artistId": "artist_001",
+      "categoryId": "cat_010",
+      "description": "Expressive abstract composition exploring movement and energy through color and form.",
+      "price": 1200,
+      "currency": "INR",
+      "image": "Images/artwork_abstract_flow.jpg",
+      "dimensions": {
+        "width": 90,
+        "height": 120,
+        "unit": "cm"
+      },
+      "medium": "Mixed Media on Canvas",
+      "year": 2024,
+      "tags": ["abstract", "expressive", "contemporary", "large"],
+      "available": true,
+      "featured": false,
+      "views": 734,
+      "likes": 52,
+      "createdAt": "2024-05-18T15:40:00Z",
+      "updatedAt": "2024-10-10T11:25:00Z"
+    }
+  ],
+  "orders": [
+    {
+      "id": "order_001",
+      "userId": "user_001",
+      "artworkId": "art_001",
+      "artistId": "artist_001",
+      "status": "completed",
+      "price": 1500,
+      "currency": "INR",
+      "orderDate": "2024-09-15T14:30:00Z",
+      "completedDate": "2024-09-22T10:15:00Z",
+      "shippingAddress": {
+        "name": "John Doe",
+        "street": "123 MG Road",
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "pincode": "400001",
+        "country": "India",
+        "phone": "+91 9876543210"
+      },
+      "paymentMethod": "UPI",
+      "trackingNumber": "TRACK123456789"
+    },
+    {
+      "id": "order_002",
+      "userId": "user_002",
+      "artworkId": "art_002",
+      "artistId": "artist_002",
+      "status": "processing",
+      "price": 800,
+      "currency": "INR",
+      "orderDate": "2024-10-05T11:20:00Z",
+      "shippingAddress": {
+        "name": "Sarah Smith",
+        "street": "456 Park Street",
+        "city": "Delhi",
+        "state": "Delhi",
+        "pincode": "110001",
+        "country": "India",
+        "phone": "+91 9876543211"
+      },
+      "paymentMethod": "Credit Card"
+    }
+  ],
+  "users": [
+    {
+      "id": "user_001",
+      "username": "john_doe",
+      "email": "john.doe@example.com",
+      "displayName": "John Doe",
+      "avatar": "JD",
+      "role": "customer",
+      "joinedDate": "2024-01-10T08:00:00Z",
+      "favorites": ["art_001", "art_004", "art_005"],
+      "cart": [],
+      "orderHistory": ["order_001"],
+      "address": {
+        "street": "123 MG Road",
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "pincode": "400001",
+        "country": "India",
+        "phone": "+91 9876543210"
+      }
+    },
+    {
+      "id": "user_002",
+      "username": "sarah_smith",
+      "email": "sarah.smith@example.com",
+      "displayName": "Sarah Smith",
+      "avatar": "SS",
+      "role": "customer",
+      "joinedDate": "2024-03-22T12:30:00Z",
+      "favorites": ["art_002", "art_003"],
+      "cart": ["art_005"],
+      "orderHistory": ["order_002"],
+      "address": {
+        "street": "456 Park Street",
+        "city": "Delhi",
+        "state": "Delhi",
+        "pincode": "110001",
+        "country": "India",
+        "phone": "+91 9876543211"
+      }
+    }
+  ],
+  "reels": [
+    {
+      "id": "reel_001",
+      "title": "Creating Sunset Dreams - Time Lapse",
+      "artistId": "artist_001",
+      "artworkId": "art_001",
+      "videoUrl": "videos/reel_sunset_dreams.mp4",
+      "thumbnail": "Images/reel_thumb_001.jpg",
+      "duration": 45,
+      "views": 3456,
+      "likes": 234,
+      "comments": 45,
+      "createdAt": "2024-01-20T10:00:00Z",
+      "tags": ["process", "painting", "timelapse"]
+    },
+    {
+      "id": "reel_002",
+      "title": "Digital Art Process: Cyber Warrior",
+      "artistId": "artist_002",
+      "artworkId": "art_002",
+      "videoUrl": "videos/reel_cyber_warrior.mp4",
+      "thumbnail": "Images/reel_thumb_002.jpg",
+      "duration": 60,
+      "views": 5678,
+      "likes": 456,
+      "comments": 78,
+      "createdAt": "2024-02-25T14:30:00Z",
+      "tags": ["digital", "process", "character design"]
+    },
+    {
+      "id": "reel_003",
+      "title": "Pottery Wheel Magic",
+      "artistId": "artist_003",
+      "artworkId": "art_003",
+      "videoUrl": "videos/reel_pottery.mp4",
+      "thumbnail": "Images/reel_thumb_003.jpg",
+      "duration": 30,
+      "views": 2345,
+      "likes": 189,
+      "comments": 34,
+      "createdAt": "2024-03-10T09:45:00Z",
+      "tags": ["pottery", "ceramics", "handmade"]
+    }
+  ],
+  "reviews": [
+    {
+      "id": "review_001",
+      "artworkId": "art_001",
+      "userId": "user_001",
+      "rating": 5,
+      "comment": "Absolutely stunning piece! The colors are even more vibrant in person. Highly recommend!",
+      "createdAt": "2024-09-25T16:20:00Z",
+      "helpful": 12
+    },
+    {
+      "id": "review_002",
+      "artworkId": "art_002",
+      "userId": "user_002",
+      "rating": 5,
+      "comment": "Amazing digital art! The detail is incredible and the artist was very professional.",
+      "createdAt": "2024-10-06T11:30:00Z",
+      "helpful": 8
+    }
+  ],
+  "siteConfig": {
+    "siteName": "Treasury of Flair",
+    "tagline": "Marketplace for artists",
+    "contactEmail": "contact@treasuryofflair.com",
+    "socialMedia": {
+      "instagram": "@treasuryofflair",
+      "facebook": "treasuryofflair",
+      "twitter": "@treasuryofflair"
+    },
+    "currency": "INR",
+    "shippingRegions": ["India"],
+    "supportedPaymentMethods": ["UPI", "Credit Card", "Debit Card", "Net Banking"],
+    "featuredCategories": ["cat_001", "cat_002", "cat_003"]
   }
-]
+}
