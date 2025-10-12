@@ -17,7 +17,6 @@
       overflow-x:hidden;
     }
 
-    /* Navbar - Matching home.html */
     nav {
       background:white;
       padding:12px 20px;
@@ -80,7 +79,6 @@
       background:rgba(142,45,226,0.1);
     }
 
-    /* Page Container */
     .container {
       max-width:1400px;
       margin:100px auto 60px;
@@ -107,7 +105,6 @@
       line-height:1.6;
     }
 
-    /* Search and Filter Section */
     .search-filter-section {
       background:white;
       padding:25px;
@@ -246,7 +243,6 @@
       background:rgba(142,45,226,0.05);
     }
 
-    /* Art Grid - Matching home.html cards */
     .art-grid {
       display:grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -275,6 +271,7 @@
       background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
       transform:scaleX(0);
       transition:transform 0.3s ease;
+      z-index:1;
     }
 
     .art-card:hover {
@@ -371,106 +368,452 @@
       box-shadow:0 5px 15px rgba(142,45,226,0.3);
     }
 
-    /* Animation */
-    @keyframes slideInUp {
-      from {
-        opacity:0;
-        transform:translateY(30px);
-      }
-      to {
-        opacity:1;
-        transform:translateY(0);
-      }
+    /* Modal Styles */
+    .modal-overlay {
+      display:none;
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+      background:rgba(0,0,0,0.7);
+      z-index:2000;
+      align-items:center;
+      justify-content:center;
+      backdrop-filter:blur(5px);
     }
 
-    .art-card {
-      animation:slideInUp 0.6s ease-out forwards;
+    .modal-overlay.active {
+      display:flex;
     }
 
-    /* Responsive Adjustments */
+    .modal-container {
+      background:white;
+      border-radius:25px;
+      width:90%;
+      max-width:1000px;
+      max-height:90vh;
+      overflow-y:auto;
+      box-shadow:0 20px 60px rgba(0,0,0,0.3);
+    }
+
+    .modal-header {
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      padding:30px 40px;
+      border-radius:25px 25px 0 0;
+      color:white;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .modal-title {
+      font-size:28px;
+      font-weight:600;
+    }
+
+    .modal-close {
+      background:rgba(255,255,255,0.2);
+      border:none;
+      width:40px;
+      height:40px;
+      border-radius:50%;
+      color:white;
+      font-size:24px;
+      cursor:pointer;
+      transition:all 0.3s ease;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .modal-close:hover {
+      background:rgba(255,255,255,0.3);
+      transform:rotate(90deg);
+    }
+
+    .modal-body {
+      padding:40px;
+    }
+
+    .details-grid {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:40px;
+      margin-bottom:40px;
+    }
+
+    .details-image-section {
+      position:relative;
+    }
+
+    .details-main-image {
+      width:100%;
+      height:450px;
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:0 10px 30px rgba(0,0,0,0.15);
+      margin-bottom:15px;
+    }
+
+    .details-main-image img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform 0.3s ease;
+    }
+
+    .details-main-image:hover img {
+      transform:scale(1.05);
+    }
+
+    .image-badge {
+      position:absolute;
+      top:20px;
+      right:20px;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      color:white;
+      padding:8px 20px;
+      border-radius:20px;
+      font-weight:600;
+      font-size:14px;
+      box-shadow:0 5px 15px rgba(142,45,226,0.4);
+    }
+
+    .details-info-section {
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    .details-title {
+      font-size:32px;
+      font-weight:700;
+      color:#333;
+      margin-bottom:10px;
+    }
+
+    .details-artist {
+      font-size:18px;
+      color:#8E2DE2;
+      font-weight:600;
+      margin-bottom:20px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .artist-avatar {
+      width:40px;
+      height:40px;
+      border-radius:50%;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-weight:600;
+    }
+
+    .details-price {
+      font-size:40px;
+      font-weight:700;
+      color:#333;
+      margin-bottom:20px;
+    }
+
+    .details-rating {
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:20px;
+    }
+
+    .stars {
+      color:#FFB800;
+      font-size:20px;
+    }
+
+    .rating-text {
+      color:#666;
+      font-size:14px;
+    }
+
+    .details-description {
+      color:#666;
+      line-height:1.8;
+      margin-bottom:25px;
+      font-size:15px;
+    }
+
+    .details-specs {
+      background:#f9f9f9;
+      padding:25px;
+      border-radius:15px;
+      margin-bottom:25px;
+    }
+
+    .spec-row {
+      display:flex;
+      justify-content:space-between;
+      padding:12px 0;
+      border-bottom:1px solid #e0e0e0;
+    }
+
+    .spec-row:last-child {
+      border-bottom:none;
+    }
+
+    .spec-label {
+      font-weight:600;
+      color:#333;
+    }
+
+    .spec-value {
+      color:#666;
+    }
+
+    .quantity-selector {
+      display:flex;
+      align-items:center;
+      gap:15px;
+      margin-bottom:25px;
+    }
+
+    .quantity-label {
+      font-weight:600;
+      color:#333;
+    }
+
+    .quantity-controls {
+      display:flex;
+      align-items:center;
+      gap:15px;
+      background:#f9f9f9;
+      padding:10px 20px;
+      border-radius:12px;
+    }
+
+    .quantity-btn {
+      width:35px;
+      height:35px;
+      border:none;
+      background:white;
+      border-radius:8px;
+      cursor:pointer;
+      font-size:18px;
+      font-weight:600;
+      color:#8E2DE2;
+      transition:all 0.3s ease;
+      box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .quantity-btn:hover {
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      color:white;
+      transform:scale(1.1);
+    }
+
+    .quantity-value {
+      font-size:18px;
+      font-weight:600;
+      min-width:40px;
+      text-align:center;
+    }
+
+    .action-buttons {
+      display:flex;
+      gap:15px;
+    }
+
+    .btn-add-cart {
+      flex:1;
+      background:white;
+      color:#8E2DE2;
+      border:2px solid #8E2DE2;
+      padding:16px 30px;
+      border-radius:12px;
+      font-weight:600;
+      font-size:16px;
+      cursor:pointer;
+      transition:all 0.3s ease;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+    }
+
+    .btn-add-cart:hover {
+      background:#8E2DE2;
+      color:white;
+      transform:translateY(-2px);
+      box-shadow:0 5px 15px rgba(142,45,226,0.3);
+    }
+
+    .btn-buy-now {
+      flex:1;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      color:white;
+      border:none;
+      padding:16px 30px;
+      border-radius:12px;
+      font-weight:600;
+      font-size:16px;
+      cursor:pointer;
+      transition:all 0.3s ease;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+    }
+
+    .btn-buy-now:hover {
+      transform:translateY(-2px);
+      box-shadow:0 8px 25px rgba(142,45,226,0.4);
+    }
+
+    .details-tabs {
+      border-top:2px solid #f0f0f0;
+      padding-top:30px;
+    }
+
+    .tabs-nav-details {
+      display:flex;
+      gap:30px;
+      margin-bottom:30px;
+      border-bottom:2px solid #f0f0f0;
+    }
+
+    .tab-btn-detail {
+      background:none;
+      border:none;
+      padding:15px 25px;
+      font-size:16px;
+      font-weight:600;
+      color:#666;
+      cursor:pointer;
+      position:relative;
+      transition:all 0.3s ease;
+    }
+
+    .tab-btn-detail:hover {
+      color:#8E2DE2;
+    }
+
+    .tab-btn-detail.active {
+      color:#8E2DE2;
+    }
+
+    .tab-btn-detail.active::after {
+      content:'';
+      position:absolute;
+      bottom:-2px;
+      left:0;
+      right:0;
+      height:3px;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      border-radius:3px;
+    }
+
+    .tab-content-detail {
+      display:none;
+    }
+
+    .tab-content-detail.active {
+      display:block;
+    }
+
+    .reviews-section {
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    .review-card {
+      background:#f9f9f9;
+      padding:20px;
+      border-radius:15px;
+      border-left:4px solid #8E2DE2;
+    }
+
+    .review-header {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:12px;
+    }
+
+    .reviewer-name {
+      font-weight:600;
+      color:#333;
+    }
+
+    .review-stars {
+      color:#FFB800;
+    }
+
+    .review-text {
+      color:#666;
+      line-height:1.6;
+    }
+
+    .shipping-info {
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    .shipping-item {
+      display:flex;
+      align-items:flex-start;
+      gap:15px;
+      padding:20px;
+      background:#f9f9f9;
+      border-radius:12px;
+    }
+
+    .shipping-icon {
+      width:50px;
+      height:50px;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-size:24px;
+      flex-shrink:0;
+    }
+
+    .shipping-content h4 {
+      font-weight:600;
+      color:#333;
+      margin-bottom:8px;
+    }
+
+    .shipping-content p {
+      color:#666;
+      font-size:14px;
+      line-height:1.6;
+    }
+
     @media (max-width:1024px) {
-      .container { 
-        padding:30px; 
-      }
-      .filters-row {
-        gap:15px;
-      }
-      .filter-select {
-        min-width:150px;
-      }
+      .container { padding:30px; }
+      .details-grid { grid-template-columns:1fr; }
     }
 
     @media (max-width:768px) {
-      .page-header h1 { 
-        font-size:2rem; 
-      }
-      .container { 
-        padding:20px; 
-        margin-top:100px;
-      }
-      .nav-links {
-        gap:20px;
-      }
-      .nav-links a {
-        padding:6px 12px;
-        font-size:0.9rem;
-      }
-      .search-bar-container {
-        flex-direction:column;
-      }
-      .search-button {
-        width:100%;
-      }
-      .filters-row {
-        flex-direction:column;
-        align-items:stretch;
-      }
-      .filter-group {
-        flex-direction:column;
-        align-items:stretch;
-        gap:10px;
-      }
-      .view-toggle {
-        margin-left:0;
-        justify-content:center;
-      }
-      .search-filter-section {
-        padding:20px;
-      }
+      .page-header h1 { font-size:2rem; }
+      .container { padding:20px; margin-top:100px; }
+      .modal-body { padding:20px; }
+      .details-title { font-size:24px; }
+      .details-price { font-size:32px; }
+      .action-buttons { flex-direction:column; }
     }
 
     @media (max-width:480px) {
-      .art-grid { 
-        grid-template-columns:1fr; 
-      }
-      .art-image { 
-        height:200px; 
-      }
-      .page-header h1 {
-        font-size:1.75rem;
-      }
-      .page-header p {
-        font-size:1rem;
-      }
-    }
-
-    /* Custom scrollbar */
-    ::-webkit-scrollbar {
-      width:8px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background:#f1f1f1;
-      border-radius:10px;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
-      border-radius:10px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background:linear-gradient(135deg,#7A28C7,#E63E1B);
+      .art-grid { grid-template-columns:1fr; }
+      .art-image { height:200px; }
     }
   </style>
 </head>
@@ -552,9 +895,20 @@
       </div>
     </div>
 
+    <!-- Art Grid -->
     <div class="art-grid">
       <!-- Card 1 -->
-      <div class="art-card">
+      <div class="art-card"
+           data-title="Botanical Study I"
+           data-artist="Eleanor Wright"
+           data-price="8200"
+           data-desc="Delicate copper plate etching showcasing intricate botanical details with fine linework."
+           data-full-desc="This beautiful copper plate etching captures the delicate intricacy of botanical specimens. Each line has been carefully carved into the copper plate, creating a print that celebrates nature's geometric perfection. A true masterpiece of traditional printmaking technique."
+           data-dimensions="24 x 32 cm"
+           data-medium="Copper Plate Etching"
+           data-year="2024"
+           data-style="Botanical"
+           data-image="Images/Botanical Study I.jpeg">
         <div class="art-image"><img src="Images/Botanical Study I.jpeg" alt="Etching art"></div>
         <div class="art-content">
           <div class="art-title">Botanical Study I</div>
@@ -567,7 +921,17 @@
       </div>
 
       <!-- Card 2 -->
-      <div class="art-card">
+      <div class="art-card"
+           data-title="Urban Rhythm"
+           data-artist="Marcus Taylor"
+           data-price="12500"
+           data-desc="Bold screenprint featuring vibrant layers and geometric patterns inspired by city life."
+           data-full-desc="Urban Rhythm captures the energy and dynamism of modern city life through bold screenprint technique. Vibrant layers of color interact to create geometric patterns that evoke towering skyscrapers and bustling streets."
+           data-dimensions="30 x 40 cm"
+           data-medium="Screenprint"
+           data-year="2024"
+           data-style="Contemporary Urban"
+           data-image="Images/Urban Rhythm.jpeg">
         <div class="art-image"><img src="Images/Urban Rhythm.jpeg" alt="Screenprint"></div>
         <div class="art-content">
           <div class="art-title">Urban Rhythm</div>
@@ -580,7 +944,17 @@
       </div>
 
       <!-- Card 3 -->
-      <div class="art-card">
+      <div class="art-card"
+           data-title="Mountain Solitude"
+           data-artist="Akiko Tanaka"
+           data-price="15800"
+           data-desc="Stone lithograph capturing misty mountain landscapes with subtle tonal variations."
+           data-full-desc="Mountain Solitude is a serene stone lithograph that captures the tranquil beauty of misty mountain landscapes. Through subtle tonal variations and expert use of light and shadow, this piece creates a sense of peaceful isolation in nature."
+           data-dimensions="25 x 35 cm"
+           data-medium="Stone Lithograph"
+           data-year="2024"
+           data-style="Landscape"
+           data-image="Images/Mountain Solitude.jpeg">
         <div class="art-image"><img src="Images/Mountain Solitude.jpeg" alt="Lithograph"></div>
         <div class="art-content">
           <div class="art-title">Mountain Solitude</div>
@@ -593,7 +967,17 @@
       </div>
 
       <!-- Card 4 -->
-      <div class="art-card">
+      <div class="art-card"
+           data-title="Forest Tales"
+           data-artist="Henrik Larsen"
+           data-price="9500"
+           data-desc="Traditional woodcut print with bold contrasts and expressive carved textures."
+           data-full-desc="Forest Tales is a striking traditional woodcut that celebrates the boldness and expressiveness of the medium. With dramatic contrasts between black and white, and expressive carved textures that create depth and movement."
+           data-dimensions="28 x 38 cm"
+           data-medium="Woodcut Print"
+           data-year="2024"
+           data-style="Traditional Narrative"
+           data-image="Images/Forest Tales.jpeg">
         <div class="art-image"><img src="Images/Forest Tales.jpeg" alt="Woodcut print"></div>
         <div class="art-content">
           <div class="art-title">Forest Tales</div>
@@ -606,7 +990,17 @@
       </div>
 
       <!-- Card 5 -->
-      <div class="art-card">
+      <div class="art-card"
+           data-title="Abstract Flow"
+           data-artist="Isabella Costa"
+           data-price="18900"
+           data-desc="Unique monotype print with fluid ink patterns creating one-of-a-kind impressions."
+           data-full-desc="Abstract Flow is a unique monotype print that celebrates the spontaneity and fluidity of the medium. With liquid ink patterns that flow and blend across the paper, this one-of-a-kind piece captures a moment of artistic freedom."
+           data-dimensions="32 x 42 cm"
+           data-medium="Monotype Print"
+           data-year="2024"
+           data-style="Abstract"
+           data-image="Images/Abstract Flow.jpeg">
         <div class="art-image"><img src="Images/Abstract Flow.jpeg" alt="Monotype"></div>
         <div class="art-content">
           <div class="art-title">Abstract Flow</div>
@@ -619,7 +1013,17 @@
       </div>
 
       <!-- Card 6 -->
-      <div class="art-card">
+      <div class="art-card"
+           data-title="Ocean Waves"
+           data-artist="Rajesh Kumar"
+           data-price="7800"
+           data-desc="Dynamic linocut print capturing the movement and energy of ocean waves."
+           data-full-desc="Ocean Waves is a dynamic linocut print that captures the raw energy and constant motion of the sea. Through bold carving techniques and dramatic use of line, the artist conveys the power and fluidity of crashing waves."
+           data-dimensions="22 x 30 cm"
+           data-medium="Linocut Print"
+           data-year="2024"
+           data-style="Nature Abstract"
+           data-image="Images/Ocean Waves.jpeg">
         <div class="art-image"><img src="Images/Ocean Waves.jpeg" alt="Linocut"></div>
         <div class="art-content">
           <div class="art-title">Ocean Waves</div>
@@ -632,7 +1036,17 @@
       </div>
 
       <!-- Card 7 -->
-      <div class="art-card">
+      <div class="art-card"
+           data-title="Pop Culture Icons"
+           data-artist="Nina Patel"
+           data-price="14200"
+           data-desc="Multi-layered serigraph with bright colors and contemporary pop art references."
+           data-full-desc="Pop Culture Icons is a multi-layered serigraph that brings contemporary culture to life through vibrant colors and dynamic composition. Drawing inspiration from pop art traditions, this piece celebrates iconic imagery."
+           data-dimensions="35 x 45 cm"
+           data-medium="Serigraph"
+           data-year="2024"
+           data-style="Pop Art"
+           data-image="Images/Pop Culture Icons.jpeg">
         <div class="art-image"><img src="Images/Pop Culture Icons.jpeg" alt="Serigraph"></div>
         <div class="art-content">
           <div class="art-title">Pop Culture Icons</div>
@@ -645,7 +1059,17 @@
       </div>
 
       <!-- Card 8 -->
-      <div class="art-card">
+      <div class="art-card"
+           data-title="Twilight Portrait"
+           data-artist="Sofia Alvarez"
+           data-price="16500"
+           data-desc="Aquatint etching with rich tonal depth and atmospheric portrait qualities."
+           data-full-desc="Twilight Portrait is an exquisite aquatint etching that showcases the rich tonal possibilities of the medium. With atmospheric lighting that evokes the mystery of twilight hours, this portrait captures both technical mastery and emotional depth."
+           data-dimensions="26 x 36 cm"
+           data-medium="Aquatint Etching"
+           data-year="2024"
+           data-style="Portrait"
+           data-image="Images/Twilight Portrait.jpeg">
         <div class="art-image"><img src="Images/Twilight Portrait.jpeg" alt="Aquatint"></div>
         <div class="art-content">
           <div class="art-title">Twilight Portrait</div>
@@ -658,7 +1082,17 @@
       </div>
 
       <!-- Card 9 -->
-      <div class="art-card">
+      <div class="art-card"
+           data-title="Industrial Dreams"
+           data-artist="Thomas Berg"
+           data-price="19800"
+           data-desc="Mixed media print combining etching, screenprint and collage elements."
+           data-full-desc="Industrial Dreams is an ambitious mixed media print that combines traditional etching, modern screenprinting, and collage elements. This innovative approach creates layers of visual complexity that reference industrial aesthetics."
+           data-dimensions="40 x 50 cm"
+           data-medium="Mixed Media Print"
+           data-year="2024"
+           data-style="Industrial"
+           data-image="Images/Industrial Dreams.jpeg">
         <div class="art-image"><img src="Images/Industrial Dreams.jpeg" alt="Mixed media print"></div>
         <div class="art-content">
           <div class="art-title">Industrial Dreams</div>
@@ -671,7 +1105,17 @@
       </div>
 
       <!-- Card 10 -->
-      <div class="art-card">
+      <div class="art-card"
+           data-title="Garden Memory"
+           data-artist="Mei Lin"
+           data-price="11400"
+           data-desc="Elegant relief print with delicate floral motifs and subtle color gradations."
+           data-full-desc="Garden Memory is an elegant relief print that celebrates the delicate beauty of botanical subjects. With carefully carved floral motifs and subtle color gradations achieved through multiple printings, this piece evokes serenity."
+           data-dimensions="28 x 38 cm"
+           data-medium="Relief Print"
+           data-year="2024"
+           data-style="Botanical"
+           data-image="Images/Garden Memory.jpeg">
         <div class="art-image"><img src="Images/Garden Memory.jpeg" alt="Relief print"></div>
         <div class="art-content">
           <div class="art-title">Garden Memory</div>
@@ -685,7 +1129,203 @@
     </div>
   </div>
 
+  <!-- Details Modal -->
+  <div class="modal-overlay" id="detailsModal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modalTitle">Artwork Details</h2>
+        <button class="modal-close" onclick="closeDetailsModal()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="details-grid">
+          <!-- Image Section -->
+          <div class="details-image-section">
+            <div class="details-main-image">
+              <img src="" alt="Artwork" id="detailsImage">
+            </div>
+            <div class="image-badge">Limited Edition Print</div>
+          </div>
+
+          <!-- Info Section -->
+          <div class="details-info-section">
+            <h1 class="details-title" id="detailsTitle">Artwork Title</h1>
+            
+            <div class="details-artist">
+              <div class="artist-avatar" id="artistAvatar">A</div>
+              <span id="detailsArtist">Artist Name</span>
+            </div>
+
+            <div class="details-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="rating-text">(4.8/5 from 215 reviews)</span>
+            </div>
+
+            <div class="details-price" id="detailsPrice">₹8,200</div>
+
+            <p class="details-description" id="detailsDescription">
+              Full description of the artwork goes here...
+            </p>
+
+            <div class="details-specs">
+              <div class="spec-row">
+                <span class="spec-label">Size:</span>
+                <span class="spec-value" id="specDimensions">24 x 32 cm</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Medium:</span>
+                <span class="spec-value" id="specMedium">Etching</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Year:</span>
+                <span class="spec-value" id="specYear">2024</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Style:</span>
+                <span class="spec-value" id="specStyle">Botanical</span>
+              </div>
+            </div>
+
+            <div class="quantity-selector">
+              <span class="quantity-label">Quantity:</span>
+              <div class="quantity-controls">
+                <button class="quantity-btn" onclick="decreaseQuantity()">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <span class="quantity-value" id="quantityValue">1</span>
+                <button class="quantity-btn" onclick="increaseQuantity()">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="action-buttons">
+              <button class="btn-add-cart" onclick="addToCart()">
+                <i class="fas fa-shopping-cart"></i>
+                Add to Cart
+              </button>
+              <button class="btn-buy-now" onclick="buyNow()">
+                <i class="fas fa-bolt"></i>
+                Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tabs Section -->
+        <div class="details-tabs">
+          <div class="tabs-nav-details">
+            <button class="tab-btn-detail active" onclick="switchDetailTab('description')">
+              <i class="fas fa-info-circle"></i> Description
+            </button>
+            <button class="tab-btn-detail" onclick="switchDetailTab('reviews')">
+              <i class="fas fa-star"></i> Reviews
+            </button>
+            <button class="tab-btn-detail" onclick="switchDetailTab('shipping')">
+              <i class="fas fa-box"></i> Shipping & Care
+            </button>
+          </div>
+
+          <div class="tab-content-detail active" id="tab-description">
+            <p style="color:#666;line-height:1.8;" id="fullDescription">
+              Full artwork description will appear here...
+            </p>
+          </div>
+
+          <div class="tab-content-detail" id="tab-reviews">
+            <div class="reviews-section">
+              <div class="review-card">
+                <div class="review-header">
+                  <span class="reviewer-name">David Mitchell</span>
+                  <span class="review-stars">★★★★★</span>
+                </div>
+                <p class="review-text">
+                  Absolutely stunning printmaking! The detail is incredible and the quality of the paper is excellent. This piece arrived beautifully packaged. Worth every penny!
+                </p>
+              </div>
+
+              <div class="review-card">
+                <div class="review-header">
+                  <span class="reviewer-name">Emily Rodriguez</span>
+                  <span class="review-stars">★★★★★</span>
+                </div>
+                <p class="review-text">
+                  I'm a collector and this addition to my collection is exceptional. The artist's technique is masterful and the limited edition makes it a true treasure. Highly recommended!
+                </p>
+              </div>
+
+              <div class="review-card">
+                <div class="review-header">
+                  <span class="reviewer-name">James Chen</span>
+                  <span class="review-stars">★★★★★</span>
+                </div>
+                <p class="review-text">
+                  The craftsmanship on this print is outstanding. You can see the care that went into every line and tone. A wonderful example of traditional printmaking artistry.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-content-detail" id="tab-shipping">
+            <div class="shipping-info">
+              <div class="shipping-item">
+                <div class="shipping-icon">
+                  <i class="fas fa-cube"></i>
+                </div>
+                <div class="shipping-content">
+                  <h4>Careful Packaging & Shipping</h4>
+                  <p>Each print is carefully packaged in archival-quality materials and shipped with protective packaging. We use professional couriers to ensure safe delivery. Tracking provided with every order.</p>
+                </div>
+              </div>
+
+              <div class="shipping-item">
+                <div class="shipping-icon">
+                  <i class="fas fa-certificate"></i>
+                </div>
+                <div class="shipping-content">
+                  <h4>Certificate of Authenticity</h4>
+                  <p>Each limited edition print comes with a signed Certificate of Authenticity from the artist, confirming the edition number and authenticity of your purchase. Perfect for collectors.</p>
+                </div>
+              </div>
+
+              <div class="shipping-item">
+                <div class="shipping-icon">
+                  <i class="fas fa-leaf"></i>
+                </div>
+                <div class="shipping-content">
+                  <h4>Art Care Instructions</h4>
+                  <p>Display in a cool, dry place away from direct sunlight. Protect from moisture and dust. Framing with UV-protective glass is recommended. Detailed care instructions provided with delivery.</p>
+                </div>
+              </div>
+
+              <div class="shipping-item">
+                <div class="shipping-icon">
+                  <i class="fas fa-undo"></i>
+                </div>
+                <div class="shipping-content">
+                  <h4>Return Policy</h4>
+                  <p>30-day return policy if the artwork doesn't meet your expectations. Must be in original condition and packaging. Contact customer service for return authorization and shipping instructions.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
+    let currentQuantity = 1;
+    let currentProductData = {};
+
     // Animate cards on load
     document.addEventListener('DOMContentLoaded', () => {
       const cards = document.querySelectorAll('.art-card');
@@ -699,17 +1339,125 @@
           card.style.transform = 'translateY(0)';
         }, index * 100);
       });
+
+      // Add click event to all View Details buttons
+      const buyButtons = document.querySelectorAll('.buy-btn');
+      buyButtons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const card = this.closest('.art-card');
+          openDetailsModal(card);
+        });
+      });
     });
 
-    // Button interactions
-    const buyButtons = document.querySelectorAll('.buy-btn');
-    buyButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        btn.style.transform = 'translateY(-1px) scale(0.98)';
-        setTimeout(() => {
-          btn.style.transform = 'translateY(-1px)';
-        }, 150);
+    // Open details modal
+    function openDetailsModal(card) {
+      const modal = document.getElementById('detailsModal');
+      
+      const title = card.dataset.title;
+      const artist = card.dataset.artist;
+      const price = card.dataset.price;
+      const desc = card.dataset.desc;
+      const fullDesc = card.dataset.fullDesc;
+      const dimensions = card.dataset.dimensions;
+      const medium = card.dataset.medium;
+      const year = card.dataset.year;
+      const style = card.dataset.style;
+      const image = card.dataset.image;
+
+      currentProductData = {
+        title: title,
+        artist: artist,
+        price: price,
+        image: image,
+        quantity: 1
+      };
+
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('detailsTitle').textContent = title;
+      document.getElementById('detailsArtist').textContent = 'By ' + artist;
+      document.getElementById('detailsPrice').textContent = '₹' + parseInt(price).toLocaleString('en-IN');
+      document.getElementById('detailsDescription').textContent = desc;
+      document.getElementById('fullDescription').textContent = fullDesc;
+      document.getElementById('detailsImage').src = image;
+      document.getElementById('specDimensions').textContent = dimensions;
+      document.getElementById('specMedium').textContent = medium;
+      document.getElementById('specYear').textContent = year;
+      document.getElementById('specStyle').textContent = style;
+
+      const artistAvatar = document.getElementById('artistAvatar');
+      artistAvatar.textContent = artist.charAt(0).toUpperCase();
+
+      currentQuantity = 1;
+      document.getElementById('quantityValue').textContent = currentQuantity;
+
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Close details modal
+    function closeDetailsModal() {
+      const modal = document.getElementById('detailsModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Quantity controls
+    function increaseQuantity() {
+      if (currentQuantity < 10) {
+        currentQuantity++;
+        document.getElementById('quantityValue').textContent = currentQuantity;
+      }
+    }
+
+    function decreaseQuantity() {
+      if (currentQuantity > 1) {
+        currentQuantity--;
+        document.getElementById('quantityValue').textContent = currentQuantity;
+      }
+    }
+
+    // Add to cart
+    function addToCart() {
+      const title = document.getElementById('detailsTitle').textContent;
+      alert(`Added ${currentQuantity} x "${title}" to cart!`);
+    }
+
+    // Buy now
+    function buyNow() {
+      currentProductData.quantity = currentQuantity;
+      localStorage.setItem('checkoutProduct', JSON.stringify(currentProductData));
+      window.location.href = 'BuyNow.html';
+    }
+
+    // Switch detail tabs
+    function switchDetailTab(tabName) {
+      document.querySelectorAll('.tab-btn-detail').forEach(btn => {
+        btn.classList.remove('active');
       });
+      
+      document.querySelectorAll('.tab-content-detail').forEach(content => {
+        content.classList.remove('active');
+      });
+
+      event.target.closest('.tab-btn-detail').classList.add('active');
+      document.getElementById('tab-' + tabName).classList.add('active');
+    }
+
+    // Close modal when clicking outside
+    document.addEventListener('click', (e) => {
+      const modal = document.getElementById('detailsModal');
+      if (e.target === modal) {
+        closeDetailsModal();
+      }
+    });
+
+    // Close modal with ESC key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeDetailsModal();
+      }
     });
 
     // Search functionality
@@ -778,7 +1526,6 @@
           break;
       }
       
-      // Clear and re-append sorted cards
       grid.innerHTML = '';
       sortedCards.forEach(card => grid.appendChild(card));
     }
@@ -834,7 +1581,7 @@
             show = !edition.includes('unique') && !edition.includes('1/1');
             break;
           case 'available':
-            show = true; // Show all as available for now
+            show = true;
             break;
         }
         

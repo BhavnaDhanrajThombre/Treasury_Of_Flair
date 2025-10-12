@@ -578,6 +578,190 @@
             margin-top: 5px;
         }
 
+        /* Settings Modal Specific Styles */
+        .settings-section {
+            margin-bottom: 35px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .settings-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .settings-section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .settings-section-title i {
+            color: #8E2DE2;
+            font-size: 20px;
+        }
+
+        .settings-toggle-group {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .settings-toggle-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .settings-toggle-item:hover {
+            background: #f0f0f0;
+        }
+
+        .settings-toggle-info {
+            flex: 1;
+        }
+
+        .settings-toggle-label {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .settings-toggle-desc {
+            font-size: 13px;
+            color: #666;
+        }
+
+        /* Toggle Switch */
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 26px;
+            flex-shrink: 0;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.3s;
+            border-radius: 34px;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.3s;
+            border-radius: 50%;
+        }
+
+        .toggle-switch input:checked + .toggle-slider {
+            background: linear-gradient(135deg, #8E2DE2, #FF4B2B);
+        }
+
+        .toggle-switch input:checked + .toggle-slider:before {
+            transform: translateX(24px);
+        }
+
+        .settings-radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .settings-radio-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .settings-radio-item:hover {
+            background: #f0f0f0;
+        }
+
+        .settings-radio-item input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            cursor: pointer;
+            accent-color: #8E2DE2;
+        }
+
+        .settings-radio-item label {
+            cursor: pointer;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .danger-zone {
+            background: rgba(239, 68, 68, 0.05);
+            border: 2px solid rgba(239, 68, 68, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .danger-zone-title {
+            color: #ef4444;
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .danger-zone-desc {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        .btn-danger {
+            background: #ef4444;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .btn-danger:hover {
+            background: #dc2626;
+            transform: translateY(-2px);
+        }
+
         /* Modal Footer */
         .modal-footer {
             padding: 20px 30px;
@@ -1053,7 +1237,7 @@
             <a href="home.html">Home</a>
             <a href="categories_page.html">Categories</a>
             <a href="reels.html">Reels</a>
-            <a href="#" class="active">My Account</a>
+            <a href="Account.html" class="active">My Account</a>
         </div>
 
         <div class="nav-right">
@@ -1412,7 +1596,7 @@
 
     <!-- Settings Modal -->
     <div class="modal-overlay" id="settingsModal">
-        <div class="modal-container">
+        <div class="modal-container" style="max-width: 700px;">
             <div class="modal-header">
                 <h2 class="modal-title">
                     <i class="fas fa-cog"></i>
@@ -1424,19 +1608,193 @@
             </div>
             
             <div class="modal-body">
-                <div class="form-group">
-                    <label class="form-label">Email Address</label>
-                    <input type="email" class="form-input" id="settings-email" placeholder="your.email@example.com">
+                <!-- Account Settings Section -->
+                <div class="settings-section">
+                    <div class="settings-section-title">
+                        <i class="fas fa-user-circle"></i>
+                        Account Information
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-input" id="settings-email" placeholder="your.email@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Phone Number</label>
+                        <input type="tel" class="form-input" id="settings-phone" placeholder="+91 98765 43210">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Change Password</label>
+                        <input type="password" class="form-input" id="settings-password" placeholder="Enter new password">
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="form-label">Phone Number</label>
-                    <input type="tel" class="form-input" id="settings-phone" placeholder="+91 98765 43210">
+                <!-- Notification Settings Section -->
+                <div class="settings-section">
+                    <div class="settings-section-title">
+                        <i class="fas fa-bell"></i>
+                        Notifications
+                    </div>
+                    
+                    <div class="settings-toggle-group">
+                        <div class="settings-toggle-item">
+                            <div class="settings-toggle-info">
+                                <div class="settings-toggle-label">Push Notifications</div>
+                                <div class="settings-toggle-desc">Receive push notifications on your device</div>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="push-notifications" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="settings-toggle-item">
+                            <div class="settings-toggle-info">
+                                <div class="settings-toggle-label">Email Notifications</div>
+                                <div class="settings-toggle-desc">Get updates via email</div>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="email-notifications" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="settings-toggle-item">
+                            <div class="settings-toggle-info">
+                                <div class="settings-toggle-label">Order Updates</div>
+                                <div class="settings-toggle-desc">Notifications about your orders and sales</div>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="order-notifications" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="settings-toggle-item">
+                            <div class="settings-toggle-info">
+                                <div class="settings-toggle-label">New Followers</div>
+                                <div class="settings-toggle-desc">Get notified when someone follows you</div>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="follower-notifications">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="settings-toggle-item">
+                            <div class="settings-toggle-info">
+                                <div class="settings-toggle-label">Comments & Likes</div>
+                                <div class="settings-toggle-desc">Notifications for comments and likes on your posts</div>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="engagement-notifications" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="form-label">Notifications</label>
-                    <p style="color: #666; font-size: 14px; margin-top: 10px;">Manage your notification preferences</p>
+                <!-- Privacy Settings Section -->
+                <div class="settings-section">
+                    <div class="settings-section-title">
+                        <i class="fas fa-shield-alt"></i>
+                        Privacy & Security
+                    </div>
+                    
+                    <div class="settings-toggle-group">
+                        <div class="settings-toggle-item">
+                            <div class="settings-toggle-info">
+                                <div class="settings-toggle-label">Private Account</div>
+                                <div class="settings-toggle-desc">Only approved followers can see your posts</div>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="private-account">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="settings-toggle-item">
+                            <div class="settings-toggle-info">
+                                <div class="settings-toggle-label">Show Activity Status</div>
+                                <div class="settings-toggle-desc">Let others see when you're active</div>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="activity-status" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="settings-toggle-item">
+                            <div class="settings-toggle-info">
+                                <div class="settings-toggle-label">Allow Messages</div>
+                                <div class="settings-toggle-desc">Anyone can send you direct messages</div>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="allow-messages" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Display Preferences -->
+                <div class="settings-section">
+                    <div class="settings-section-title">
+                        <i class="fas fa-palette"></i>
+                        Display Preferences
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Theme</label>
+                        <div class="settings-radio-group">
+                            <div class="settings-radio-item">
+                                <input type="radio" id="theme-light" name="theme" value="light" checked>
+                                <label for="theme-light">Light Mode</label>
+                            </div>
+                            <div class="settings-radio-item">
+                                <input type="radio" id="theme-dark" name="theme" value="dark">
+                                <label for="theme-dark">Dark Mode</label>
+                            </div>
+                            <div class="settings-radio-item">
+                                <input type="radio" id="theme-auto" name="theme" value="auto">
+                                <label for="theme-auto">Auto (System Preference)</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Language</label>
+                        <select class="form-input form-select" id="settings-language">
+                            <option value="en">English</option>
+                            <option value="hi">हिन्दी (Hindi)</option>
+                            <option value="mr">मराठी (Marathi)</option>
+                            <option value="es">Español (Spanish)</option>
+                            <option value="fr">Français (French)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Danger Zone -->
+                <div class="settings-section">
+                    <div class="settings-section-title">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        Danger Zone
+                    </div>
+                    
+                    <div class="danger-zone">
+                        <div class="danger-zone-title">
+                            <i class="fas fa-trash-alt"></i>
+                            Delete Account
+                        </div>
+                        <div class="danger-zone-desc">
+                            Once you delete your account, there is no going back. All your data will be permanently removed.
+                        </div>
+                        <button class="btn-danger" onclick="confirmDeleteAccount()">
+                            <i class="fas fa-exclamation-circle"></i> Delete My Account
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -1906,8 +2264,38 @@
         }
 
         function saveSettings() {
+            // Collect all settings
+            const settings = {
+                email: document.getElementById('settings-email').value,
+                phone: document.getElementById('settings-phone').value,
+                pushNotifications: document.getElementById('push-notifications').checked,
+                emailNotifications: document.getElementById('email-notifications').checked,
+                orderNotifications: document.getElementById('order-notifications').checked,
+                followerNotifications: document.getElementById('follower-notifications').checked,
+                engagementNotifications: document.getElementById('engagement-notifications').checked,
+                privateAccount: document.getElementById('private-account').checked,
+                activityStatus: document.getElementById('activity-status').checked,
+                allowMessages: document.getElementById('allow-messages').checked,
+                theme: document.querySelector('input[name="theme"]:checked').value,
+                language: document.getElementById('settings-language').value
+            };
+
+            console.log('Settings saved:', settings);
             alert('Settings saved successfully!');
             closeSettingsModal();
+        }
+
+        function confirmDeleteAccount() {
+            const confirmed = confirm('Are you sure you want to delete your account? This action cannot be undone and all your data will be permanently removed.');
+            
+            if (confirmed) {
+                const doubleConfirm = confirm('This is your last warning! Are you absolutely sure you want to delete your account?');
+                
+                if (doubleConfirm) {
+                    alert('Account deletion initiated. You will be logged out shortly.');
+                    // Add actual account deletion logic here
+                }
+            }
         }
 
         // Load user data from server

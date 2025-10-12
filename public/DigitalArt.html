@@ -17,7 +17,7 @@
       overflow-x:hidden;
     }
 
-    /* Navbar - Matching home.html */
+    /* Navbar */
     nav {
       background:white;
       padding:12px 20px;
@@ -246,7 +246,7 @@
       background:rgba(142,45,226,0.05);
     }
 
-    /* Art Grid - Matching home.html cards */
+    /* Art Grid */
     .art-grid {
       display:grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -360,6 +360,454 @@
       box-shadow:0 5px 15px rgba(142,45,226,0.3);
     }
 
+    /* Details Modal */
+    .modal-overlay {
+      display:none;
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+      background:rgba(0,0,0,0.7);
+      z-index:2000;
+      align-items:center;
+      justify-content:center;
+      backdrop-filter:blur(5px);
+      animation:fadeIn 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      display:flex;
+    }
+
+    @keyframes fadeIn {
+      from { opacity:0; }
+      to { opacity:1; }
+    }
+
+    .modal-container {
+      background:white;
+      border-radius:25px;
+      width:90%;
+      max-width:1000px;
+      max-height:90vh;
+      overflow-y:auto;
+      box-shadow:0 20px 60px rgba(0,0,0,0.3);
+      animation:slideUp 0.4s ease;
+    }
+
+    @keyframes slideUp {
+      from {
+        transform:translateY(50px);
+        opacity:0;
+      }
+      to {
+        transform:translateY(0);
+        opacity:1;
+      }
+    }
+
+    .modal-header {
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      padding:30px 40px;
+      border-radius:25px 25px 0 0;
+      color:white;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .modal-title {
+      font-size:28px;
+      font-weight:600;
+    }
+
+    .modal-close {
+      background:rgba(255,255,255,0.2);
+      border:none;
+      width:40px;
+      height:40px;
+      border-radius:50%;
+      color:white;
+      font-size:24px;
+      cursor:pointer;
+      transition:all 0.3s ease;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .modal-close:hover {
+      background:rgba(255,255,255,0.3);
+      transform:rotate(90deg);
+    }
+
+    .modal-body {
+      padding:40px;
+    }
+
+    .details-grid {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:40px;
+      margin-bottom:40px;
+    }
+
+    .details-image-section {
+      position:relative;
+    }
+
+    .details-main-image {
+      width:100%;
+      height:450px;
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:0 10px 30px rgba(0,0,0,0.15);
+      margin-bottom:15px;
+    }
+
+    .details-main-image img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform 0.3s ease;
+    }
+
+    .details-main-image:hover img {
+      transform:scale(1.05);
+    }
+
+    .image-badge {
+      position:absolute;
+      top:20px;
+      right:20px;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      color:white;
+      padding:8px 20px;
+      border-radius:20px;
+      font-weight:600;
+      font-size:14px;
+      box-shadow:0 5px 15px rgba(142,45,226,0.4);
+    }
+
+    .details-info-section {
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    .details-title {
+      font-size:32px;
+      font-weight:700;
+      color:#333;
+      margin-bottom:10px;
+    }
+
+    .details-artist {
+      font-size:18px;
+      color:#8E2DE2;
+      font-weight:600;
+      margin-bottom:20px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .artist-avatar {
+      width:40px;
+      height:40px;
+      border-radius:50%;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-weight:600;
+    }
+
+    .details-price {
+      font-size:40px;
+      font-weight:700;
+      color:#333;
+      margin-bottom:20px;
+    }
+
+    .details-rating {
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:20px;
+    }
+
+    .stars {
+      color:#FFB800;
+      font-size:20px;
+    }
+
+    .rating-text {
+      color:#666;
+      font-size:14px;
+    }
+
+    .details-description {
+      color:#666;
+      line-height:1.8;
+      margin-bottom:25px;
+      font-size:15px;
+    }
+
+    .details-specs {
+      background:#f9f9f9;
+      padding:25px;
+      border-radius:15px;
+      margin-bottom:25px;
+    }
+
+    .spec-row {
+      display:flex;
+      justify-content:space-between;
+      padding:12px 0;
+      border-bottom:1px solid #e0e0e0;
+    }
+
+    .spec-row:last-child {
+      border-bottom:none;
+    }
+
+    .spec-label {
+      font-weight:600;
+      color:#333;
+    }
+
+    .spec-value {
+      color:#666;
+    }
+
+    .quantity-selector {
+      display:flex;
+      align-items:center;
+      gap:15px;
+      margin-bottom:25px;
+    }
+
+    .quantity-label {
+      font-weight:600;
+      color:#333;
+    }
+
+    .quantity-controls {
+      display:flex;
+      align-items:center;
+      gap:15px;
+      background:#f9f9f9;
+      padding:10px 20px;
+      border-radius:12px;
+    }
+
+    .quantity-btn {
+      width:35px;
+      height:35px;
+      border:none;
+      background:white;
+      border-radius:8px;
+      cursor:pointer;
+      font-size:18px;
+      font-weight:600;
+      color:#8E2DE2;
+      transition:all 0.3s ease;
+      box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .quantity-btn:hover {
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      color:white;
+      transform:scale(1.1);
+    }
+
+    .quantity-value {
+      font-size:18px;
+      font-weight:600;
+      min-width:40px;
+      text-align:center;
+    }
+
+    .action-buttons {
+      display:flex;
+      gap:15px;
+    }
+
+    .btn-add-cart {
+      flex:1;
+      background:white;
+      color:#8E2DE2;
+      border:2px solid #8E2DE2;
+      padding:16px 30px;
+      border-radius:12px;
+      font-weight:600;
+      font-size:16px;
+      cursor:pointer;
+      transition:all 0.3s ease;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+    }
+
+    .btn-add-cart:hover {
+      background:#8E2DE2;
+      color:white;
+      transform:translateY(-2px);
+      box-shadow:0 5px 15px rgba(142,45,226,0.3);
+    }
+
+    .btn-buy-now {
+      flex:1;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      color:white;
+      border:none;
+      padding:16px 30px;
+      border-radius:12px;
+      font-weight:600;
+      font-size:16px;
+      cursor:pointer;
+      transition:all 0.3s ease;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+    }
+
+    .btn-buy-now:hover {
+      transform:translateY(-2px);
+      box-shadow:0 8px 25px rgba(142,45,226,0.4);
+    }
+
+    .details-tabs {
+      border-top:2px solid #f0f0f0;
+      padding-top:30px;
+    }
+
+    .tabs-nav-details {
+      display:flex;
+      gap:30px;
+      margin-bottom:30px;
+      border-bottom:2px solid #f0f0f0;
+    }
+
+    .tab-btn-detail {
+      background:none;
+      border:none;
+      padding:15px 25px;
+      font-size:16px;
+      font-weight:600;
+      color:#666;
+      cursor:pointer;
+      position:relative;
+      transition:all 0.3s ease;
+    }
+
+    .tab-btn-detail:hover {
+      color:#8E2DE2;
+    }
+
+    .tab-btn-detail.active {
+      color:#8E2DE2;
+    }
+
+    .tab-btn-detail.active::after {
+      content:'';
+      position:absolute;
+      bottom:-2px;
+      left:0;
+      right:0;
+      height:3px;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      border-radius:3px;
+    }
+
+    .tab-content-detail {
+      display:none;
+    }
+
+    .tab-content-detail.active {
+      display:block;
+      animation:fadeIn 0.3s ease;
+    }
+
+    .reviews-section {
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    .review-card {
+      background:#f9f9f9;
+      padding:20px;
+      border-radius:15px;
+      border-left:4px solid #8E2DE2;
+    }
+
+    .review-header {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:12px;
+    }
+
+    .reviewer-name {
+      font-weight:600;
+      color:#333;
+    }
+
+    .review-stars {
+      color:#FFB800;
+    }
+
+    .review-text {
+      color:#666;
+      line-height:1.6;
+    }
+
+    .shipping-info {
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    .shipping-item {
+      display:flex;
+      align-items:flex-start;
+      gap:15px;
+      padding:20px;
+      background:#f9f9f9;
+      border-radius:12px;
+    }
+
+    .shipping-icon {
+      width:50px;
+      height:50px;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-size:24px;
+      flex-shrink:0;
+    }
+
+    .shipping-content h4 {
+      font-weight:600;
+      color:#333;
+      margin-bottom:8px;
+    }
+
+    .shipping-content p {
+      color:#666;
+      font-size:14px;
+      line-height:1.6;
+    }
+
     /* Animation */
     @keyframes slideInUp {
       from {
@@ -376,7 +824,7 @@
       animation:slideInUp 0.6s ease-out forwards;
     }
 
-    /* Responsive Adjustments */
+    /* Responsive */
     @media (max-width:1024px) {
       .container { 
         padding:30px; 
@@ -386,6 +834,9 @@
       }
       .filter-select {
         min-width:150px;
+      }
+      .details-grid {
+        grid-template-columns:1fr;
       }
     }
 
@@ -425,6 +876,25 @@
       }
       .search-filter-section {
         padding:20px;
+      }
+      .modal-body {
+        padding:20px;
+      }
+      .details-title {
+        font-size:24px;
+      }
+      .details-price {
+        font-size:32px;
+      }
+      .action-buttons {
+        flex-direction:column;
+      }
+      .tabs-nav-details {
+        gap:15px;
+        overflow-x:auto;
+      }
+      .details-main-image {
+        height:300px;
       }
     }
 
@@ -542,19 +1012,17 @@
 
     <div class="art-grid">
       <!-- Card 1 -->
-      <div class="art-card">
-        <div class="art-image"><img src="Images/Neon Dreams.jpeg" alt="Cyberpunk art"></div>
-        <div class="art-content">
-          <div class="art-title">Neon Dreams</div>
-          <div class="artist-name">By Alex Cipher</div>
-          <div class="art-desc">Cyberpunk-inspired digital illustration featuring neon lights and futuristic cityscapes.</div>
-          <div class="price">₹26,500</div>
-          <button class="buy-btn">View Details</button>
-        </div>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="art-card">
+      <div class="art-card"
+           data-title="Neon Dreams"
+           data-artist="Alex Cipher"
+           data-price="26500"
+           data-desc="Cyberpunk-inspired digital illustration featuring neon lights and futuristic cityscapes."
+           data-full-desc="Immerse yourself in a cyberpunk universe with this stunning digital illustration. Neon Dreams captures the essence of futuristic cityscapes with vibrant neon lights, rain-slicked streets, and towering skyscrapers. Every pixel has been crafted with precision to create an atmosphere that's both dystopian and beautiful."
+           data-dimensions="8K (7680 x 4320 pixels)"
+           data-medium="3D Rendering"
+           data-year="2024"
+           data-style="Sci-Fi Character Design"
+           data-image="Images/Cosmic Guardian.jpeg">
         <div class="art-image"><img src="Images/Cosmic Guardian.jpeg" alt="3D character"></div>
         <div class="art-content">
           <div class="art-title">Cosmic Guardian</div>
@@ -565,8 +1033,41 @@
         </div>
       </div>
 
+      <!-- Card 2 -->
+      <div class="art-card"
+           data-title="Cosmic Guardian"
+           data-artist="Maya Rodriguez"
+           data-price="37200"
+           data-desc="3D character design blending sci-fi elements with mystical aesthetics."
+           data-full-desc="This breathtaking 3D character design represents the fusion of science fiction and mysticism. The Cosmic Guardian stands as a protector between worlds, featuring intricate armor details, ethereal lighting effects, and a commanding presence that speaks to both technology and magic."
+           data-dimensions="4K (3840 x 2160 pixels)"
+           data-medium="Digital Illustration"
+           data-year="2024"
+           data-style="Cyberpunk"
+           data-image="Images/Neon Dreams.jpeg">
+        <div class="art-image"><img src="Images/Neon Dreams.jpeg" alt="Cyberpunk art"></div>
+        <div class="art-content">
+          <div class="art-title">Neon Dreams</div>
+          <div class="artist-name">By Alex Cipher</div>
+          <div class="art-desc">Cyberpunk-inspired digital illustration featuring neon lights and futuristic cityscapes.</div>
+          <div class="price">₹26,500</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+
       <!-- Card 3 -->
-      <div class="art-card">
+      <div class="art-card"
+           data-title="Digital Fragments"
+           data-artist="Kai Nakamura"
+           data-price="23150"
+           data-desc="Generative art exploring geometric patterns and vibrant color palettes."
+           data-full-desc="Created through algorithmic processes and creative coding, Digital Fragments represents the intersection of mathematics and art. This generative piece features complex geometric patterns that evolve and interweave, creating a mesmerizing visual experience with a bold, vibrant color palette."
+           data-dimensions="6K (6000 x 4000 pixels)"
+           data-medium="Generative Art"
+           data-year="2024"
+           data-style="Abstract Geometric"
+           data-image="Images/Digital Fragments.jpeg">
         <div class="art-image"><img src="Images/Digital Fragments.jpeg" alt="Abstract digital"></div>
         <div class="art-content">
           <div class="art-title">Digital Fragments</div>
@@ -578,7 +1079,17 @@
       </div>
 
       <!-- Card 4 -->
-      <div class="art-card">
+      <div class="art-card"
+           data-title="Enchanted Forest"
+           data-artist="Sofia Martinez"
+           data-price="31400"
+           data-desc="Fantasy digital painting with magical creatures and ethereal lighting effects."
+           data-full-desc="Step into a world of wonder with this enchanting fantasy digital painting. Enchanted Forest brings to life a mystical woodland filled with magical creatures, bioluminescent flora, and dreamlike lighting effects. Each element has been painted with care to create an immersive fantasy experience."
+           data-dimensions="5K (5120 x 2880 pixels)"
+           data-medium="Digital Painting"
+           data-year="2024"
+           data-style="Fantasy Art"
+           data-image="Images/Enchanted Forest.jpeg">
         <div class="art-image"><img src="Images/Enchanted Forest.jpeg" alt="Fantasy illustration"></div>
         <div class="art-content">
           <div class="art-title">Enchanted Forest</div>
@@ -590,7 +1101,17 @@
       </div>
 
       <!-- Card 5 -->
-      <div class="art-card">
+      <div class="art-card"
+           data-title="Beyond Reality"
+           data-artist="David Chen"
+           data-price="34700"
+           data-desc="Surreal digital composition merging dreams with digital manipulation techniques."
+           data-full-desc="Beyond Reality challenges the boundaries between dreams and waking life through masterful digital manipulation. This surrealist composition blends impossible architecture, floating elements, and reality-bending perspectives to create a thought-provoking visual narrative that stays with you long after viewing."
+           data-dimensions="4K (3840 x 2160 pixels)"
+           data-medium="Digital Photo Manipulation"
+           data-year="2024"
+           data-style="Surrealism"
+           data-image="Images/Beyond Reality.jpeg">
         <div class="art-image"><img src="Images/Beyond Reality.jpeg" alt="Surreal digital"></div>
         <div class="art-content">
           <div class="art-title">Beyond Reality</div>
@@ -602,7 +1123,17 @@
       </div>
 
       <!-- Card 6 -->
-      <div class="art-card">
+      <div class="art-card"
+           data-title="Quantum Collector"
+           data-artist="Zara Williams"
+           data-price="45450"
+           data-desc="NFT-style artwork featuring bold colors and modern digital aesthetics."
+           data-full-desc="Quantum Collector represents the cutting edge of digital art collectibles. With its bold color choices, sharp geometric forms, and modern aesthetic, this piece embodies the spirit of the NFT revolution. Each element has been carefully designed to create a visually striking and culturally relevant artwork."
+           data-dimensions="10K (10240 x 5760 pixels)"
+           data-medium="Digital NFT Art"
+           data-year="2024"
+           data-style="Contemporary Digital"
+           data-image="Images/Quantum Collector.jpeg">
         <div class="art-image"><img src="Images/Quantum Collector.jpeg" alt="NFT art"></div>
         <div class="art-content">
           <div class="art-title">Quantum Collector</div>
@@ -614,7 +1145,17 @@
       </div>
 
       <!-- Card 7 -->
-      <div class="art-card">
+      <div class="art-card"
+           data-title="Future Metropolis"
+           data-artist="Lucas Kim"
+           data-price="40500"
+           data-desc="Detailed concept art of futuristic architecture and urban landscapes."
+           data-full-desc="Future Metropolis showcases a vision of tomorrow's cities through meticulous concept art. This piece features soaring architecture, advanced transportation systems, and sustainable urban design. Every detail has been rendered with precision to create a believable and inspiring vision of our urban future."
+           data-dimensions="8K (7680 x 4320 pixels)"
+           data-medium="Concept Art"
+           data-year="2024"
+           data-style="Futuristic Architecture"
+           data-image="Images/Future Metropolis.jpeg">
         <div class="art-image"><img src="Images/Future Metropolis.jpeg" alt="Concept art"></div>
         <div class="art-content">
           <div class="art-title">Future Metropolis</div>
@@ -626,7 +1167,17 @@
       </div>
 
       <!-- Card 8 -->
-      <div class="art-card">
+      <div class="art-card"
+           data-title="Avatar Genesis"
+           data-artist="Emma Thompson"
+           data-price="28900"
+           data-desc="Character design illustration with intricate details and dynamic poses."
+           data-full-desc="Avatar Genesis brings to life a fully realized character through expert illustration techniques. This piece features intricate costume design, expressive poses, and attention to anatomical detail. Perfect for game development, animation projects, or as standalone art celebrating character design excellence."
+           data-dimensions="5K (5120 x 2880 pixels)"
+           data-medium="Character Illustration"
+           data-year="2024"
+           data-style="Character Design"
+           data-image="Images/Avatar Genesis.jpeg">
         <div class="art-image"><img src="Images/Avatar Genesis.jpeg" alt="Character design"></div>
         <div class="art-content">
           <div class="art-title">Avatar Genesis</div>
@@ -638,7 +1189,17 @@
       </div>
 
       <!-- Card 9 -->
-      <div class="art-card">
+      <div class="art-card"
+           data-title="Glitch Symphony"
+           data-artist="Ryan Park"
+           data-price="23950"
+           data-desc="Experimental glitch art combining digital distortion with artistic expression."
+           data-full-desc="Glitch Symphony embraces the beauty of digital errors and transforms them into art. This experimental piece uses databending, pixel sorting, and glitch techniques to create a unique aesthetic that celebrates the intersection of technology and artistic chaos. A statement piece for the digital age."
+           data-dimensions="4K (3840 x 2160 pixels)"
+           data-medium="Glitch Art"
+           data-year="2024"
+           data-style="Experimental Digital"
+           data-image="Images/Glitch Symphony.jpeg">
         <div class="art-image"><img src="Images/Glitch Symphony.jpeg" alt="Glitch art"></div>
         <div class="art-content">
           <div class="art-title">Glitch Symphony</div>
@@ -650,7 +1211,17 @@
       </div>
 
       <!-- Card 10 -->
-      <div class="art-card">
+      <div class="art-card"
+           data-title="Digital Horizons"
+           data-artist="Priya Sharma"
+           data-price="33850"
+           data-desc="Breathtaking digital landscape with stunning lighting and atmospheric depth."
+           data-full-desc="Digital Horizons transports viewers to otherworldly vistas through masterful digital landscape painting. This piece showcases expert use of lighting, atmospheric perspective, and color theory to create a scene that feels both epic in scale and intimate in detail. A window to imaginary worlds."
+           data-dimensions="6K (6000 x 4000 pixels)"
+           data-medium="Digital Landscape"
+           data-year="2024"
+           data-style="Digital Matte Painting"
+           data-image="Images/Digital Horizons.jpeg">
         <div class="art-image"><img src="Images/Digital Horizons.jpeg" alt="Digital landscape"></div>
         <div class="art-content">
           <div class="art-title">Digital Horizons</div>
@@ -663,7 +1234,204 @@
     </div>
   </div>
 
+
+  <!-- Details Modal -->
+  <div class="modal-overlay" id="detailsModal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modalTitle">Artwork Details</h2>
+        <button class="modal-close" onclick="closeDetailsModal()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="details-grid">
+          <!-- Image Section -->
+          <div class="details-image-section">
+            <div class="details-main-image">
+              <img src="" alt="Artwork" id="detailsImage">
+            </div>
+            <div class="image-badge" id="statusBadge">Digital Download</div>
+          </div>
+
+          <!-- Info Section -->
+          <div class="details-info-section">
+            <h1 class="details-title" id="detailsTitle">Artwork Title</h1>
+            
+            <div class="details-artist">
+              <div class="artist-avatar" id="artistAvatar">A</div>
+              <span id="detailsArtist">Artist Name</span>
+            </div>
+
+            <div class="details-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="rating-text">(4.8/5 from 215 reviews)</span>
+            </div>
+
+            <div class="details-price" id="detailsPrice">₹26,500</div>
+
+            <p class="details-description" id="detailsDescription">
+              Full description of the artwork goes here...
+            </p>
+
+            <div class="details-specs">
+              <div class="spec-row">
+                <span class="spec-label">Resolution:</span>
+                <span class="spec-value" id="specDimensions">4K (3840 x 2160)</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Medium:</span>
+                <span class="spec-value" id="specMedium">Digital Art</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Year:</span>
+                <span class="spec-value" id="specYear">2024</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Style:</span>
+                <span class="spec-value" id="specStyle">Digital</span>
+              </div>
+            </div>
+
+            <div class="quantity-selector">
+              <span class="quantity-label">License Type:</span>
+              <div class="quantity-controls">
+                <button class="quantity-btn" onclick="decreaseQuantity()">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <span class="quantity-value" id="quantityValue">1</span>
+                <button class="quantity-btn" onclick="increaseQuantity()">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="action-buttons">
+              <button class="btn-add-cart" onclick="addToCart()">
+                <i class="fas fa-shopping-cart"></i>
+                Add to Cart
+              </button>
+              <button class="btn-buy-now" onclick="buyNow()">
+                <i class="fas fa-bolt"></i>
+                Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tabs Section -->
+        <div class="details-tabs">
+          <div class="tabs-nav-details">
+            <button class="tab-btn-detail active" onclick="switchDetailTab('description')">
+              <i class="fas fa-info-circle"></i> Description
+            </button>
+            <button class="tab-btn-detail" onclick="switchDetailTab('reviews')">
+              <i class="fas fa-star"></i> Reviews
+            </button>
+            <button class="tab-btn-detail" onclick="switchDetailTab('licensing')">
+              <i class="fas fa-certificate"></i> Licensing
+            </button>
+          </div>
+
+          <div class="tab-content-detail active" id="tab-description">
+            <p style="color:#666;line-height:1.8;" id="fullDescription">
+              Full artwork description will appear here...
+            </p>
+          </div>
+
+          <div class="tab-content-detail" id="tab-reviews">
+            <div class="reviews-section">
+              <div class="review-card">
+                <div class="review-header">
+                  <span class="reviewer-name">Alex Morrison</span>
+                  <span class="review-stars">★★★★★</span>
+                </div>
+                <p class="review-text">
+                  Absolutely stunning digital art! The resolution is incredible and the colors are so vibrant. Perfect for my video project. The download was instant and the files were well-organized. Highly recommend!
+                </p>
+              </div>
+
+              <div class="review-card">
+                <div class="review-header">
+                  <span class="reviewer-name">Jessica Lee</span>
+                  <span class="review-stars">★★★★★</span>
+                </div>
+                <p class="review-text">
+                  This artwork exceeded my expectations. The detail and quality are top-notch. I've used it for both digital and print projects and it looks amazing in both formats. Worth every penny!
+                </p>
+              </div>
+
+              <div class="review-card">
+                <div class="review-header">
+                  <span class="reviewer-name">Michael Torres</span>
+                  <span class="review-stars">★★★★★</span>
+                </div>
+                <p class="review-text">
+                  Great purchase! The artist's style is unique and the technical execution is flawless. I've already recommended this to my colleagues. The licensing terms are also very reasonable.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-content-detail" id="tab-licensing">
+            <div class="shipping-info">
+              <div class="shipping-item">
+                <div class="shipping-icon">
+                  <i class="fas fa-download"></i>
+                </div>
+                <div class="shipping-content">
+                  <h4>Instant Digital Download</h4>
+                  <p>After purchase, you'll receive instant access to download high-resolution files in multiple formats (PNG, JPG, PSD). All files are optimized for both digital and print use.</p>
+                </div>
+              </div>
+
+              <div class="shipping-item">
+                <div class="shipping-icon">
+                  <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="shipping-content">
+                  <h4>Commercial License Included</h4>
+                  <p>Your purchase includes a commercial license allowing use in commercial projects, social media, websites, prints, and merchandise. Resale of the artwork itself is not permitted.</p>
+                </div>
+              </div>
+
+              <div class="shipping-item">
+                <div class="shipping-icon">
+                  <i class="fas fa-infinity"></i>
+                </div>
+                <div class="shipping-content">
+                  <h4>Lifetime Access</h4>
+                  <p>Download your files as many times as you need. We keep your purchases in your account indefinitely, so you can always re-download if needed.</p>
+                </div>
+              </div>
+
+              <div class="shipping-item">
+                <div class="shipping-icon">
+                  <i class="fas fa-headset"></i>
+                </div>
+                <div class="shipping-content">
+                  <h4>Artist Support</h4>
+                  <p>Have questions about the artwork or need custom modifications? Contact the artist directly through our platform for personalized support and collaboration opportunities.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
+    let currentQuantity = 1;
+    let currentProductData = {};
+
     // Animate cards on load
     document.addEventListener('DOMContentLoaded', () => {
       const cards = document.querySelectorAll('.art-card');
@@ -677,17 +1445,147 @@
           card.style.transform = 'translateY(0)';
         }, index * 100);
       });
+
+      // Add click event to all View Details buttons
+      const buyButtons = document.querySelectorAll('.buy-btn');
+      buyButtons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const card = this.closest('.art-card');
+          openDetailsModal(card);
+        });
+      });
     });
 
-    // Button interactions
-    const buyButtons = document.querySelectorAll('.buy-btn');
-    buyButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        btn.style.transform = 'translateY(-1px) scale(0.98)';
-        setTimeout(() => {
-          btn.style.transform = 'translateY(-1px)';
-        }, 150);
+    // Open details modal
+    function openDetailsModal(card) {
+      const modal = document.getElementById('detailsModal');
+      
+      // Get data from card and store it
+      const title = card.dataset.title;
+      const artist = card.dataset.artist;
+      const price = card.dataset.price;
+      const desc = card.dataset.desc;
+      const fullDesc = card.dataset.fullDesc;
+      const dimensions = card.dataset.dimensions;
+      const medium = card.dataset.medium;
+      const year = card.dataset.year;
+      const style = card.dataset.style;
+      const image = card.dataset.image;
+
+      // Store current product data
+      currentProductData = {
+        title: title,
+        artist: artist,
+        price: price,
+        image: image,
+        quantity: 1
+      };
+
+      // Populate modal
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('detailsTitle').textContent = title;
+      document.getElementById('detailsArtist').textContent = 'By ' + artist;
+      document.getElementById('detailsPrice').textContent = '₹' + parseInt(price).toLocaleString('en-IN');
+      document.getElementById('detailsDescription').textContent = desc;
+      document.getElementById('fullDescription').textContent = fullDesc;
+      document.getElementById('detailsImage').src = image;
+      document.getElementById('specDimensions').textContent = dimensions;
+      document.getElementById('specMedium').textContent = medium;
+      document.getElementById('specYear').textContent = year;
+      document.getElementById('specStyle').textContent = style;
+
+      // Set artist avatar
+      const artistAvatar = document.getElementById('artistAvatar');
+      artistAvatar.textContent = artist.charAt(0).toUpperCase();
+
+      // Reset quantity
+      currentQuantity = 1;
+      document.getElementById('quantityValue').textContent = currentQuantity;
+
+      // Show modal
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Close details modal
+    function closeDetailsModal() {
+      const modal = document.getElementById('detailsModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Quantity controls
+    function increaseQuantity() {
+      if (currentQuantity < 10) {
+        currentQuantity++;
+        document.getElementById('quantityValue').textContent = currentQuantity;
+        currentProductData.quantity = currentQuantity;
+      }
+    }
+
+    function decreaseQuantity() {
+      if (currentQuantity > 1) {
+        currentQuantity--;
+        document.getElementById('quantityValue').textContent = currentQuantity;
+        currentProductData.quantity = currentQuantity;
+      }
+    }
+
+    // Add to cart
+    function addToCart() {
+      const title = document.getElementById('detailsTitle').textContent;
+      alert(`Added ${currentQuantity} x "${title}" to cart!`);
+      // Store in localStorage for cart page
+      let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      cart.push(currentProductData);
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+    // Buy now - Redirect to BuyNow.html with product data
+    function buyNow() {
+      // Update quantity in product data
+      currentProductData.quantity = currentQuantity;
+      
+      // Store product data in localStorage
+      localStorage.setItem('checkoutProduct', JSON.stringify(currentProductData));
+      
+      // Redirect to BuyNow.html
+      window.location.href = 'BuyNow.html';
+    }
+
+    // Switch detail tabs
+    function switchDetailTab(tabName) {
+      // Remove active class from all buttons
+      document.querySelectorAll('.tab-btn-detail').forEach(btn => {
+        btn.classList.remove('active');
       });
+      
+      // Remove active class from all tab contents
+      document.querySelectorAll('.tab-content-detail').forEach(content => {
+        content.classList.remove('active');
+      });
+
+      // Add active class to clicked button
+      event.target.classList.add('active');
+      
+      // Show corresponding tab content
+      document.getElementById('tab-' + tabName).classList.add('active');
+    }
+
+    // Close modal when clicking outside
+    document.addEventListener('click', (e) => {
+      const modal = document.getElementById('detailsModal');
+      if (e.target === modal) {
+        closeDetailsModal();
+      }
+    });
+
+    // Close modal with ESC key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeDetailsModal();
+      }
     });
 
     // Search functionality
@@ -811,3 +1709,5 @@
   </script>
 </body>
 </html>
+
+      

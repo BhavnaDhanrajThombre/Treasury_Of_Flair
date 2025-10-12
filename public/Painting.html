@@ -359,6 +359,454 @@
       box-shadow:0 5px 15px rgba(142,45,226,0.3);
     }
 
+    /* Details Modal */
+    .modal-overlay {
+      display:none;
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+      background:rgba(0,0,0,0.7);
+      z-index:2000;
+      align-items:center;
+      justify-content:center;
+      backdrop-filter:blur(5px);
+      animation:fadeIn 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      display:flex;
+    }
+
+    @keyframes fadeIn {
+      from { opacity:0; }
+      to { opacity:1; }
+    }
+
+    .modal-container {
+      background:white;
+      border-radius:25px;
+      width:90%;
+      max-width:1000px;
+      max-height:90vh;
+      overflow-y:auto;
+      box-shadow:0 20px 60px rgba(0,0,0,0.3);
+      animation:slideUp 0.4s ease;
+    }
+
+    @keyframes slideUp {
+      from {
+        transform:translateY(50px);
+        opacity:0;
+      }
+      to {
+        transform:translateY(0);
+        opacity:1;
+      }
+    }
+
+    .modal-header {
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      padding:30px 40px;
+      border-radius:25px 25px 0 0;
+      color:white;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .modal-title {
+      font-size:28px;
+      font-weight:600;
+    }
+
+    .modal-close {
+      background:rgba(255,255,255,0.2);
+      border:none;
+      width:40px;
+      height:40px;
+      border-radius:50%;
+      color:white;
+      font-size:24px;
+      cursor:pointer;
+      transition:all 0.3s ease;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .modal-close:hover {
+      background:rgba(255,255,255,0.3);
+      transform:rotate(90deg);
+    }
+
+    .modal-body {
+      padding:40px;
+    }
+
+    .details-grid {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:40px;
+      margin-bottom:40px;
+    }
+
+    .details-image-section {
+      position:relative;
+    }
+
+    .details-main-image {
+      width:100%;
+      height:450px;
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:0 10px 30px rgba(0,0,0,0.15);
+      margin-bottom:15px;
+    }
+
+    .details-main-image img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform 0.3s ease;
+    }
+
+    .details-main-image:hover img {
+      transform:scale(1.05);
+    }
+
+    .image-badge {
+      position:absolute;
+      top:20px;
+      right:20px;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      color:white;
+      padding:8px 20px;
+      border-radius:20px;
+      font-weight:600;
+      font-size:14px;
+      box-shadow:0 5px 15px rgba(142,45,226,0.4);
+    }
+
+    .details-info-section {
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    .details-title {
+      font-size:32px;
+      font-weight:700;
+      color:#333;
+      margin-bottom:10px;
+    }
+
+    .details-artist {
+      font-size:18px;
+      color:#8E2DE2;
+      font-weight:600;
+      margin-bottom:20px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .artist-avatar {
+      width:40px;
+      height:40px;
+      border-radius:50%;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-weight:600;
+    }
+
+    .details-price {
+      font-size:40px;
+      font-weight:700;
+      color:#333;
+      margin-bottom:20px;
+    }
+
+    .details-rating {
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:20px;
+    }
+
+    .stars {
+      color:#FFB800;
+      font-size:20px;
+    }
+
+    .rating-text {
+      color:#666;
+      font-size:14px;
+    }
+
+    .details-description {
+      color:#666;
+      line-height:1.8;
+      margin-bottom:25px;
+      font-size:15px;
+    }
+
+    .details-specs {
+      background:#f9f9f9;
+      padding:25px;
+      border-radius:15px;
+      margin-bottom:25px;
+    }
+
+    .spec-row {
+      display:flex;
+      justify-content:space-between;
+      padding:12px 0;
+      border-bottom:1px solid #e0e0e0;
+    }
+
+    .spec-row:last-child {
+      border-bottom:none;
+    }
+
+    .spec-label {
+      font-weight:600;
+      color:#333;
+    }
+
+    .spec-value {
+      color:#666;
+    }
+
+    .quantity-selector {
+      display:flex;
+      align-items:center;
+      gap:15px;
+      margin-bottom:25px;
+    }
+
+    .quantity-label {
+      font-weight:600;
+      color:#333;
+    }
+
+    .quantity-controls {
+      display:flex;
+      align-items:center;
+      gap:15px;
+      background:#f9f9f9;
+      padding:10px 20px;
+      border-radius:12px;
+    }
+
+    .quantity-btn {
+      width:35px;
+      height:35px;
+      border:none;
+      background:white;
+      border-radius:8px;
+      cursor:pointer;
+      font-size:18px;
+      font-weight:600;
+      color:#8E2DE2;
+      transition:all 0.3s ease;
+      box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .quantity-btn:hover {
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      color:white;
+      transform:scale(1.1);
+    }
+
+    .quantity-value {
+      font-size:18px;
+      font-weight:600;
+      min-width:40px;
+      text-align:center;
+    }
+
+    .action-buttons {
+      display:flex;
+      gap:15px;
+    }
+
+    .btn-add-cart {
+      flex:1;
+      background:white;
+      color:#8E2DE2;
+      border:2px solid #8E2DE2;
+      padding:16px 30px;
+      border-radius:12px;
+      font-weight:600;
+      font-size:16px;
+      cursor:pointer;
+      transition:all 0.3s ease;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+    }
+
+    .btn-add-cart:hover {
+      background:#8E2DE2;
+      color:white;
+      transform:translateY(-2px);
+      box-shadow:0 5px 15px rgba(142,45,226,0.3);
+    }
+
+    .btn-buy-now {
+      flex:1;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      color:white;
+      border:none;
+      padding:16px 30px;
+      border-radius:12px;
+      font-weight:600;
+      font-size:16px;
+      cursor:pointer;
+      transition:all 0.3s ease;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+    }
+
+    .btn-buy-now:hover {
+      transform:translateY(-2px);
+      box-shadow:0 8px 25px rgba(142,45,226,0.4);
+    }
+
+    .details-tabs {
+      border-top:2px solid #f0f0f0;
+      padding-top:30px;
+    }
+
+    .tabs-nav-details {
+      display:flex;
+      gap:30px;
+      margin-bottom:30px;
+      border-bottom:2px solid #f0f0f0;
+    }
+
+    .tab-btn-detail {
+      background:none;
+      border:none;
+      padding:15px 25px;
+      font-size:16px;
+      font-weight:600;
+      color:#666;
+      cursor:pointer;
+      position:relative;
+      transition:all 0.3s ease;
+    }
+
+    .tab-btn-detail:hover {
+      color:#8E2DE2;
+    }
+
+    .tab-btn-detail.active {
+      color:#8E2DE2;
+    }
+
+    .tab-btn-detail.active::after {
+      content:'';
+      position:absolute;
+      bottom:-2px;
+      left:0;
+      right:0;
+      height:3px;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      border-radius:3px;
+    }
+
+    .tab-content-detail {
+      display:none;
+    }
+
+    .tab-content-detail.active {
+      display:block;
+      animation:fadeIn 0.3s ease;
+    }
+
+    .reviews-section {
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    .review-card {
+      background:#f9f9f9;
+      padding:20px;
+      border-radius:15px;
+      border-left:4px solid #8E2DE2;
+    }
+
+    .review-header {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:12px;
+    }
+
+    .reviewer-name {
+      font-weight:600;
+      color:#333;
+    }
+
+    .review-stars {
+      color:#FFB800;
+    }
+
+    .review-text {
+      color:#666;
+      line-height:1.6;
+    }
+
+    .shipping-info {
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    .shipping-item {
+      display:flex;
+      align-items:flex-start;
+      gap:15px;
+      padding:20px;
+      background:#f9f9f9;
+      border-radius:12px;
+    }
+
+    .shipping-icon {
+      width:50px;
+      height:50px;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-size:24px;
+      flex-shrink:0;
+    }
+
+    .shipping-content h4 {
+      font-weight:600;
+      color:#333;
+      margin-bottom:8px;
+    }
+
+    .shipping-content p {
+      color:#666;
+      font-size:14px;
+      line-height:1.6;
+    }
+
     /* Animation */
     @keyframes slideInUp {
       from {
@@ -385,6 +833,9 @@
       }
       .filter-select {
         min-width:150px;
+      }
+      .details-grid {
+        grid-template-columns:1fr;
       }
     }
 
@@ -424,6 +875,25 @@
       }
       .search-filter-section {
         padding:20px;
+      }
+      .modal-body {
+        padding:20px;
+      }
+      .details-title {
+        font-size:24px;
+      }
+      .details-price {
+        font-size:32px;
+      }
+      .action-buttons {
+        flex-direction:column;
+      }
+      .tabs-nav-details {
+        gap:15px;
+        overflow-x:auto;
+      }
+      .details-main-image {
+        height:300px;
       }
     }
 
@@ -540,7 +1010,17 @@
     </div>
 
     <div class="art-grid">
-      <div class="art-card">
+      <div class="art-card" 
+           data-title="Golden Hour Portrait"
+           data-artist="Clara Smith"
+           data-price="250"
+           data-desc="Oil on canvas capturing the warm light of dusk - bold yet delicate strokes."
+           data-full-desc="This stunning oil painting captures the magical moment of golden hour, where warm light bathes the subject in ethereal glow. Created with meticulous attention to detail, each brushstroke conveys emotion and depth. The artist's masterful use of light and shadow brings the portrait to life, making it a centerpiece for any collection."
+           data-dimensions="24 x 36 inches"
+           data-medium="Oil on Canvas"
+           data-year="2024"
+           data-style="Realism"
+           data-image="Images/Golden Hour Portrait.jpeg">
         <div class="art-image"><img src="Images/Golden Hour Portrait.jpeg"></div>
         <div class="art-content">
           <div class="art-title">Golden Hour Portrait</div>
@@ -551,7 +1031,17 @@
         </div>
       </div>
 
-      <div class="art-card">
+      <div class="art-card"
+           data-title="Whispering Mountains"
+           data-artist="Daniel Grey"
+           data-price="180"
+           data-desc="Soft gradients of mountain air - blending realism and imagination."
+           data-full-desc="An enchanting landscape that transports you to misty mountain peaks. The artist's unique approach blends photorealistic detail with dreamlike atmospheric elements, creating a piece that invites contemplation and wonder."
+           data-dimensions="30 x 40 inches"
+           data-medium="Acrylic on Canvas"
+           data-year="2024"
+           data-style="Contemporary Landscape"
+           data-image="Images/Whispering Mountains.jpeg">
         <div class="art-image"><img src="Images/Whispering Mountains.jpeg" alt="Landscape painting"></div>
         <div class="art-content">
           <div class="art-title">Whispering Mountains</div>
@@ -562,7 +1052,17 @@
         </div>
       </div>
 
-      <div class="art-card">
+      <div class="art-card"
+           data-title="Fragments of Thought"
+           data-artist="Riya Kapoor"
+           data-price="220"
+           data-desc="Acrylic abstraction exploring the chaos and rhythm of human emotion."
+           data-full-desc="A vibrant exploration of abstract expressionism, this piece delves into the complex layers of human consciousness. Bold colors collide and harmonize, creating a visual symphony that speaks to the soul. Perfect for modern interiors seeking a bold statement."
+           data-dimensions="36 x 48 inches"
+           data-medium="Acrylic on Canvas"
+           data-year="2024"
+           data-style="Abstract Expressionism"
+           data-image="Images/Fragments of Thought.jpeg">
         <div class="art-image"><img src="Images/Fragments of Thought.jpeg" alt="Abstract art"></div>
         <div class="art-content">
           <div class="art-title">Fragments of Thought</div>
@@ -573,7 +1073,17 @@
         </div>
       </div>
 
-      <div class="art-card">
+      <div class="art-card"
+           data-title="Dreamy Petals"
+           data-artist="Hana Li"
+           data-price="130"
+           data-desc="Soft watercolor florals that bloom gently across the paper."
+           data-full-desc="Delicate watercolor technique brings these florals to life with translucent layers and soft edges. The artist's gentle touch creates a serene composition that evokes spring gardens and peaceful moments. Ideal for adding elegance to any space."
+           data-dimensions="18 x 24 inches"
+           data-medium="Watercolor on Paper"
+           data-year="2024"
+           data-style="Botanical Art"
+           data-image="Images/Dreamy Petals.jpeg">
         <div class="art-image"><img src="Images/Dreamy Petals.jpeg" alt="Watercolor art"></div>
         <div class="art-content">
           <div class="art-title">Dreamy Petals</div>
@@ -584,7 +1094,17 @@
         </div>
       </div>
 
-      <div class="art-card">
+      <div class="art-card"
+           data-title="Mindscapes"
+           data-artist="Ethan Cole"
+           data-price="340"
+           data-desc="A surreal oil painting merging inner thoughts with dreamy visuals."
+           data-full-desc="Journey into the subconscious with this surrealist masterpiece. Combining classical technique with imaginative vision, this painting blurs the boundaries between reality and dreams. Rich textures and intricate details reward close examination."
+           data-dimensions="40 x 50 inches"
+           data-medium="Oil on Canvas"
+           data-year="2023"
+           data-style="Surrealism"
+           data-image="Images/Mindscapes.jpeg">
         <div class="art-image"><img src="Images/Mindscapes.jpeg" alt="Surreal painting"></div>
         <div class="art-content">
           <div class="art-title">Mindscapes</div>
@@ -595,7 +1115,17 @@
         </div>
       </div>
 
-      <div class="art-card">
+      <div class="art-card"
+           data-title="Blue Horizon"
+           data-artist="Lucas James"
+           data-price="290"
+           data-desc="Oil seascape reflecting stillness and motion of the ocean."
+           data-full-desc="Capturing the infinite beauty of the ocean, this seascape painting demonstrates mastery of light and movement. The interplay of blues and whites creates a sense of peace and vastness, bringing the calming energy of the sea into your home."
+           data-dimensions="32 x 44 inches"
+           data-medium="Oil on Canvas"
+           data-year="2024"
+           data-style="Marine Art"
+           data-image="Images/Blue Horizon.jpeg">
         <div class="art-image"><img src="Images/Blue Horizon.jpeg" alt="Seascape"></div>
         <div class="art-content">
           <div class="art-title">Blue Horizon</div>
@@ -606,7 +1136,17 @@
         </div>
       </div>
 
-      <div class="art-card">
+      <div class="art-card"
+           data-title="Eternal Gaze"
+           data-artist="Noor Rahman"
+           data-price="200"
+           data-desc="Expressive acrylic portrait exploring depth through minimal brushwork."
+           data-full-desc="This powerful portrait demonstrates the artist's ability to convey profound emotion with economy of means. Bold, confident brushstrokes create a striking image that commands attention while inviting introspection."
+           data-dimensions="20 x 30 inches"
+           data-medium="Acrylic on Canvas"
+           data-year="2024"
+           data-style="Contemporary Portrait"
+           data-image="Images/Eternal Gaze.jpeg">
         <div class="art-image"><img src="Images/Eternal Gaze.jpeg" alt="Portrait art"></div>
         <div class="art-content">
           <div class="art-title">Eternal Gaze</div>
@@ -617,7 +1157,17 @@
         </div>
       </div>
 
-      <div class="art-card">
+      <div class="art-card"
+           data-title="Color Fields"
+           data-artist="Jade Chen"
+           data-price="400"
+           data-desc="Inspired by color field expressionism - silence through pigment."
+           data-full-desc="A meditation on color and space, this large-scale work exemplifies color field painting at its finest. Subtle gradations and carefully considered hues create a contemplative experience, transforming walls into windows of pure color."
+           data-dimensions="48 x 60 inches"
+           data-medium="Acrylic on Canvas"
+           data-year="2024"
+           data-style="Color Field"
+           data-image="Images/Color Fields.jpeg">
         <div class="art-image"><img src="Images/Color Fields.jpeg" alt="Modern art"></div>
         <div class="art-content">
           <div class="art-title">Color Fields</div>
@@ -628,7 +1178,17 @@
         </div>
       </div>
 
-      <div class="art-card">
+      <div class="art-card"
+           data-title="Morning at the Lake"
+           data-artist="Amelia Brooks"
+           data-price="180"
+           data-desc="Impressionist brushwork - the still water reflecting dawn light."
+           data-full-desc="Channeling the spirit of impressionism, this painting captures a fleeting moment of natural beauty. Loose, expressive brushwork and luminous color palette evoke the tranquil atmosphere of early morning by the water."
+           data-dimensions="28 x 36 inches"
+           data-medium="Oil on Canvas"
+           data-year="2024"
+           data-style="Impressionism"
+           data-image="Images/Morning at the Lake.jpeg">
         <div class="art-image"><img src="Images/Morning at the Lake.jpeg" alt="Impressionist art"></div>
         <div class="art-content">
           <div class="art-title">Morning at the Lake</div>
@@ -639,7 +1199,17 @@
         </div>
       </div>
 
-      <div class="art-card">
+      <div class="art-card"
+           data-title="Miniature Wonders"
+           data-artist="Arjun Mehta"
+           data-price="150"
+           data-desc="Fine-detail miniature painting on handmade paper with gold tones."
+           data-full-desc="Traditional miniature painting technique meets contemporary vision in this exquisite work. Every millimeter is filled with intricate detail, executed with patience and precision. The use of gold leaf adds a luxurious touch to this small-scale masterpiece."
+           data-dimensions="8 x 10 inches"
+           data-medium="Gouache & Gold Leaf"
+           data-year="2024"
+           data-style="Miniature Painting"
+           data-image="Images/Miniature Wonders.jpeg">
         <div class="art-image"><img src="Images/Miniature Wonders.jpeg" alt="Miniature art"></div>
         <div class="art-content">
           <div class="art-title">Miniature Wonders</div>
@@ -652,7 +1222,203 @@
     </div>
   </div>
 
+  <!-- Details Modal -->
+  <div class="modal-overlay" id="detailsModal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modalTitle">Artwork Details</h2>
+        <button class="modal-close" onclick="closeDetailsModal()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="details-grid">
+          <!-- Image Section -->
+          <div class="details-image-section">
+            <div class="details-main-image">
+              <img src="" alt="Artwork" id="detailsImage">
+            </div>
+            <div class="image-badge" id="statusBadge">In Stock</div>
+          </div>
+
+          <!-- Info Section -->
+          <div class="details-info-section">
+            <h1 class="details-title" id="detailsTitle">Artwork Title</h1>
+            
+            <div class="details-artist">
+              <div class="artist-avatar" id="artistAvatar">A</div>
+              <span id="detailsArtist">Artist Name</span>
+            </div>
+
+            <div class="details-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="rating-text">(4.5/5 from 127 reviews)</span>
+            </div>
+
+            <div class="details-price" id="detailsPrice">₹250</div>
+
+            <p class="details-description" id="detailsDescription">
+              Full description of the artwork goes here...
+            </p>
+
+            <div class="details-specs">
+              <div class="spec-row">
+                <span class="spec-label">Dimensions:</span>
+                <span class="spec-value" id="specDimensions">24 x 36 inches</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Medium:</span>
+                <span class="spec-value" id="specMedium">Oil on Canvas</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Year:</span>
+                <span class="spec-value" id="specYear">2024</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Style:</span>
+                <span class="spec-value" id="specStyle">Realism</span>
+              </div>
+            </div>
+
+            <div class="quantity-selector">
+              <span class="quantity-label">Quantity:</span>
+              <div class="quantity-controls">
+                <button class="quantity-btn" onclick="decreaseQuantity()">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <span class="quantity-value" id="quantityValue">1</span>
+                <button class="quantity-btn" onclick="increaseQuantity()">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="action-buttons">
+              <button class="btn-add-cart" onclick="addToCart()">
+                <i class="fas fa-shopping-cart"></i>
+                Add to Cart
+              </button>
+              <button class="btn-buy-now" onclick="buyNow()">
+                <i class="fas fa-bolt"></i>
+                Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tabs Section -->
+        <div class="details-tabs">
+          <div class="tabs-nav-details">
+            <button class="tab-btn-detail active" onclick="switchDetailTab('description')">
+              <i class="fas fa-info-circle"></i> Description
+            </button>
+            <button class="tab-btn-detail" onclick="switchDetailTab('reviews')">
+              <i class="fas fa-star"></i> Reviews
+            </button>
+            <button class="tab-btn-detail" onclick="switchDetailTab('shipping')">
+              <i class="fas fa-shipping-fast"></i> Shipping
+            </button>
+          </div>
+
+          <div class="tab-content-detail active" id="tab-description">
+            <p style="color:#666;line-height:1.8;" id="fullDescription">
+              Full artwork description will appear here...
+            </p>
+          </div>
+
+          <div class="tab-content-detail" id="tab-reviews">
+            <div class="reviews-section">
+              <div class="review-card">
+                <div class="review-header">
+                  <span class="reviewer-name">Sarah Mitchell</span>
+                  <span class="review-stars">★★★★★</span>
+                </div>
+                <p class="review-text">
+                  Absolutely stunning piece! The colors are even more vibrant in person. The quality of the canvas and the attention to detail exceeded my expectations. It's now the centerpiece of my living room.
+                </p>
+              </div>
+
+              <div class="review-card">
+                <div class="review-header">
+                  <span class="reviewer-name">David Chen</span>
+                  <span class="review-stars">★★★★★</span>
+                </div>
+                <p class="review-text">
+                  Beautiful artwork and fast shipping. The packaging was excellent - arrived in perfect condition. The artist's technique is remarkable and the piece brings so much life to our space.
+                </p>
+              </div>
+
+              <div class="review-card">
+                <div class="review-header">
+                  <span class="reviewer-name">Priya Sharma</span>
+                  <span class="review-stars">★★★★☆</span>
+                </div>
+                <p class="review-text">
+                  Great quality painting. Only minor issue was it took a bit longer to ship than expected, but worth the wait. The colors perfectly match my decor and I've received so many compliments!
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-content-detail" id="tab-shipping">
+            <div class="shipping-info">
+              <div class="shipping-item">
+                <div class="shipping-icon">
+                  <i class="fas fa-truck"></i>
+                </div>
+                <div class="shipping-content">
+                  <h4>Free Shipping</h4>
+                  <p>We offer free standard shipping on all orders. Your artwork will be carefully packaged and shipped within 2-3 business days. Tracking information will be provided once shipped.</p>
+                </div>
+              </div>
+
+              <div class="shipping-item">
+                <div class="shipping-icon">
+                  <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="shipping-content">
+                  <h4>Secure Packaging</h4>
+                  <p>Each artwork is professionally packaged with protective materials to ensure it arrives in perfect condition. We use reinforced corners, bubble wrap, and sturdy boxes for maximum protection.</p>
+                </div>
+              </div>
+
+              <div class="shipping-item">
+                <div class="shipping-icon">
+                  <i class="fas fa-undo"></i>
+                </div>
+                <div class="shipping-content">
+                  <h4>30-Day Returns</h4>
+                  <p>Not satisfied? We offer a 30-day return policy. If the artwork doesn't meet your expectations, you can return it for a full refund. The piece must be in original condition with all packaging.</p>
+                </div>
+              </div>
+
+              <div class="shipping-item">
+                <div class="shipping-icon">
+                  <i class="fas fa-certificate"></i>
+                </div>
+                <div class="shipping-content">
+                  <h4>Certificate of Authenticity</h4>
+                  <p>Every original artwork comes with a signed certificate of authenticity from the artist. This document includes details about the piece, artist signature, and date of creation.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
+    let currentQuantity = 1;
+    let currentProductData = {};
+
     // Animate cards on load
     document.addEventListener('DOMContentLoaded', () => {
       const cards = document.querySelectorAll('.art-card');
@@ -666,17 +1432,147 @@
           card.style.transform = 'translateY(0)';
         }, index * 100);
       });
+
+      // Add click event to all View Details buttons
+      const buyButtons = document.querySelectorAll('.buy-btn');
+      buyButtons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const card = this.closest('.art-card');
+          openDetailsModal(card);
+        });
+      });
     });
 
-    // Button interactions
-    const buyButtons = document.querySelectorAll('.buy-btn');
-    buyButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        btn.style.transform = 'translateY(-1px) scale(0.98)';
-        setTimeout(() => {
-          btn.style.transform = 'translateY(-1px)';
-        }, 150);
+    // Open details modal
+    function openDetailsModal(card) {
+      const modal = document.getElementById('detailsModal');
+      
+      // Get data from card and store it
+      const title = card.dataset.title;
+      const artist = card.dataset.artist;
+      const price = card.dataset.price;
+      const desc = card.dataset.desc;
+      const fullDesc = card.dataset.fullDesc;
+      const dimensions = card.dataset.dimensions;
+      const medium = card.dataset.medium;
+      const year = card.dataset.year;
+      const style = card.dataset.style;
+      const image = card.dataset.image;
+
+      // Store current product data
+      currentProductData = {
+        title: title,
+        artist: artist,
+        price: price,
+        image: image,
+        quantity: 1
+      };
+
+      // Populate modal
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('detailsTitle').textContent = title;
+      document.getElementById('detailsArtist').textContent = 'By ' + artist;
+      document.getElementById('detailsPrice').textContent = '₹' + price;
+      document.getElementById('detailsDescription').textContent = desc;
+      document.getElementById('fullDescription').textContent = fullDesc;
+      document.getElementById('detailsImage').src = image;
+      document.getElementById('specDimensions').textContent = dimensions;
+      document.getElementById('specMedium').textContent = medium;
+      document.getElementById('specYear').textContent = year;
+      document.getElementById('specStyle').textContent = style;
+
+      // Set artist avatar
+      const artistAvatar = document.getElementById('artistAvatar');
+      artistAvatar.textContent = artist.charAt(0).toUpperCase();
+
+      // Reset quantity
+      currentQuantity = 1;
+      document.getElementById('quantityValue').textContent = currentQuantity;
+
+      // Show modal
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Close details modal
+    function closeDetailsModal() {
+      const modal = document.getElementById('detailsModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Quantity controls
+    function increaseQuantity() {
+      if (currentQuantity < 10) {
+        currentQuantity++;
+        document.getElementById('quantityValue').textContent = currentQuantity;
+        currentProductData.quantity = currentQuantity;
+      }
+    }
+
+    function decreaseQuantity() {
+      if (currentQuantity > 1) {
+        currentQuantity--;
+        document.getElementById('quantityValue').textContent = currentQuantity;
+        currentProductData.quantity = currentQuantity;
+      }
+    }
+
+    // Add to cart
+    function addToCart() {
+      const title = document.getElementById('detailsTitle').textContent;
+      alert(`Added ${currentQuantity} x "${title}" to cart!`);
+      // Store in localStorage for cart page
+      let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      cart.push(currentProductData);
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+    // Buy now - Redirect to BuyNow.html with product data
+    function buyNow() {
+      // Update quantity in product data
+      currentProductData.quantity = currentQuantity;
+      
+      // Store product data in localStorage
+      localStorage.setItem('checkoutProduct', JSON.stringify(currentProductData));
+      
+      // Redirect to BuyNow.html
+      window.location.href = 'BuyNow.html';
+    }
+
+    // Switch detail tabs
+    function switchDetailTab(tabName) {
+      // Remove active class from all buttons
+      document.querySelectorAll('.tab-btn-detail').forEach(btn => {
+        btn.classList.remove('active');
       });
+      
+      // Remove active class from all tab contents
+      document.querySelectorAll('.tab-content-detail').forEach(content => {
+        content.classList.remove('active');
+      });
+
+      // Add active class to clicked button
+      event.target.classList.add('active');
+      
+      // Show corresponding tab content
+      document.getElementById('tab-' + tabName).classList.add('active');
+    }
+
+    // Close modal when clicking outside
+    document.addEventListener('click', (e) => {
+      const modal = document.getElementById('detailsModal');
+      if (e.target === modal) {
+        closeDetailsModal();
+      }
+    });
+
+    // Close modal with ESC key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeDetailsModal();
+      }
     });
 
     // Search functionality
