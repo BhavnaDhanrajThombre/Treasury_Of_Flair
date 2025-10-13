@@ -122,3 +122,107 @@ mysql> SELECT * FROM artworks;
 | 30 | Printmaking | Garden Memory        | Mei Lin        | Elegant relief print with delicate floral motifs and subtle color gradations.            | Images/Garden Memory.jpeg        | 11400 | limited      |          8 | 2025-10-12 20:43:07 |
 +----+-------------+----------------------+----------------+------------------------------------------------------------------------------------------+----------------------------------+-------+--------------+------------+---------------------+
 30 rows in set (0.00 sec)
+******************************************************************************************************************************************************************
+mysql> -- Create products table
+mysql> CREATE TABLE  products (
+    ->   id INT AUTO_INCREMENT PRIMARY KEY,
+    ->   user_id INT NOT NULL,
+    ->   name VARCHAR(255) NOT NULL,
+    ->   description TEXT,
+    ->   price DECIMAL(10,2) NOT NULL DEFAULT 0,
+    ->   category VARCHAR(100),
+    ->   stock INT DEFAULT 0,
+    ->   delivery_time VARCHAR(100),
+    ->   image_path VARCHAR(255),
+    ->   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ->   FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+    -> );
+Query OK, 0 rows affected (0.09 sec)
+
+mysql>
+mysql> -- Create posts table
+mysql> CREATE TABLE  posts (
+    ->   id INT AUTO_INCREMENT PRIMARY KEY,
+    ->   user_id INT NOT NULL,
+    ->   title VARCHAR(255) NOT NULL,
+    ->   caption TEXT,
+    ->   tags VARCHAR(255),
+    ->   image_path VARCHAR(255),
+    ->   likes INT DEFAULT 0,
+    ->   comments INT DEFAULT 0,
+    ->   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ->   FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+    -> );
+Query OK, 0 rows affected (0.10 sec)
+
+mysql>
+mysql> -- Create reels table
+mysql> CREATE TABLE  reels (
+    ->   id INT AUTO_INCREMENT PRIMARY KEY,
+    ->   user_id INT NOT NULL,
+    ->   caption TEXT,
+    ->   hashtags VARCHAR(255),
+    ->   audio_source VARCHAR(255),
+    ->   video_path VARCHAR(255),
+    ->   views INT DEFAULT 0,
+    ->   likes INT DEFAULT 0,
+    ->   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ->   FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+    -> );
+Query OK, 0 rows affected (0.09 sec)
+
+mysql>
+mysql>
+mysql> SELECT *FROM reels;
+Empty set (0.00 sec)
+
+mysql> desc reels;
++--------------+--------------+------+-----+-------------------+-------------------+
+| Field        | Type         | Null | Key | Default           | Extra             |
++--------------+--------------+------+-----+-------------------+-------------------+
+| id           | int          | NO   | PRI | NULL              | auto_increment    |
+| user_id      | int          | NO   | MUL | NULL              |                   |
+| caption      | text         | YES  |     | NULL              |                   |
+| hashtags     | varchar(255) | YES  |     | NULL              |                   |
+| audio_source | varchar(255) | YES  |     | NULL              |                   |
+| video_path   | varchar(255) | YES  |     | NULL              |                   |
+| views        | int          | YES  |     | 0                 |                   |
+| likes        | int          | YES  |     | 0                 |                   |
+| created_at   | timestamp    | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
++--------------+--------------+------+-----+-------------------+-------------------+
+9 rows in set (0.04 sec)
+
+mysql> desc products;
++---------------+---------------+------+-----+-------------------+-------------------+
+| Field         | Type          | Null | Key | Default           | Extra             |
++---------------+---------------+------+-----+-------------------+-------------------+
+| id            | int           | NO   | PRI | NULL              | auto_increment    |
+| user_id       | int           | NO   | MUL | NULL              |                   |
+| name          | varchar(255)  | NO   |     | NULL              |                   |
+| description   | text          | YES  |     | NULL              |                   |
+| price         | decimal(10,2) | NO   |     | 0.00              |                   |
+| category      | varchar(100)  | YES  |     | NULL              |                   |
+| stock         | int           | YES  |     | 0                 |                   |
+| delivery_time | varchar(100)  | YES  |     | NULL              |                   |
+| image_path    | varchar(255)  | YES  |     | NULL              |                   |
+| created_at    | timestamp     | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
++---------------+---------------+------+-----+-------------------+-------------------+
+10 rows in set (0.00 sec)
+
+mysql> desc posts;
++------------+--------------+------+-----+-------------------+-------------------+
+| Field      | Type         | Null | Key | Default           | Extra             |
++------------+--------------+------+-----+-------------------+-------------------+
+| id         | int          | NO   | PRI | NULL              | auto_increment    |
+| user_id    | int          | NO   | MUL | NULL              |                   |
+| title      | varchar(255) | NO   |     | NULL              |                   |
+| caption    | text         | YES  |     | NULL              |                   |
+| tags       | varchar(255) | YES  |     | NULL              |                   |
+| image_path | varchar(255) | YES  |     | NULL              |                   |
+| likes      | int          | YES  |     | 0                 |                   |
+| comments   | int          | YES  |     | 0                 |                   |
+| created_at | timestamp    | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
++------------+--------------+------+-----+-------------------+-------------------+
+9 rows in set (0.00 sec)
+
+mysql>
