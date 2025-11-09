@@ -1,0 +1,122 @@
+[
+  {
+    "title": "Urban Rebellion",
+    "artist": "BANKZ",
+    "price": 45000,
+    "short_description": "Bold graffiti piece featuring explosive colors and dynamic letter forms.",
+    "full_description": "Urban Rebellion represents the raw energy of street culture through explosive color combinations and dynamic letter forms. This authentic graffiti piece was created with spray paint on canvas, capturing the spontaneity and boldness of urban art. The layered composition creates depth while maintaining the characteristic flow of graffiti writing.",
+    "dimensions": "120cm x 180cm",
+    "medium": "Spray Paint on Canvas",
+    "year": 2024,
+    "style": "Graffiti",
+    "image": "Images/Urban Rebellion.jpeg"
+  },
+  {
+    "title": "City Dreams",
+    "artist": "Luna Martinez",
+    "price": 62000,
+    "short_description": "Large-scale mural artwork depicting urban landscape with surreal elements.",
+    "full_description": "City Dreams is a monumental mural piece that transforms urban landscapes into dreamscapes. This work combines realistic architectural elements with surreal, fantastical additions that challenge our perception of city life. Created using high-quality acrylics and aerosols, this piece brings the energy of large-scale street murals into a collectible format.",
+    "dimensions": "150cm x 200cm",
+    "medium": "Acrylic & Aerosol on Canvas",
+    "year": 2024,
+    "style": "Mural",
+    "image": "Images/City Dreams.jpeg"
+  },
+  {
+    "title": "Revolution Stencil",
+    "artist": "Alex Shadow",
+    "price": 28000,
+    "short_description": "Multi-layered stencil artwork with powerful political commentary.",
+    "full_description": "Revolution Stencil showcases the precision and impact of stencil art at its finest. Using multiple hand-cut stencils and careful layering techniques, this piece delivers powerful social commentary through stark imagery and bold contrasts. The limited edition print maintains the texture and authenticity of the original stencil work.",
+    "dimensions": "90cm x 120cm",
+    "medium": "Stencil & Spray Paint",
+    "year": 2024,
+    "style": "Stencil Art",
+    "image": "Images/Revolution Stencil.jpeg"
+  },
+  {
+    "title": "Neon Nights",
+    "artist": "KILO",
+    "price": 38500,
+    "short_description": "Vibrant graffiti-style piece with neon color palette and wild style lettering.",
+    "full_description": "Neon Nights captures the electric energy of nighttime city streets through a dazzling neon color palette and intricate wild-style letter forms. This piece demonstrates advanced graffiti techniques with interlocking letters, 3D effects, and explosive color transitions. A celebration of hip-hop culture and urban aesthetics.",
+    "dimensions": "100cm x 150cm",
+    "medium": "Spray Paint on Canvas",
+    "year": 2024,
+    "style": "Graffiti",
+    "image": "Images/Neon Nights.jpeg"
+  },
+  {
+    "title": "Concrete Jungle",
+    "artist": "Maya Stone",
+    "price": 52000,
+    "short_description": "Mixed media mural combining photography, paint, and urban textures.",
+    "full_description": "Concrete Jungle is an innovative mixed media piece that layers photographic elements with paint and collage to create a complex urban narrative. The work explores themes of gentrification, community, and the changing face of cities. Textures from actual street surfaces add authenticity and depth to this thought-provoking piece.",
+    "dimensions": "130cm x 170cm",
+    "medium": "Mixed Media on Canvas",
+    "year": 2024,
+    "style": "Mural",
+    "image": "Images/Concrete Jungle.jpeg"
+  },
+  {
+    "title": "Freedom Fighter",
+    "artist": "Resistance Crew",
+    "price": 32000,
+    "short_description": "Iconic wheatpaste poster art with bold graphic design and message.",
+    "full_description": "Freedom Fighter is a powerful wheatpaste-style artwork that captures the DIY spirit of guerrilla street art. Using high-contrast imagery and bold typography, this piece delivers its message with immediacy and impact. The weathered, layered aesthetic reflects the authentic look of street-level political art.",
+    "dimensions": "80cm x 110cm",
+    "medium": "Wheatpaste Style Print",
+    "year": 2024,
+    "style": "Wheatpaste",
+    "image": "Images/Freedom Fighter.jpeg"
+  },
+  {
+    "title": "Wildstyle Warriors",
+    "artist": "PHASE2",
+    "price": 48000,
+    "short_description": "Classic wild-style graffiti with intricate letter connections and arrows.",
+    "full_description": "Wildstyle Warriors pays homage to the golden age of graffiti with its complex letter structures, dynamic arrows, and seamless connections. This piece showcases the technical mastery required for authentic wild-style writing. Every element flows into the next, creating a unified composition that rewards close examination.",
+    "dimensions": "110cm x 160cm",
+    "medium": "Spray Paint on Canvas",
+    "year": 2024,
+    "style": "Graffiti",
+    "image": "Images/Wildstyle Warriors.jpeg"
+  },
+  {
+    "title": "Urban Mythology",
+    "artist": "Diego Cruz",
+    "price": 58000,
+    "short_description": "Narrative mural blending ancient symbols with modern street aesthetics.",
+    "full_description": "Urban Mythology creates a bridge between ancient cultural symbols and contemporary street art aesthetics. This large-scale work incorporates indigenous iconography, modern graffiti techniques, and vibrant color theory to tell stories of cultural identity and urban experience. A powerful statement piece that honors heritage while embracing the future.",
+    "dimensions": "140cm x 190cm",
+    "medium": "Acrylic & Spray Paint",
+    "year": 2024,
+    "style": "Mural",
+    "image": "Images/Urban Mythology.jpeg"
+  },
+  {
+    "title": "Spray Can Chronicles",
+    "artist": "TWIST",
+    "price": 42000,
+    "short_description": "Abstract graffiti exploring form and color through aerosol techniques.",
+    "full_description": "Spray Can Chronicles pushes graffiti into abstract territory, focusing on the pure visual potential of aerosol art. Layers of transparent and opaque colors create depth and movement, while drips and texture showcase the medium's unique characteristics. This piece celebrates the spray can as a fine art tool.",
+    "dimensions": "100cm x 140cm",
+    "medium": "Spray Paint on Canvas",
+    "year": 2024,
+    "style": "Graffiti",
+    "image": "Images/Spray Can Chronicles.jpeg"
+  },
+  {
+    "title": "Street Prophet",
+    "artist": "OBEY Collective",
+    "price": 35000,
+    "short_description": "Iconic stencil portrait with bold color blocking and graphic impact.",
+    "full_description": "Street Prophet demonstrates the power of stencil art to create iconic imagery. Using bold color blocking and precise cuts, this piece achieves maximum impact with minimal elements. The portrait style and propaganda-inspired aesthetic make it instantly recognizable while delivering a timeless message about art, authority, and urban culture.",
+    "dimensions": "85cm x 115cm",
+    "medium": "Stencil Print",
+    "year": 2024,
+    "style": "Stencil Art",
+    "image": "Images/Street Prophet.jpeg"
+  }
+]

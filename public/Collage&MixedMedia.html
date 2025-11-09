@@ -1,0 +1,1711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Collage & Mixed Media | Treasury of Flair</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { 
+      font-family:'Poppins',sans-serif; 
+      background:#f5f5f5; 
+      color:#333; 
+      overflow-x:hidden;
+    }
+
+    /* Navbar */
+    nav {
+      background:white;
+      padding:12px 20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      box-shadow:0 2px 10px rgba(0,0,0,0.1);
+      position:fixed;
+      top:0; left:0; right:0;
+      z-index:1000;
+      height:80px;
+    }
+
+    .logo-section {
+      display:flex;
+      align-items:center;
+      gap:15px;
+    }
+
+    .logo {
+      width:50px; height:50px;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-weight:700;
+      font-size:20px;
+    }
+
+    .logo-text h2 { 
+      font-size:20px; 
+      font-weight:600;
+      color:#333;
+      margin-bottom:2px; 
+    }
+    .logo-text p { 
+      font-size:12px; 
+      color:#666; 
+    }
+
+    .nav-links {
+      display:flex; 
+      gap:40px; 
+      align-items:center;
+    }
+
+    .nav-links a {
+      text-decoration:none;
+      color:#666;
+      font-weight:500;
+      padding:8px 16px;
+      border-radius:8px;
+      transition:all 0.3s ease;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color:#8E2DE2;
+      background:rgba(142,45,226,0.1);
+    }
+
+    /* Page Container */
+    .container {
+      max-width:1400px;
+      margin:100px auto 60px;
+      padding:40px;
+    }
+
+    .page-header {
+      text-align:center;
+      margin-bottom:30px;
+    }
+
+    .page-header h1 {
+      font-size:2.5rem;
+      font-weight:600;
+      color:#333;
+      margin-bottom:15px;
+    }
+
+    .page-header p {
+      color:#666;
+      font-size:1.1rem;
+      max-width:700px;
+      margin:0 auto;
+      line-height:1.6;
+    }
+
+    /* Search and Filter Section */
+    .search-filter-section {
+      background:white;
+      padding:25px;
+      border-radius:20px;
+      box-shadow:0 5px 20px rgba(0,0,0,0.1);
+      margin-bottom:30px;
+    }
+
+    .search-bar-container {
+      display:flex;
+      gap:15px;
+      margin-bottom:20px;
+      align-items:center;
+    }
+
+    .search-input-wrapper {
+      position:relative;
+      flex:1;
+    }
+
+    .search-input-wrapper i {
+      position:absolute;
+      left:20px;
+      top:50%;
+      transform:translateY(-50%);
+      color:#666;
+      font-size:16px;
+    }
+
+    .search-input-wrapper input {
+      width:100%;
+      padding:15px 20px 15px 50px;
+      border:2px solid #e0e0e0;
+      border-radius:30px;
+      font-size:15px;
+      outline:none;
+      transition:all 0.3s ease;
+      font-family:'Poppins',sans-serif;
+    }
+
+    .search-input-wrapper input:focus {
+      border-color:#8E2DE2;
+      box-shadow:0 0 0 3px rgba(142,45,226,0.1);
+    }
+
+    .search-button {
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      color:white;
+      border:none;
+      padding:15px 40px;
+      border-radius:30px;
+      font-weight:500;
+      cursor:pointer;
+      transition:all 0.3s ease;
+      font-size:15px;
+      white-space:nowrap;
+    }
+
+    .search-button:hover {
+      transform:translateY(-2px);
+      box-shadow:0 5px 15px rgba(142,45,226,0.3);
+    }
+
+    .filters-row {
+      display:flex;
+      gap:20px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .filter-group {
+      display:flex;
+      align-items:center;
+      gap:15px;
+    }
+
+    .filter-label {
+      font-weight:500;
+      color:#333;
+      font-size:15px;
+      white-space:nowrap;
+    }
+
+    .filter-select {
+      padding:12px 40px 12px 20px;
+      border:2px solid #e0e0e0;
+      border-radius:25px;
+      font-size:14px;
+      outline:none;
+      cursor:pointer;
+      background:white;
+      font-family:'Poppins',sans-serif;
+      font-weight:500;
+      color:#333;
+      transition:all 0.3s ease;
+      appearance:none;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+      background-repeat:no-repeat;
+      background-position:right 15px center;
+      min-width:180px;
+    }
+
+    .filter-select:hover {
+      border-color:#8E2DE2;
+    }
+
+    .filter-select:focus {
+      border-color:#8E2DE2;
+      box-shadow:0 0 0 3px rgba(142,45,226,0.1);
+    }
+
+    .view-toggle {
+      margin-left:auto;
+      display:flex;
+      gap:10px;
+    }
+
+    .view-btn {
+      width:45px;
+      height:45px;
+      border:2px solid #e0e0e0;
+      border-radius:12px;
+      background:white;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#666;
+      transition:all 0.3s ease;
+      font-size:18px;
+    }
+
+    .view-btn:hover, .view-btn.active {
+      border-color:#8E2DE2;
+      color:#8E2DE2;
+      background:rgba(142,45,226,0.05);
+    }
+
+    /* Art Grid */
+    .art-grid {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap:25px;
+      transition:all 0.3s ease;
+    }
+
+    .art-card {
+      background:white;
+      border-radius:20px;
+      box-shadow:0 5px 20px rgba(0,0,0,0.1);
+      overflow:hidden;
+      transition:all 0.3s ease;
+      display:flex;
+      flex-direction:column;
+      position:relative;
+    }
+
+    .art-card::before {
+      content:'';
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      height:4px;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      transform:scaleX(0);
+      transition:transform 0.3s ease;
+    }
+
+    .art-card:hover {
+      transform:translateY(-5px);
+      box-shadow:0 15px 35px rgba(0,0,0,0.15);
+    }
+
+    .art-card:hover::before {
+      transform:scaleX(1);
+    }
+
+    .art-image {
+      width:100%;
+      height:250px;
+      overflow:hidden;
+      background:#e5e7eb;
+    }
+
+    .art-image img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform 0.4s ease;
+      display:block;
+    }
+
+    .art-card:hover .art-image img {
+      transform:scale(1.08);
+    }
+
+    .art-content {
+      padding:25px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      flex:1;
+    }
+
+    .art-title {
+      font-size:1.15rem;
+      font-weight:600;
+      color:#333;
+      margin-bottom:8px;
+    }
+
+    .artist-name {
+      color:#8E2DE2;
+      font-weight:500;
+      margin-bottom:12px;
+      font-size:0.95rem;
+    }
+
+    .art-desc {
+      color:#666;
+      font-size:0.9rem;
+      line-height:1.6;
+      flex-grow:1;
+      margin-bottom:15px;
+    }
+
+    .price {
+      font-weight:600;
+      color:#333;
+      font-size:1.2rem;
+      margin-bottom:15px;
+    }
+
+    .buy-btn {
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      border:none;
+      color:white;
+      padding:12px 20px;
+      border-radius:10px;
+      font-weight:500;
+      cursor:pointer;
+      width:100%;
+      transition:all 0.3s ease;
+      font-size:0.95rem;
+    }
+
+    .buy-btn:hover { 
+      transform:translateY(-1px);
+      box-shadow:0 5px 15px rgba(142,45,226,0.3);
+    }
+
+    /* Details Modal */
+    .modal-overlay {
+      display:none;
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+      background:rgba(0,0,0,0.7);
+      z-index:2000;
+      align-items:center;
+      justify-content:center;
+      backdrop-filter:blur(5px);
+      animation:fadeIn 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      display:flex;
+    }
+
+    @keyframes fadeIn {
+      from { opacity:0; }
+      to { opacity:1; }
+    }
+
+    .modal-container {
+      background:white;
+      border-radius:25px;
+      width:90%;
+      max-width:1000px;
+      max-height:90vh;
+      overflow-y:auto;
+      box-shadow:0 20px 60px rgba(0,0,0,0.3);
+      animation:slideUp 0.4s ease;
+    }
+
+    @keyframes slideUp {
+      from {
+        transform:translateY(50px);
+        opacity:0;
+      }
+      to {
+        transform:translateY(0);
+        opacity:1;
+      }
+    }
+
+    .modal-header {
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      padding:30px 40px;
+      border-radius:25px 25px 0 0;
+      color:white;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .modal-title {
+      font-size:28px;
+      font-weight:600;
+    }
+
+    .modal-close {
+      background:rgba(255,255,255,0.2);
+      border:none;
+      width:40px;
+      height:40px;
+      border-radius:50%;
+      color:white;
+      font-size:24px;
+      cursor:pointer;
+      transition:all 0.3s ease;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .modal-close:hover {
+      background:rgba(255,255,255,0.3);
+      transform:rotate(90deg);
+    }
+
+    .modal-body {
+      padding:40px;
+    }
+
+    .details-grid {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:40px;
+      margin-bottom:40px;
+    }
+
+    .details-image-section {
+      position:relative;
+    }
+
+    .details-main-image {
+      width:100%;
+      height:450px;
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:0 10px 30px rgba(0,0,0,0.15);
+      margin-bottom:15px;
+    }
+
+    .details-main-image img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform 0.3s ease;
+    }
+
+    .details-main-image:hover img {
+      transform:scale(1.05);
+    }
+
+    .image-badge {
+      position:absolute;
+      top:20px;
+      right:20px;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      color:white;
+      padding:8px 20px;
+      border-radius:20px;
+      font-weight:600;
+      font-size:14px;
+      box-shadow:0 5px 15px rgba(142,45,226,0.4);
+    }
+
+    .details-info-section {
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    .details-title {
+      font-size:32px;
+      font-weight:700;
+      color:#333;
+      margin-bottom:10px;
+    }
+
+    .details-artist {
+      font-size:18px;
+      color:#8E2DE2;
+      font-weight:600;
+      margin-bottom:20px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .artist-avatar {
+      width:40px;
+      height:40px;
+      border-radius:50%;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-weight:600;
+    }
+
+    .details-price {
+      font-size:40px;
+      font-weight:700;
+      color:#333;
+      margin-bottom:20px;
+    }
+
+    .details-rating {
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:20px;
+    }
+
+    .stars {
+      color:#FFB800;
+      font-size:20px;
+    }
+
+    .rating-text {
+      color:#666;
+      font-size:14px;
+    }
+
+    .details-description {
+      color:#666;
+      line-height:1.8;
+      margin-bottom:25px;
+      font-size:15px;
+    }
+
+    .details-specs {
+      background:#f9f9f9;
+      padding:25px;
+      border-radius:15px;
+      margin-bottom:25px;
+    }
+
+    .spec-row {
+      display:flex;
+      justify-content:space-between;
+      padding:12px 0;
+      border-bottom:1px solid #e0e0e0;
+    }
+
+    .spec-row:last-child {
+      border-bottom:none;
+    }
+
+    .spec-label {
+      font-weight:600;
+      color:#333;
+    }
+
+    .spec-value {
+      color:#666;
+    }
+
+    .quantity-selector {
+      display:flex;
+      align-items:center;
+      gap:15px;
+      margin-bottom:25px;
+    }
+
+    .quantity-label {
+      font-weight:600;
+      color:#333;
+    }
+
+    .quantity-controls {
+      display:flex;
+      align-items:center;
+      gap:15px;
+      background:#f9f9f9;
+      padding:10px 20px;
+      border-radius:12px;
+    }
+
+    .quantity-btn {
+      width:35px;
+      height:35px;
+      border:none;
+      background:white;
+      border-radius:8px;
+      cursor:pointer;
+      font-size:18px;
+      font-weight:600;
+      color:#8E2DE2;
+      transition:all 0.3s ease;
+      box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .quantity-btn:hover {
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      color:white;
+      transform:scale(1.1);
+    }
+
+    .quantity-value {
+      font-size:18px;
+      font-weight:600;
+      min-width:40px;
+      text-align:center;
+    }
+
+    .action-buttons {
+      display:flex;
+      gap:15px;
+    }
+
+    .btn-add-cart {
+      flex:1;
+      background:white;
+      color:#8E2DE2;
+      border:2px solid #8E2DE2;
+      padding:16px 30px;
+      border-radius:12px;
+      font-weight:600;
+      font-size:16px;
+      cursor:pointer;
+      transition:all 0.3s ease;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+    }
+
+    .btn-add-cart:hover {
+      background:#8E2DE2;
+      color:white;
+      transform:translateY(-2px);
+      box-shadow:0 5px 15px rgba(142,45,226,0.3);
+    }
+
+    .btn-buy-now {
+      flex:1;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      color:white;
+      border:none;
+      padding:16px 30px;
+      border-radius:12px;
+      font-weight:600;
+      font-size:16px;
+      cursor:pointer;
+      transition:all 0.3s ease;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+    }
+
+    .btn-buy-now:hover {
+      transform:translateY(-2px);
+      box-shadow:0 8px 25px rgba(142,45,226,0.4);
+    }
+
+    .details-tabs {
+      border-top:2px solid #f0f0f0;
+      padding-top:30px;
+    }
+
+    .tabs-nav-details {
+      display:flex;
+      gap:30px;
+      margin-bottom:30px;
+      border-bottom:2px solid #f0f0f0;
+    }
+
+    .tab-btn-detail {
+      background:none;
+      border:none;
+      padding:15px 25px;
+      font-size:16px;
+      font-weight:600;
+      color:#666;
+      cursor:pointer;
+      position:relative;
+      transition:all 0.3s ease;
+    }
+
+    .tab-btn-detail:hover {
+      color:#8E2DE2;
+    }
+
+    .tab-btn-detail.active {
+      color:#8E2DE2;
+    }
+
+    .tab-btn-detail.active::after {
+      content:'';
+      position:absolute;
+      bottom:-2px;
+      left:0;
+      right:0;
+      height:3px;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      border-radius:3px;
+    }
+
+    .tab-content-detail {
+      display:none;
+    }
+
+    .tab-content-detail.active {
+      display:block;
+      animation:fadeIn 0.3s ease;
+    }
+
+    .reviews-section {
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    .review-card {
+      background:#f9f9f9;
+      padding:20px;
+      border-radius:15px;
+      border-left:4px solid #8E2DE2;
+    }
+
+    .review-header {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:12px;
+    }
+
+    .reviewer-name {
+      font-weight:600;
+      color:#333;
+    }
+
+    .review-stars {
+      color:#FFB800;
+    }
+
+    .review-text {
+      color:#666;
+      line-height:1.6;
+    }
+
+    .shipping-info {
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    .shipping-item {
+      display:flex;
+      align-items:flex-start;
+      gap:15px;
+      padding:20px;
+      background:#f9f9f9;
+      border-radius:12px;
+    }
+
+    .shipping-icon {
+      width:50px;
+      height:50px;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-size:24px;
+      flex-shrink:0;
+    }
+
+    .shipping-content h4 {
+      font-weight:600;
+      color:#333;
+      margin-bottom:8px;
+    }
+
+    .shipping-content p {
+      color:#666;
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    /* Animation */
+    @keyframes slideInUp {
+      from {
+        opacity:0;
+        transform:translateY(30px);
+      }
+      to {
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .art-card {
+      animation:slideInUp 0.6s ease-out forwards;
+    }
+
+    /* Responsive */
+    @media (max-width:1024px) {
+      .container { 
+        padding:30px; 
+      }
+      .filters-row {
+        gap:15px;
+      }
+      .filter-select {
+        min-width:150px;
+      }
+      .details-grid {
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width:768px) {
+      .page-header h1 { 
+        font-size:2rem; 
+      }
+      .container { 
+        padding:20px; 
+        margin-top:100px;
+      }
+      .nav-links {
+        gap:20px;
+      }
+      .nav-links a {
+        padding:6px 12px;
+        font-size:0.9rem;
+      }
+      .search-bar-container {
+        flex-direction:column;
+      }
+      .search-button {
+        width:100%;
+      }
+      .filters-row {
+        flex-direction:column;
+        align-items:stretch;
+      }
+      .filter-group {
+        flex-direction:column;
+        align-items:stretch;
+        gap:10px;
+      }
+      .view-toggle {
+        margin-left:0;
+        justify-content:center;
+      }
+      .search-filter-section {
+        padding:20px;
+      }
+      .modal-body {
+        padding:20px;
+      }
+      .details-title {
+        font-size:24px;
+      }
+      .details-price {
+        font-size:32px;
+      }
+      .action-buttons {
+        flex-direction:column;
+      }
+      .tabs-nav-details {
+        gap:15px;
+        overflow-x:auto;
+      }
+      .details-main-image {
+        height:300px;
+      }
+    }
+
+    @media (max-width:480px) {
+      .art-grid { 
+        grid-template-columns:1fr; 
+      }
+      .art-image { 
+        height:200px; 
+      }
+      .page-header h1 {
+        font-size:1.75rem;
+      }
+      .page-header p {
+        font-size:1rem;
+      }
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width:8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background:#f1f1f1;
+      border-radius:10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      border-radius:10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background:linear-gradient(135deg,#7A28C7,#E63E1B);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo-section">
+      <div class="logo">TF</div>
+      <div class="logo-text">
+        <h2>Treasury of Flair</h2>
+        <p>Marketplace for artists</p>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="home.html">Home</a>
+      <a href="categories_page.html" class="active">Categories</a>
+      <a href="reels.html">Reels</a>
+      <a href="MyOrders.html">My Orders</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="page-header">
+      <h1>Collage & Mixed Media</h1>
+      <p>Explore layered compositions combining paper, textiles, paint, and found materials to create unique artistic expressions with depth and texture.</p>
+    </div>
+
+    <!-- Search and Filter Section -->
+    <div class="search-filter-section">
+      <div class="search-bar-container">
+        <div class="search-input-wrapper">
+          <i class="fas fa-search"></i>
+          <input type="text" id="searchInput" placeholder="Search collage art, artists, or techniques...">
+        </div>
+        <button class="search-button" id="searchBtn">Search</button>
+      </div>
+
+      <div class="filters-row">
+        <div class="filter-group">
+          <span class="filter-label">Sort by:</span>
+          <select class="filter-select" id="sortSelect">
+            <option value="popular">Most Popular</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="newest">Newest First</option>
+            <option value="artist">Artist Name</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <span class="filter-label">Price Range:</span>
+          <select class="filter-select" id="priceSelect">
+            <option value="all">All Prices</option>
+            <option value="0-4000">Under ₹4,000</option>
+            <option value="4000-6000">₹4,000 - ₹6,000</option>
+            <option value="6000-8000">₹6,000 - ₹8,000</option>
+            <option value="8000+">Above ₹8,000</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <span class="filter-label">Technique:</span>
+          <select class="filter-select" id="techniqueSelect">
+            <option value="all">All Techniques</option>
+            <option value="paper">Paper Collage</option>
+            <option value="textile">Textile Art</option>
+            <option value="assemblage">Assemblage</option>
+            <option value="mixed">Mixed Media</option>
+          </select>
+        </div>
+
+        <div class="view-toggle">
+          <button class="view-btn active" id="gridViewBtn" title="Grid View">
+            <i class="fas fa-th"></i>
+          </button>
+          <button class="view-btn" id="listViewBtn" title="List View">
+            <i class="fas fa-list"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="art-grid">
+      <!-- Card 1 -->
+      <div class="art-card"
+           data-title="Fragments of Memory"
+           data-artist="Eleanor Grace"
+           data-price="5600"
+           data-desc="Layered paper collage incorporating vintage photographs and handwritten letters."
+           data-full-desc="Fragments of Memory is an evocative paper collage that weaves together vintage photographs, handwritten letters, and ephemera to create a nostalgic narrative about time and remembrance. Each layer tells a story, with carefully chosen papers creating depth and emotional resonance. The piece invites viewers to reflect on their own memories and the passage of time."
+           data-dimensions="60cm x 80cm"
+           data-medium="Paper Collage on Canvas"
+           data-year="2024"
+           data-style="Paper Collage"
+           data-image="Images/Collage & Mixed Media.jpeg">
+        <div class="art-image"><img src="Images/Fragments of Thought.jpeg" alt="Paper collage"></div>
+        <div class="art-content">
+          <div class="art-title">Fragments of Memory</div>
+          <div class="artist-name">By Eleanor Grace</div>
+          <div class="art-desc">Layered paper collage incorporating vintage photographs and handwritten letters.</div>
+          <div class="price">₹5,600</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="art-card"
+           data-title="Textile Dreams"
+           data-artist="Amara Singh"
+           data-price="7200"
+           data-desc="Mixed media piece combining embroidered fabric, beads, and acrylic paint."
+           data-full-desc="Textile Dreams celebrates the rich tradition of fabric arts through a contemporary mixed media approach. Hand-embroidered fabrics are layered with paint, beads, and found textiles to create a tactile, dimensional work. The piece explores themes of identity and heritage through the universal language of fabric and thread, creating a bridge between traditional crafts and contemporary art."
+           data-dimensions="70cm x 90cm"
+           data-medium="Textile & Mixed Media"
+           data-year="2024"
+           data-style="Textile Art"
+           data-image="Images/Collage & Mixed Media.jpeg">
+        <div class="art-image"><img src="Images/Textile Dreams.jpeg" alt="Textile art"></div>
+        <div class="art-content">
+          <div class="art-title">Textile Dreams</div>
+          <div class="artist-name">By Amara Singh</div>
+          <div class="art-desc">Mixed media piece combining embroidered fabric, beads, and acrylic paint.</div>
+          <div class="price">₹7,200</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="art-card"
+           data-title="Urban Layers"
+           data-artist="Marcus Chen"
+           data-price="6400"
+           data-desc="Abstract collage using magazine clippings, newspaper, and spray paint."
+           data-full-desc="Urban Layers captures the chaos and energy of city life through dynamic collage techniques. Magazine clippings, newspaper fragments, and graffiti-style spray paint come together to create a visual cacophony that mirrors urban experience. The layered composition rewards close inspection, with hidden details and text fragments revealing themselves upon examination."
+           data-dimensions="75cm x 100cm"
+           data-medium="Paper & Spray Paint"
+           data-year="2024"
+           data-style="Paper Collage"
+           data-image="Images/Collage & Mixed Media.jpeg">
+        <div class="art-image"><img src="Images/Urban Layers.jpeg" alt="Abstract collage"></div>
+        <div class="art-content">
+          <div class="art-title">Urban Layers</div>
+          <div class="artist-name">By Marcus Chen</div>
+          <div class="art-desc">Abstract collage using magazine clippings, newspaper, and spray paint.</div>
+          <div class="price">₹6,400</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="art-card"
+           data-title="Found Objects Symphony"
+           data-artist="Isabella Romano"
+           data-price="8900"
+           data-desc="Three-dimensional assemblage incorporating vintage keys, wire, and wood."
+           data-full-desc="Found Objects Symphony transforms everyday discarded items into a poetic assemblage. Vintage keys, copper wire, weathered wood, and other found objects are carefully arranged to create a three-dimensional composition that speaks to themes of memory, function, and beauty in the overlooked. Each object carries its own history, now united in a new narrative."
+           data-dimensions="50cm x 70cm x 8cm"
+           data-medium="Assemblage"
+           data-year="2024"
+           data-style="Assemblage"
+           data-image="Images/Collage & Mixed Media.jpeg">
+        <div class="art-image"><img src="Images/found objects symphony.jpeg" alt="Assemblage art"></div>
+        <div class="art-content">
+          <div class="art-title">Found Objects Symphony</div>
+          <div class="artist-name">By Isabella Romano</div>
+          <div class="art-desc">Three-dimensional assemblage incorporating vintage keys, wire, and wood.</div>
+          <div class="price">₹8,900</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="art-card"
+           data-title="Nature's Patchwork"
+           data-artist="Lily Greenwood"
+           data-price="5800"
+           data-desc="Botanical collage featuring pressed flowers, leaves, and watercolor washes."
+           data-full-desc="Nature's Patchwork brings the beauty of the natural world into artistic form through delicate collage work. Real pressed flowers and leaves are combined with watercolor washes and hand-drawn botanical illustrations to create a piece that celebrates biodiversity and natural beauty. Each element is carefully preserved and arranged to create harmonious composition."
+           data-dimensions="65cm x 85cm"
+           data-medium="Botanical Collage"
+           data-year="2024"
+           data-style="Paper Collage"
+           data-image="Images/Collage & Mixed Media.jpeg">
+        <div class="art-image"><img src="Images/Nature's Patchwork.jpeg" alt="Botanical collage"></div>
+        <div class="art-content">
+          <div class="art-title">Nature's Patchwork</div>
+          <div class="artist-name">By Lily Greenwood</div>
+          <div class="art-desc">Botanical collage featuring pressed flowers, leaves, and watercolor washes.</div>
+          <div class="price">₹5,800</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="art-card"
+           data-title="Cultural Tapestry"
+           data-artist="Rajesh Kumar"
+           data-price="7800"
+           data-desc="Mixed media incorporating traditional Indian textiles, gold leaf, and acrylics."
+           data-full-desc="Cultural Tapestry is a celebration of Indian heritage through contemporary mixed media techniques. Traditional textiles, intricate patterns, and gold leaf are combined with modern acrylic painting to create a piece that honors cultural roots while embracing contemporary aesthetics. The work explores themes of identity, tradition, and transformation in a globalized world."
+           data-dimensions="80cm x 100cm"
+           data-medium="Textile & Mixed Media"
+           data-year="2024"
+           data-style="Mixed Media"
+           data-image="Images/Collage & Mixed Media.jpeg">
+        <div class="art-image"><img src="Images/Cultural Tapestry.jpeg" alt="Cultural mixed media"></div>
+        <div class="art-content">
+          <div class="art-title">Cultural Tapestry</div>
+          <div class="artist-name">By Rajesh Kumar</div>
+          <div class="art-desc">Mixed media incorporating traditional Indian textiles, gold leaf, and acrylics.</div>
+          <div class="price">₹7,800</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="art-card"
+           data-title="Deconstructed Pages"
+           data-artist="Sophie Laurent"
+           data-price="4900"
+           data-desc="Book art collage using torn pages, ink drawings, and tea-stained paper."
+           data-full-desc="Deconstructed Pages gives new life to old books through artistic transformation. Torn pages from vintage books are combined with original ink drawings and tea-stained paper to create layered compositions that honor the written word while creating new visual narratives. The piece speaks to themes of knowledge, time, and the evolution of storytelling."
+           data-dimensions="55cm x 75cm"
+           data-medium="Book Art Collage"
+           data-year="2024"
+           data-style="Paper Collage"
+           data-image="Images/Collage & Mixed Media.jpeg">
+        <div class="art-image"><img src="Images/Deconstructed Pages.jpeg" alt="Book art"></div>
+        <div class="art-content">
+          <div class="art-title">Deconstructed Pages</div>
+          <div class="artist-name">By Sophie Laurent</div>
+          <div class="art-desc">Book art collage using torn pages, ink drawings, and tea-stained paper.</div>
+          <div class="price">₹4,900</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="art-card"
+           data-title="Industrial Poetry"
+           data-artist="James Walker"
+           data-price="8200"
+           data-desc="Assemblage featuring rusted metal, gears, and reclaimed industrial materials."
+           data-full-desc="Industrial Poetry finds beauty in the mechanical and discarded. Rusted metal fragments, vintage gears, bolts, and other reclaimed industrial materials are assembled into a sculptural wall piece that celebrates the aesthetic of machinery and industry. The work transforms cold, functional objects into a warm, poetic statement about human ingenuity and the passage of time."
+           data-dimensions="60cm x 80cm x 10cm"
+           data-medium="Metal Assemblage"
+           data-year="2024"
+           data-style="Assemblage"
+           data-image="Images/Collage & Mixed Media.jpeg">
+        <div class="art-image"><img src="Images/Industrial Poetry.jpeg" alt="Industrial assemblage"></div>
+        <div class="art-content">
+          <div class="art-title">Industrial Poetry</div>
+          <div class="artist-name">By James Walker</div>
+          <div class="art-desc">Assemblage featuring rusted metal, gears, and reclaimed industrial materials.</div>
+          <div class="price">₹8,200</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 9 -->
+      <div class="art-card"
+           data-title="Woven Stories"
+           data-artist="Maya Patel"
+           data-price="6700"
+           data-desc="Fiber art combining weaving, embroidery, and mixed media elements."
+           data-full-desc="Woven Stories integrates traditional fiber arts with contemporary mixed media techniques. Hand-woven elements are combined with embroidery, found fabrics, and painted surfaces to create a rich, textured work. The piece explores how stories are passed down through generations, much like weaving techniques, creating connections between past and present."
+           data-dimensions="70cm x 95cm"
+           data-medium="Fiber & Mixed Media"
+           data-year="2024"
+           data-style="Textile Art"
+           data-image="Images/Collage & Mixed Media.jpeg">
+        <div class="art-image"><img src="Images/Woven Stories.jpeg" alt="Fiber art"></div>
+        <div class="art-content">
+          <div class="art-title">Woven Stories</div>
+          <div class="artist-name">By Maya Patel</div>
+          <div class="art-desc">Fiber art combining weaving, embroidery, and mixed media elements.</div>
+          <div class="price">₹6,700</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 10 -->
+      <div class="art-card"
+           data-title="Ephemeral Moments"
+           data-artist="Thomas Reed"
+           data-price="5400"
+           data-desc="Collage using ticket stubs, receipts, postcards, and other personal ephemera."
+           data-full-desc="Ephemeral Moments transforms everyday ephemera into art that speaks to the beauty of ordinary life. Concert tickets, travel receipts, postcards, stamps, and other paper artifacts are arranged to create a visual diary of experiences and memories. The piece celebrates the small moments that make up a life, preserving the fleeting in permanent form."
+           data-dimensions="58cm x 78cm"
+           data-medium="Ephemera Collage"
+           data-year="2024"
+           data-style="Paper Collage"
+           data-image="Images/Collage & Mixed Media.jpeg">
+        <div class="art-image"><img src="Images/Ephemeral Moments.jpeg" alt="Ephemera collage"></div>
+        <div class="art-content">
+          <div class="art-title">Ephemeral Moments</div>
+          <div class="artist-name">By Thomas Reed</div>
+          <div class="art-desc">Collage using ticket stubs, receipts, postcards, and other personal ephemera.</div>
+          <div class="price">₹5,400</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Details Modal -->
+  <div class="modal-overlay" id="detailsModal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modalTitle">Artwork Details</h2>
+        <button class="modal-close" onclick="closeDetailsModal()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="details-grid">
+          <!-- Image Section -->
+          <div class="details-image-section">
+            <div class="details-main-image">
+              <img src="" alt="Collage Art" id="detailsImage">
+            </div>
+            <div class="image-badge" id="statusBadge">Handcrafted</div>
+          </div>
+
+          <!-- Info Section -->
+          <div class="details-info-section">
+            <h1 class="details-title" id="detailsTitle">Artwork Title</h1>
+            
+            <div class="details-artist">
+              <div class="artist-avatar" id="artistAvatar">A</div>
+              <span id="detailsArtist">Artist Name</span>
+            </div>
+
+            <div class="details-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="rating-text">(4.7/5 from 143 reviews)</span>
+            </div>
+
+            <div class="details-price" id="detailsPrice">₹5,600</div>
+
+            <p class="details-description" id="detailsDescription">
+              Full description of the collage artwork goes here...
+            </p>
+
+            <div class="details-specs">
+              <div class="spec-row">
+                <span class="spec-label">Dimensions:</span>
+                <span class="spec-value" id="specDimensions">60cm x 80cm</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Medium:</span>
+                <span class="spec-value" id="specMedium">Paper Collage</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Year:</span>
+                <span class="spec-value" id="specYear">2024</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Technique:</span>
+                <span class="spec-value" id="specStyle">Layered Collage</span>
+              </div>
+            </div>
+
+            <div class="quantity-selector">
+              <span class="quantity-label">Quantity:</span>
+              <div class="quantity-controls">
+                <button class="quantity-btn" onclick="decreaseQuantity()">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <span class="quantity-value" id="quantityValue">1</span>
+                <button class="quantity-btn" onclick="increaseQuantity()">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="action-buttons">
+              <button class="btn-add-cart" onclick="addToCart()">
+                <i class="fas fa-shopping-cart"></i>
+                Add to Cart
+              </button>
+              <button class="btn-buy-now" onclick="buyNow()">
+                <i class="fas fa-bolt"></i>
+                Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tabs Section -->
+        <div class="details-tabs">
+          <div class="tabs-nav-details">
+            <button class="tab-btn-detail active" onclick="switchDetailTab('description')">
+              <i class="fas fa-info-circle"></i> Description
+            </button>
+            <button class="tab-btn-detail" onclick="switchDetailTab('reviews')">
+              <i class="fas fa-star"></i> Reviews
+            </button>
+            <button class="tab-btn-detail" onclick="switchDetailTab('materials')">
+              <i class="fas fa-palette"></i> Materials & Care
+            </button>
+          </div>
+
+          <div class="tab-content-detail active" id="tab-description">
+            <p style="color:#666;line-height:1.8;" id="fullDescription">
+              Full collage artwork description will appear here...
+            </p>
+          </div>
+
+          <div class="tab-content-detail" id="tab-reviews">
+            <div class="reviews-section">
+              <div class="review-card">
+                <div class="review-header">
+                  <span class="reviewer-name">Rebecca Martinez</span>
+                  <span class="review-stars">★★★★★</span>
+                </div>
+                <p class="review-text">
+                  This collage piece is absolutely stunning! The layers and textures are even more impressive in person. You can see the care and thought that went into every element. It's become the centerpiece of my art collection and always sparks conversation.
+                </p>
+              </div>
+
+              <div class="review-card">
+                <div class="review-header">
+                  <span class="reviewer-name">Daniel Foster</span>
+                  <span class="review-stars">★★★★★</span>
+                </div>
+                <p class="review-text">
+                  I love the mixed media approach and the unique combination of materials. The artist has a real eye for composition and color. The piece arrived beautifully packaged and ready to hang. Highly recommend for anyone looking for original, tactile art!
+                </p>
+              </div>
+
+              <div class="review-card">
+                <div class="review-header">
+                  <span class="reviewer-name">Priya Mehta</span>
+                  <span class="review-stars">★★★★★</span>
+                </div>
+                <p class="review-text">
+                  The attention to detail is remarkable. Each viewing reveals new layers and hidden elements. It's wonderful to own a piece where you can see the artist's hand and process. The textures add so much depth and character. Worth every rupee!
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-content-detail" id="tab-materials">
+            <div class="shipping-info">
+              <div class="shipping-item">
+                <div class="shipping-icon">
+                  <i class="fas fa-layer-group"></i>
+                </div>
+                <div class="shipping-content">
+                  <h4>Materials Used</h4>
+                  <p>Each piece is created using archival-quality papers, fabrics, and adhesives to ensure longevity. Materials may include vintage papers, textiles, found objects, acrylics, and other mixed media elements carefully selected for their visual and textural qualities.</p>
+                </div>
+              </div>
+
+              <div class="shipping-item">
+                <div class="shipping-icon">
+                  <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="shipping-content">
+                  <h4>Protection & Care</h4>
+                  <p>Collage works are sealed with a protective varnish to preserve layers and prevent deterioration. Display away from direct sunlight and high humidity. Dust gently with a soft, dry cloth. Do not use water or cleaning solutions on the surface.</p>
+                </div>
+              </div>
+
+              <div class="shipping-item">
+                <div class="shipping-icon">
+                  <i class="fas fa-frame"></i>
+                </div>
+                <div class="shipping-content">
+                  <h4>Framing & Display</h4>
+                  <p>Most pieces come mounted on sturdy backing and are ready to frame. We recommend professional framing with UV-protective glass for optimal preservation. For three-dimensional assemblages, shadow box framing is recommended.</p>
+                </div>
+              </div>
+
+              <div class="shipping-item">
+                <div class="shipping-icon">
+                  <i class="fas fa-truck"></i>
+                </div>
+                <div class="shipping-content">
+                  <h4>Shipping & Packaging</h4>
+                  <p>Collage artworks are carefully packaged with protective layers, rigid backing boards, and secure wrapping. Shipped via insured courier with tracking. Delivery typically takes 5-8 business days. Each piece arrives with a certificate of authenticity.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentQuantity = 1;
+    let currentProductData = {};
+
+    // Animate cards on load
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.art-card');
+      cards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        
+        setTimeout(() => {
+          card.style.transition = 'all 0.6s ease-out';
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, index * 100);
+      });
+
+      // Add click event to all View Details buttons
+      const buyButtons = document.querySelectorAll('.buy-btn');
+      buyButtons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const card = this.closest('.art-card');
+          openDetailsModal(card);
+        });
+      });
+    });
+
+    // Open details modal
+    function openDetailsModal(card) {
+      const modal = document.getElementById('detailsModal');
+      
+      // Get data from card and store it
+      const title = card.dataset.title;
+      const artist = card.dataset.artist;
+      const price = card.dataset.price;
+      const desc = card.dataset.desc;
+      const fullDesc = card.dataset.fullDesc;
+      const dimensions = card.dataset.dimensions;
+      const medium = card.dataset.medium;
+      const year = card.dataset.year;
+      const style = card.dataset.style;
+      const image = card.dataset.image;
+
+      // Store current product data
+      currentProductData = {
+        title: title,
+        artist: artist,
+        price: price,
+        image: image,
+        quantity: 1
+      };
+
+      // Populate modal
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('detailsTitle').textContent = title;
+      document.getElementById('detailsArtist').textContent = 'By ' + artist;
+      document.getElementById('detailsPrice').textContent = '₹' + parseInt(price).toLocaleString('en-IN');
+      document.getElementById('detailsDescription').textContent = desc;
+      document.getElementById('fullDescription').textContent = fullDesc;
+      document.getElementById('detailsImage').src = image;
+      document.getElementById('specDimensions').textContent = dimensions;
+      document.getElementById('specMedium').textContent = medium;
+      document.getElementById('specYear').textContent = year;
+      document.getElementById('specStyle').textContent = style;
+
+      // Set artist avatar
+      const artistAvatar = document.getElementById('artistAvatar');
+      artistAvatar.textContent = artist.charAt(0).toUpperCase();
+
+      // Reset quantity
+      currentQuantity = 1;
+      document.getElementById('quantityValue').textContent = currentQuantity;
+
+      // Show modal
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Close details modal
+    function closeDetailsModal() {
+      const modal = document.getElementById('detailsModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Quantity controls
+    function increaseQuantity() {
+      if (currentQuantity < 10) {
+        currentQuantity++;
+        document.getElementById('quantityValue').textContent = currentQuantity;
+        currentProductData.quantity = currentQuantity;
+      }
+    }
+
+    function decreaseQuantity() {
+      if (currentQuantity > 1) {
+        currentQuantity--;
+        document.getElementById('quantityValue').textContent = currentQuantity;
+        currentProductData.quantity = currentQuantity;
+      }
+    }
+
+    // Add to cart
+    function addToCart() {
+      const title = document.getElementById('detailsTitle').textContent;
+      alert(`Added ${currentQuantity} x "${title}" to cart!`);
+      // Store in localStorage for cart page
+      let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      cart.push(currentProductData);
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+    // Buy now - Redirect to BuyNow.html with product data
+    function buyNow() {
+      // Update quantity in product data
+      currentProductData.quantity = currentQuantity;
+      
+      // Store product data in localStorage
+      localStorage.setItem('checkoutProduct', JSON.stringify(currentProductData));
+      
+      // Redirect to BuyNow.html
+      window.location.href = 'BuyNow.html';
+    }
+
+    // Switch detail tabs
+    function switchDetailTab(tabName) {
+      // Remove active class from all buttons
+      document.querySelectorAll('.tab-btn-detail').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      
+      // Remove active class from all tab contents
+      document.querySelectorAll('.tab-content-detail').forEach(content => {
+        content.classList.remove('active');
+      });
+
+      // Add active class to clicked button
+      event.target.classList.add('active');
+      
+      // Show corresponding tab content
+      document.getElementById('tab-' + tabName).classList.add('active');
+    }
+
+    // Close modal when clicking outside
+    document.addEventListener('click', (e) => {
+      const modal = document.getElementById('detailsModal');
+      if (e.target === modal) {
+        closeDetailsModal();
+      }
+    });
+
+    // Close modal with ESC key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeDetailsModal();
+      }
+    });
+
+    // Search functionality
+    const searchInput = document.getElementById('searchInput');
+    const searchBtn = document.getElementById('searchBtn');
+    
+    searchBtn.addEventListener('click', performSearch);
+    searchInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        performSearch();
+      }
+    });
+
+    function performSearch() {
+      const query = searchInput.value.toLowerCase().trim();
+      const cards = document.querySelectorAll('.art-card');
+      
+      cards.forEach(card => {
+        const title = card.querySelector('.art-title').textContent.toLowerCase();
+        const artist = card.querySelector('.artist-name').textContent.toLowerCase();
+        const desc = card.querySelector('.art-desc').textContent.toLowerCase();
+        
+        if (title.includes(query) || artist.includes(query) || desc.includes(query) || query === '') {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Sort functionality
+    const sortSelect = document.getElementById('sortSelect');
+    sortSelect.addEventListener('change', sortArtworks);
+
+    function sortArtworks() {
+      const grid = document.querySelector('.art-grid');
+      const cards = Array.from(document.querySelectorAll('.art-card'));
+      const sortValue = sortSelect.value;
+      
+      let sortedCards = [...cards];
+      
+      switch(sortValue) {
+        case 'price-low':
+          sortedCards.sort((a, b) => {
+            const priceA = parseInt(a.querySelector('.price').textContent.replace(/₹|,/g, ''));
+            const priceB = parseInt(b.querySelector('.price').textContent.replace(/₹|,/g, ''));
+            return priceA - priceB;
+          });
+          break;
+        case 'price-high':
+          sortedCards.sort((a, b) => {
+            const priceA = parseInt(a.querySelector('.price').textContent.replace(/₹|,/g, ''));
+            const priceB = parseInt(b.querySelector('.price').textContent.replace(/₹|,/g, ''));
+            return priceB - priceA;
+          });
+          break;
+        case 'artist':
+          sortedCards.sort((a, b) => {
+            const artistA = a.querySelector('.artist-name').textContent;
+            const artistB = b.querySelector('.artist-name').textContent;
+            return artistA.localeCompare(artistB);
+          });
+          break;
+        case 'newest':
+          sortedCards.reverse();
+          break;
+      }
+      
+      // Clear and re-append sorted cards
+      grid.innerHTML = '';
+      sortedCards.forEach(card => grid.appendChild(card));
+    }
+
+    // Price filter functionality
+    const priceSelect = document.getElementById('priceSelect');
+    priceSelect.addEventListener('change', filterByPrice);
+
+    function filterByPrice() {
+      const priceRange = priceSelect.value;
+      const cards = document.querySelectorAll('.art-card');
+      
+      cards.forEach(card => {
+        const price = parseInt(card.querySelector('.price').textContent.replace(/₹|,/g, ''));
+        let show = true;
+        
+        switch(priceRange) {
+          case '0-4000':
+            show = price < 4000;
+            break;
+          case '4000-6000':
+            show = price >= 4000 && price <= 6000;
+            break;
+          case '6000-8000':
+            show = price >= 6000 && price <= 8000;
+            break;
+          case '8000+':
+            show = price > 8000;
+            break;
+        }
+        
+        card.style.display = show ? '' : 'none';
+      });
+    }
+
+    // View toggle functionality
+    const gridViewBtn = document.getElementById('gridViewBtn');
+    const listViewBtn = document.getElementById('listViewBtn');
+    const artGrid = document.querySelector('.art-grid');
+
+    gridViewBtn.addEventListener('click', () => {
+      gridViewBtn.classList.add('active');
+      listViewBtn.classList.remove('active');
+      artGrid.style.gridTemplateColumns = 'repeat(auto-fit, minmax(280px, 1fr))';
+    });
+
+    listViewBtn.addEventListener('click', () => {
+      listViewBtn.classList.add('active');
+      gridViewBtn.classList.remove('active');
+      artGrid.style.gridTemplateColumns = '1fr';
+    });
+  </script>
+</body>
+</html>

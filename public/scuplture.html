@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Sculpture | Treasury of Flair</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { 
+      font-family:'Poppins',sans-serif; 
+      background:#f5f5f5; 
+      color:#333; 
+      overflow-x:hidden;
+    }
+
+    /* Navbar */
+    nav {
+      background:white;
+      padding:12px 20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      box-shadow:0 2px 10px rgba(0,0,0,0.1);
+      position:fixed;
+      top:0; left:0; right:0;
+      z-index:1000;
+      height:80px;
+    }
+
+    .logo-section {
+      display:flex;
+      align-items:center;
+      gap:15px;
+    }
+
+    .logo {
+      width:50px; height:50px;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-weight:700;
+      font-size:20px;
+    }
+
+    .logo-text h2 { 
+      font-size:20px; 
+      font-weight:600;
+      color:#333;
+      margin-bottom:2px; 
+    }
+    .logo-text p { 
+      font-size:12px; 
+      color:#666; 
+    }
+
+    .nav-links {
+      display:flex; 
+      gap:40px; 
+      align-items:center;
+    }
+
+    .nav-links a {
+      text-decoration:none;
+      color:#666;
+      font-weight:500;
+      padding:8px 16px;
+      border-radius:8px;
+      transition:all 0.3s ease;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color:#8E2DE2;
+      background:rgba(142,45,226,0.1);
+    }
+
+    /* Page Container */
+    .container {
+      max-width:1400px;
+      margin:100px auto 60px;
+      padding:40px;
+    }
+
+    .page-header {
+      text-align:center;
+      margin-bottom:30px;
+    }
+
+    .page-header h1 {
+      font-size:2.5rem;
+      font-weight:600;
+      color:#333;
+      margin-bottom:15px;
+    }
+
+    .page-header p {
+      color:#666;
+      font-size:1.1rem;
+      max-width:700px;
+      margin:0 auto;
+      line-height:1.6;
+    }
+
+    /* Search and Filter Section */
+    .search-filter-section {
+      background:white;
+      padding:25px;
+      border-radius:20px;
+      box-shadow:0 5px 20px rgba(0,0,0,0.1);
+      margin-bottom:30px;
+    }
+
+    .search-bar-container {
+      display:flex;
+      gap:15px;
+      margin-bottom:20px;
+      align-items:center;
+    }
+
+    .search-input-wrapper {
+      position:relative;
+      flex:1;
+    }
+
+    .search-input-wrapper i {
+      position:absolute;
+      left:20px;
+      top:50%;
+      transform:translateY(-50%);
+      color:#666;
+      font-size:16px;
+    }
+
+    .search-input-wrapper input {
+      width:100%;
+      padding:15px 20px 15px 50px;
+      border:2px solid #e0e0e0;
+      border-radius:30px;
+      font-size:15px;
+      outline:none;
+      transition:all 0.3s ease;
+      font-family:'Poppins',sans-serif;
+    }
+
+    .search-input-wrapper input:focus {
+      border-color:#8E2DE2;
+      box-shadow:0 0 0 3px rgba(142,45,226,0.1);
+    }
+
+    .search-button {
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      color:white;
+      border:none;
+      padding:15px 40px;
+      border-radius:30px;
+      font-weight:500;
+      cursor:pointer;
+      transition:all 0.3s ease;
+      font-size:15px;
+      white-space:nowrap;
+    }
+
+    .search-button:hover {
+      transform:translateY(-2px);
+      box-shadow:0 5px 15px rgba(142,45,226,0.3);
+    }
+
+    .filters-row {
+      display:flex;
+      gap:20px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .filter-group {
+      display:flex;
+      align-items:center;
+      gap:15px;
+    }
+
+    .filter-label {
+      font-weight:500;
+      color:#333;
+      font-size:15px;
+      white-space:nowrap;
+    }
+
+    .filter-select {
+      padding:12px 40px 12px 20px;
+      border:2px solid #e0e0e0;
+      border-radius:25px;
+      font-size:14px;
+      outline:none;
+      cursor:pointer;
+      background:white;
+      font-family:'Poppins',sans-serif;
+      font-weight:500;
+      color:#333;
+      transition:all 0.3s ease;
+      appearance:none;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+      background-repeat:no-repeat;
+      background-position:right 15px center;
+      min-width:180px;
+    }
+
+    .filter-select:hover {
+      border-color:#8E2DE2;
+    }
+
+    .filter-select:focus {
+      border-color:#8E2DE2;
+      box-shadow:0 0 0 3px rgba(142,45,226,0.1);
+    }
+
+    .view-toggle {
+      margin-left:auto;
+      display:flex;
+      gap:10px;
+    }
+
+    .view-btn {
+      width:45px;
+      height:45px;
+      border:2px solid #e0e0e0;
+      border-radius:12px;
+      background:white;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#666;
+      transition:all 0.3s ease;
+      font-size:18px;
+    }
+
+    .view-btn:hover, .view-btn.active {
+      border-color:#8E2DE2;
+      color:#8E2DE2;
+      background:rgba(142,45,226,0.05);
+    }
+
+    /* Art Grid */
+    .art-grid {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap:25px;
+      transition:all 0.3s ease;
+    }
+
+    .art-card {
+      background:white;
+      border-radius:20px;
+      box-shadow:0 5px 20px rgba(0,0,0,0.1);
+      overflow:hidden;
+      transition:all 0.3s ease;
+      display:flex;
+      flex-direction:column;
+      position:relative;
+    }
+
+    .art-card::before {
+      content:'';
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      height:4px;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      transform:scaleX(0);
+      transition:transform 0.3s ease;
+    }
+
+    .art-card:hover {
+      transform:translateY(-5px);
+      box-shadow:0 15px 35px rgba(0,0,0,0.15);
+    }
+
+    .art-card:hover::before {
+      transform:scaleX(1);
+    }
+
+    .art-image {
+      width:100%;
+      height:250px;
+      overflow:hidden;
+      background:#e5e7eb;
+    }
+
+    .art-image img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform 0.4s ease;
+      display:block;
+    }
+
+    .art-card:hover .art-image img {
+      transform:scale(1.08);
+    }
+
+    .art-content {
+      padding:25px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      flex:1;
+    }
+
+    .art-title {
+      font-size:1.15rem;
+      font-weight:600;
+      color:#333;
+      margin-bottom:8px;
+    }
+
+    .artist-name {
+      color:#8E2DE2;
+      font-weight:500;
+      margin-bottom:12px;
+      font-size:0.95rem;
+    }
+
+    .art-desc {
+      color:#666;
+      font-size:0.9rem;
+      line-height:1.6;
+      flex-grow:1;
+      margin-bottom:15px;
+    }
+
+    .price {
+      font-weight:600;
+      color:#333;
+      font-size:1.2rem;
+      margin-bottom:15px;
+    }
+
+    .buy-btn {
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      border:none;
+      color:white;
+      padding:12px 20px;
+      border-radius:10px;
+      font-weight:500;
+      cursor:pointer;
+      width:100%;
+      transition:all 0.3s ease;
+      font-size:0.95rem;
+    }
+
+    .buy-btn:hover { 
+      transform:translateY(-1px);
+      box-shadow:0 5px 15px rgba(142,45,226,0.3);
+    }
+
+    /* Details Modal */
+    .modal-overlay {
+      display:none;
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+      background:rgba(0,0,0,0.7);
+      z-index:2000;
+      align-items:center;
+      justify-content:center;
+      backdrop-filter:blur(5px);
+      animation:fadeIn 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      display:flex;
+    }
+
+    @keyframes fadeIn {
+      from { opacity:0; }
+      to { opacity:1; }
+    }
+
+    .modal-container {
+      background:white;
+      border-radius:25px;
+      width:90%;
+      max-width:1000px;
+      max-height:90vh;
+      overflow-y:auto;
+      box-shadow:0 20px 60px rgba(0,0,0,0.3);
+      animation:slideUp 0.4s ease;
+    }
+
+    @keyframes slideUp {
+      from {
+        transform:translateY(50px);
+        opacity:0;
+      }
+      to {
+        transform:translateY(0);
+        opacity:1;
+      }
+    }
+
+    .modal-header {
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      padding:30px 40px;
+      border-radius:25px 25px 0 0;
+      color:white;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .modal-title {
+      font-size:28px;
+      font-weight:600;
+    }
+
+    .modal-close {
+      background:rgba(255,255,255,0.2);
+      border:none;
+      width:40px;
+      height:40px;
+      border-radius:50%;
+      color:white;
+      font-size:24px;
+      cursor:pointer;
+      transition:all 0.3s ease;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .modal-close:hover {
+      background:rgba(255,255,255,0.3);
+      transform:rotate(90deg);
+    }
+
+    .modal-body {
+      padding:40px;
+    }
+
+    .details-grid {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:40px;
+      margin-bottom:40px;
+    }
+
+    .details-image-section {
+      position:relative;
+    }
+
+    .details-main-image {
+      width:100%;
+      height:450px;
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:0 10px 30px rgba(0,0,0,0.15);
+      margin-bottom:15px;
+    }
+
+    .details-main-image img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform 0.3s ease;
+    }
+
+    .details-main-image:hover img {
+      transform:scale(1.05);
+    }
+
+    .image-badge {
+      position:absolute;
+      top:20px;
+      right:20px;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      color:white;
+      padding:8px 20px;
+      border-radius:20px;
+      font-weight:600;
+      font-size:14px;
+      box-shadow:0 5px 15px rgba(142,45,226,0.4);
+    }
+
+    .details-info-section {
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    .details-title {
+      font-size:32px;
+      font-weight:700;
+      color:#333;
+      margin-bottom:10px;
+    }
+
+    .details-artist {
+      font-size:18px;
+      color:#8E2DE2;
+      font-weight:600;
+      margin-bottom:20px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .artist-avatar {
+      width:40px;
+      height:40px;
+      border-radius:50%;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-weight:600;
+    }
+
+    .details-price {
+      font-size:40px;
+      font-weight:700;
+      color:#333;
+      margin-bottom:20px;
+    }
+
+    .details-rating {
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:20px;
+    }
+
+    .stars {
+      color:#FFB800;
+      font-size:20px;
+    }
+
+    .rating-text {
+      color:#666;
+      font-size:14px;
+    }
+
+    .details-description {
+      color:#666;
+      line-height:1.8;
+      margin-bottom:25px;
+      font-size:15px;
+    }
+
+    .details-specs {
+      background:#f9f9f9;
+      padding:25px;
+      border-radius:15px;
+      margin-bottom:25px;
+    }
+
+    .spec-row {
+      display:flex;
+      justify-content:space-between;
+      padding:12px 0;
+      border-bottom:1px solid #e0e0e0;
+    }
+
+    .spec-row:last-child {
+      border-bottom:none;
+    }
+
+    .spec-label {
+      font-weight:600;
+      color:#333;
+    }
+
+    .spec-value {
+      color:#666;
+    }
+
+    .quantity-selector {
+      display:flex;
+      align-items:center;
+      gap:15px;
+      margin-bottom:25px;
+    }
+
+    .quantity-label {
+      font-weight:600;
+      color:#333;
+    }
+
+    .quantity-controls {
+      display:flex;
+      align-items:center;
+      gap:15px;
+      background:#f9f9f9;
+      padding:10px 20px;
+      border-radius:12px;
+    }
+
+    .quantity-btn {
+      width:35px;
+      height:35px;
+      border:none;
+      background:white;
+      border-radius:8px;
+      cursor:pointer;
+      font-size:18px;
+      font-weight:600;
+      color:#8E2DE2;
+      transition:all 0.3s ease;
+      box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .quantity-btn:hover {
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      color:white;
+      transform:scale(1.1);
+    }
+
+    .quantity-value {
+      font-size:18px;
+      font-weight:600;
+      min-width:40px;
+      text-align:center;
+    }
+
+    .action-buttons {
+      display:flex;
+      gap:15px;
+    }
+
+    .btn-add-cart {
+      flex:1;
+      background:white;
+      color:#8E2DE2;
+      border:2px solid #8E2DE2;
+      padding:16px 30px;
+      border-radius:12px;
+      font-weight:600;
+      font-size:16px;
+      cursor:pointer;
+      transition:all 0.3s ease;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+    }
+
+    .btn-add-cart:hover {
+      background:#8E2DE2;
+      color:white;
+      transform:translateY(-2px);
+      box-shadow:0 5px 15px rgba(142,45,226,0.3);
+    }
+
+    .btn-buy-now {
+      flex:1;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      color:white;
+      border:none;
+      padding:16px 30px;
+      border-radius:12px;
+      font-weight:600;
+      font-size:16px;
+      cursor:pointer;
+      transition:all 0.3s ease;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+    }
+
+    .btn-buy-now:hover {
+      transform:translateY(-2px);
+      box-shadow:0 8px 25px rgba(142,45,226,0.4);
+    }
+
+    .details-tabs {
+      border-top:2px solid #f0f0f0;
+      padding-top:30px;
+    }
+
+    .tabs-nav-details {
+      display:flex;
+      gap:30px;
+      margin-bottom:30px;
+      border-bottom:2px solid #f0f0f0;
+    }
+
+    .tab-btn-detail {
+      background:none;
+      border:none;
+      padding:15px 25px;
+      font-size:16px;
+      font-weight:600;
+      color:#666;
+      cursor:pointer;
+      position:relative;
+      transition:all 0.3s ease;
+    }
+
+    .tab-btn-detail:hover {
+      color:#8E2DE2;
+    }
+
+    .tab-btn-detail.active {
+      color:#8E2DE2;
+    }
+
+    .tab-btn-detail.active::after {
+      content:'';
+      position:absolute;
+      bottom:-2px;
+      left:0;
+      right:0;
+      height:3px;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      border-radius:3px;
+    }
+
+    .tab-content-detail {
+      display:none;
+    }
+
+    .tab-content-detail.active {
+      display:block;
+      animation:fadeIn 0.3s ease;
+    }
+
+    .reviews-section {
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    .review-card {
+      background:#f9f9f9;
+      padding:20px;
+      border-radius:15px;
+      border-left:4px solid #8E2DE2;
+    }
+
+    .review-header {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:12px;
+    }
+
+    .reviewer-name {
+      font-weight:600;
+      color:#333;
+    }
+
+    .review-stars {
+      color:#FFB800;
+    }
+
+    .review-text {
+      color:#666;
+      line-height:1.6;
+    }
+
+    .shipping-info {
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    .shipping-item {
+      display:flex;
+      align-items:flex-start;
+      gap:15px;
+      padding:20px;
+      background:#f9f9f9;
+      border-radius:12px;
+    }
+
+    .shipping-icon {
+      width:50px;
+      height:50px;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-size:24px;
+      flex-shrink:0;
+    }
+
+    .shipping-content h4 {
+      font-weight:600;
+      color:#333;
+      margin-bottom:8px;
+    }
+
+    .shipping-content p {
+      color:#666;
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    /* Animation */
+    @keyframes slideInUp {
+      from {
+        opacity:0;
+        transform:translateY(30px);
+      }
+      to {
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .art-card {
+      animation:slideInUp 0.6s ease-out forwards;
+    }
+
+    /* Responsive */
+    @media (max-width:1024px) {
+      .container { 
+        padding:30px; 
+      }
+      .filters-row {
+        gap:15px;
+      }
+      .filter-select {
+        min-width:150px;
+      }
+      .details-grid {
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width:768px) {
+      .page-header h1 { 
+        font-size:2rem; 
+      }
+      .container { 
+        padding:20px; 
+        margin-top:100px;
+      }
+      .nav-links {
+        gap:20px;
+      }
+      .nav-links a {
+        padding:6px 12px;
+        font-size:0.9rem;
+      }
+      .search-bar-container {
+        flex-direction:column;
+      }
+      .search-button {
+        width:100%;
+      }
+      .filters-row {
+        flex-direction:column;
+        align-items:stretch;
+      }
+      .filter-group {
+        flex-direction:column;
+        align-items:stretch;
+        gap:10px;
+      }
+      .view-toggle {
+        margin-left:0;
+        justify-content:center;
+      }
+      .search-filter-section {
+        padding:20px;
+      }
+      .modal-body {
+        padding:20px;
+      }
+      .details-title {
+        font-size:24px;
+      }
+      .details-price {
+        font-size:32px;
+      }
+      .action-buttons {
+        flex-direction:column;
+      }
+      .tabs-nav-details {
+        gap:15px;
+        overflow-x:auto;
+      }
+      .details-main-image {
+        height:300px;
+      }
+    }
+
+    @media (max-width:480px) {
+      .art-grid { 
+        grid-template-columns:1fr; 
+      }
+      .art-image { 
+        height:200px; 
+      }
+      .page-header h1 {
+        font-size:1.75rem;
+      }
+      .page-header p {
+        font-size:1rem;
+      }
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width:8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background:#f1f1f1;
+      border-radius:10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      border-radius:10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background:linear-gradient(135deg,#7A28C7,#E63E1B);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo-section">
+      <div class="logo">TF</div>
+      <div class="logo-text">
+        <h2>Treasury of Flair</h2>
+        <p>Marketplace for artists</p>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="home.html">Home</a>
+      <a href="categories_page.html" class="active">Categories</a>
+      <a href="reels.html">Reels</a>
+      <a href="MyOrders.html">My Orders</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="page-header">
+      <h1>Sculpture Collection</h1>
+      <p>Three-dimensional artworks in stone, metal, wood, ceramic, and mixed materials. Discover sculptural masterpieces that transform space and light.</p>
+    </div>
+
+    <!-- Search and Filter Section -->
+    <div class="search-filter-section">
+      <div class="search-bar-container">
+        <div class="search-input-wrapper">
+          <i class="fas fa-search"></i>
+          <input type="text" id="searchInput" placeholder="Search sculptures, artists, or materials...">
+        </div>
+        <button class="search-button" id="searchBtn">Search</button>
+      </div>
+
+      <div class="filters-row">
+        <div class="filter-group">
+          <span class="filter-label">Sort by:</span>
+          <select class="filter-select" id="sortSelect">
+            <option value="popular">Most Popular</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="newest">Newest First</option>
+            <option value="artist">Artist Name</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <span class="filter-label">Price Range:</span>
+          <select class="filter-select" id="priceSelect">
+            <option value="all">All Prices</option>
+            <option value="0-100000">Under ₹1,00,000</option>
+            <option value="100000-200000">₹1L - ₹2L</option>
+            <option value="200000-300000">₹2L - ₹3L</option>
+            <option value="300000+">Above ₹3L</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <span class="filter-label">Material:</span>
+          <select class="filter-select" id="materialSelect">
+            <option value="all">All Materials</option>
+            <option value="bronze">Bronze</option>
+            <option value="marble">Marble</option>
+            <option value="wood">Wood</option>
+            <option value="ceramic">Ceramic</option>
+            <option value="metal">Metal</option>
+          </select>
+        </div>
+
+        <div class="view-toggle">
+          <button class="view-btn active" id="gridViewBtn" title="Grid View">
+            <i class="fas fa-th"></i>
+          </button>
+          <button class="view-btn" id="listViewBtn" title="List View">
+            <i class="fas fa-list"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="art-grid">
+      <!-- Card 1 -->
+      <div class="art-card"
+           data-title="Eternal Embrace"
+           data-artist="Auguste Rodin"
+           data-price="285000"
+           data-desc="Bronze sculpture capturing the timeless beauty of human connection and emotion."
+           data-full-desc="Eternal Embrace is a masterfully crafted bronze sculpture that explores themes of love, intimacy, and human connection. The piece features two intertwined figures rendered with exceptional anatomical precision and emotional depth. The bronze patina adds warmth and character, while the dynamic composition creates visual interest from every angle. This sculpture represents years of study in classical form combined with contemporary sensibility."
+           data-dimensions="18 x 12 x 10 inches"
+           data-medium="Bronze"
+           data-year="2024"
+           data-material="bronze"
+           data-image="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop">
+        <div class="art-image"><img src="Images/Eternal Embrace.jpeg" alt="Bronze sculpture"></div>
+        <div class="art-content">
+          <div class="art-title">Eternal Embrace</div>
+          <div class="artist-name">By Auguste Rodin</div>
+          <div class="art-desc">Bronze sculpture capturing the timeless beauty of human connection and emotion.</div>
+          <div class="price">₹2,85,000</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="art-card"
+           data-title="Marble Grace"
+           data-artist="Michelangelo Buonarroti"
+           data-price="450000"
+           data-desc="Hand-carved white marble sculpture showcasing classical beauty and technical mastery."
+           data-full-desc="Marble Grace exemplifies the timeless elegance of classical sculpture. Carved from a single block of pristine white Carrara marble, this piece demonstrates exceptional skill in stone carving. The flowing drapery, delicate features, and smooth finish required months of dedicated work. The translucent quality of marble allows light to penetrate the surface, creating a luminous, lifelike appearance. This sculpture bridges ancient traditions with contemporary vision."
+           data-dimensions="24 x 10 x 8 inches"
+           data-medium="Carrara Marble"
+           data-year="2024"
+           data-material="marble"
+           data-image="https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=800&h=600&fit=crop">
+        <div class="art-image"><img src="Images/Marble Grace.jpeg" alt="Marble sculpture"></div>
+        <div class="art-content">
+          <div class="art-title">Marble Grace</div>
+          <div class="artist-name">By Michelangelo Buonarroti</div>
+          <div class="art-desc">Hand-carved white marble sculpture showcasing classical beauty and technical mastery.</div>
+          <div class="price">₹4,50,000</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="art-card"
+           data-title="Abstract Flow"
+           data-artist="Barbara Hepworth"
+           data-price="195000"
+           data-desc="Contemporary abstract sculpture in polished steel with organic flowing forms."
+           data-full-desc="Abstract Flow explores the relationship between positive and negative space through sweeping curves and openings. Crafted from polished stainless steel, the sculpture reflects its environment while maintaining its own distinct presence. The organic forms suggest natural movement - water, wind, or growth - while the industrial material grounds it in contemporary expression. Each viewing angle reveals new relationships between solid and void, interior and exterior."
+           data-dimensions="20 x 15 x 12 inches"
+           data-medium="Stainless Steel"
+           data-year="2024"
+           data-material="metal"
+           data-image="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=800&h=600&fit=crop">
+        <div class="art-image"><img src="Images/Abstract Flow.jpeg" alt="Abstract steel sculpture"></div>
+        <div class="art-content">
+          <div class="art-title">Abstract Flow</div>
+          <div class="artist-name">By Barbara Hepworth</div>
+          <div class="art-desc">Contemporary abstract sculpture in polished steel with organic flowing forms.</div>
+          <div class="price">₹1,95,000</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="art-card"
+           data-title="Woodland Spirit"
+           data-artist="David Nash"
+           data-price="165000"
+           data-desc="Hand-carved oak sculpture celebrating natural forms and wood grain beauty."
+           data-full-desc="Woodland Spirit emerges from a carefully selected piece of ancient oak, honoring the tree's life and character. The sculpture follows the natural grain and contours of the wood, revealing rather than imposing form. Traditional carving techniques meet contemporary vision, creating a piece that feels both timeless and fresh. The natural oils and wax finish enhance the wood's warmth while protecting it for generations. This work celebrates our connection to nature and craftsmanship."
+           data-dimensions="28 x 14 x 14 inches"
+           data-medium="Oak Wood"
+           data-year="2024"
+           data-material="wood"
+           data-image="https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=800&h=600&fit=crop">
+        <div class="art-image"><img src="Images/Woodland Spirit.jpeg" alt="Wood sculpture"></div>
+        <div class="art-content">
+          <div class="art-title">Woodland Spirit</div>
+          <div class="artist-name">By David Nash</div>
+          <div class="art-desc">Hand-carved oak sculpture celebrating natural forms and wood grain beauty.</div>
+          <div class="price">₹1,65,000</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="art-card"
+           data-title="Ceramic Vessel"
+           data-artist="Lucie Rie"
+           data-price="125000"
+           data-desc="Wheel-thrown porcelain sculpture with delicate form and crystalline glaze."
+           data-full-desc="Ceramic Vessel transcends functional pottery to become pure sculpture. Wheel-thrown from fine porcelain and refined through careful trimming, the piece achieves an almost impossible thinness and lightness. The crystalline glaze was developed through years of experimentation, creating unique patterns that cannot be replicated. Fired multiple times at extreme temperatures, the sculpture represents the pinnacle of ceramic craft. Its delicate strength embodies the medium's paradoxical nature."
+           data-dimensions="12 x 8 x 8 inches"
+           data-medium="Porcelain with Crystalline Glaze"
+           data-year="2024"
+           data-material="ceramic"
+           data-image="https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=800&h=600&fit=crop">
+        <div class="art-image"><img src="Images/Ceramic Vessel.jpeg" alt="Ceramic sculpture"></div>
+        <div class="art-content">
+          <div class="art-title">Ceramic Vessel</div>
+          <div class="artist-name">By Lucie Rie</div>
+          <div class="art-desc">Wheel-thrown porcelain sculpture with delicate form and crystalline glaze.</div>
+          <div class="price">₹1,25,000</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="art-card"
+           data-title="Urban Geometry"
+           data-artist="Richard Serra"
+           data-price="385000"
+           data-desc="Large-scale weathering steel sculpture with bold geometric forms."
+           data-full-desc="Urban Geometry commands attention through scale, material, and form. Fabricated from weathering steel, the sculpture develops a protective rust patina that stabilizes and becomes part of its aesthetic. The bold geometric composition creates dynamic relationships with surrounding space, altering perception as viewers move around it. Industrial materials and construction methods merge with artistic vision to create a monument to contemporary sculpture. This piece transforms any environment it inhabits."
+           data-dimensions="36 x 24 x 20 inches"
+           data-medium="Weathering Steel"
+           data-year="2024"
+           data-material="metal"
+           data-image="https://images.unsplash.com/photo-1577083552792-a0d461cb1dd6?w=800&h=600&fit=crop">
+        <div class="art-image"><img src="Images/Urban Geometry.jpeg" alt="Steel sculpture"></div>
+        <div class="art-content">
+          <div class="art-title">Urban Geometry</div>
+          <div class="artist-name">By Richard Serra</div>
+          <div class="art-desc">Large-scale weathering steel sculpture with bold geometric forms.</div>
+          <div class="price">₹3,85,000</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="art-card"
+           data-title="Dancing Figures"
+           data-artist="Alberto Giacometti"
+           data-price="220000"
+           data-desc="Elongated bronze figures capturing movement and human fragility."
+           data-full-desc="Dancing Figures explores the human form through extreme elongation and textured surfaces. Cast in bronze using the lost-wax method, each figure seems to vibrate with internal energy despite—or because of—its attenuated proportions. The rough, worked surface catches light dramatically, creating ever-changing shadows and highlights. This sculpture investigates space, presence, and the essential nature of human form stripped to its most fundamental expression."
+           data-dimensions="22 x 8 x 6 inches"
+           data-medium="Bronze"
+           data-year="2024"
+           data-material="bronze"
+           data-image="https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=800&h=600&fit=crop">
+        <div class="art-image"><img src="Images/Dancing Figures.jpeg" alt="Bronze figures"></div>
+        <div class="art-content">
+          <div class="art-title">Dancing Figures</div>
+          <div class="artist-name">By Alberto Giacometti</div>
+          <div class="art-desc">Elongated bronze figures capturing movement and human fragility.</div>
+          <div class="price">₹2,20,000</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="art-card"
+           data-title="Stone Guardian"
+           data-artist="Isamu Noguchi"
+           data-price="340000"
+           data-desc="Granite sculpture blending Eastern philosophy with modernist aesthetics."
+           data-full-desc="Stone Guardian merges Japanese stone carving traditions with Western modernism. Carved from solid granite, the sculpture achieves a remarkable balance between rough natural surfaces and highly polished areas. This contrast emphasizes the material's inherent beauty while creating symbolic meaning—the meeting of nature and culture, rough and refined, ancient and contemporary. The piece invites contemplation and meditation, serving as both artwork and spiritual anchor."
+           data-dimensions="30 x 18 x 16 inches"
+           data-medium="Granite"
+           data-year="2024"
+           data-material="marble"
+           data-image="https://images.unsplash.com/photo-1536924940846-227afb31e2a5?w=800&h=600&fit=crop">
+        <div class="art-image"><img src="Images/Stone Guardian.jpeg" alt="Granite sculpture"></div>
+        <div class="art-content">
+          <div class="art-title">Stone Guardian</div>
+          <div class="artist-name">By Isamu Noguchi</div>
+          <div class="art-desc">Granite sculpture blending Eastern philosophy with modernist aesthetics.</div>
+          <div class="price">₹3,40,000</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 9 -->
+      <div class="art-card"
+           data-title="Kinetic Dreams"
+           data-artist="Alexander Calder"
+           data-price="275000"
+           data-desc="Mobile sculpture with balanced elements that move with air currents."
+           data-full-desc="Kinetic Dreams introduces motion as a sculptural element. Carefully balanced metal elements suspended on wires create a constantly changing composition as air currents cause gentle movement. Each element is precisely weighted and positioned, creating a delicate equilibrium. The sculpture never appears the same twice, offering infinite variations within its choreographed possibilities. Bold colors on shaped metal forms reference both natural and abstract imagery, creating poetry in motion."
+           data-dimensions="40 x 36 x 24 inches (at rest)"
+           data-medium="Painted Metal Mobile"
+           data-year="2024"
+           data-material="metal"
+           data-image="https://images.unsplash.com/photo-1618331835717-801e976710b2?w=800&h=600&fit=crop">
+        <div class="art-image"><img src="Images/Kinetic Dreams.jpeg" alt="Mobile sculpture"></div>
+        <div class="art-content">
+          <div class="art-title">Kinetic Dreams</div>
+          <div class="artist-name">By Alexander Calder</div>
+          <div class="art-desc">Mobile sculpture with balanced elements that move with air currents.</div>
+          <div class="price">₹2,75,000</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 10 -->
+      <div class="art-card"
+           data-title="Terra Forma"
+           data-artist="Anish Kapoor"
+           data-price="425000"
+           data-desc="Contemporary mixed-media sculpture exploring void and reflection."
+           data-full-desc="Terra Forma challenges perceptions of surface, depth, and materiality. Combining polished metal, stone, and pigment, the sculpture creates illusions of infinite depth and ambiguous boundaries. The highly reflective surfaces distort and include the viewer and environment, making the sculpture interactive and ever-changing. This piece questions the nature of sculpture itself—where does the object end and the space begin? The work represents years of technical and conceptual development at the cutting edge of contemporary sculpture."
+           data-dimensions="26 x 26 x 18 inches"
+           data-medium="Mixed Media (Metal, Stone, Pigment)"
+           data-year="2024"
+           data-material="metal"
+           data-image="https://images.unsplash.com/photo-1580477667995-2b94f01c9516?w=800&h=600&fit=crop">
+        <div class="art-image"><img src="Images/Terra Forma.jpeg" alt="Contemporary sculpture"></div>
+        <div class="art-content">
+          <div class="art-title">Terra Forma</div>
+          <div class="artist-name">By Anish Kapoor</div>
+          <div class="art-desc">Contemporary mixed-media sculpture exploring void and reflection.</div>
+          <div class="price">₹4,25,000</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Details Modal -->
+  <div class="modal-overlay" id="detailsModal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modalTitle">Sculpture Details</h2>
+        <button class="modal-close" onclick="closeDetailsModal()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="details-grid">
+          <!-- Image Section -->
+          <div class="details-image-section">
+            <div class="details-main-image">
+              <img src="" alt="Sculpture" id="detailsImage">
+            </div>
+            <div class="image-badge" id="statusBadge">Limited Edition</div>
+          </div>
+
+          <!-- Info Section -->
+          <div class="details-info-section">
+            <h1 class="details-title" id="detailsTitle">Sculpture Title</h1>
+            
+            <div class="details-artist">
+              <div class="artist-avatar" id="artistAvatar">A</div>
+              <span id="detailsArtist">Artist Name</span>
+            </div>
+
+            <div class="details-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="rating-text">(4.9/5 from 156 reviews)</span>
+            </div>
+
+            <div class="details-price" id="detailsPrice">₹2,85,000</div>
+
+            <p class="details-description" id="detailsDescription">
+              Full description of the sculpture goes here...
+            </p>
+
+            <div class="details-specs">
+              <div class="spec-row">
+                <span class="spec-label">Dimensions:</span>
+                <span class="spec-value" id="specDimensions">18 x 12 x 10 inches</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Material:</span>
+                <span class="spec-value" id="specMedium">Bronze</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Year:</span>
+                <span class="spec-value" id="specYear">2024</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Weight:</span>
+                <span class="spec-value">Approx. 15 lbs</span>
+              </div>
+            </div>
+
+            <div class="quantity-selector">
+              <span class="quantity-label">Quantity:</span>
+              <div class="quantity-controls">
+                <button class="quantity-btn" onclick="decreaseQuantity()">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <span class="quantity-value" id="quantityValue">1</span>
+                <button class="quantity-btn" onclick="increaseQuantity()">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="action-buttons">
+              <button class="btn-add-cart" onclick="addToCart()">
+                <i class="fas fa-shopping-cart"></i>
+                Add to Cart
+              </button>
+              <button class="btn-buy-now" onclick="buyNow()">
+                <i class="fas fa-bolt"></i>
+                Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tabs Section -->
+        <div class="details-tabs">
+          <div class="tabs-nav-details">
+            <button class="tab-btn-detail active" onclick="switchDetailTab('description')">
+              <i class="fas fa-info-circle"></i> Description
+            </button>
+            <button class="tab-btn-detail" onclick="switchDetailTab('reviews')">
+              <i class="fas fa-star"></i> Reviews
+            </button>
+            <button class="tab-btn-detail" onclick="switchDetailTab('shipping')">
+              <i class="fas fa-shipping-fast"></i> Shipping & Care
+            </button>
+          </div>
+
+          <div class="tab-content-detail active" id="tab-description">
+            <p style="color:#666;line-height:1.8;" id="fullDescription">
+              Full sculpture description will appear here...
+            </p>
+          </div>
+
+          <div class="tab-content-detail" id="tab-reviews">
+            <div class="reviews-section">
+              <div class="review-card">
+                <div class="review-header">
+                  <span class="reviewer-name">Victoria Chen</span>
+                  <span class="review-stars">★★★★★</span>
+                </div>
+                <p class="review-text">
+                  This sculpture is absolutely breathtaking! The craftsmanship is extraordinary, and it looks even better in person. The way it interacts with light throughout the day is mesmerizing. A true investment piece that I'll treasure forever.
+                </p>
+              </div>
+
+              <div class="review-card">
+                <div class="review-header">
+                  <span class="reviewer-name">Robert Sullivan</span>
+                  <span class="review-stars">★★★★★</span>
+                </div>
+                <p class="review-text">
+                  Outstanding quality and attention to detail. The artist's skill is evident in every aspect of this piece. It arrived securely packaged, and the gallery provided excellent guidance on placement and care. Highly recommend!
+                </p>
+              </div>
+
+              <div class="review-card">
+                <div class="review-header">
+                  <span class="reviewer-name">Amanda Foster</span>
+                  <span class="review-stars">★★★★★</span>
+                </div>
+                <p class="review-text">
+                  A stunning addition to our collection. The sculpture has become the focal point of our living space. The material quality is exceptional, and the artistic vision is powerful. Worth every penny!
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-content-detail" id="tab-shipping">
+            <div class="shipping-info">
+              <div class="shipping-item">
+                <div class="shipping-icon">
+                  <i class="fas fa-truck"></i>
+                </div>
+                <div class="shipping-content">
+                  <h4>White Glove Delivery</h4>
+                  <p>All sculptures are shipped via specialized art couriers with white glove service. This includes custom crating, climate-controlled transportation, delivery to room of choice, unpacking, and debris removal. Delivery typically takes 3-4 weeks.</p>
+                </div>
+              </div>
+
+              <div class="shipping-item">
+                <div class="shipping-icon">
+                  <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="shipping-content">
+                  <h4>Insurance & Protection</h4>
+                  <p>Your sculpture is fully insured during transit. We use museum-quality packing materials and methods to ensure safe arrival. Each piece is inspected before and after shipping with photographic documentation.</p>
+                </div>
+              </div>
+
+              <div class="shipping-item">
+                <div class="shipping-icon">
+                  <i class="fas fa-hands-helping"></i>
+                </div>
+                <div class="shipping-content">
+                  <h4>Installation Support</h4>
+                  <p>For larger sculptures, we provide installation guidance and can coordinate with local art handlers for proper placement and mounting. Detailed care instructions are included with every purchase.</p>
+                </div>
+              </div>
+
+              <div class="shipping-item">
+                <div class="shipping-icon">
+                  <i class="fas fa-certificate"></i>
+                </div>
+                <div class="shipping-content">
+                  <h4>Authenticity & Provenance</h4>
+                  <p>Each sculpture includes a certificate of authenticity signed by the artist, detailing the work's provenance, materials, edition number (if applicable), and care recommendations. Keep this documentation with the artwork.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentQuantity = 1;
+    let currentProductData = {};
+
+    // Animate cards on load
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.art-card');
+      cards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        
+        setTimeout(() => {
+          card.style.transition = 'all 0.6s ease-out';
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, index * 100);
+      });
+
+      // Add click event to all View Details buttons
+      const buyButtons = document.querySelectorAll('.buy-btn');
+      buyButtons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const card = this.closest('.art-card');
+          openDetailsModal(card);
+        });
+      });
+    });
+
+    // Open details modal
+    function openDetailsModal(card) {
+      const modal = document.getElementById('detailsModal');
+      
+      // Get data from card and store it
+      const title = card.dataset.title;
+      const artist = card.dataset.artist;
+      const price = card.dataset.price;
+      const desc = card.dataset.desc;
+      const fullDesc = card.dataset.fullDesc;
+      const dimensions = card.dataset.dimensions;
+      const medium = card.dataset.medium;
+      const year = card.dataset.year;
+      const image = card.dataset.image;
+
+      // Store current product data
+      currentProductData = {
+        title: title,
+        artist: artist,
+        price: price,
+        image: image,
+        quantity: 1
+      };
+
+      // Populate modal
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('detailsTitle').textContent = title;
+      document.getElementById('detailsArtist').textContent = 'By ' + artist;
+      document.getElementById('detailsPrice').textContent = '₹' + parseInt(price).toLocaleString('en-IN');
+      document.getElementById('detailsDescription').textContent = desc;
+      document.getElementById('fullDescription').textContent = fullDesc;
+      document.getElementById('detailsImage').src = image;
+      document.getElementById('specDimensions').textContent = dimensions;
+      document.getElementById('specMedium').textContent = medium;
+      document.getElementById('specYear').textContent = year;
+
+      // Set artist avatar
+      const artistAvatar = document.getElementById('artistAvatar');
+      artistAvatar.textContent = artist.charAt(0).toUpperCase();
+
+      // Reset quantity
+      currentQuantity = 1;
+      document.getElementById('quantityValue').textContent = currentQuantity;
+
+      // Show modal
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Close details modal
+    function closeDetailsModal() {
+      const modal = document.getElementById('detailsModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Quantity controls
+    function increaseQuantity() {
+      if (currentQuantity < 5) {
+        currentQuantity++;
+        document.getElementById('quantityValue').textContent = currentQuantity;
+        currentProductData.quantity = currentQuantity;
+      }
+    }
+
+    function decreaseQuantity() {
+      if (currentQuantity > 1) {
+        currentQuantity--;
+        document.getElementById('quantityValue').textContent = currentQuantity;
+        currentProductData.quantity = currentQuantity;
+      }
+    }
+
+    // Add to cart
+    function addToCart() {
+      const title = document.getElementById('detailsTitle').textContent;
+      alert(`Added ${currentQuantity} x "${title}" to cart!`);
+      // Store in localStorage for cart page
+      let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      cart.push(currentProductData);
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+    // Buy now - Redirect to BuyNow.html with product data
+    function buyNow() {
+      // Update quantity in product data
+      currentProductData.quantity = currentQuantity;
+      
+      // Store product data in localStorage
+      localStorage.setItem('checkoutProduct', JSON.stringify(currentProductData));
+      
+      // Redirect to BuyNow.html
+      window.location.href = 'BuyNow.html';
+    }
+
+    // Switch detail tabs
+    function switchDetailTab(tabName) {
+      // Remove active class from all buttons
+      document.querySelectorAll('.tab-btn-detail').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      
+      // Remove active class from all tab contents
+      document.querySelectorAll('.tab-content-detail').forEach(content => {
+        content.classList.remove('active');
+      });
+
+      // Add active class to clicked button
+      event.target.classList.add('active');
+      
+      // Show corresponding tab content
+      document.getElementById('tab-' + tabName).classList.add('active');
+    }
+
+    // Close modal when clicking outside
+    document.addEventListener('click', (e) => {
+      const modal = document.getElementById('detailsModal');
+      if (e.target === modal) {
+        closeDetailsModal();
+      }
+    });
+
+    // Close modal with ESC key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeDetailsModal();
+      }
+    });
+
+    // Search functionality
+    const searchInput = document.getElementById('searchInput');
+    const searchBtn = document.getElementById('searchBtn');
+    
+    searchBtn.addEventListener('click', performSearch);
+    searchInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        performSearch();
+      }
+    });
+
+    function performSearch() {
+      const query = searchInput.value.toLowerCase().trim();
+      const cards = document.querySelectorAll('.art-card');
+      
+      cards.forEach(card => {
+        const title = card.querySelector('.art-title').textContent.toLowerCase();
+        const artist = card.querySelector('.artist-name').textContent.toLowerCase();
+        const desc = card.querySelector('.art-desc').textContent.toLowerCase();
+        
+        if (title.includes(query) || artist.includes(query) || desc.includes(query) || query === '') {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Sort functionality
+    const sortSelect = document.getElementById('sortSelect');
+    sortSelect.addEventListener('change', sortArtworks);
+
+    function sortArtworks() {
+      const grid = document.querySelector('.art-grid');
+      const cards = Array.from(document.querySelectorAll('.art-card'));
+      const sortValue = sortSelect.value;
+      
+      let sortedCards = [...cards];
+      
+      switch(sortValue) {
+        case 'price-low':
+          sortedCards.sort((a, b) => {
+            const priceA = parseInt(a.querySelector('.price').textContent.replace(/₹|,/g, ''));
+            const priceB = parseInt(b.querySelector('.price').textContent.replace(/₹|,/g, ''));
+            return priceA - priceB;
+          });
+          break;
+        case 'price-high':
+          sortedCards.sort((a, b) => {
+            const priceA = parseInt(a.querySelector('.price').textContent.replace(/₹|,/g, ''));
+            const priceB = parseInt(b.querySelector('.price').textContent.replace(/₹|,/g, ''));
+            return priceB - priceA;
+          });
+          break;
+        case 'artist':
+          sortedCards.sort((a, b) => {
+            const artistA = a.querySelector('.artist-name').textContent;
+            const artistB = b.querySelector('.artist-name').textContent;
+            return artistA.localeCompare(artistB);
+          });
+          break;
+        case 'newest':
+          sortedCards.reverse();
+          break;
+      }
+      
+      // Clear and re-append sorted cards
+      grid.innerHTML = '';
+      sortedCards.forEach(card => grid.appendChild(card));
+    }
+
+    // Price filter functionality
+    const priceSelect = document.getElementById('priceSelect');
+    priceSelect.addEventListener('change', filterByPrice);
+
+    function filterByPrice() {
+      const priceRange = priceSelect.value;
+      const cards = document.querySelectorAll('.art-card');
+      
+      cards.forEach(card => {
+        const price = parseInt(card.querySelector('.price').textContent.replace(/₹|,/g, ''));
+        let show = true;
+        
+        switch(priceRange) {
+          case '0-100000':
+            show = price < 100000;
+            break;
+          case '100000-200000':
+            show = price >= 100000 && price <= 200000;
+            break;
+          case '200000-300000':
+            show = price >= 200000 && price <= 300000;
+            break;
+          case '300000+':
+            show = price > 300000;
+            break;
+        }
+        
+        card.style.display = show ? '' : 'none';
+      });
+    }
+
+    // Material filter functionality
+    const materialSelect = document.getElementById('materialSelect');
+    materialSelect.addEventListener('change', filterByMaterial);
+
+    function filterByMaterial() {
+      const materialFilter = materialSelect.value;
+      const cards = document.querySelectorAll('.art-card');
+      
+      cards.forEach(card => {
+        const cardMaterial = card.dataset.material;
+        
+        if (materialFilter === 'all' || cardMaterial === materialFilter) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // View toggle functionality
+    const gridViewBtn = document.getElementById('gridViewBtn');
+    const listViewBtn = document.getElementById('listViewBtn');
+    const artGrid = document.querySelector('.art-grid');
+
+    gridViewBtn.addEventListener('click', () => {
+      gridViewBtn.classList.add('active');
+      listViewBtn.classList.remove('active');
+      artGrid.style.gridTemplateColumns = 'repeat(auto-fit, minmax(280px, 1fr))';
+    });
+
+    listViewBtn.addEventListener('click', () => {
+      listViewBtn.classList.add('active');
+      gridViewBtn.classList.remove('active');
+      artGrid.style.gridTemplateColumns = '1fr';
+    });
+  </script>
+</body>
+</html>
