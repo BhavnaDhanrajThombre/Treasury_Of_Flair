@@ -1,0 +1,126 @@
+{
+  "category": "Collage & Mixed Media",
+  "description": "Explore layered compositions combining paper, textiles, paint, and found materials to create unique artistic expressions with depth and texture.",
+  "artworks": [
+    {
+      "title": "Fragments of Memory",
+      "artist": "Eleanor Grace",
+      "price": 5600,
+      "description": "Layered paper collage incorporating vintage photographs and handwritten letters.",
+      "full_description": "Fragments of Memory is an evocative paper collage that weaves together vintage photographs, handwritten letters, and ephemera to create a nostalgic narrative about time and remembrance. Each layer tells a story, with carefully chosen papers creating depth and emotional resonance. The piece invites viewers to reflect on their own memories and the passage of time.",
+      "dimensions": "60cm x 80cm",
+      "medium": "Paper Collage on Canvas",
+      "year": 2024,
+      "style": "Paper Collage",
+      "image": "Images/Fragments of Thought.jpeg"
+    },
+    {
+      "title": "Textile Dreams",
+      "artist": "Amara Singh",
+      "price": 7200,
+      "description": "Mixed media piece combining embroidered fabric, beads, and acrylic paint.",
+      "full_description": "Textile Dreams celebrates the rich tradition of fabric arts through a contemporary mixed media approach. Hand-embroidered fabrics are layered with paint, beads, and found textiles to create a tactile, dimensional work. The piece explores themes of identity and heritage through the universal language of fabric and thread, creating a bridge between traditional crafts and contemporary art.",
+      "dimensions": "70cm x 90cm",
+      "medium": "Textile & Mixed Media",
+      "year": 2024,
+      "style": "Textile Art",
+      "image": "Images/Textile Dreams.jpeg"
+    },
+    {
+      "title": "Urban Layers",
+      "artist": "Marcus Chen",
+      "price": 6400,
+      "description": "Abstract collage using magazine clippings, newspaper, and spray paint.",
+      "full_description": "Urban Layers captures the chaos and energy of city life through dynamic collage techniques. Magazine clippings, newspaper fragments, and graffiti-style spray paint come together to create a visual cacophony that mirrors urban experience. The layered composition rewards close inspection, with hidden details and text fragments revealing themselves upon examination.",
+      "dimensions": "75cm x 100cm",
+      "medium": "Paper & Spray Paint",
+      "year": 2024,
+      "style": "Paper Collage",
+      "image": "Images/Urban Layers.jpeg"
+    },
+    {
+      "title": "Found Objects Symphony",
+      "artist": "Isabella Romano",
+      "price": 8900,
+      "description": "Three-dimensional assemblage incorporating vintage keys, wire, and wood.",
+      "full_description": "Found Objects Symphony transforms everyday discarded items into a poetic assemblage. Vintage keys, copper wire, weathered wood, and other found objects are carefully arranged to create a three-dimensional composition that speaks to themes of memory, function, and beauty in the overlooked. Each object carries its own history, now united in a new narrative.",
+      "dimensions": "50cm x 70cm x 8cm",
+      "medium": "Assemblage",
+      "year": 2024,
+      "style": "Assemblage",
+      "image": "Images/found objects symphony.jpeg"
+    },
+    {
+      "title": "Nature's Patchwork",
+      "artist": "Lily Greenwood",
+      "price": 5800,
+      "description": "Botanical collage featuring pressed flowers, leaves, and watercolor washes.",
+      "full_description": "Nature's Patchwork brings the beauty of the natural world into artistic form through delicate collage work. Real pressed flowers and leaves are combined with watercolor washes and hand-drawn botanical illustrations to create a piece that celebrates biodiversity and natural beauty. Each element is carefully preserved and arranged to create harmonious composition.",
+      "dimensions": "65cm x 85cm",
+      "medium": "Botanical Collage",
+      "year": 2024,
+      "style": "Paper Collage",
+      "image": "Images/Nature's Patchwork.jpeg"
+    },
+    {
+      "title": "Cultural Tapestry",
+      "artist": "Rajesh Kumar",
+      "price": 7800,
+      "description": "Mixed media incorporating traditional Indian textiles, gold leaf, and acrylics.",
+      "full_description": "Cultural Tapestry is a celebration of Indian heritage through contemporary mixed media techniques. Traditional textiles, intricate patterns, and gold leaf are combined with modern acrylic painting to create a piece that honors cultural roots while embracing contemporary aesthetics. The work explores themes of identity, tradition, and transformation in a globalized world.",
+      "dimensions": "80cm x 100cm",
+      "medium": "Textile & Mixed Media",
+      "year": 2024,
+      "style": "Mixed Media",
+      "image": "Images/Cultural Tapestry.jpeg"
+    },
+    {
+      "title": "Deconstructed Pages",
+      "artist": "Sophie Laurent",
+      "price": 4900,
+      "description": "Book art collage using torn pages, ink drawings, and tea-stained paper.",
+      "full_description": "Deconstructed Pages gives new life to old books through artistic transformation. Torn pages from vintage books are combined with original ink drawings and tea-stained paper to create layered compositions that honor the written word while creating new visual narratives. The piece speaks to themes of knowledge, time, and the evolution of storytelling.",
+      "dimensions": "55cm x 75cm",
+      "medium": "Book Art Collage",
+      "year": 2024,
+      "style": "Paper Collage",
+      "image": "Images/Deconstructed Pages.jpeg"
+    },
+    {
+      "title": "Industrial Poetry",
+      "artist": "James Walker",
+      "price": 8200,
+      "description": "Assemblage featuring rusted metal, gears, and reclaimed industrial materials.",
+      "full_description": "Industrial Poetry finds beauty in the mechanical and discarded. Rusted metal fragments, vintage gears, bolts, and other reclaimed industrial materials are assembled into a sculptural wall piece that celebrates the aesthetic of machinery and industry. The work transforms cold, functional objects into a warm, poetic statement about human ingenuity and the passage of time.",
+      "dimensions": "60cm x 80cm x 10cm",
+      "medium": "Metal Assemblage",
+      "year": 2024,
+      "style": "Assemblage",
+      "image": "Images/Industrial Poetry.jpeg"
+    },
+    {
+      "title": "Woven Stories",
+      "artist": "Maya Patel",
+      "price": 6700,
+      "description": "Fiber art combining weaving, embroidery, and mixed media elements.",
+      "full_description": "Woven Stories integrates traditional fiber arts with contemporary mixed media techniques. Hand-woven elements are combined with embroidery, found fabrics, and painted surfaces to create a rich, textured work. The piece explores how stories are passed down through generations, much like weaving techniques, creating connections between past and present.",
+      "dimensions": "70cm x 95cm",
+      "medium": "Fiber & Mixed Media",
+      "year": 2024,
+      "style": "Textile Art",
+      "image": "Images/Woven Stories.jpeg"
+    },
+    {
+      "title": "Ephemeral Moments",
+      "artist": "Thomas Reed",
+      "price": 5400,
+      "description": "Collage using ticket stubs, receipts, postcards, and other personal ephemera.",
+      "full_description": "Ephemeral Moments transforms everyday ephemera into art that speaks to the beauty of ordinary life. Concert tickets, travel receipts, postcards, stamps, and other paper artifacts are arranged to create a visual diary of experiences and memories. The piece celebrates the small moments that make up a life, preserving the fleeting in permanent form.",
+      "dimensions": "58cm x 78cm",
+      "medium": "Ephemera Collage",
+      "year": 2024,
+      "style": "Paper Collage",
+      "image": "Images/Ephemeral Moments.jpeg"
+    }
+  ]
+}

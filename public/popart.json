@@ -1,0 +1,122 @@
+[
+  {
+    "title": "Marilyn Reimagined",
+    "artist": "Andy Morrison",
+    "price": 32500,
+    "description": "Iconic portrait reimagined with bold colors and contemporary pop sensibility.",
+    "full_description": "A modern homage to pop art's golden age, this piece reimagines iconic portraiture with vibrant colors, bold contrasts, and a contemporary edge. Using screen printing techniques combined with digital enhancement, the artwork captures the essence of celebrity culture and its enduring fascination. Multiple color layers create depth while maintaining the graphic quality that defines pop art.",
+    "dimensions": "24 x 36 inches",
+    "medium": "Screen Print & Acrylic",
+    "year": "2024",
+    "style": "Icon Pop",
+    "image": "Images/Marilyn Reimagined.jpeg"
+  },
+  {
+    "title": "Comic Crush",
+    "artist": "Roy Lichtner",
+    "price": 28900,
+    "description": "Ben-Day dots and bold outlines create a romantic comic book aesthetic.",
+    "full_description": "Inspired by vintage comic book romance panels, Comic Crush captures emotion through simplified forms and graphic techniques. The piece uses authentic Ben-Day dot patterns, bold black outlines, and primary colors to create visual impact. Speech bubbles and dramatic composition pay tribute to mid-century commercial art while exploring themes of love and connection in the modern age.",
+    "dimensions": "30 x 40 inches",
+    "medium": "Acrylic on Canvas",
+    "year": "2024",
+    "style": "Comic Style",
+    "image": "Images/Comic Crush.jpeg"
+  },
+  {
+    "title": "Soup Can Dreams",
+    "artist": "Campbell Harris",
+    "price": 24750,
+    "description": "Consumer culture commentary through repetitive iconic imagery.",
+    "full_description": "This piece explores the intersection of art and commerce through the lens of everyday objects. Soup Can Dreams presents familiar consumer products as high art, questioning authenticity, mass production, and artistic value. The repetitive composition and flat graphic style celebrate mundane objects while critiquing consumer culture. Each can is meticulously rendered to explore color relationships and pattern.",
+    "dimensions": "20 x 20 inches (Set of 4)",
+    "medium": "Screen Print",
+    "year": "2024",
+    "style": "Icon Pop",
+    "image": "Images/Soup Can Dreams.jpeg"
+  },
+  {
+    "title": "Neon Nights",
+    "artist": "Jasper Kane",
+    "price": 35200,
+    "description": "Urban culture meets pop art in this vibrant street-inspired piece.",
+    "full_description": "Neon Nights captures the energy of urban nightlife through a pop art lens. Bright neon colors, graffiti-inspired lettering, and bold graphics merge street art sensibility with pop art techniques. The piece explores contemporary youth culture, nightlife, and city living through layered imagery and electric color palettes. Mixed media techniques create texture and depth while maintaining graphic punch.",
+    "dimensions": "36 x 48 inches",
+    "medium": "Mixed Media on Canvas",
+    "year": "2024",
+    "style": "Contemporary",
+    "image": "Images/Neon Nights.jpeg"
+  },
+  {
+    "title": "Magazine Collage",
+    "artist": "Hannah Höch",
+    "price": 27650,
+    "description": "Cut-and-paste magazine imagery creating surreal pop narratives.",
+    "full_description": "Magazine Collage uses fragments of commercial imagery to create new narratives and meanings. This piece deconstructs and reconstructs celebrity culture, advertising, and media through careful selection and juxtaposition of magazine clippings. The technique pays homage to Dadaist roots while creating contemporary commentary on image saturation and digital culture. Each element is carefully chosen to create visual and conceptual tension.",
+    "dimensions": "28 x 36 inches",
+    "medium": "Collage on Board",
+    "year": "2024",
+    "style": "Collage",
+    "image": "Images/Magazine Collage.jpeg"
+  },
+  {
+    "title": "Dollar Signs",
+    "artist": "Jean-Michel Base",
+    "price": 41500,
+    "description": "Money, commerce, and capitalism explored through bold graphic design.",
+    "full_description": "Dollar Signs confronts capitalism head-on with bold symbolism and striking visual language. This piece uses repeated currency symbols, corporate logos, and commercial imagery to explore wealth, value, and economic systems. The high-contrast color scheme and graphic composition create immediate visual impact while encouraging deeper reflection on money's role in art and society. Screen printing techniques emphasize the mechanical reproduction central to both art and currency.",
+    "dimensions": "40 x 50 inches",
+    "medium": "Screen Print & Acrylic",
+    "year": "2024",
+    "style": "Contemporary",
+    "image": "Images/Dollar Signs.jpeg"
+  },
+  {
+    "title": "Retro Vibes",
+    "artist": "Keith Haring",
+    "price": 30400,
+    "description": "Dancing figures and vibrant patterns celebrate joy and movement.",
+    "full_description": "Retro Vibes pulses with energy through simplified figures, bold outlines, and rhythmic patterns. This piece celebrates movement, music, and human connection through iconic visual language. Bright colors and repetitive motifs create a sense of motion and vitality. The work draws from street art, graffiti, and pop culture to create universally accessible imagery that speaks to themes of unity, energy, and celebration.",
+    "dimensions": "32 x 32 inches",
+    "medium": "Acrylic on Canvas",
+    "year": "2024",
+    "style": "Contemporary",
+    "image": "Images/Retro Vibes.jpeg"
+  },
+  {
+    "title": "Pop Icons Grid",
+    "artist": "Peter Blake",
+    "price": 38900,
+    "description": "Celebrity portraits arranged in a colorful grid of cultural commentary.",
+    "full_description": "Pop Icons Grid presents a curated collection of celebrity portraits, each rendered in distinct color palettes and styles. The grid format emphasizes both individuality and the collective nature of fame. Each portrait is a study in simplified forms and bold colors, while the overall composition explores our relationship with celebrity culture, hero worship, and cultural icons. The piece invites viewers to consider who we elevate and why.",
+    "dimensions": "48 x 48 inches",
+    "medium": "Screen Print on Canvas",
+    "year": "2024",
+    "style": "Icon Pop",
+    "image": "Images/Pop Icons Grid.jpeg"
+  },
+  {
+    "title": "Bubble Gum",
+    "artist": "Claes Oldenburg",
+    "price": 22300,
+    "description": "Playful oversized everyday objects rendered in candy-bright colors.",
+    "full_description": "Bubble Gum transforms mundane consumer products into monumental art. This piece enlarges ordinary objects to heroic scale, examining American consumer culture through humor and playfulness. Bright, candy-like colors and exaggerated forms create a sense of joy and nostalgia while questioning art's relationship to commercial products. The soft sculpture aesthetic brings three-dimensionality to traditionally flat pop art imagery.",
+    "dimensions": "24 x 30 inches",
+    "medium": "Acrylic on Canvas",
+    "year": "2024",
+    "style": "Contemporary",
+    "image": "Images/Bubble Gum.jpeg"
+  },
+  {
+    "title": "Digital Pop",
+    "artist": "Takashi Murakami",
+    "price": 44850,
+    "description": "Contemporary pop art merging anime, manga, and commercial aesthetics.",
+    "full_description": "Digital Pop bridges Eastern and Western pop culture through vibrant imagery drawn from anime, manga, and commercial art. This piece features smiling flowers, rainbow gradients, and glossy surfaces that celebrate and critique consumer culture simultaneously. The flat graphic style and cheerful imagery mask deeper commentary on commercialization, childhood, and contemporary society. Digital techniques create flawless gradients and perfect repetition impossible in traditional media.",
+    "dimensions": "40 x 40 inches",
+    "medium": "Digital Print on Canvas",
+    "year": "2024",
+    "style": "Contemporary",
+    "image": "Images/Digital Pop.jpeg"
+  }
+]

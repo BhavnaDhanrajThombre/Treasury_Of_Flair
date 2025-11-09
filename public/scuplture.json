@@ -1,0 +1,112 @@
+[
+  {
+    "title": "Eternal Embrace",
+    "artist": "Auguste Rodin",
+    "price": 285000,
+    "short_description": "Bronze sculpture capturing the timeless beauty of human connection and emotion.",
+    "full_description": "Eternal Embrace is a masterfully crafted bronze sculpture that explores themes of love, intimacy, and human connection. The piece features two intertwined figures rendered with exceptional anatomical precision and emotional depth. The bronze patina adds warmth and character, while the dynamic composition creates visual interest from every angle. This sculpture represents years of study in classical form combined with contemporary sensibility.",
+    "dimensions": "18 x 12 x 10 inches",
+    "material": "Bronze",
+    "year": 2024,
+    "image": "Images/Eternal Embrace.jpeg"
+  },
+  {
+    "title": "Marble Grace",
+    "artist": "Michelangelo Buonarroti",
+    "price": 450000,
+    "short_description": "Hand-carved white marble sculpture showcasing classical beauty and technical mastery.",
+    "full_description": "Marble Grace exemplifies the timeless elegance of classical sculpture. Carved from a single block of pristine white Carrara marble, this piece demonstrates exceptional skill in stone carving. The flowing drapery, delicate features, and smooth finish required months of dedicated work. The translucent quality of marble allows light to penetrate the surface, creating a luminous, lifelike appearance. This sculpture bridges ancient traditions with contemporary vision.",
+    "dimensions": "24 x 10 x 8 inches",
+    "material": "Carrara Marble",
+    "year": 2024,
+    "image": "Images/Marble Grace.jpeg"
+  },
+  {
+    "title": "Abstract Flow",
+    "artist": "Barbara Hepworth",
+    "price": 195000,
+    "short_description": "Contemporary abstract sculpture in polished steel with organic flowing forms.",
+    "full_description": "Abstract Flow explores the relationship between positive and negative space through sweeping curves and openings. Crafted from polished stainless steel, the sculpture reflects its environment while maintaining its own distinct presence. The organic forms suggest natural movement - water, wind, or growth - while the industrial material grounds it in contemporary expression. Each viewing angle reveals new relationships between solid and void, interior and exterior.",
+    "dimensions": "20 x 15 x 12 inches",
+    "material": "Stainless Steel",
+    "year": 2024,
+    "image": "Images/Abstract Flow.jpeg"
+  },
+  {
+    "title": "Woodland Spirit",
+    "artist": "David Nash",
+    "price": 165000,
+    "short_description": "Hand-carved oak sculpture celebrating natural forms and wood grain beauty.",
+    "full_description": "Woodland Spirit emerges from a carefully selected piece of ancient oak, honoring the tree's life and character. The sculpture follows the natural grain and contours of the wood, revealing rather than imposing form. Traditional carving techniques meet contemporary vision, creating a piece that feels both timeless and fresh. The natural oils and wax finish enhance the wood's warmth while protecting it for generations.",
+    "dimensions": "28 x 14 x 14 inches",
+    "material": "Oak Wood",
+    "year": 2024,
+    "image": "Images/Woodland Spirit.jpeg"
+  },
+  {
+    "title": "Ceramic Vessel",
+    "artist": "Lucie Rie",
+    "price": 125000,
+    "short_description": "Wheel-thrown porcelain sculpture with delicate form and crystalline glaze.",
+    "full_description": "Ceramic Vessel transcends functional pottery to become pure sculpture. Wheel-thrown from fine porcelain and refined through careful trimming, the piece achieves an almost impossible thinness and lightness. The crystalline glaze was developed through years of experimentation, creating unique patterns that cannot be replicated. Fired multiple times at extreme temperatures, the sculpture represents the pinnacle of ceramic craft.",
+    "dimensions": "12 x 8 x 8 inches",
+    "material": "Porcelain with Crystalline Glaze",
+    "year": 2024,
+    "image": "Images/Ceramic Vessel.jpeg"
+  },
+  {
+    "title": "Urban Geometry",
+    "artist": "Richard Serra",
+    "price": 385000,
+    "short_description": "Large-scale weathering steel sculpture with bold geometric forms.",
+    "full_description": "Urban Geometry commands attention through scale, material, and form. Fabricated from weathering steel, the sculpture develops a protective rust patina that stabilizes and becomes part of its aesthetic. The bold geometric composition creates dynamic relationships with surrounding space. Industrial materials merge with artistic vision to create a monument to contemporary sculpture.",
+    "dimensions": "36 x 24 x 20 inches",
+    "material": "Weathering Steel",
+    "year": 2024,
+    "image": "Images/Urban Geometry.jpeg"
+  },
+  {
+    "title": "Dancing Figures",
+    "artist": "Alberto Giacometti",
+    "price": 220000,
+    "short_description": "Elongated bronze figures capturing movement and human fragility.",
+    "full_description": "Dancing Figures explores the human form through extreme elongation and textured surfaces. Cast in bronze using the lost-wax method, each figure seems to vibrate with internal energy. The rough, worked surface catches light dramatically. This sculpture investigates presence and the essential nature of form stripped to fundamentals.",
+    "dimensions": "22 x 8 x 6 inches",
+    "material": "Bronze",
+    "year": 2024,
+    "image": "Images/Dancing Figures.jpeg"
+  },
+  {
+    "title": "Stone Guardian",
+    "artist": "Isamu Noguchi",
+    "price": 340000,
+    "short_description": "Granite sculpture blending Eastern philosophy with modernist aesthetics.",
+    "full_description": "Stone Guardian merges Japanese stone carving traditions with Western modernism. Carved from solid granite, it balances rough natural surfaces and polished forms. This contrast symbolizes the meeting of nature and culture, rough and refined. The piece invites contemplation and meditation.",
+    "dimensions": "30 x 18 x 16 inches",
+    "material": "Granite",
+    "year": 2024,
+    "image": "Images/Stone Guardian.jpeg"
+  },
+  {
+    "title": "Kinetic Dreams",
+    "artist": "Alexander Calder",
+    "price": 275000,
+    "short_description": "Mobile sculpture with balanced elements that move with air currents.",
+    "full_description": "Kinetic Dreams introduces motion as a sculptural element. Balanced metal shapes shift and rotate with air currents, creating constant variation. The sculpture never appears the same twice, offering infinite compositions.",
+    "dimensions": "40 x 36 x 24 inches",
+    "material": "Painted Metal",
+    "year": 2024,
+    "image": "Images/Kinetic Dreams.jpeg"
+  },
+  {
+    "title": "Terra Forma",
+    "artist": "Anish Kapoor",
+    "price": 425000,
+    "short_description": "Contemporary mixed-media sculpture exploring void and reflection.",
+    "full_description": "Terra Forma challenges perceptions of surface and depth through reflective materials. Polished metal and stone create illusions of infinite space. The viewer becomes part of the sculpture, merging artwork and surroundings.",
+    "dimensions": "26 x 26 x 18 inches",
+    "material": "Mixed Media (Metal, Stone, Pigment)",
+    "year": 2024,
+    "image": "Images/Terra Forma.jpeg"
+  }
+]
