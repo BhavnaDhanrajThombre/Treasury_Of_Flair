@@ -1,122 +1,511 @@
-[
-  {
-    "title": "Blue Horizon Vase",
-    "artist": "Sarah Chen",
-    "price": 3200,
-    "short_description": "Elegant wheel-thrown vase with stunning cobalt blue glaze and organic form.",
-    "full_description": "This exquisite wheel-thrown vase showcases masterful craftsmanship with its elegant proportions and stunning cobalt blue glaze. The organic form flows naturally from base to rim, while the hand-applied glaze creates depth and movement. Perfect as a statement piece or functional vessel for fresh flowers.",
-    "dimensions": "Height: 32cm, Width: 18cm",
-    "material": "Stoneware Clay",
-    "year": 2024,
-    "style": "Contemporary Pottery",
-    "image": "Images/Blue Horizon Vase.jpeg"
+{
+  "metadata": {
+    "database_name": "Treasury of Flair - Ceramics Collection",
+    "version": "1.0",
+    "last_updated": "2025-10-11",
+    "total_artworks": 10,
+    "category": "Ceramics"
   },
-  {
-    "title": "Rustic Bowl Set",
-    "artist": "James Anderson",
-    "price": 2850,
-    "short_description": "Set of three handcrafted bowls with earthy tones and textured finish.",
-    "full_description": "This beautiful set of three handcrafted bowls brings warmth and authenticity to any dining experience. Each bowl features a unique textured finish with earthy tones ranging from terracotta to warm browns. Functional art that elevates everyday meals while celebrating the beauty of handmade pottery.",
-    "dimensions": "Diameter: 15-20cm",
-    "material": "Terracotta Clay",
-    "year": 2024,
-    "style": "Rustic Pottery",
-    "image": "Images/Rustic Bowl Set.jpeg"
+  "artworks": [
+    {
+      "id": "CE001",
+      "title": "Blue Horizon Vase",
+      "artist": {
+        "name": "Sarah Chen",
+        "id": "ART031"
+      },
+      "description": "Elegant wheel-thrown vase with stunning cobalt blue glaze and organic form.",
+      "full_description": "This exquisite wheel-thrown vase showcases masterful craftsmanship with its elegant proportions and stunning cobalt blue glaze. The organic form flows naturally from base to rim, while the hand-applied glaze creates depth and movement. Perfect as a statement piece or functional vessel for fresh flowers.",
+      "price": {
+        "amount": 3200,
+        "currency": "INR",
+        "formatted": "₹3,200"
+      },
+      "image": {
+        "path": "Images/Blue Horizon Vase.jpeg",
+        "alt": "Ceramic vase"
+      },
+      "category": "Ceramics",
+      "subcategory": "Functional",
+      "medium": "Stoneware Clay",
+      "tags": ["vase", "wheel-thrown", "cobalt blue", "functional", "contemporary"],
+      "availability": "in-stock",
+      "edition": "standard",
+      "dimensions": {
+        "height": 32,
+        "width": 18,
+        "unit": "cm"
+      },
+      "year": 2024,
+      "created_date": "2024-08-15",
+      "popularity_score": 8.9,
+      "type": "functional"
+    },
+    {
+      "id": "CE002",
+      "title": "Rustic Bowl Set",
+      "artist": {
+        "name": "James Anderson",
+        "id": "ART032"
+      },
+      "description": "Set of three handcrafted bowls with earthy tones and textured finish.",
+      "full_description": "This beautiful set of three handcrafted bowls brings warmth and authenticity to any dining experience. Each bowl features a unique textured finish with earthy tones ranging from terracotta to warm browns. Functional art that elevates everyday meals while celebrating the beauty of handmade pottery.",
+      "price": {
+        "amount": 2850,
+        "currency": "INR",
+        "formatted": "₹2,850"
+      },
+      "image": {
+        "path": "Images/Rustic Bowl Set.jpeg",
+        "alt": "Ceramic bowls"
+      },
+      "category": "Ceramics",
+      "subcategory": "Functional",
+      "medium": "Terracotta Clay",
+      "tags": ["bowls", "rustic", "handcrafted", "earthy", "functional"],
+      "availability": "in-stock",
+      "edition": "standard",
+      "dimensions": {
+        "diameter": "15-20",
+        "unit": "cm",
+        "note": "Set of 3"
+      },
+      "year": 2024,
+      "created_date": "2024-07-22",
+      "popularity_score": 8.5,
+      "type": "functional"
+    },
+    {
+      "id": "CE003",
+      "title": "Celestial Platter",
+      "artist": {
+        "name": "Maya Patel",
+        "id": "ART033"
+      },
+      "description": "Large serving platter with cosmic-inspired glaze patterns and gold accents.",
+      "full_description": "A stunning centerpiece for any table, this large serving platter features cosmic-inspired glaze patterns that seem to capture the night sky. Hand-painted gold accents add luxury and elegance. Each piece is unique, with the reactive glazes creating one-of-a-kind patterns during firing.",
+      "price": {
+        "amount": 4100,
+        "currency": "INR",
+        "formatted": "₹4,100"
+      },
+      "image": {
+        "path": "Images/Celestial Platter.jpeg",
+        "alt": "Ceramic platter"
+      },
+      "category": "Ceramics",
+      "subcategory": "Decorative",
+      "medium": "Porcelain",
+      "tags": ["platter", "cosmic", "gold accents", "decorative", "serving"],
+      "availability": "in-stock",
+      "edition": "limited",
+      "dimensions": {
+        "diameter": 38,
+        "unit": "cm"
+      },
+      "year": 2024,
+      "created_date": "2024-06-18",
+      "popularity_score": 9.0,
+      "type": "decorative"
+    },
+    {
+      "id": "CE004",
+      "title": "Minimalist Tea Set",
+      "artist": {
+        "name": "Kenji Tanaka",
+        "id": "ART034"
+      },
+      "description": "Japanese-inspired tea set with clean lines and matte white glaze.",
+      "full_description": "This elegant tea set embodies the essence of Japanese minimalism. Includes a teapot and four cups, each thrown on the wheel and finished with a smooth matte white glaze. The clean lines and perfect proportions create a serene tea ceremony experience. Microwave and dishwasher safe.",
+      "price": {
+        "amount": 5200,
+        "currency": "INR",
+        "formatted": "₹5,200"
+      },
+      "image": {
+        "path": "Images/Minimalist Tea Set.jpeg",
+        "alt": "Tea set"
+      },
+      "category": "Ceramics",
+      "subcategory": "Functional",
+      "medium": "Stoneware Clay",
+      "tags": ["tea set", "minimalist", "japanese", "functional", "white"],
+      "availability": "in-stock",
+      "edition": "standard",
+      "dimensions": {
+        "teapot": "15cm",
+        "cups": "8cm",
+        "unit": "cm"
+      },
+      "year": 2024,
+      "created_date": "2024-09-01",
+      "popularity_score": 9.3,
+      "type": "functional"
+    },
+    {
+      "id": "CE005",
+      "title": "Ocean Wave Sculpture",
+      "artist": {
+        "name": "Lisa Martinez",
+        "id": "ART035"
+      },
+      "description": "Sculptural ceramic piece capturing the movement of ocean waves.",
+      "full_description": "This sculptural ceramic piece captures the dynamic movement of ocean waves in frozen form. Created using hand-building techniques and finished with layered blue and turquoise glazes that create depth and motion. A stunning art piece that brings the energy of the sea into your space.",
+      "price": {
+        "amount": 4750,
+        "currency": "INR",
+        "formatted": "₹4,750"
+      },
+      "image": {
+        "path": "Images/Ocean Wave Sculpture.jpeg",
+        "alt": "Ceramic sculpture"
+      },
+      "category": "Ceramics",
+      "subcategory": "Sculptural",
+      "medium": "Stoneware Clay",
+      "tags": ["sculpture", "ocean", "waves", "sculptural", "blue"],
+      "availability": "in-stock",
+      "edition": "limited",
+      "dimensions": {
+        "height": 28,
+        "width": 35,
+        "unit": "cm"
+      },
+      "year": 2024,
+      "created_date": "2024-08-05",
+      "popularity_score": 8.8,
+      "type": "sculptural"
+    },
+    {
+      "id": "CE006",
+      "title": "Terracotta Garden Pot",
+      "artist": {
+        "name": "Roberto Silva",
+        "id": "ART036"
+      },
+      "description": "Hand-thrown terracotta pot with carved geometric patterns.",
+      "full_description": "This beautiful hand-thrown terracotta pot features intricate carved geometric patterns that add visual interest while maintaining functionality. Perfect for indoor plants or as an outdoor garden accent. The natural terracotta clay breathes, promoting healthy root growth for your plants.",
+      "price": {
+        "amount": 2200,
+        "currency": "INR",
+        "formatted": "₹2,200"
+      },
+      "image": {
+        "path": "Images/Terracotta Garden Pot.jpeg",
+        "alt": "Garden pot"
+      },
+      "category": "Ceramics",
+      "subcategory": "Functional",
+      "medium": "Terracotta Clay",
+      "tags": ["pot", "garden", "terracotta", "functional", "geometric"],
+      "availability": "in-stock",
+      "edition": "standard",
+      "dimensions": {
+        "height": 25,
+        "diameter": 22,
+        "unit": "cm"
+      },
+      "year": 2024,
+      "created_date": "2024-07-10",
+      "popularity_score": 8.2,
+      "type": "functional"
+    },
+    {
+      "id": "CE007",
+      "title": "Crystalline Glaze Vessel",
+      "artist": {
+        "name": "Emma Wilson",
+        "id": "ART037"
+      },
+      "description": "Unique vessel featuring rare crystalline glaze with stunning formations.",
+      "full_description": "An extraordinary piece featuring the rare and unpredictable crystalline glaze technique. During firing, crystals grow on the surface creating stunning, snowflake-like formations that catch and reflect light. Each piece is completely unique, as the crystal formation cannot be controlled, making this a true one-of-a-kind artwork.",
+      "price": {
+        "amount": 5800,
+        "currency": "INR",
+        "formatted": "₹5,800"
+      },
+      "image": {
+        "path": "Images/Crystalline Glaze Vessel.jpeg",
+        "alt": "Crystalline vessel"
+      },
+      "category": "Ceramics",
+      "subcategory": "Decorative",
+      "medium": "Porcelain",
+      "tags": ["vessel", "crystalline", "art pottery", "decorative", "unique"],
+      "availability": "in-stock",
+      "edition": "limited",
+      "dimensions": {
+        "height": 30,
+        "width": 20,
+        "unit": "cm"
+      },
+      "year": 2024,
+      "created_date": "2024-09-15",
+      "popularity_score": 9.5,
+      "type": "decorative"
+    },
+    {
+      "id": "CE008",
+      "title": "Sage Green Mug Collection",
+      "artist": {
+        "name": "David Kim",
+        "id": "ART038"
+      },
+      "description": "Set of four handmade mugs in calming sage green with ergonomic handles.",
+      "full_description": "Start your mornings right with this collection of four handmade mugs. Each mug is wheel-thrown and glazed in a calming sage green that complements any kitchen decor. The ergonomic handles fit comfortably in hand, and the generous size is perfect for coffee, tea, or hot chocolate.",
+      "price": {
+        "amount": 1950,
+        "currency": "INR",
+        "formatted": "₹1,950"
+      },
+      "image": {
+        "path": "Images/Sage Green Mug Collection.jpeg",
+        "alt": "Ceramic mugs"
+      },
+      "category": "Ceramics",
+      "subcategory": "Functional",
+      "medium": "Stoneware Clay",
+      "tags": ["mugs", "sage green", "functional", "handmade", "coffee"],
+      "availability": "in-stock",
+      "edition": "standard",
+      "dimensions": {
+        "height": 10,
+        "capacity": "350ml",
+        "unit": "cm",
+        "note": "Set of 4"
+      },
+      "year": 2024,
+      "created_date": "2024-07-28",
+      "popularity_score": 8.4,
+      "type": "functional"
+    },
+    {
+      "id": "CE009",
+      "title": "Raku Fire Spirit",
+      "artist": {
+        "name": "Yuki Nakamura",
+        "id": "ART039"
+      },
+      "description": "Sculptural piece using traditional raku firing technique with metallic luster.",
+      "full_description": "This extraordinary sculptural piece is created using the ancient raku firing technique, where the piece is removed from the kiln while red-hot and placed in combustible materials. The result is a mesmerizing metallic luster with copper, gold, and iridescent effects that seem to dance across the surface. A true testament to the unpredictable beauty of fire.",
+      "price": {
+        "amount": 6500,
+        "currency": "INR",
+        "formatted": "₹6,500"
+      },
+      "image": {
+        "path": "Images/Raku Fire Spirit.jpeg",
+        "alt": "Raku sculpture"
+      },
+      "category": "Ceramics",
+      "subcategory": "Sculptural",
+      "medium": "Raku Clay",
+      "tags": ["raku", "sculpture", "metallic", "sculptural", "traditional"],
+      "availability": "in-stock",
+      "edition": "limited",
+      "dimensions": {
+        "height": 35,
+        "width": 25,
+        "unit": "cm"
+      },
+      "year": 2024,
+      "created_date": "2024-08-20",
+      "popularity_score": 9.6,
+      "type": "sculptural"
+    },
+    {
+      "id": "CE010",
+      "title": "Artisan Dinner Plates",
+      "artist": {
+        "name": "Anna Bergström",
+        "id": "ART040"
+      },
+      "description": "Set of six dinner plates with hand-painted botanical motifs.",
+      "full_description": "Elevate your dining experience with this set of six artisan dinner plates. Each plate is individually thrown on the wheel and hand-painted with delicate botanical motifs inspired by nature. The creamy white base provides the perfect canvas for the soft green and brown illustrations. Food-safe, microwave, and dishwasher friendly.",
+      "price": {
+        "amount": 3600,
+        "currency": "INR",
+        "formatted": "₹3,600"
+      },
+      "image": {
+        "path": "Images/Artisan Dinner Plates.jpeg",
+        "alt": "Dinner plates"
+      },
+      "category": "Ceramics",
+      "subcategory": "Decorative",
+      "medium": "Porcelain",
+      "tags": ["plates", "botanical", "decorative", "functional", "handmade"],
+      "availability": "in-stock",
+      "edition": "standard",
+      "dimensions": {
+        "diameter": 28,
+        "unit": "cm",
+        "note": "Set of 6"
+      },
+      "year": 2024,
+      "created_date": "2024-06-25",
+      "popularity_score": 8.6,
+      "type": "decorative"
+    }
+  ],
+  "artists": [
+    {
+      "id": "ART031",
+      "name": "Sarah Chen",
+      "specialty": "Wheel-Thrown Pottery",
+      "bio": "Contemporary ceramic artist specializing in elegant wheel-thrown vessels",
+      "artworks_count": 1
+    },
+    {
+      "id": "ART032",
+      "name": "James Anderson",
+      "specialty": "Rustic & Functional Pottery",
+      "bio": "Potter creating handcrafted functional pieces with earthy aesthetics",
+      "artworks_count": 1
+    },
+    {
+      "id": "ART033",
+      "name": "Maya Patel",
+      "specialty": "Decorative Ceramics",
+      "bio": "Ceramic artist known for cosmic-inspired glazes and decorative pieces",
+      "artworks_count": 1
+    },
+    {
+      "id": "ART034",
+      "name": "Kenji Tanaka",
+      "specialty": "Japanese Minimalist Pottery",
+      "bio": "Master potter creating minimalist tea sets and functional ceramics",
+      "artworks_count": 1
+    },
+    {
+      "id": "ART035",
+      "name": "Lisa Martinez",
+      "specialty": "Sculptural Ceramics",
+      "bio": "Sculptor creating dynamic ceramic pieces inspired by nature",
+      "artworks_count": 1
+    },
+    {
+      "id": "ART036",
+      "name": "Roberto Silva",
+      "specialty": "Traditional Terracotta",
+      "bio": "Traditional potter specializing in hand-thrown terracotta vessels",
+      "artworks_count": 1
+    },
+    {
+      "id": "ART037",
+      "name": "Emma Wilson",
+      "specialty": "Crystalline Glaze Pottery",
+      "bio": "Art potter mastering the rare crystalline glaze technique",
+      "artworks_count": 1
+    },
+    {
+      "id": "ART038",
+      "name": "David Kim",
+      "specialty": "Functional Pottery",
+      "bio": "Potter creating everyday functional pieces with contemporary style",
+      "artworks_count": 1
+    },
+    {
+      "id": "ART039",
+      "name": "Yuki Nakamura",
+      "specialty": "Raku Pottery",
+      "bio": "Master of traditional raku firing technique creating sculptural pieces",
+      "artworks_count": 1
+    },
+    {
+      "id": "ART040",
+      "name": "Anna Bergström",
+      "specialty": "Hand-Painted Ceramics",
+      "bio": "Ceramic artist creating hand-painted decorative and functional pieces",
+      "artworks_count": 1
+    }
+  ],
+  "categories": {
+    "main": "Ceramics",
+    "subcategories": [
+      "Functional",
+      "Decorative",
+      "Sculptural"
+    ],
+    "mediums": [
+      "Stoneware Clay",
+      "Terracotta Clay",
+      "Porcelain",
+      "Raku Clay"
+    ]
   },
-  {
-    "title": "Celestial Platter",
-    "artist": "Maya Patel",
-    "price": 4100,
-    "short_description": "Large serving platter with cosmic-inspired glaze patterns and gold accents.",
-    "full_description": "A stunning centerpiece for any table, this large serving platter features cosmic-inspired glaze patterns that seem to capture the night sky. Hand-painted gold accents add luxury and elegance. Each piece is unique, with the reactive glazes creating one-of-a-kind patterns during firing.",
-    "dimensions": "Diameter: 38cm",
-    "material": "Porcelain",
-    "year": 2024,
-    "style": "Decorative Pottery",
-    "image": "Images/Celestial Platter.jpeg"
-  },
-  {
-    "title": "Minimalist Tea Set",
-    "artist": "Kenji Tanaka",
-    "price": 5200,
-    "short_description": "Japanese-inspired tea set with clean lines and matte white glaze.",
-    "full_description": "This elegant tea set embodies the essence of Japanese minimalism. Includes a teapot and four cups, each thrown on the wheel and finished with a smooth matte white glaze. The clean lines and perfect proportions create a serene tea ceremony experience. Microwave and dishwasher safe.",
-    "dimensions": "Teapot: 15cm, Cups: 8cm",
-    "material": "Stoneware Clay",
-    "year": 2024,
-    "style": "Japanese Minimalism",
-    "image": "Images/Minimalist Tea Set.jpeg"
-  },
-  {
-    "title": "Ocean Wave Sculpture",
-    "artist": "Lisa Martinez",
-    "price": 4750,
-    "short_description": "Sculptural ceramic piece capturing the movement of ocean waves.",
-    "full_description": "This sculptural ceramic piece captures the dynamic movement of ocean waves in frozen form. Created using hand-building techniques and finished with layered blue and turquoise glazes that create depth and motion. A stunning art piece that brings the energy of the sea into your space.",
-    "dimensions": "Height: 28cm, Width: 35cm",
-    "material": "Stoneware Clay",
-    "year": 2024,
-    "style": "Sculptural Ceramics",
-    "image": "Images/Ocean Wave Sculpture.jpeg"
-  },
-  {
-    "title": "Terracotta Garden Pot",
-    "artist": "Roberto Silva",
-    "price": 2200,
-    "short_description": "Hand-thrown terracotta pot with carved geometric patterns.",
-    "full_description": "This beautiful hand-thrown terracotta pot features intricate carved geometric patterns that add visual interest while maintaining functionality. Perfect for indoor plants or as an outdoor garden accent. The natural terracotta clay breathes, promoting healthy root growth for your plants.",
-    "dimensions": "Height: 25cm, Diameter: 22cm",
-    "material": "Terracotta Clay",
-    "year": 2024,
-    "style": "Traditional Pottery",
-    "image": "Images/Terracotta Garden Pot.jpeg"
-  },
-  {
-    "title": "Crystalline Glaze Vessel",
-    "artist": "Emma Wilson",
-    "price": 5800,
-    "short_description": "Unique vessel featuring rare crystalline glaze with stunning formations.",
-    "full_description": "An extraordinary piece featuring the rare and unpredictable crystalline glaze technique. During firing, crystals grow on the surface creating stunning, snowflake-like formations that catch and reflect light. Each piece is completely unique, as the crystal formation cannot be controlled, making this a true one-of-a-kind artwork.",
-    "dimensions": "Height: 30cm, Width: 20cm",
-    "material": "Porcelain",
-    "year": 2024,
-    "style": "Art Pottery",
-    "image": "Images/Crystalline Glaze Vessel.jpeg"
-  },
-  {
-    "title": "Sage Green Mug Collection",
-    "artist": "David Kim",
-    "price": 1950,
-    "short_description": "Set of four handmade mugs in calming sage green with ergonomic handles.",
-    "full_description": "Start your mornings right with this collection of four handmade mugs. Each mug is wheel-thrown and glazed in a calming sage green that complements any kitchen decor. The ergonomic handles fit comfortably in hand, and the generous size is perfect for coffee, tea, or hot chocolate.",
-    "dimensions": "Height: 10cm, Capacity: 350ml",
-    "material": "Stoneware Clay",
-    "year": 2024,
-    "style": "Functional Pottery",
-    "image": "Images/Sage Green Mug Collection.jpeg"
-  },
-  {
-    "title": "Raku Fire Spirit",
-    "artist": "Yuki Nakamura",
-    "price": 6500,
-    "short_description": "Sculptural piece using traditional raku firing technique with metallic luster.",
-    "full_description": "This extraordinary sculptural piece is created using the ancient raku firing technique, where the piece is removed from the kiln while red-hot and placed in combustible materials. The result is a mesmerizing metallic luster with copper, gold, and iridescent effects that seem to dance across the surface. A true testament to the unpredictable beauty of fire.",
-    "dimensions": "Height: 35cm, Width: 25cm",
-    "material": "Raku Clay",
-    "year": 2024,
-    "style": "Raku Pottery",
-    "image": "Images/Raku Fire Spirit.jpeg"
-  },
-  {
-    "title": "Artisan Dinner Plates",
-    "artist": "Anna Bergström",
-    "price": 3600,
-    "short_description": "Set of six dinner plates with hand-painted botanical motifs.",
-    "full_description": "Elevate your dining experience with this set of six artisan dinner plates. Each plate is individually thrown on the wheel and hand-painted with delicate botanical motifs inspired by nature. The creamy white base provides the perfect canvas for the soft green and brown illustrations. Food-safe, microwave, and dishwasher friendly.",
-    "dimensions": "Diameter: 28cm",
-    "material": "Porcelain",
-    "year": 2024,
-    "style": "Decorative Pottery",
-    "image": "Images/Artisan Dinner Plates.jpeg"
+  "filters": {
+    "price_ranges": [
+      {
+        "id": "all",
+        "label": "All Prices",
+        "min": 0,
+        "max": null
+      },
+      {
+        "id": "0-3000",
+        "label": "Under ₹3,000",
+        "min": 0,
+        "max": 3000
+      },
+      {
+        "id": "3000-4000",
+        "label": "₹3,000 - ₹4,000",
+        "min": 3000,
+        "max": 4000
+      },
+      {
+        "id": "4000-5000",
+        "label": "₹4,000 - ₹5,000",
+        "min": 4000,
+        "max": 5000
+      },
+      {
+        "id": "5000+",
+        "label": "Above ₹5,000",
+        "min": 5000,
+        "max": null
+      }
+    ],
+    "sort_options": [
+      {
+        "id": "popular",
+        "label": "Most Popular"
+      },
+      {
+        "id": "price-low",
+        "label": "Price: Low to High"
+      },
+      {
+        "id": "price-high",
+        "label": "Price: High to Low"
+      },
+      {
+        "id": "newest",
+        "label": "Newest First"
+      },
+      {
+        "id": "artist",
+        "label": "Artist Name"
+      }
+    ],
+    "type_options": [
+      {
+        "id": "all",
+        "label": "All Types"
+      },
+      {
+        "id": "functional",
+        "label": "Functional"
+      },
+      {
+        "id": "sculptural",
+        "label": "Sculptural"
+      },
+      {
+        "id": "decorative",
+        "label": "Decorative"
+      }
+    ]
   }
-]
+}
