@@ -2,17 +2,17 @@
   "metadata": {
     "database_name": "Treasury of Flair - Sculpture Collection",
     "version": "1.0",
-    "last_updated": "2025-10-11",
+    "last_updated": "2025-11-13",
     "total_artworks": 10,
     "category": "Sculpture"
   },
   "artworks": [
     {
-      "id": "SC001",
+      "id": "SCU001",
       "title": "Eternal Embrace",
       "artist": {
         "name": "Auguste Rodin",
-        "id": "ART051"
+        "id": "SCU_ART001"
       },
       "description": "Bronze sculpture capturing the timeless beauty of human connection and emotion.",
       "full_description": "Eternal Embrace is a masterfully crafted bronze sculpture that explores themes of love, intimacy, and human connection. The piece features two intertwined figures rendered with exceptional anatomical precision and emotional depth. The bronze patina adds warmth and character, while the dynamic composition creates visual interest from every angle. This sculpture represents years of study in classical form combined with contemporary sensibility.",
@@ -27,27 +27,24 @@
       },
       "category": "Sculpture",
       "subcategory": "Figurative",
-      "medium": "Bronze",
-      "tags": ["bronze", "figurative", "human form", "classical", "emotional"],
+      "material": "bronze",
+      "tags": ["bronze", "figurative", "human form", "emotion", "classical", "contemporary"],
       "availability": "in-stock",
-      "edition": "limited",
-      "dimensions": {
-        "width": 18,
-        "height": 12,
-        "depth": 10,
-        "unit": "inches"
+      "specifications": {
+        "dimensions": "18 x 12 x 10 inches",
+        "medium": "Bronze",
+        "year": "2024",
+        "weight": "Approx. 15 lbs"
       },
-      "year": 2024,
-      "created_date": "2024-08-15",
-      "popularity_score": 9.4,
-      "material": "bronze"
+      "created_date": "2024-10-15",
+      "popularity_score": 9.1
     },
     {
-      "id": "SC002",
+      "id": "SCU002",
       "title": "Marble Grace",
       "artist": {
         "name": "Michelangelo Buonarroti",
-        "id": "ART052"
+        "id": "SCU_ART002"
       },
       "description": "Hand-carved white marble sculpture showcasing classical beauty and technical mastery.",
       "full_description": "Marble Grace exemplifies the timeless elegance of classical sculpture. Carved from a single block of pristine white Carrara marble, this piece demonstrates exceptional skill in stone carving. The flowing drapery, delicate features, and smooth finish required months of dedicated work. The translucent quality of marble allows light to penetrate the surface, creating a luminous, lifelike appearance. This sculpture bridges ancient traditions with contemporary vision.",
@@ -62,27 +59,24 @@
       },
       "category": "Sculpture",
       "subcategory": "Classical",
-      "medium": "Carrara Marble",
-      "tags": ["marble", "classical", "stone carving", "figurative", "traditional"],
+      "material": "marble",
+      "tags": ["marble", "carrara", "classical", "figurative", "hand-carved", "elegant"],
       "availability": "in-stock",
-      "edition": "limited",
-      "dimensions": {
-        "width": 24,
-        "height": 10,
-        "depth": 8,
-        "unit": "inches"
+      "specifications": {
+        "dimensions": "24 x 10 x 8 inches",
+        "medium": "Carrara Marble",
+        "year": "2024",
+        "weight": "Approx. 45 lbs"
       },
-      "year": 2024,
-      "created_date": "2024-07-22",
-      "popularity_score": 9.7,
-      "material": "marble"
+      "created_date": "2024-10-20",
+      "popularity_score": 9.5
     },
     {
-      "id": "SC003",
+      "id": "SCU003",
       "title": "Abstract Flow",
       "artist": {
         "name": "Barbara Hepworth",
-        "id": "ART053"
+        "id": "SCU_ART003"
       },
       "description": "Contemporary abstract sculpture in polished steel with organic flowing forms.",
       "full_description": "Abstract Flow explores the relationship between positive and negative space through sweeping curves and openings. Crafted from polished stainless steel, the sculpture reflects its environment while maintaining its own distinct presence. The organic forms suggest natural movement - water, wind, or growth - while the industrial material grounds it in contemporary expression. Each viewing angle reveals new relationships between solid and void, interior and exterior.",
@@ -97,27 +91,24 @@
       },
       "category": "Sculpture",
       "subcategory": "Abstract",
-      "medium": "Stainless Steel",
-      "tags": ["abstract", "steel", "contemporary", "organic", "flowing"],
+      "material": "metal",
+      "tags": ["abstract", "stainless steel", "contemporary", "organic", "polished", "reflective"],
       "availability": "in-stock",
-      "edition": "standard",
-      "dimensions": {
-        "width": 20,
-        "height": 15,
-        "depth": 12,
-        "unit": "inches"
+      "specifications": {
+        "dimensions": "20 x 15 x 12 inches",
+        "medium": "Stainless Steel",
+        "year": "2024",
+        "weight": "Approx. 18 lbs"
       },
-      "year": 2024,
-      "created_date": "2024-06-18",
-      "popularity_score": 8.9,
-      "material": "metal"
+      "created_date": "2024-09-28",
+      "popularity_score": 8.7
     },
     {
-      "id": "SC004",
+      "id": "SCU004",
       "title": "Woodland Spirit",
       "artist": {
         "name": "David Nash",
-        "id": "ART054"
+        "id": "SCU_ART004"
       },
       "description": "Hand-carved oak sculpture celebrating natural forms and wood grain beauty.",
       "full_description": "Woodland Spirit emerges from a carefully selected piece of ancient oak, honoring the tree's life and character. The sculpture follows the natural grain and contours of the wood, revealing rather than imposing form. Traditional carving techniques meet contemporary vision, creating a piece that feels both timeless and fresh. The natural oils and wax finish enhance the wood's warmth while protecting it for generations. This work celebrates our connection to nature and craftsmanship.",
@@ -131,28 +122,25 @@
         "alt": "Wood sculpture"
       },
       "category": "Sculpture",
-      "subcategory": "Wood Carving",
-      "medium": "Oak Wood",
-      "tags": ["wood", "carved", "natural", "organic", "traditional"],
+      "subcategory": "Organic",
+      "material": "wood",
+      "tags": ["wood", "oak", "organic", "natural", "hand-carved", "traditional"],
       "availability": "in-stock",
-      "edition": "standard",
-      "dimensions": {
-        "width": 28,
-        "height": 14,
-        "depth": 14,
-        "unit": "inches"
+      "specifications": {
+        "dimensions": "28 x 14 x 14 inches",
+        "medium": "Oak Wood",
+        "year": "2024",
+        "weight": "Approx. 25 lbs"
       },
-      "year": 2024,
-      "created_date": "2024-09-01",
-      "popularity_score": 8.6,
-      "material": "wood"
+      "created_date": "2024-09-15",
+      "popularity_score": 8.6
     },
     {
-      "id": "SC005",
+      "id": "SCU005",
       "title": "Ceramic Vessel",
       "artist": {
         "name": "Lucie Rie",
-        "id": "ART055"
+        "id": "SCU_ART005"
       },
       "description": "Wheel-thrown porcelain sculpture with delicate form and crystalline glaze.",
       "full_description": "Ceramic Vessel transcends functional pottery to become pure sculpture. Wheel-thrown from fine porcelain and refined through careful trimming, the piece achieves an almost impossible thinness and lightness. The crystalline glaze was developed through years of experimentation, creating unique patterns that cannot be replicated. Fired multiple times at extreme temperatures, the sculpture represents the pinnacle of ceramic craft. Its delicate strength embodies the medium's paradoxical nature.",
@@ -167,27 +155,24 @@
       },
       "category": "Sculpture",
       "subcategory": "Ceramic",
-      "medium": "Porcelain with Crystalline Glaze",
-      "tags": ["ceramic", "porcelain", "wheel-thrown", "delicate", "glazed"],
+      "material": "ceramic",
+      "tags": ["ceramic", "porcelain", "crystalline glaze", "wheel-thrown", "delicate", "sculptural"],
       "availability": "in-stock",
-      "edition": "limited",
-      "dimensions": {
-        "width": 12,
-        "height": 8,
-        "depth": 8,
-        "unit": "inches"
+      "specifications": {
+        "dimensions": "12 x 8 x 8 inches",
+        "medium": "Porcelain with Crystalline Glaze",
+        "year": "2024",
+        "weight": "Approx. 3 lbs"
       },
-      "year": 2024,
-      "created_date": "2024-08-05",
-      "popularity_score": 8.8,
-      "material": "ceramic"
+      "created_date": "2024-09-22",
+      "popularity_score": 8.8
     },
     {
-      "id": "SC006",
+      "id": "SCU006",
       "title": "Urban Geometry",
       "artist": {
         "name": "Richard Serra",
-        "id": "ART056"
+        "id": "SCU_ART006"
       },
       "description": "Large-scale weathering steel sculpture with bold geometric forms.",
       "full_description": "Urban Geometry commands attention through scale, material, and form. Fabricated from weathering steel, the sculpture develops a protective rust patina that stabilizes and becomes part of its aesthetic. The bold geometric composition creates dynamic relationships with surrounding space, altering perception as viewers move around it. Industrial materials and construction methods merge with artistic vision to create a monument to contemporary sculpture. This piece transforms any environment it inhabits.",
@@ -202,27 +187,24 @@
       },
       "category": "Sculpture",
       "subcategory": "Geometric",
-      "medium": "Weathering Steel",
-      "tags": ["steel", "geometric", "industrial", "large-scale", "contemporary"],
+      "material": "metal",
+      "tags": ["steel", "geometric", "industrial", "weathering steel", "large-scale", "contemporary"],
       "availability": "in-stock",
-      "edition": "limited",
-      "dimensions": {
-        "width": 36,
-        "height": 24,
-        "depth": 20,
-        "unit": "inches"
+      "specifications": {
+        "dimensions": "36 x 24 x 20 inches",
+        "medium": "Weathering Steel",
+        "year": "2024",
+        "weight": "Approx. 85 lbs"
       },
-      "year": 2024,
-      "created_date": "2024-09-15",
-      "popularity_score": 9.2,
-      "material": "metal"
+      "created_date": "2024-10-25",
+      "popularity_score": 9.2
     },
     {
-      "id": "SC007",
+      "id": "SCU007",
       "title": "Dancing Figures",
       "artist": {
         "name": "Alberto Giacometti",
-        "id": "ART057"
+        "id": "SCU_ART007"
       },
       "description": "Elongated bronze figures capturing movement and human fragility.",
       "full_description": "Dancing Figures explores the human form through extreme elongation and textured surfaces. Cast in bronze using the lost-wax method, each figure seems to vibrate with internal energy despite—or because of—its attenuated proportions. The rough, worked surface catches light dramatically, creating ever-changing shadows and highlights. This sculpture investigates space, presence, and the essential nature of human form stripped to its most fundamental expression.",
@@ -237,27 +219,24 @@
       },
       "category": "Sculpture",
       "subcategory": "Figurative",
-      "medium": "Bronze",
-      "tags": ["bronze", "figurative", "elongated", "movement", "expressive"],
+      "material": "bronze",
+      "tags": ["bronze", "figurative", "elongated", "movement", "expressive", "textured"],
       "availability": "in-stock",
-      "edition": "standard",
-      "dimensions": {
-        "width": 22,
-        "height": 8,
-        "depth": 6,
-        "unit": "inches"
+      "specifications": {
+        "dimensions": "22 x 8 x 6 inches",
+        "medium": "Bronze",
+        "year": "2024",
+        "weight": "Approx. 12 lbs"
       },
-      "year": 2024,
-      "created_date": "2024-07-10",
-      "popularity_score": 8.9,
-      "material": "bronze"
+      "created_date": "2024-10-05",
+      "popularity_score": 8.9
     },
     {
-      "id": "SC008",
+      "id": "SCU008",
       "title": "Stone Guardian",
       "artist": {
         "name": "Isamu Noguchi",
-        "id": "ART058"
+        "id": "SCU_ART008"
       },
       "description": "Granite sculpture blending Eastern philosophy with modernist aesthetics.",
       "full_description": "Stone Guardian merges Japanese stone carving traditions with Western modernism. Carved from solid granite, the sculpture achieves a remarkable balance between rough natural surfaces and highly polished areas. This contrast emphasizes the material's inherent beauty while creating symbolic meaning—the meeting of nature and culture, rough and refined, ancient and contemporary. The piece invites contemplation and meditation, serving as both artwork and spiritual anchor.",
@@ -271,28 +250,25 @@
         "alt": "Granite sculpture"
       },
       "category": "Sculpture",
-      "subcategory": "Abstract",
-      "medium": "Granite",
-      "tags": ["granite", "stone", "abstract", "minimalist", "contemplative"],
+      "subcategory": "Modernist",
+      "material": "marble",
+      "tags": ["granite", "stone", "modernist", "japanese", "contemplative", "polished"],
       "availability": "in-stock",
-      "edition": "limited",
-      "dimensions": {
-        "width": 30,
-        "height": 18,
-        "depth": 16,
-        "unit": "inches"
+      "specifications": {
+        "dimensions": "30 x 18 x 16 inches",
+        "medium": "Granite",
+        "year": "2024",
+        "weight": "Approx. 120 lbs"
       },
-      "year": 2024,
-      "created_date": "2024-08-20",
-      "popularity_score": 9.3,
-      "material": "marble"
+      "created_date": "2024-10-18",
+      "popularity_score": 9.3
     },
     {
-      "id": "SC009",
+      "id": "SCU009",
       "title": "Kinetic Dreams",
       "artist": {
         "name": "Alexander Calder",
-        "id": "ART059"
+        "id": "SCU_ART009"
       },
       "description": "Mobile sculpture with balanced elements that move with air currents.",
       "full_description": "Kinetic Dreams introduces motion as a sculptural element. Carefully balanced metal elements suspended on wires create a constantly changing composition as air currents cause gentle movement. Each element is precisely weighted and positioned, creating a delicate equilibrium. The sculpture never appears the same twice, offering infinite variations within its choreographed possibilities. Bold colors on shaped metal forms reference both natural and abstract imagery, creating poetry in motion.",
@@ -307,28 +283,24 @@
       },
       "category": "Sculpture",
       "subcategory": "Kinetic",
-      "medium": "Painted Metal Mobile",
-      "tags": ["kinetic", "mobile", "movement", "colorful", "balanced"],
+      "material": "metal",
+      "tags": ["kinetic", "mobile", "moving", "balanced", "painted metal", "abstract"],
       "availability": "in-stock",
-      "edition": "limited",
-      "dimensions": {
-        "width": 40,
-        "height": 36,
-        "depth": 24,
-        "unit": "inches",
-        "note": "at rest"
+      "specifications": {
+        "dimensions": "40 x 36 x 24 inches (at rest)",
+        "medium": "Painted Metal Mobile",
+        "year": "2024",
+        "weight": "Approx. 8 lbs"
       },
-      "year": 2024,
-      "created_date": "2024-07-28",
-      "popularity_score": 9.1,
-      "material": "metal"
+      "created_date": "2024-10-10",
+      "popularity_score": 9.0
     },
     {
-      "id": "SC010",
+      "id": "SCU010",
       "title": "Terra Forma",
       "artist": {
         "name": "Anish Kapoor",
-        "id": "ART060"
+        "id": "SCU_ART010"
       },
       "description": "Contemporary mixed-media sculpture exploring void and reflection.",
       "full_description": "Terra Forma challenges perceptions of surface, depth, and materiality. Combining polished metal, stone, and pigment, the sculpture creates illusions of infinite depth and ambiguous boundaries. The highly reflective surfaces distort and include the viewer and environment, making the sculpture interactive and ever-changing. This piece questions the nature of sculpture itself—where does the object end and the space begin? The work represents years of technical and conceptual development at the cutting edge of contemporary sculpture.",
@@ -343,91 +315,88 @@
       },
       "category": "Sculpture",
       "subcategory": "Contemporary",
-      "medium": "Mixed Media (Metal, Stone, Pigment)",
-      "tags": ["mixed media", "reflective", "contemporary", "conceptual", "interactive"],
+      "material": "metal",
+      "tags": ["mixed media", "contemporary", "reflective", "void", "interactive", "conceptual"],
       "availability": "in-stock",
-      "edition": "limited",
-      "dimensions": {
-        "width": 26,
-        "height": 26,
-        "depth": 18,
-        "unit": "inches"
+      "specifications": {
+        "dimensions": "26 x 26 x 18 inches",
+        "medium": "Mixed Media (Metal, Stone, Pigment)",
+        "year": "2024",
+        "weight": "Approx. 50 lbs"
       },
-      "year": 2024,
-      "created_date": "2024-06-25",
-      "popularity_score": 9.8,
-      "material": "metal"
+      "created_date": "2024-10-30",
+      "popularity_score": 9.6
     }
   ],
   "artists": [
     {
-      "id": "ART051",
+      "id": "SCU_ART001",
       "name": "Auguste Rodin",
       "specialty": "Figurative Bronze Sculpture",
-      "bio": "Master sculptor exploring human emotion and connection through bronze",
+      "bio": "Master of classical form exploring human emotion and connection",
       "artworks_count": 1
     },
     {
-      "id": "ART052",
+      "id": "SCU_ART002",
       "name": "Michelangelo Buonarroti",
-      "specialty": "Classical Marble Sculpture",
-      "bio": "Renowned stone carver creating timeless classical sculptures in marble",
+      "specialty": "Classical Marble Carving",
+      "bio": "Renowned for exceptional skill in marble sculpture and classical beauty",
       "artworks_count": 1
     },
     {
-      "id": "ART053",
+      "id": "SCU_ART003",
       "name": "Barbara Hepworth",
-      "specialty": "Abstract Steel Sculpture",
-      "bio": "Contemporary sculptor exploring space and form through abstract metal work",
+      "specialty": "Abstract Modern Sculpture",
+      "bio": "Pioneer of abstract sculpture exploring space and form",
       "artworks_count": 1
     },
     {
-      "id": "ART054",
+      "id": "SCU_ART004",
       "name": "David Nash",
-      "specialty": "Wood Carving",
-      "bio": "Wood sculptor honoring natural forms and material character",
+      "specialty": "Wood Sculpture & Natural Forms",
+      "bio": "Celebrates natural materials and traditional carving techniques",
       "artworks_count": 1
     },
     {
-      "id": "ART055",
+      "id": "SCU_ART005",
       "name": "Lucie Rie",
       "specialty": "Ceramic Sculpture",
-      "bio": "Master ceramicist creating sculptural vessels with crystalline glazes",
+      "bio": "Master ceramicist creating sculptural porcelain with crystalline glazes",
       "artworks_count": 1
     },
     {
-      "id": "ART056",
+      "id": "SCU_ART006",
       "name": "Richard Serra",
       "specialty": "Large-Scale Steel Sculpture",
-      "bio": "Contemporary sculptor creating monumental works in weathering steel",
+      "bio": "Creates monumental geometric forms in weathering steel",
       "artworks_count": 1
     },
     {
-      "id": "ART057",
+      "id": "SCU_ART007",
       "name": "Alberto Giacometti",
-      "specialty": "Expressionist Bronze Sculpture",
-      "bio": "Sculptor exploring human form through elongated bronze figures",
+      "specialty": "Figurative Expressionist Sculpture",
+      "bio": "Known for elongated figures exploring human presence and space",
       "artworks_count": 1
     },
     {
-      "id": "ART058",
+      "id": "SCU_ART008",
       "name": "Isamu Noguchi",
-      "specialty": "Stone Sculpture & Design",
-      "bio": "Artist blending Eastern and Western traditions in stone sculpture",
+      "specialty": "Modernist Stone Sculpture",
+      "bio": "Blends Eastern philosophy with Western modernism in stone",
       "artworks_count": 1
     },
     {
-      "id": "ART059",
+      "id": "SCU_ART009",
       "name": "Alexander Calder",
-      "specialty": "Kinetic & Mobile Sculpture",
-      "bio": "Pioneer of kinetic sculpture creating balanced mobile artworks",
+      "specialty": "Kinetic Sculpture & Mobiles",
+      "bio": "Pioneer of kinetic art creating balanced moving sculptures",
       "artworks_count": 1
     },
     {
-      "id": "ART060",
+      "id": "SCU_ART010",
       "name": "Anish Kapoor",
-      "specialty": "Contemporary Mixed Media Sculpture",
-      "bio": "Contemporary artist exploring void, reflection, and perception",
+      "specialty": "Contemporary Mixed Media",
+      "bio": "Explores void, reflection, and materiality in cutting-edge sculpture",
       "artworks_count": 1
     }
   ],
@@ -437,22 +406,12 @@
       "Figurative",
       "Classical",
       "Abstract",
-      "Wood Carving",
+      "Organic",
       "Ceramic",
       "Geometric",
+      "Modernist",
       "Kinetic",
       "Contemporary"
-    ],
-    "mediums": [
-      "Bronze",
-      "Carrara Marble",
-      "Stainless Steel",
-      "Oak Wood",
-      "Porcelain with Crystalline Glaze",
-      "Weathering Steel",
-      "Granite",
-      "Painted Metal Mobile",
-      "Mixed Media (Metal, Stone, Pigment)"
     ]
   },
   "filters": {
@@ -488,28 +447,6 @@
         "max": null
       }
     ],
-    "sort_options": [
-      {
-        "id": "popular",
-        "label": "Most Popular"
-      },
-      {
-        "id": "price-low",
-        "label": "Price: Low to High"
-      },
-      {
-        "id": "price-high",
-        "label": "Price: High to Low"
-      },
-      {
-        "id": "newest",
-        "label": "Newest First"
-      },
-      {
-        "id": "artist",
-        "label": "Artist Name"
-      }
-    ],
     "material_options": [
       {
         "id": "all",
@@ -534,6 +471,42 @@
       {
         "id": "metal",
         "label": "Metal"
+      }
+    ],
+    "sort_options": [
+      {
+        "id": "popular",
+        "label": "Most Popular"
+      },
+      {
+        "id": "price-low",
+        "label": "Price: Low to High"
+      },
+      {
+        "id": "price-high",
+        "label": "Price: High to Low"
+      },
+      {
+        "id": "newest",
+        "label": "Newest First"
+      },
+      {
+        "id": "artist",
+        "label": "Artist Name"
+      }
+    ],
+    "availability_options": [
+      {
+        "id": "all",
+        "label": "All Items"
+      },
+      {
+        "id": "in-stock",
+        "label": "In Stock"
+      },
+      {
+        "id": "limited-edition",
+        "label": "Limited Edition"
       }
     ]
   }

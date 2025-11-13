@@ -2,17 +2,17 @@
   "metadata": {
     "database_name": "Treasury of Flair - Street Art Collection",
     "version": "1.0",
-    "last_updated": "2025-10-11",
+    "last_updated": "2025-11-13",
     "total_artworks": 10,
     "category": "Street Art"
   },
   "artworks": [
     {
-      "id": "SA001",
+      "id": "STR001",
       "title": "Urban Rebellion",
       "artist": {
         "name": "BANKZ",
-        "id": "ART061"
+        "id": "STR_ART001"
       },
       "description": "Bold graffiti piece featuring explosive colors and dynamic letter forms.",
       "full_description": "Urban Rebellion represents the raw energy of street culture through explosive color combinations and dynamic letter forms. This authentic graffiti piece was created with spray paint on canvas, capturing the spontaneity and boldness of urban art. The layered composition creates depth while maintaining the characteristic flow of graffiti writing.",
@@ -27,26 +27,24 @@
       },
       "category": "Street Art",
       "subcategory": "Graffiti",
-      "medium": "Spray Paint on Canvas",
-      "tags": ["graffiti", "spray paint", "urban", "bold", "colorful"],
+      "style": "graffiti",
+      "tags": ["graffiti", "spray paint", "urban", "bold", "letters", "street culture"],
       "availability": "in-stock",
-      "edition": "limited",
-      "dimensions": {
-        "width": 120,
-        "height": 180,
-        "unit": "cm"
+      "specifications": {
+        "dimensions": "120cm x 180cm",
+        "medium": "Spray Paint on Canvas",
+        "year": "2024",
+        "style": "Graffiti"
       },
-      "year": 2024,
-      "created_date": "2024-08-15",
-      "popularity_score": 9.1,
-      "style": "graffiti"
+      "created_date": "2024-10-15",
+      "popularity_score": 8.9
     },
     {
-      "id": "SA002",
+      "id": "STR002",
       "title": "City Dreams",
       "artist": {
         "name": "Luna Martinez",
-        "id": "ART062"
+        "id": "STR_ART002"
       },
       "description": "Large-scale mural artwork depicting urban landscape with surreal elements.",
       "full_description": "City Dreams is a monumental mural piece that transforms urban landscapes into dreamscapes. This work combines realistic architectural elements with surreal, fantastical additions that challenge our perception of city life. Created using high-quality acrylics and aerosols, this piece brings the energy of large-scale street murals into a collectible format.",
@@ -61,26 +59,24 @@
       },
       "category": "Street Art",
       "subcategory": "Mural",
-      "medium": "Acrylic & Aerosol on Canvas",
-      "tags": ["mural", "urban", "surreal", "large-scale", "landscape"],
+      "style": "mural",
+      "tags": ["mural", "urban", "surreal", "architecture", "large-scale", "dreamscape"],
       "availability": "in-stock",
-      "edition": "limited",
-      "dimensions": {
-        "width": 150,
-        "height": 200,
-        "unit": "cm"
+      "specifications": {
+        "dimensions": "150cm x 200cm",
+        "medium": "Acrylic & Aerosol on Canvas",
+        "year": "2024",
+        "style": "Mural"
       },
-      "year": 2024,
-      "created_date": "2024-07-22",
-      "popularity_score": 9.4,
-      "style": "mural"
+      "created_date": "2024-10-22",
+      "popularity_score": 9.2
     },
     {
-      "id": "SA003",
+      "id": "STR003",
       "title": "Revolution Stencil",
       "artist": {
         "name": "Alex Shadow",
-        "id": "ART063"
+        "id": "STR_ART003"
       },
       "description": "Multi-layered stencil artwork with powerful political commentary.",
       "full_description": "Revolution Stencil showcases the precision and impact of stencil art at its finest. Using multiple hand-cut stencils and careful layering techniques, this piece delivers powerful social commentary through stark imagery and bold contrasts. The limited edition print maintains the texture and authenticity of the original stencil work.",
@@ -95,26 +91,24 @@
       },
       "category": "Street Art",
       "subcategory": "Stencil Art",
-      "medium": "Stencil & Spray Paint",
-      "tags": ["stencil", "political", "social commentary", "layered", "bold"],
+      "style": "stencil",
+      "tags": ["stencil", "political", "social commentary", "layered", "contrast", "activism"],
       "availability": "in-stock",
-      "edition": "limited",
-      "dimensions": {
-        "width": 90,
-        "height": 120,
-        "unit": "cm"
+      "specifications": {
+        "dimensions": "90cm x 120cm",
+        "medium": "Stencil & Spray Paint",
+        "year": "2024",
+        "style": "Stencil Art"
       },
-      "year": 2024,
-      "created_date": "2024-06-18",
-      "popularity_score": 8.7,
-      "style": "stencil"
+      "created_date": "2024-09-18",
+      "popularity_score": 8.5
     },
     {
-      "id": "SA004",
+      "id": "STR004",
       "title": "Neon Nights",
       "artist": {
         "name": "KILO",
-        "id": "ART064"
+        "id": "STR_ART004"
       },
       "description": "Vibrant graffiti-style piece with neon color palette and wild style lettering.",
       "full_description": "Neon Nights captures the electric energy of nighttime city streets through a dazzling neon color palette and intricate wild-style letter forms. This piece demonstrates advanced graffiti techniques with interlocking letters, 3D effects, and explosive color transitions. A celebration of hip-hop culture and urban aesthetics.",
@@ -129,26 +123,24 @@
       },
       "category": "Street Art",
       "subcategory": "Graffiti",
-      "medium": "Spray Paint on Canvas",
-      "tags": ["graffiti", "neon", "wildstyle", "hip-hop", "colorful"],
+      "style": "graffiti",
+      "tags": ["graffiti", "neon", "wild style", "hip-hop", "3d", "vibrant"],
       "availability": "in-stock",
-      "edition": "standard",
-      "dimensions": {
-        "width": 100,
-        "height": 150,
-        "unit": "cm"
+      "specifications": {
+        "dimensions": "100cm x 150cm",
+        "medium": "Spray Paint on Canvas",
+        "year": "2024",
+        "style": "Graffiti"
       },
-      "year": 2024,
-      "created_date": "2024-09-01",
-      "popularity_score": 8.9,
-      "style": "graffiti"
+      "created_date": "2024-10-05",
+      "popularity_score": 8.8
     },
     {
-      "id": "SA005",
+      "id": "STR005",
       "title": "Concrete Jungle",
       "artist": {
         "name": "Maya Stone",
-        "id": "ART065"
+        "id": "STR_ART005"
       },
       "description": "Mixed media mural combining photography, paint, and urban textures.",
       "full_description": "Concrete Jungle is an innovative mixed media piece that layers photographic elements with paint and collage to create a complex urban narrative. The work explores themes of gentrification, community, and the changing face of cities. Textures from actual street surfaces add authenticity and depth to this thought-provoking piece.",
@@ -163,26 +155,24 @@
       },
       "category": "Street Art",
       "subcategory": "Mural",
-      "medium": "Mixed Media on Canvas",
-      "tags": ["mixed media", "photography", "urban", "textured", "social"],
+      "style": "mural",
+      "tags": ["mixed media", "photography", "urban", "collage", "gentrification", "texture"],
       "availability": "in-stock",
-      "edition": "limited",
-      "dimensions": {
-        "width": 130,
-        "height": 170,
-        "unit": "cm"
+      "specifications": {
+        "dimensions": "130cm x 170cm",
+        "medium": "Mixed Media on Canvas",
+        "year": "2024",
+        "style": "Mural"
       },
-      "year": 2024,
-      "created_date": "2024-08-05",
-      "popularity_score": 9.0,
-      "style": "mural"
+      "created_date": "2024-10-12",
+      "popularity_score": 8.9
     },
     {
-      "id": "SA006",
+      "id": "STR006",
       "title": "Freedom Fighter",
       "artist": {
         "name": "Resistance Crew",
-        "id": "ART066"
+        "id": "STR_ART006"
       },
       "description": "Iconic wheatpaste poster art with bold graphic design and message.",
       "full_description": "Freedom Fighter is a powerful wheatpaste-style artwork that captures the DIY spirit of guerrilla street art. Using high-contrast imagery and bold typography, this piece delivers its message with immediacy and impact. The weathered, layered aesthetic reflects the authentic look of street-level political art.",
@@ -197,26 +187,24 @@
       },
       "category": "Street Art",
       "subcategory": "Wheatpaste",
-      "medium": "Wheatpaste Style Print",
-      "tags": ["wheatpaste", "political", "graphic", "poster", "activism"],
+      "style": "wheatpaste",
+      "tags": ["wheatpaste", "poster", "political", "typography", "guerrilla art", "activist"],
       "availability": "in-stock",
-      "edition": "limited",
-      "dimensions": {
-        "width": 80,
-        "height": 110,
-        "unit": "cm"
+      "specifications": {
+        "dimensions": "80cm x 110cm",
+        "medium": "Wheatpaste Style Print",
+        "year": "2024",
+        "style": "Wheatpaste"
       },
-      "year": 2024,
-      "created_date": "2024-07-10",
-      "popularity_score": 8.6,
-      "style": "wheatpaste"
+      "created_date": "2024-09-25",
+      "popularity_score": 8.4
     },
     {
-      "id": "SA007",
+      "id": "STR007",
       "title": "Wildstyle Warriors",
       "artist": {
         "name": "PHASE2",
-        "id": "ART067"
+        "id": "STR_ART007"
       },
       "description": "Classic wild-style graffiti with intricate letter connections and arrows.",
       "full_description": "Wildstyle Warriors pays homage to the golden age of graffiti with its complex letter structures, dynamic arrows, and seamless connections. This piece showcases the technical mastery required for authentic wild-style writing. Every element flows into the next, creating a unified composition that rewards close examination.",
@@ -231,26 +219,24 @@
       },
       "category": "Street Art",
       "subcategory": "Graffiti",
-      "medium": "Spray Paint on Canvas",
-      "tags": ["wildstyle", "graffiti", "complex", "classic", "technical"],
+      "style": "graffiti",
+      "tags": ["wildstyle", "graffiti", "classic", "technical", "arrows", "complex"],
       "availability": "in-stock",
-      "edition": "limited",
-      "dimensions": {
-        "width": 110,
-        "height": 160,
-        "unit": "cm"
+      "specifications": {
+        "dimensions": "110cm x 160cm",
+        "medium": "Spray Paint on Canvas",
+        "year": "2024",
+        "style": "Graffiti"
       },
-      "year": 2024,
-      "created_date": "2024-09-15",
-      "popularity_score": 9.3,
-      "style": "graffiti"
+      "created_date": "2024-10-18",
+      "popularity_score": 9.1
     },
     {
-      "id": "SA008",
+      "id": "STR008",
       "title": "Urban Mythology",
       "artist": {
         "name": "Diego Cruz",
-        "id": "ART068"
+        "id": "STR_ART008"
       },
       "description": "Narrative mural blending ancient symbols with modern street aesthetics.",
       "full_description": "Urban Mythology creates a bridge between ancient cultural symbols and contemporary street art aesthetics. This large-scale work incorporates indigenous iconography, modern graffiti techniques, and vibrant color theory to tell stories of cultural identity and urban experience. A powerful statement piece that honors heritage while embracing the future.",
@@ -265,26 +251,24 @@
       },
       "category": "Street Art",
       "subcategory": "Mural",
-      "medium": "Acrylic & Spray Paint",
-      "tags": ["mural", "cultural", "indigenous", "narrative", "heritage"],
+      "style": "mural",
+      "tags": ["mural", "cultural", "indigenous", "mythology", "heritage", "identity"],
       "availability": "in-stock",
-      "edition": "limited",
-      "dimensions": {
-        "width": 140,
-        "height": 190,
-        "unit": "cm"
+      "specifications": {
+        "dimensions": "140cm x 190cm",
+        "medium": "Acrylic & Spray Paint",
+        "year": "2024",
+        "style": "Mural"
       },
-      "year": 2024,
-      "created_date": "2024-08-20",
-      "popularity_score": 9.5,
-      "style": "mural"
+      "created_date": "2024-10-28",
+      "popularity_score": 9.3
     },
     {
-      "id": "SA009",
+      "id": "STR009",
       "title": "Spray Can Chronicles",
       "artist": {
         "name": "TWIST",
-        "id": "ART069"
+        "id": "STR_ART009"
       },
       "description": "Abstract graffiti exploring form and color through aerosol techniques.",
       "full_description": "Spray Can Chronicles pushes graffiti into abstract territory, focusing on the pure visual potential of aerosol art. Layers of transparent and opaque colors create depth and movement, while drips and texture showcase the medium's unique characteristics. This piece celebrates the spray can as a fine art tool.",
@@ -299,26 +283,24 @@
       },
       "category": "Street Art",
       "subcategory": "Graffiti",
-      "medium": "Spray Paint on Canvas",
-      "tags": ["abstract", "graffiti", "aerosol", "layered", "experimental"],
+      "style": "graffiti",
+      "tags": ["abstract", "graffiti", "aerosol", "layered", "texture", "experimental"],
       "availability": "in-stock",
-      "edition": "standard",
-      "dimensions": {
-        "width": 100,
-        "height": 140,
-        "unit": "cm"
+      "specifications": {
+        "dimensions": "100cm x 140cm",
+        "medium": "Spray Paint on Canvas",
+        "year": "2024",
+        "style": "Graffiti"
       },
-      "year": 2024,
-      "created_date": "2024-07-28",
-      "popularity_score": 8.8,
-      "style": "graffiti"
+      "created_date": "2024-09-30",
+      "popularity_score": 8.7
     },
     {
-      "id": "SA010",
+      "id": "STR010",
       "title": "Street Prophet",
       "artist": {
         "name": "OBEY Collective",
-        "id": "ART070"
+        "id": "STR_ART010"
       },
       "description": "Iconic stencil portrait with bold color blocking and graphic impact.",
       "full_description": "Street Prophet demonstrates the power of stencil art to create iconic imagery. Using bold color blocking and precise cuts, this piece achieves maximum impact with minimal elements. The portrait style and propaganda-inspired aesthetic make it instantly recognizable while delivering a timeless message about art, authority, and urban culture.",
@@ -333,90 +315,88 @@
       },
       "category": "Street Art",
       "subcategory": "Stencil Art",
-      "medium": "Stencil Print",
-      "tags": ["stencil", "portrait", "iconic", "graphic", "propaganda"],
+      "style": "stencil",
+      "tags": ["stencil", "portrait", "iconic", "propaganda", "color blocking", "graphic"],
       "availability": "in-stock",
-      "edition": "limited",
-      "dimensions": {
-        "width": 85,
-        "height": 115,
-        "unit": "cm"
+      "specifications": {
+        "dimensions": "85cm x 115cm",
+        "medium": "Stencil Print",
+        "year": "2024",
+        "style": "Stencil Art"
       },
-      "year": 2024,
-      "created_date": "2024-06-25",
-      "popularity_score": 8.9,
-      "style": "stencil"
+      "created_date": "2024-10-08",
+      "popularity_score": 8.8
     }
   ],
   "artists": [
     {
-      "id": "ART061",
+      "id": "STR_ART001",
       "name": "BANKZ",
-      "specialty": "Graffiti & Letter Forms",
-      "bio": "Street artist known for explosive colors and dynamic graffiti compositions",
+      "specialty": "Bold Graffiti & Letter Forms",
+      "bio": "Urban artist capturing street culture energy through explosive colors",
       "artworks_count": 1
     },
     {
-      "id": "ART062",
+      "id": "STR_ART002",
       "name": "Luna Martinez",
       "specialty": "Large-Scale Murals",
-      "bio": "Muralist creating surreal urban landscapes with fantastical elements",
+      "bio": "Transforms urban landscapes into surreal dreamscapes",
       "artworks_count": 1
     },
     {
-      "id": "ART063",
+      "id": "STR_ART003",
       "name": "Alex Shadow",
-      "specialty": "Stencil Art & Political Commentary",
-      "bio": "Stencil artist delivering powerful social commentary through layered imagery",
+      "specialty": "Political Stencil Art",
+      "bio": "Multi-layered stencil artist delivering powerful social commentary",
       "artworks_count": 1
     },
     {
-      "id": "ART064",
+      "id": "STR_ART004",
       "name": "KILO",
-      "specialty": "Wildstyle Graffiti",
-      "bio": "Graffiti artist specializing in neon colors and wild-style lettering",
+      "specialty": "Wild Style Graffiti",
+      "bio": "Master of neon colors and intricate wild-style lettering",
       "artworks_count": 1
     },
     {
-      "id": "ART065",
+      "id": "STR_ART005",
       "name": "Maya Stone",
-      "specialty": "Mixed Media Urban Art",
-      "bio": "Street artist exploring urban narratives through mixed media techniques",
+      "specialty": "Mixed Media Murals",
+      "bio": "Explores urban narratives through photography and paint",
       "artworks_count": 1
     },
     {
-      "id": "ART066",
+      "id": "STR_ART006",
       "name": "Resistance Crew",
-      "specialty": "Wheatpaste & Activism Art",
-      "bio": "Collective creating DIY guerrilla art with political messages",
+      "specialty": "Wheatpaste & Guerrilla Art",
+      "bio": "DIY collective creating powerful street-level political art",
       "artworks_count": 1
     },
     {
-      "id": "ART067",
+      "id": "STR_ART007",
       "name": "PHASE2",
-      "specialty": "Classic Wildstyle Graffiti",
-      "bio": "Pioneer graffiti artist celebrating the golden age of street writing",
+      "specialty": "Classic Wild Style",
+      "bio": "Pays homage to golden age graffiti with technical mastery",
       "artworks_count": 1
     },
     {
-      "id": "ART068",
+      "id": "STR_ART008",
       "name": "Diego Cruz",
-      "specialty": "Cultural Murals",
-      "bio": "Muralist blending indigenous symbols with contemporary street aesthetics",
+      "specialty": "Cultural Narrative Murals",
+      "bio": "Bridges ancient symbols with contemporary street aesthetics",
       "artworks_count": 1
     },
     {
-      "id": "ART069",
+      "id": "STR_ART009",
       "name": "TWIST",
       "specialty": "Abstract Aerosol Art",
-      "bio": "Experimental graffiti artist exploring abstract forms through spray paint",
+      "bio": "Pushes graffiti into abstract territory celebrating spray can potential",
       "artworks_count": 1
     },
     {
-      "id": "ART070",
+      "id": "STR_ART010",
       "name": "OBEY Collective",
-      "specialty": "Stencil Portraits & Graphic Art",
-      "bio": "Artist collective creating iconic stencil imagery with cultural impact",
+      "specialty": "Iconic Stencil Portraits",
+      "bio": "Creates propaganda-inspired art questioning authority and culture",
       "artworks_count": 1
     }
   ],
@@ -427,15 +407,6 @@
       "Mural",
       "Stencil Art",
       "Wheatpaste"
-    ],
-    "mediums": [
-      "Spray Paint on Canvas",
-      "Acrylic & Aerosol on Canvas",
-      "Stencil & Spray Paint",
-      "Mixed Media on Canvas",
-      "Wheatpaste Style Print",
-      "Acrylic & Spray Paint",
-      "Stencil Print"
     ]
   },
   "filters": {
@@ -471,6 +442,28 @@
         "max": null
       }
     ],
+    "style_options": [
+      {
+        "id": "all",
+        "label": "All Styles"
+      },
+      {
+        "id": "graffiti",
+        "label": "Graffiti"
+      },
+      {
+        "id": "mural",
+        "label": "Mural"
+      },
+      {
+        "id": "stencil",
+        "label": "Stencil Art"
+      },
+      {
+        "id": "wheatpaste",
+        "label": "Wheatpaste"
+      }
+    ],
     "sort_options": [
       {
         "id": "popular",
@@ -493,26 +486,14 @@
         "label": "Artist Name"
       }
     ],
-    "style_options": [
+    "availability_options": [
       {
         "id": "all",
-        "label": "All Styles"
+        "label": "All Items"
       },
       {
-        "id": "graffiti",
-        "label": "Graffiti"
-      },
-      {
-        "id": "mural",
-        "label": "Mural"
-      },
-      {
-        "id": "stencil",
-        "label": "Stencil Art"
-      },
-      {
-        "id": "wheatpaste",
-        "label": "Wheatpaste"
+        "id": "in-stock",
+        "label": "In Stock"
       }
     ]
   }

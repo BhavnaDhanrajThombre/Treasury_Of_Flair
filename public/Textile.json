@@ -2,17 +2,17 @@
   "metadata": {
     "database_name": "Treasury of Flair - Textile & Fiber Art Collection",
     "version": "1.0",
-    "last_updated": "2025-10-11",
+    "last_updated": "2025-11-13",
     "total_artworks": 10,
     "category": "Textile & Fiber Art"
   },
   "artworks": [
     {
-      "id": "TF001",
+      "id": "TEX001",
       "title": "Woven Dreams",
       "artist": {
         "name": "Lakshmi Devi",
-        "id": "ART071"
+        "id": "TEX_ART001"
       },
       "description": "Traditional handwoven tapestry featuring intricate patterns and natural dyes.",
       "full_description": "Woven Dreams is a stunning handwoven tapestry created using traditional loom techniques passed down through generations. This piece showcases intricate geometric patterns and vibrant colors achieved through natural plant-based dyes. Each thread has been carefully selected and woven to create a texture-rich artwork that celebrates the ancient craft of weaving.",
@@ -27,26 +27,24 @@
       },
       "category": "Textile & Fiber Art",
       "subcategory": "Weaving",
-      "medium": "Handwoven Tapestry",
-      "tags": ["weaving", "tapestry", "traditional", "natural dyes", "geometric"],
+      "style": "Traditional Weaving",
+      "tags": ["weaving", "tapestry", "natural dyes", "traditional", "handloom", "geometric"],
       "availability": "in-stock",
-      "edition": "limited",
-      "dimensions": {
-        "width": 36,
-        "height": 48,
-        "unit": "inches"
+      "specifications": {
+        "dimensions": "36 x 48 inches",
+        "medium": "Handwoven Tapestry",
+        "year": "2024",
+        "style": "Traditional Weaving"
       },
-      "year": 2024,
-      "created_date": "2024-08-15",
-      "popularity_score": 9.0,
-      "style": "Traditional Weaving"
+      "created_date": "2024-09-15",
+      "popularity_score": 8.6
     },
     {
-      "id": "TF002",
+      "id": "TEX002",
       "title": "Silk Serenity",
       "artist": {
         "name": "Aisha Kapoor",
-        "id": "ART072"
+        "id": "TEX_ART002"
       },
       "description": "Luxurious silk embroidery with gold thread work and traditional motifs.",
       "full_description": "Silk Serenity is an exquisite piece of hand embroidery on pure silk fabric. This artwork features delicate gold thread work (zardozi) combined with intricate traditional motifs inspired by Mughal art. Hours of meticulous craftsmanship have gone into creating each stitch, resulting in a luxurious textile art piece that radiates elegance and cultural heritage.",
@@ -61,26 +59,24 @@
       },
       "category": "Textile & Fiber Art",
       "subcategory": "Embroidery",
-      "medium": "Silk Embroidery",
-      "tags": ["embroidery", "silk", "gold thread", "traditional", "mughal"],
+      "style": "Traditional Embroidery",
+      "tags": ["silk", "embroidery", "zardozi", "gold thread", "mughal", "luxury"],
       "availability": "in-stock",
-      "edition": "limited",
-      "dimensions": {
-        "width": 30,
-        "height": 40,
-        "unit": "inches"
+      "specifications": {
+        "dimensions": "30 x 40 inches",
+        "medium": "Silk Embroidery",
+        "year": "2024",
+        "style": "Traditional Embroidery"
       },
-      "year": 2024,
-      "created_date": "2024-07-22",
-      "popularity_score": 9.5,
-      "style": "Traditional Embroidery"
+      "created_date": "2024-10-05",
+      "popularity_score": 9.2
     },
     {
-      "id": "TF003",
+      "id": "TEX003",
       "title": "Macramé Mandala",
       "artist": {
         "name": "Sofia Chen",
-        "id": "ART073"
+        "id": "TEX_ART003"
       },
       "description": "Contemporary macramé wall hanging with geometric mandala design.",
       "full_description": "Macramé Mandala brings together ancient knotting techniques with modern design sensibilities. This stunning wall hanging features a complex mandala pattern created entirely through intricate macramé knots using natural cotton rope. The piece showcases dimension, texture, and symmetry, making it a perfect statement piece for contemporary spaces.",
@@ -95,25 +91,24 @@
       },
       "category": "Textile & Fiber Art",
       "subcategory": "Macramé",
-      "medium": "Macramé",
-      "tags": ["macramé", "wall hanging", "contemporary", "mandala", "cotton"],
+      "style": "Contemporary Fiber Art",
+      "tags": ["macramé", "mandala", "knotting", "cotton", "wall hanging", "contemporary"],
       "availability": "in-stock",
-      "edition": "standard",
-      "dimensions": {
-        "diameter": 48,
-        "unit": "inches"
+      "specifications": {
+        "dimensions": "48 inches diameter",
+        "medium": "Macramé",
+        "year": "2024",
+        "style": "Contemporary Fiber Art"
       },
-      "year": 2024,
-      "created_date": "2024-06-18",
-      "popularity_score": 8.6,
-      "style": "Contemporary Fiber Art"
+      "created_date": "2024-09-22",
+      "popularity_score": 8.4
     },
     {
-      "id": "TF004",
+      "id": "TEX004",
       "title": "Quilted Memories",
       "artist": {
         "name": "Margaret Johnson",
-        "id": "ART074"
+        "id": "TEX_ART004"
       },
       "description": "Artisan patchwork quilt with hand-stitched details and vintage fabrics.",
       "full_description": "Quilted Memories is a heartfelt artwork that combines various vintage and contemporary fabrics into a cohesive visual narrative. Each patch has been carefully selected and hand-stitched using traditional quilting techniques. The piece tells a story through its choice of fabrics, colors, and patterns, creating a textile artwork that is both functional and deeply artistic.",
@@ -128,26 +123,24 @@
       },
       "category": "Textile & Fiber Art",
       "subcategory": "Quilting",
-      "medium": "Patchwork Quilt",
-      "tags": ["quilting", "patchwork", "vintage", "hand-stitched", "narrative"],
+      "style": "Traditional Quilting",
+      "tags": ["quilting", "patchwork", "vintage", "hand-stitched", "narrative", "traditional"],
       "availability": "in-stock",
-      "edition": "limited",
-      "dimensions": {
-        "width": 60,
-        "height": 80,
-        "unit": "inches"
+      "specifications": {
+        "dimensions": "60 x 80 inches",
+        "medium": "Patchwork Quilt",
+        "year": "2024",
+        "style": "Traditional Quilting"
       },
-      "year": 2024,
-      "created_date": "2024-09-01",
-      "popularity_score": 8.9,
-      "style": "Traditional Quilting"
+      "created_date": "2024-10-10",
+      "popularity_score": 8.8
     },
     {
-      "id": "TF005",
+      "id": "TEX005",
       "title": "Fiber Fusion",
       "artist": {
         "name": "Kenji Tanaka",
-        "id": "ART075"
+        "id": "TEX_ART005"
       },
       "description": "Mixed media fiber art combining felting, weaving, and embroidery techniques.",
       "full_description": "Fiber Fusion is an experimental textile artwork that pushes the boundaries of traditional fiber art. This piece combines wet felting, weaving, and embroidery techniques to create a multi-layered, textural composition. The artist has incorporated wool, silk, and synthetic fibers to achieve varying textures and visual effects, resulting in a contemporary piece that celebrates the versatility of fiber as an artistic medium.",
@@ -162,26 +155,24 @@
       },
       "category": "Textile & Fiber Art",
       "subcategory": "Mixed Media",
-      "medium": "Mixed Fiber Art",
-      "tags": ["mixed media", "felting", "weaving", "embroidery", "experimental"],
+      "style": "Contemporary Mixed Media",
+      "tags": ["mixed media", "felting", "weaving", "embroidery", "experimental", "textural"],
       "availability": "in-stock",
-      "edition": "limited",
-      "dimensions": {
-        "width": 32,
-        "height": 44,
-        "unit": "inches"
+      "specifications": {
+        "dimensions": "32 x 44 inches",
+        "medium": "Mixed Fiber Art",
+        "year": "2024",
+        "style": "Contemporary Mixed Media"
       },
-      "year": 2024,
-      "created_date": "2024-08-05",
-      "popularity_score": 8.8,
-      "style": "Contemporary Mixed Media"
+      "created_date": "2024-09-28",
+      "popularity_score": 8.7
     },
     {
-      "id": "TF006",
+      "id": "TEX006",
       "title": "Batik Blossoms",
       "artist": {
         "name": "Dewi Sartika",
-        "id": "ART076"
+        "id": "TEX_ART006"
       },
       "description": "Hand-painted batik textile featuring floral motifs and traditional wax-resist dyeing.",
       "full_description": "Batik Blossoms showcases the ancient Indonesian art of batik through a contemporary lens. This hand-painted textile features intricate floral motifs created using the traditional wax-resist dyeing technique. Multiple layers of wax and dye have been applied to create depth and richness in color. The result is a stunning textile artwork that honors traditional methods while presenting a fresh, modern aesthetic.",
@@ -196,26 +187,24 @@
       },
       "category": "Textile & Fiber Art",
       "subcategory": "Batik",
-      "medium": "Batik Textile",
-      "tags": ["batik", "wax-resist", "floral", "traditional", "indonesian"],
+      "style": "Traditional Batik",
+      "tags": ["batik", "wax-resist", "dyeing", "floral", "indonesian", "hand-painted"],
       "availability": "in-stock",
-      "edition": "limited",
-      "dimensions": {
-        "width": 40,
-        "height": 50,
-        "unit": "inches"
+      "specifications": {
+        "dimensions": "40 x 50 inches",
+        "medium": "Batik Textile",
+        "year": "2024",
+        "style": "Traditional Batik"
       },
-      "year": 2024,
-      "created_date": "2024-07-10",
-      "popularity_score": 8.7,
-      "style": "Traditional Batik"
+      "created_date": "2024-09-18",
+      "popularity_score": 8.5
     },
     {
-      "id": "TF007",
+      "id": "TEX007",
       "title": "Tapestry Tales",
       "artist": {
         "name": "Elena Rodriguez",
-        "id": "ART077"
+        "id": "TEX_ART007"
       },
       "description": "Large-scale narrative tapestry depicting stories through woven imagery.",
       "full_description": "Tapestry Tales is an ambitious large-scale woven artwork that tells visual stories through intricate imagery and symbolism. Using a traditional floor loom, the artist has created a complex narrative piece that incorporates figures, landscapes, and abstract elements. The tapestry showcases expert color blending and textural variation achieved through different weaving techniques and yarn types.",
@@ -230,26 +219,24 @@
       },
       "category": "Textile & Fiber Art",
       "subcategory": "Weaving",
-      "medium": "Narrative Tapestry",
-      "tags": ["tapestry", "narrative", "large-scale", "weaving", "storytelling"],
+      "style": "Contemporary Weaving",
+      "tags": ["tapestry", "narrative", "weaving", "large-scale", "storytelling", "symbolic"],
       "availability": "in-stock",
-      "edition": "limited",
-      "dimensions": {
-        "width": 72,
-        "height": 48,
-        "unit": "inches"
+      "specifications": {
+        "dimensions": "72 x 48 inches",
+        "medium": "Narrative Tapestry",
+        "year": "2024",
+        "style": "Contemporary Weaving"
       },
-      "year": 2024,
-      "created_date": "2024-09-15",
-      "popularity_score": 9.3,
-      "style": "Contemporary Weaving"
+      "created_date": "2024-10-20",
+      "popularity_score": 9.3
     },
     {
-      "id": "TF008",
+      "id": "TEX008",
       "title": "Needle & Thread",
       "artist": {
         "name": "Priya Nair",
-        "id": "ART078"
+        "id": "TEX_ART008"
       },
       "description": "Contemporary embroidery art with abstract designs and vibrant thread colors.",
       "full_description": "Needle & Thread reimagines traditional embroidery for the modern age. This contemporary piece features abstract designs created through various embroidery stitches including satin stitch, French knots, and chain stitch. The artist has used a bold, vibrant color palette and experimental compositions to create a textile artwork that challenges conventional embroidery aesthetics while honoring the craft's heritage.",
@@ -264,26 +251,24 @@
       },
       "category": "Textile & Fiber Art",
       "subcategory": "Embroidery",
-      "medium": "Contemporary Embroidery",
-      "tags": ["embroidery", "contemporary", "abstract", "colorful", "modern"],
+      "style": "Modern Embroidery",
+      "tags": ["embroidery", "contemporary", "abstract", "vibrant", "modern", "stitching"],
       "availability": "in-stock",
-      "edition": "standard",
-      "dimensions": {
-        "width": 24,
-        "height": 36,
-        "unit": "inches"
+      "specifications": {
+        "dimensions": "24 x 36 inches",
+        "medium": "Contemporary Embroidery",
+        "year": "2024",
+        "style": "Modern Embroidery"
       },
-      "year": 2024,
-      "created_date": "2024-07-28",
-      "popularity_score": 8.5,
-      "style": "Modern Embroidery"
+      "created_date": "2024-09-25",
+      "popularity_score": 8.3
     },
     {
-      "id": "TF009",
+      "id": "TEX009",
       "title": "Felted Landscapes",
       "artist": {
         "name": "Hannah Berg",
-        "id": "ART079"
+        "id": "TEX_ART009"
       },
       "description": "Wet-felted wool artwork depicting natural landscapes with dimensional texture.",
       "full_description": "Felted Landscapes brings the beauty of nature to life through the ancient technique of wet felting. Using layers of colored wool roving, the artist has created a dimensional landscape that captures rolling hills, flowing water, and dramatic skies. The felting process creates organic texture and subtle color blending that gives the piece remarkable depth and visual interest.",
@@ -298,26 +283,24 @@
       },
       "category": "Textile & Fiber Art",
       "subcategory": "Felting",
-      "medium": "Wet Felted Wool",
-      "tags": ["felting", "wool", "landscape", "dimensional", "nature"],
+      "style": "Felting Art",
+      "tags": ["felting", "wool", "landscape", "wet-felted", "nature", "dimensional"],
       "availability": "in-stock",
-      "edition": "limited",
-      "dimensions": {
-        "width": 36,
-        "height": 48,
-        "unit": "inches"
+      "specifications": {
+        "dimensions": "36 x 48 inches",
+        "medium": "Wet Felted Wool",
+        "year": "2024",
+        "style": "Felting Art"
       },
-      "year": 2024,
-      "created_date": "2024-08-20",
-      "popularity_score": 8.9,
-      "style": "Felting Art"
+      "created_date": "2024-10-12",
+      "popularity_score": 8.9
     },
     {
-      "id": "TF010",
+      "id": "TEX010",
       "title": "Textile Symphony",
       "artist": {
         "name": "Rajesh Kumar",
-        "id": "ART080"
+        "id": "TEX_ART010"
       },
       "description": "Museum-quality textile art combining traditional Indian techniques with modern design.",
       "full_description": "Textile Symphony is a masterpiece that bridges India's rich textile heritage with contemporary artistic vision. This ambitious work incorporates multiple traditional techniques including block printing, hand embroidery, and natural dyeing, all composed into a cohesive modern design. The piece required months of careful planning and execution, resulting in a textile artwork of museum quality that celebrates India's textile traditions while looking boldly toward the future.",
@@ -331,91 +314,89 @@
         "alt": "Mixed textile art"
       },
       "category": "Textile & Fiber Art",
-      "subcategory": "Mixed Techniques",
-      "medium": "Mixed Textile Techniques",
-      "tags": ["mixed techniques", "indian textiles", "museum quality", "traditional", "contemporary"],
+      "subcategory": "Mixed Media",
+      "style": "Contemporary Indian Textile",
+      "tags": ["mixed techniques", "indian", "block printing", "embroidery", "museum quality", "heritage"],
       "availability": "in-stock",
-      "edition": "limited",
-      "dimensions": {
-        "width": 60,
-        "height": 72,
-        "unit": "inches"
+      "specifications": {
+        "dimensions": "60 x 72 inches",
+        "medium": "Mixed Textile Techniques",
+        "year": "2024",
+        "style": "Contemporary Indian Textile"
       },
-      "year": 2024,
-      "created_date": "2024-06-25",
-      "popularity_score": 9.7,
-      "style": "Contemporary Indian Textile"
+      "created_date": "2024-10-28",
+      "popularity_score": 9.5
     }
   ],
   "artists": [
     {
-      "id": "ART071",
+      "id": "TEX_ART001",
       "name": "Lakshmi Devi",
-      "specialty": "Traditional Handweaving",
-      "bio": "Master weaver preserving ancient loom techniques and natural dyeing methods",
+      "specialty": "Traditional Handloom Weaving",
+      "bio": "Master weaver preserving ancient loom techniques and natural dyeing",
       "artworks_count": 1
     },
     {
-      "id": "ART072",
+      "id": "TEX_ART002",
       "name": "Aisha Kapoor",
       "specialty": "Silk Embroidery & Zardozi",
-      "bio": "Embroidery artist specializing in luxurious silk work with gold thread",
+      "bio": "Creates luxurious embroidery inspired by Mughal artistic traditions",
       "artworks_count": 1
     },
     {
-      "id": "ART073",
+      "id": "TEX_ART003",
       "name": "Sofia Chen",
       "specialty": "Contemporary Macramé",
-      "bio": "Fiber artist creating modern macramé designs with traditional knotting",
+      "bio": "Combines ancient knotting with modern geometric design",
       "artworks_count": 1
     },
     {
-      "id": "ART074",
+      "id": "TEX_ART004",
       "name": "Margaret Johnson",
       "specialty": "Artisan Quilting",
-      "bio": "Quilter creating narrative textile art through patchwork and stitching",
+      "bio": "Creates narrative quilts using vintage and contemporary fabrics",
       "artworks_count": 1
     },
     {
-      "id": "ART075",
+      "id": "TEX_ART005",
       "name": "Kenji Tanaka",
       "specialty": "Experimental Fiber Art",
-      "bio": "Contemporary fiber artist exploring mixed textile techniques",
+      "bio": "Pushes boundaries combining multiple fiber techniques",
       "artworks_count": 1
     },
     {
-      "id": "ART076",
+      "id": "TEX_ART006",
       "name": "Dewi Sartika",
       "specialty": "Traditional Batik",
-      "bio": "Batik artist honoring Indonesian wax-resist dyeing traditions",
+      "bio": "Honors Indonesian batik heritage with contemporary aesthetics",
       "artworks_count": 1
     },
     {
-      "id": "ART077",
+      "id": "TEX_ART007",
       "name": "Elena Rodriguez",
       "specialty": "Narrative Tapestry Weaving",
-      "bio": "Tapestry artist creating large-scale woven storytelling pieces",
+      "bio": "Creates large-scale woven stories through imagery and symbolism",
       "artworks_count": 1
     },
     {
-      "id": "ART078",
+      "id": "TEX_ART008",
       "name": "Priya Nair",
       "specialty": "Contemporary Embroidery",
-      "bio": "Modern embroidery artist reimagining traditional stitching techniques",
+      "bio": "Reimagines traditional embroidery with modern abstract designs",
       "artworks_count": 1
     },
     {
-      "id": "ART079",
+      "id": "TEX_ART009",
       "name": "Hannah Berg",
-      "specialty": "Wool Felting",
-      "bio": "Felting artist creating dimensional landscapes through wet felting",
+      "specialty": "Wet Felting",
+      "bio": "Brings landscapes to life through ancient felting techniques",
       "artworks_count": 1
     },
     {
-      "id": "ART080",
+      "id": "TEX_ART010",
       "name": "Rajesh Kumar",
-      "specialty": "Traditional Indian Textiles",
-      "bio": "Textile master combining multiple Indian craft traditions in contemporary art",
+      "specialty": "Mixed Textile Techniques",
+      "bio": "Bridges Indian textile heritage with contemporary vision",
       "artworks_count": 1
     }
   ],
@@ -428,20 +409,7 @@
       "Quilting",
       "Mixed Media",
       "Batik",
-      "Felting",
-      "Mixed Techniques"
-    ],
-    "mediums": [
-      "Handwoven Tapestry",
-      "Silk Embroidery",
-      "Macramé",
-      "Patchwork Quilt",
-      "Mixed Fiber Art",
-      "Batik Textile",
-      "Narrative Tapestry",
-      "Contemporary Embroidery",
-      "Wet Felted Wool",
-      "Mixed Textile Techniques"
+      "Felting"
     ]
   },
   "filters": {
@@ -477,6 +445,20 @@
         "max": null
       }
     ],
+    "availability_options": [
+      {
+        "id": "all",
+        "label": "All Items"
+      },
+      {
+        "id": "in-stock",
+        "label": "In Stock"
+      },
+      {
+        "id": "limited",
+        "label": "Limited Edition"
+      }
+    ],
     "sort_options": [
       {
         "id": "popular",
@@ -497,20 +479,6 @@
       {
         "id": "artist",
         "label": "Artist Name"
-      }
-    ],
-    "availability_options": [
-      {
-        "id": "all",
-        "label": "All Items"
-      },
-      {
-        "id": "in-stock",
-        "label": "In Stock"
-      },
-      {
-        "id": "limited",
-        "label": "Limited Edition"
       }
     ]
   }

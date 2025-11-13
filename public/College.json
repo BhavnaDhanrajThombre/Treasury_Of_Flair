@@ -2,17 +2,17 @@
   "metadata": {
     "database_name": "Treasury of Flair - Collage & Mixed Media Collection",
     "version": "1.0",
-    "last_updated": "2025-10-11",
+    "last_updated": "2025-11-13",
     "total_artworks": 10,
     "category": "Collage & Mixed Media"
   },
   "artworks": [
     {
-      "id": "CM001",
+      "id": "CMM001",
       "title": "Fragments of Memory",
       "artist": {
         "name": "Eleanor Grace",
-        "id": "ART041"
+        "id": "CMM_ART001"
       },
       "description": "Layered paper collage incorporating vintage photographs and handwritten letters.",
       "full_description": "Fragments of Memory is an evocative paper collage that weaves together vintage photographs, handwritten letters, and ephemera to create a nostalgic narrative about time and remembrance. Each layer tells a story, with carefully chosen papers creating depth and emotional resonance. The piece invites viewers to reflect on their own memories and the passage of time.",
@@ -27,26 +27,24 @@
       },
       "category": "Collage & Mixed Media",
       "subcategory": "Paper Collage",
-      "medium": "Paper Collage on Canvas",
-      "tags": ["paper collage", "vintage", "photographs", "nostalgic", "layered"],
+      "technique": "paper",
+      "tags": ["paper", "collage", "vintage", "photographs", "letters", "nostalgic"],
       "availability": "in-stock",
-      "edition": "limited",
-      "dimensions": {
-        "width": 60,
-        "height": 80,
-        "unit": "cm"
+      "specifications": {
+        "dimensions": "60cm x 80cm",
+        "medium": "Paper Collage on Canvas",
+        "year": "2024",
+        "style": "Paper Collage"
       },
-      "year": 2024,
-      "created_date": "2024-08-15",
-      "popularity_score": 8.9,
-      "technique": "paper"
+      "created_date": "2024-09-15",
+      "popularity_score": 8.5
     },
     {
-      "id": "CM002",
+      "id": "CMM002",
       "title": "Textile Dreams",
       "artist": {
         "name": "Amara Singh",
-        "id": "ART042"
+        "id": "CMM_ART002"
       },
       "description": "Mixed media piece combining embroidered fabric, beads, and acrylic paint.",
       "full_description": "Textile Dreams celebrates the rich tradition of fabric arts through a contemporary mixed media approach. Hand-embroidered fabrics are layered with paint, beads, and found textiles to create a tactile, dimensional work. The piece explores themes of identity and heritage through the universal language of fabric and thread, creating a bridge between traditional crafts and contemporary art.",
@@ -61,26 +59,24 @@
       },
       "category": "Collage & Mixed Media",
       "subcategory": "Textile Art",
-      "medium": "Textile & Mixed Media",
-      "tags": ["textile", "embroidery", "beads", "fabric", "mixed media"],
+      "technique": "textile",
+      "tags": ["textile", "embroidery", "beads", "fabric", "mixed media", "heritage"],
       "availability": "in-stock",
-      "edition": "limited",
-      "dimensions": {
-        "width": 70,
-        "height": 90,
-        "unit": "cm"
+      "specifications": {
+        "dimensions": "70cm x 90cm",
+        "medium": "Textile & Mixed Media",
+        "year": "2024",
+        "style": "Textile Art"
       },
-      "year": 2024,
-      "created_date": "2024-07-22",
-      "popularity_score": 9.2,
-      "technique": "textile"
+      "created_date": "2024-10-02",
+      "popularity_score": 8.9
     },
     {
-      "id": "CM003",
+      "id": "CMM003",
       "title": "Urban Layers",
       "artist": {
         "name": "Marcus Chen",
-        "id": "ART043"
+        "id": "CMM_ART003"
       },
       "description": "Abstract collage using magazine clippings, newspaper, and spray paint.",
       "full_description": "Urban Layers captures the chaos and energy of city life through dynamic collage techniques. Magazine clippings, newspaper fragments, and graffiti-style spray paint come together to create a visual cacophony that mirrors urban experience. The layered composition rewards close inspection, with hidden details and text fragments revealing themselves upon examination.",
@@ -95,26 +91,24 @@
       },
       "category": "Collage & Mixed Media",
       "subcategory": "Paper Collage",
-      "medium": "Paper & Spray Paint",
-      "tags": ["urban", "magazine", "newspaper", "spray paint", "abstract"],
+      "technique": "paper",
+      "tags": ["urban", "abstract", "magazine", "newspaper", "spray paint", "graffiti"],
       "availability": "in-stock",
-      "edition": "standard",
-      "dimensions": {
-        "width": 75,
-        "height": 100,
-        "unit": "cm"
+      "specifications": {
+        "dimensions": "75cm x 100cm",
+        "medium": "Paper & Spray Paint",
+        "year": "2024",
+        "style": "Paper Collage"
       },
-      "year": 2024,
-      "created_date": "2024-06-18",
-      "popularity_score": 8.7,
-      "technique": "paper"
+      "created_date": "2024-09-28",
+      "popularity_score": 8.3
     },
     {
-      "id": "CM004",
+      "id": "CMM004",
       "title": "Found Objects Symphony",
       "artist": {
         "name": "Isabella Romano",
-        "id": "ART044"
+        "id": "CMM_ART004"
       },
       "description": "Three-dimensional assemblage incorporating vintage keys, wire, and wood.",
       "full_description": "Found Objects Symphony transforms everyday discarded items into a poetic assemblage. Vintage keys, copper wire, weathered wood, and other found objects are carefully arranged to create a three-dimensional composition that speaks to themes of memory, function, and beauty in the overlooked. Each object carries its own history, now united in a new narrative.",
@@ -129,27 +123,24 @@
       },
       "category": "Collage & Mixed Media",
       "subcategory": "Assemblage",
-      "medium": "Assemblage",
-      "tags": ["assemblage", "found objects", "keys", "wood", "three-dimensional"],
+      "technique": "assemblage",
+      "tags": ["assemblage", "found objects", "vintage", "keys", "wire", "wood", "3d"],
       "availability": "in-stock",
-      "edition": "limited",
-      "dimensions": {
-        "width": 50,
-        "height": 70,
-        "depth": 8,
-        "unit": "cm"
+      "specifications": {
+        "dimensions": "50cm x 70cm x 8cm",
+        "medium": "Assemblage",
+        "year": "2024",
+        "style": "Assemblage"
       },
-      "year": 2024,
-      "created_date": "2024-09-01",
-      "popularity_score": 9.5,
-      "technique": "assemblage"
+      "created_date": "2024-10-10",
+      "popularity_score": 9.2
     },
     {
-      "id": "CM005",
+      "id": "CMM005",
       "title": "Nature's Patchwork",
       "artist": {
         "name": "Lily Greenwood",
-        "id": "ART045"
+        "id": "CMM_ART005"
       },
       "description": "Botanical collage featuring pressed flowers, leaves, and watercolor washes.",
       "full_description": "Nature's Patchwork brings the beauty of the natural world into artistic form through delicate collage work. Real pressed flowers and leaves are combined with watercolor washes and hand-drawn botanical illustrations to create a piece that celebrates biodiversity and natural beauty. Each element is carefully preserved and arranged to create harmonious composition.",
@@ -164,26 +155,24 @@
       },
       "category": "Collage & Mixed Media",
       "subcategory": "Paper Collage",
-      "medium": "Botanical Collage",
-      "tags": ["botanical", "flowers", "leaves", "watercolor", "nature"],
+      "technique": "paper",
+      "tags": ["botanical", "nature", "pressed flowers", "leaves", "watercolor", "organic"],
       "availability": "in-stock",
-      "edition": "limited",
-      "dimensions": {
-        "width": 65,
-        "height": 85,
-        "unit": "cm"
+      "specifications": {
+        "dimensions": "65cm x 85cm",
+        "medium": "Botanical Collage",
+        "year": "2024",
+        "style": "Paper Collage"
       },
-      "year": 2024,
-      "created_date": "2024-08-05",
-      "popularity_score": 8.8,
-      "technique": "paper"
+      "created_date": "2024-09-20",
+      "popularity_score": 8.6
     },
     {
-      "id": "CM006",
+      "id": "CMM006",
       "title": "Cultural Tapestry",
       "artist": {
         "name": "Rajesh Kumar",
-        "id": "ART046"
+        "id": "CMM_ART006"
       },
       "description": "Mixed media incorporating traditional Indian textiles, gold leaf, and acrylics.",
       "full_description": "Cultural Tapestry is a celebration of Indian heritage through contemporary mixed media techniques. Traditional textiles, intricate patterns, and gold leaf are combined with modern acrylic painting to create a piece that honors cultural roots while embracing contemporary aesthetics. The work explores themes of identity, tradition, and transformation in a globalized world.",
@@ -198,26 +187,24 @@
       },
       "category": "Collage & Mixed Media",
       "subcategory": "Mixed Media",
-      "medium": "Textile & Mixed Media",
-      "tags": ["cultural", "indian textiles", "gold leaf", "heritage", "mixed media"],
+      "technique": "mixed",
+      "tags": ["cultural", "indian", "textiles", "gold leaf", "heritage", "traditional"],
       "availability": "in-stock",
-      "edition": "limited",
-      "dimensions": {
-        "width": 80,
-        "height": 100,
-        "unit": "cm"
+      "specifications": {
+        "dimensions": "80cm x 100cm",
+        "medium": "Textile & Mixed Media",
+        "year": "2024",
+        "style": "Mixed Media"
       },
-      "year": 2024,
-      "created_date": "2024-09-15",
-      "popularity_score": 9.3,
-      "technique": "mixed"
+      "created_date": "2024-10-05",
+      "popularity_score": 9.0
     },
     {
-      "id": "CM007",
+      "id": "CMM007",
       "title": "Deconstructed Pages",
       "artist": {
         "name": "Sophie Laurent",
-        "id": "ART047"
+        "id": "CMM_ART007"
       },
       "description": "Book art collage using torn pages, ink drawings, and tea-stained paper.",
       "full_description": "Deconstructed Pages gives new life to old books through artistic transformation. Torn pages from vintage books are combined with original ink drawings and tea-stained paper to create layered compositions that honor the written word while creating new visual narratives. The piece speaks to themes of knowledge, time, and the evolution of storytelling.",
@@ -232,26 +219,24 @@
       },
       "category": "Collage & Mixed Media",
       "subcategory": "Paper Collage",
-      "medium": "Book Art Collage",
-      "tags": ["book art", "vintage books", "ink", "tea-stained", "literary"],
+      "technique": "paper",
+      "tags": ["book art", "vintage", "ink", "tea stained", "literature", "pages"],
       "availability": "in-stock",
-      "edition": "standard",
-      "dimensions": {
-        "width": 55,
-        "height": 75,
-        "unit": "cm"
+      "specifications": {
+        "dimensions": "55cm x 75cm",
+        "medium": "Book Art Collage",
+        "year": "2024",
+        "style": "Paper Collage"
       },
-      "year": 2024,
-      "created_date": "2024-07-10",
-      "popularity_score": 8.4,
-      "technique": "paper"
+      "created_date": "2024-09-12",
+      "popularity_score": 8.1
     },
     {
-      "id": "CM008",
+      "id": "CMM008",
       "title": "Industrial Poetry",
       "artist": {
         "name": "James Walker",
-        "id": "ART048"
+        "id": "CMM_ART008"
       },
       "description": "Assemblage featuring rusted metal, gears, and reclaimed industrial materials.",
       "full_description": "Industrial Poetry finds beauty in the mechanical and discarded. Rusted metal fragments, vintage gears, bolts, and other reclaimed industrial materials are assembled into a sculptural wall piece that celebrates the aesthetic of machinery and industry. The work transforms cold, functional objects into a warm, poetic statement about human ingenuity and the passage of time.",
@@ -266,27 +251,24 @@
       },
       "category": "Collage & Mixed Media",
       "subcategory": "Assemblage",
-      "medium": "Metal Assemblage",
-      "tags": ["industrial", "metal", "gears", "assemblage", "mechanical"],
+      "technique": "assemblage",
+      "tags": ["industrial", "metal", "gears", "assemblage", "mechanical", "rustic"],
       "availability": "in-stock",
-      "edition": "limited",
-      "dimensions": {
-        "width": 60,
-        "height": 80,
-        "depth": 10,
-        "unit": "cm"
+      "specifications": {
+        "dimensions": "60cm x 80cm x 10cm",
+        "medium": "Metal Assemblage",
+        "year": "2024",
+        "style": "Assemblage"
       },
-      "year": 2024,
-      "created_date": "2024-08-20",
-      "popularity_score": 9.1,
-      "technique": "assemblage"
+      "created_date": "2024-10-15",
+      "popularity_score": 8.8
     },
     {
-      "id": "CM009",
+      "id": "CMM009",
       "title": "Woven Stories",
       "artist": {
         "name": "Maya Patel",
-        "id": "ART049"
+        "id": "CMM_ART009"
       },
       "description": "Fiber art combining weaving, embroidery, and mixed media elements.",
       "full_description": "Woven Stories integrates traditional fiber arts with contemporary mixed media techniques. Hand-woven elements are combined with embroidery, found fabrics, and painted surfaces to create a rich, textured work. The piece explores how stories are passed down through generations, much like weaving techniques, creating connections between past and present.",
@@ -301,26 +283,24 @@
       },
       "category": "Collage & Mixed Media",
       "subcategory": "Textile Art",
-      "medium": "Fiber & Mixed Media",
-      "tags": ["fiber art", "weaving", "embroidery", "textile", "handmade"],
+      "technique": "textile",
+      "tags": ["fiber art", "weaving", "embroidery", "textile", "traditional", "contemporary"],
       "availability": "in-stock",
-      "edition": "limited",
-      "dimensions": {
-        "width": 70,
-        "height": 95,
-        "unit": "cm"
+      "specifications": {
+        "dimensions": "70cm x 95cm",
+        "medium": "Fiber & Mixed Media",
+        "year": "2024",
+        "style": "Textile Art"
       },
-      "year": 2024,
-      "created_date": "2024-07-28",
-      "popularity_score": 8.9,
-      "technique": "textile"
+      "created_date": "2024-09-25",
+      "popularity_score": 8.7
     },
     {
-      "id": "CM010",
+      "id": "CMM010",
       "title": "Ephemeral Moments",
       "artist": {
         "name": "Thomas Reed",
-        "id": "ART050"
+        "id": "CMM_ART010"
       },
       "description": "Collage using ticket stubs, receipts, postcards, and other personal ephemera.",
       "full_description": "Ephemeral Moments transforms everyday ephemera into art that speaks to the beauty of ordinary life. Concert tickets, travel receipts, postcards, stamps, and other paper artifacts are arranged to create a visual diary of experiences and memories. The piece celebrates the small moments that make up a life, preserving the fleeting in permanent form.",
@@ -335,90 +315,88 @@
       },
       "category": "Collage & Mixed Media",
       "subcategory": "Paper Collage",
-      "medium": "Ephemera Collage",
-      "tags": ["ephemera", "tickets", "postcards", "memories", "personal"],
+      "technique": "paper",
+      "tags": ["ephemera", "tickets", "receipts", "postcards", "memory", "personal"],
       "availability": "in-stock",
-      "edition": "standard",
-      "dimensions": {
-        "width": 58,
-        "height": 78,
-        "unit": "cm"
+      "specifications": {
+        "dimensions": "58cm x 78cm",
+        "medium": "Ephemera Collage",
+        "year": "2024",
+        "style": "Paper Collage"
       },
-      "year": 2024,
-      "created_date": "2024-06-25",
-      "popularity_score": 8.5,
-      "technique": "paper"
+      "created_date": "2024-09-08",
+      "popularity_score": 8.4
     }
   ],
   "artists": [
     {
-      "id": "ART041",
+      "id": "CMM_ART001",
       "name": "Eleanor Grace",
-      "specialty": "Paper Collage & Vintage Art",
-      "bio": "Collage artist creating nostalgic narratives through vintage materials",
+      "specialty": "Paper Collage & Vintage Ephemera",
+      "bio": "Creates nostalgic narratives through layered paper collage work",
       "artworks_count": 1
     },
     {
-      "id": "ART042",
+      "id": "CMM_ART002",
       "name": "Amara Singh",
       "specialty": "Textile & Mixed Media",
-      "bio": "Contemporary artist blending traditional fabric arts with modern techniques",
+      "bio": "Celebrates cultural heritage through contemporary textile arts",
       "artworks_count": 1
     },
     {
-      "id": "ART043",
+      "id": "CMM_ART003",
       "name": "Marcus Chen",
-      "specialty": "Urban Collage Art",
-      "bio": "Mixed media artist capturing urban energy through collage techniques",
+      "specialty": "Urban & Abstract Collage",
+      "bio": "Captures city energy through dynamic mixed media compositions",
       "artworks_count": 1
     },
     {
-      "id": "ART044",
+      "id": "CMM_ART004",
       "name": "Isabella Romano",
-      "specialty": "Assemblage & Found Objects",
-      "bio": "Assemblage artist transforming found objects into poetic compositions",
+      "specialty": "Found Object Assemblage",
+      "bio": "Transforms discarded objects into poetic three-dimensional narratives",
       "artworks_count": 1
     },
     {
-      "id": "ART045",
+      "id": "CMM_ART005",
       "name": "Lily Greenwood",
       "specialty": "Botanical Collage",
-      "bio": "Nature-inspired artist creating delicate botanical collage works",
+      "bio": "Preserves natural beauty through delicate pressed flower compositions",
       "artworks_count": 1
     },
     {
-      "id": "ART046",
+      "id": "CMM_ART006",
       "name": "Rajesh Kumar",
       "specialty": "Cultural Mixed Media",
-      "bio": "Artist celebrating Indian heritage through contemporary mixed media",
+      "bio": "Bridges traditional Indian art with contemporary techniques",
       "artworks_count": 1
     },
     {
-      "id": "ART047",
+      "id": "CMM_ART007",
       "name": "Sophie Laurent",
       "specialty": "Book Art & Literary Collage",
-      "bio": "Book artist giving new life to vintage books through transformation",
+      "bio": "Gives new life to vintage books through artistic transformation",
       "artworks_count": 1
     },
     {
-      "id": "ART048",
+      "id": "CMM_ART008",
       "name": "James Walker",
       "specialty": "Industrial Assemblage",
-      "bio": "Assemblage artist finding beauty in reclaimed industrial materials",
+      "bio": "Finds poetry in machinery and reclaimed industrial materials",
       "artworks_count": 1
     },
     {
-      "id": "ART049",
+      "id": "CMM_ART009",
       "name": "Maya Patel",
       "specialty": "Fiber Art & Weaving",
-      "bio": "Fiber artist integrating traditional weaving with contemporary media",
+      "bio": "Integrates traditional weaving with contemporary mixed media",
       "artworks_count": 1
     },
     {
-      "id": "ART050",
+      "id": "CMM_ART010",
       "name": "Thomas Reed",
-      "specialty": "Ephemera Collage",
-      "bio": "Collage artist transforming everyday ephemera into meaningful art",
+      "specialty": "Ephemera & Memory Art",
+      "bio": "Transforms everyday artifacts into visual diaries of experience",
       "artworks_count": 1
     }
   ],
@@ -429,17 +407,6 @@
       "Textile Art",
       "Assemblage",
       "Mixed Media"
-    ],
-    "mediums": [
-      "Paper Collage on Canvas",
-      "Textile & Mixed Media",
-      "Paper & Spray Paint",
-      "Assemblage",
-      "Botanical Collage",
-      "Book Art Collage",
-      "Metal Assemblage",
-      "Fiber & Mixed Media",
-      "Ephemera Collage"
     ]
   },
   "filters": {
@@ -475,6 +442,28 @@
         "max": null
       }
     ],
+    "technique_options": [
+      {
+        "id": "all",
+        "label": "All Techniques"
+      },
+      {
+        "id": "paper",
+        "label": "Paper Collage"
+      },
+      {
+        "id": "textile",
+        "label": "Textile Art"
+      },
+      {
+        "id": "assemblage",
+        "label": "Assemblage"
+      },
+      {
+        "id": "mixed",
+        "label": "Mixed Media"
+      }
+    ],
     "sort_options": [
       {
         "id": "popular",
@@ -497,26 +486,14 @@
         "label": "Artist Name"
       }
     ],
-    "technique_options": [
+    "availability_options": [
       {
         "id": "all",
-        "label": "All Techniques"
+        "label": "All Items"
       },
       {
-        "id": "paper",
-        "label": "Paper Collage"
-      },
-      {
-        "id": "textile",
-        "label": "Textile Art"
-      },
-      {
-        "id": "assemblage",
-        "label": "Assemblage"
-      },
-      {
-        "id": "mixed",
-        "label": "Mixed Media"
+        "id": "in-stock",
+        "label": "In Stock"
       }
     ]
   }
