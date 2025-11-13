@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics - Treasury of Flair</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: white;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: 80px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #8E2DE2, #FF4B2B);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .logo-text h2 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 2px;
+        }
+
+        .logo-text p {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .nav-center {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-center a {
+            text-decoration: none;
+            color: #666;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-center a:hover,
+        .nav-center a.active {
+            color: #8E2DE2;
+            background: rgba(142, 45, 226, 0.1);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .notification-btn {
+            position: relative;
+            background: #f5f5f5;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .notification-btn:hover {
+            background: rgba(142, 45, 226, 0.1);
+            color: #8E2DE2;
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #FF4B2B;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #FF4B2B, #8E2DE2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .user-avatar:hover {
+            transform: scale(1.05);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 100px auto 40px;
+            padding: 0 20px;
+        }
+
+        /* Header Section */
+        .analytics-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 25px;
+            padding: 40px;
+            color: white;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .analytics-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            50% {
+                transform: translate(-50%, -50%) rotate(180deg);
+            }
+        }
+
+        .header-left {
+            position: relative;
+            z-index: 2;
+        }
+
+        .header-left h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header-left p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .header-right {
+            display: flex;
+            gap: 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .time-filter {
+            display: flex;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px;
+            border-radius: 25px;
+        }
+
+        .time-filter button {
+            background: transparent;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .time-filter button.active {
+            background: white;
+            color: #8E2DE2;
+        }
+
+        .time-filter button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Overview Stats */
+        .overview-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #8E2DE2, #FF4B2B);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        .stat-trend {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .stat-trend.down {
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #8E2DE2;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .stat-comparison {
+            font-size: 12px;
+            color: #999;
+        }
+
+        /* Charts Grid */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .chart-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .chart-header h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .chart-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .chart-btn {
+            background: #f5f5f5;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .chart-btn:hover {
+            background: rgba(142, 45, 226, 0.1);
+            color: #8E2DE2;
+        }
+
+        .chart-container {
+            height: 300px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            gap: 10px;
+            padding: 20px 0;
+            position: relative;
+        }
+
+        .chart-bar {
+            flex: 1;
+            background: linear-gradient(180deg, #8E2DE2, #FF4B2B);
+            border-radius: 8px 8px 0 0;
+            position: relative;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .chart-bar:hover {
+            opacity: 0.8;
+            transform: translateY(-5px);
+        }
+
+        .chart-bar-label {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            color: #666;
+            white-space: nowrap;
+        }
+
+        .chart-bar-value {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            font-weight: 600;
+            color: #8E2DE2;
+        }
+
+        /* Performance Metrics */
+        .performance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .performance-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .performance-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .metric-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .metric-item:last-child {
+            border-bottom: none;
+        }
+
+        .metric-label {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .metric-value {
+            font-weight: 600;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #8E2DE2, #FF4B2B);
+            border-radius: 10px;
+            transition: width 1s ease;
+        }
+
+        /* Top Artworks */
+        .top-artworks {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .artwork-rank-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .artwork-rank-item:hover {
+            background: #f8f8f8;
+        }
+
+        .rank-number {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #8E2DE2, #FF4B2B);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .artwork-thumb {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .artwork-info {
+            flex: 1;
+        }
+
+        .artwork-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .artwork-stats {
+            font-size: 12px;
+            color: #666;
+            display: flex;
+            gap: 15px;
+        }
+
+        .artwork-revenue {
+            font-weight: 700;
+            color: #8E2DE2;
+            font-size: 18px;
+        }
+
+        /* Insights */
+        .insights-section {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .insight-item {
+            display: flex;
+            gap: 15px;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(142, 45, 226, 0.05), rgba(255, 75, 43, 0.05));
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        .insight-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #8E2DE2, #FF4B2B);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .insight-content h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .insight-content p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-center {
+                display: none;
+            }
+
+            .analytics-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-left h1 {
+                font-size: 2rem;
+            }
+
+            .overview-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .time-filter {
+                flex-wrap: wrap;
+            }
+
+            .performance-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo-section" onclick="window.location.href='home.html'">
+            <div class="logo">TF</div>
+            <div class="logo-text">
+                <h2>Treasury of Flair</h2>
+                <p>Analytics Dashboard</p>
+            </div>
+        </div>
+
+        <div class="nav-center">
+            <a href="seller_account.html">Dashboard</a>
+            <a href="home.html">Buy Mode</a>
+            <a href="My_store.html">My Store</a>
+            <a href="seller_order.html">Orders</a>
+            <a href="analytics.html" class="active">Analytics</a>
+        </div>
+
+        <div class="nav-right">
+            <button class="notification-btn">
+                <i class="fas fa-bell"></i>
+                <span class="notification-badge">3</span>
+            </button>
+            <div class="user-avatar" onclick="window.location.href='Account.html'">A</div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Analytics Header -->
+        <div class="analytics-header">
+            <div class="header-left">
+                <h1>Analytics Dashboard</h1>
+                <p>Track your performance and grow your business</p>
+            </div>
+            <div class="header-right">
+                <div class="time-filter">
+                    <button class="filter-btn" data-period="7">7 Days</button>
+                    <button class="filter-btn active" data-period="30">30 Days</button>
+                    <button class="filter-btn" data-period="90">90 Days</button>
+                    <button class="filter-btn" data-period="365">1 Year</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Overview Stats -->
+        <div class="overview-stats">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <span class="stat-trend">
+                        <i class="fas fa-arrow-up"></i> 23%
+                    </span>
+                </div>
+                <div class="stat-value" id="totalViews">12,543</div>
+                <div class="stat-label">Total Views</div>
+                <div class="stat-comparison">+2,156 from last period</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <span class="stat-trend">
+                        <i class="fas fa-arrow-up"></i> 12%
+                    </span>
+                </div>
+                <div class="stat-value" id="conversionRate">3.2%</div>
+                <div class="stat-label">Conversion Rate</div>
+                <div class="stat-comparison">+0.4% from last period</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <span class="stat-trend">
+                        <i class="fas fa-arrow-up"></i> 18%
+                    </span>
+                </div>
+                <div class="stat-value" id="totalLikes">2,847</div>
+                <div class="stat-label">Total Likes</div>
+                <div class="stat-comparison">+432 from last period</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <span class="stat-trend">
+                        <i class="fas fa-arrow-up"></i> 15%
+                    </span>
+                </div>
+                <div class="stat-value" id="avgOrderValue">Rs 2,450</div>
+                <div class="stat-label">Avg Order Value</div>
+                <div class="stat-comparison">+Rs 320 from last period</div>
+            </div>
+        </div>
+
+        <!-- Charts Grid -->
+        <div class="charts-grid">
+            <!-- Sales Chart -->
+            <div class="chart-card">
+                <div class="chart-header">
+                    <h2>Sales Overview</h2>
+                    <div class="chart-actions">
+                        <button class="chart-btn" onclick="exportChart()">
+                            <i class="fas fa-download"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="chart-container" id="salesChart">
+                    <!-- Chart bars will be generated here -->
+                </div>
+            </div>
+
+            <!-- Traffic Sources -->
+            <div class="chart-card">
+                <div class="chart-header">
+                    <h2>Traffic Sources</h2>
+                </div>
+                <div id="trafficSources">
+                    <!-- Traffic sources will be generated here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Performance Metrics -->
+        <div class="performance-grid">
+            <!-- Engagement Metrics -->
+            <div class="performance-card">
+                <h3>
+                    <i class="fas fa-chart-line" style="color: #8E2DE2;"></i>
+                    Engagement Metrics
+                </h3>
+                <div class="metric-item">
+                    <span class="metric-label">Avg Time on Page</span>
+                    <span class="metric-value">3m 24s</span>
+                </div>
+                <div class="metric-item">
+                    <span class="metric-label">Bounce Rate</span>
+                    <span class="metric-value">42%</span>
+                </div>
+                <div class="metric-item">
+                    <span class="metric-label">Pages per Visit</span>
+                    <span class="metric-value">4.2</span>
+                </div>
+                <div class="metric-item">
+                    <span class="metric-label">Return Visitors</span>
+                    <span class="metric-value">38%</span>
+                </div>
+            </div>
+
+            <!-- Sales Performance -->
+            <div class="performance-card">
+                <h3>
+                    <i class="fas fa-trophy" style="color: #FF4B2B;"></i>
+                    Sales Performance
+                </h3>
+                <div class="metric-item">
+                    <div>
+                        <div class="metric-label">Sales Target</div>
+                        <div class="metric-value">Rs 45,000 / Rs 50,000</div>
+                    </div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 90%"></div>
+                </div>
+                <div class="metric-item" style="margin-top: 20px;">
+                    <span class="metric-label">Best Selling Day</span>
+                    <span class="metric-value">Saturday</span>
+                </div>
+                <div class="metric-item">
+                    <span class="metric-label">Avg Daily Sales</span>
+                    <span class="metric-value">Rs 1,500</span>
+                </div>
+            </div>
+
+            <!-- Customer Insights -->
+            <div class="performance-card">
+                <h3>
+                    <i class="fas fa-users" style="color: #667eea;"></i>
+                    Customer Insights
+                </h3>
+                <div class="metric-item">
+                    <span class="metric-label">New Customers</span>
+                    <span class="metric-value">234</span>
+                </div>
+                <div class="metric-item">
+                    <span class="metric-label">Repeat Customers</span>
+                    <span class="metric-value">89</span>
+                </div>
+                <div class="metric-item">
+                    <span class="metric-label">Customer Retention</span>
+                    <span class="metric-value">72%</span>
+                </div>
+                <div class="metric-item">
+                    <span class="metric-label">Avg Customer Value</span>
+                    <span class="metric-value">Rs 3,240</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Top Performing Artworks -->
+        <div class="top-artworks">
+            <div class="chart-header">
+                <h2>Top Performing Artworks</h2>
+            </div>
+            <div id="topArtworksList">
+                <!-- Top artworks will be generated here -->
+            </div>
+        </div>
+
+        <!-- Insights -->
+        <div class="insights-section">
+            <div class="chart-header">
+                <h2>AI-Powered Insights</h2>
+            </div>
+            <div id="insightsList">
+                <div class="insight-item">
+                    <div class="insight-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="insight-content">
+                        <h4>Peak Traffic Hours</h4>
+                        <p>Your store receives the most traffic between 2 PM - 6 PM. Consider scheduling new artwork releases during this time to maximize visibility.</p>
+                    </div>
+                </div>
+
+                <div class="insight-item">
+                    <div class="insight-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <div class="insight-content">
+                        <h4>Trending Category</h4>
+                        <p>Digital Art is trending up 45% this month. Your digital artwork pieces are performing exceptionally well with younger audiences.</p>
+                    </div>
+                </div>
+
+                <div class="insight-item">
+                    <div class="insight-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="insight-content">
+                        <h4>Pricing Opportunity</h4>
+                        <p>Artworks priced between Rs 2,000 - Rs 3,500 have the highest conversion rate. Consider adjusting your pricing strategy accordingly.</p>
+                    </div>
+                </div>
+
+                <div class="insight-item">
+                    <div class="insight-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="insight-content">
+                        <h4>Growth Momentum</h4>
+                        <p>Your follower count has increased by 23% this month. Keep engaging with your audience through regular posts and updates.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize analytics data
+        let currentPeriod = 30;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeCharts();
+            loadTopArtworks();
+            setupEventListeners();
+            animateStats();
+        });
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Time filter buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentPeriod = parseInt(btn.dataset.period);
+                    updateAnalytics();
+                });
+            });
+        }
+
+        // Initialize charts
+        function initializeCharts() {
+            createSalesChart();
+            createTrafficSources();
+        }
+
+        // Create sales chart
+        function createSalesChart() {
+            const chartContainer = document.getElementById('salesChart');
+            const data = [
+                { label: 'Mon', value: 45 },
+                { label: 'Tue', value: 62 },
+                { label: 'Wed', value: 38 },
+                { label: 'Thu', value: 71 },
+                { label: 'Fri', value: 85 },
+                { label: 'Sat', value: 92 },
+                { label: 'Sun', value: 58 }
+            ];
+
+            const maxValue = Math.max(...data.map(d => d.value));
+            
+            chartContainer.innerHTML = '';
+            data.forEach(item => {
+                const bar = document.createElement('div');
+                bar.className = 'chart-bar';
+                const height = (item.value / maxValue) * 100;
+                bar.style.height = `${height}%`;
+                
+                const label = document.createElement('div');
+                label.className = 'chart-bar-label';
+                label.textContent = item.label;
+                
+                const value = document.createElement('div');
+                value.className = 'chart-bar-value';
+                value.textContent = `${item.value}`;
+                
+                bar.appendChild(label);
+                bar.appendChild(value);
+                chartContainer.appendChild(bar);
+            });
+        }
+
+        // Create traffic sources
+        function createTrafficSources() {
+            const container = document.getElementById('trafficSources');
+            const sources = [
+                { name: 'Direct', percentage: 35, color: '#8E2DE2' },
+                { name: 'Social Media', percentage: 28, color: '#FF4B2B' },
+                { name: 'Search Engines', percentage: 22, color: '#667eea' },
+                { name: 'Referrals', percentage: 15, color: '#764ba2' }
+            ];
+
+            container.innerHTML = '';
+            sources.forEach(source => {
+                const item = document.createElement('div');
+                item.className = 'metric-item';
+                item.style.marginBottom = '15px';
+                
+                const content = document.createElement('div');
+                content.style.width = '100%';
+                
+                const header = document.createElement('div');
+                header.style.display = 'flex';
+                header.style.justifyContent = 'space-between';
+                header.style.marginBottom = '8px';
+                
+                const name = document.createElement('span');
+                name.className = 'metric-label';
+                name.textContent = source.name;
+                
+                const percentage = document.createElement('span');
+                percentage.className = 'metric-value';
+                percentage.textContent = `${source.percentage}%`;
+                
+                header.appendChild(name);
+                header.appendChild(percentage);
+                
+                const progressBar = document.createElement('div');
+                progressBar.className = 'progress-bar';
+                
+                const progressFill = document.createElement('div');
+                progressFill.className = 'progress-fill';
+                progressFill.style.width = '0%';
+                progressFill.style.background = source.color;
+                
+                setTimeout(() => {
+                    progressFill.style.width = `${source.percentage}%`;
+                }, 100);
+                
+                progressBar.appendChild(progressFill);
+                content.appendChild(header);
+                content.appendChild(progressBar);
+                item.appendChild(content);
+                container.appendChild(item);
+            });
+        }
+
+        // Load top artworks
+        function loadTopArtworks() {
+            const container = document.getElementById('topArtworksList');
+            const topArtworks = [
+                {
+                    rank: 1,
+                    name: 'Sunset Dreams',
+                    image: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=200&h=200&fit=crop',
+                    views: 1245,
+                    sales: 12,
+                    revenue: 24500
+                },
+                {
+                    rank: 2,
+                    name: 'Abstract Emotions',
+                    image: 'https://images.unsplash.com/photo-1536924940846-227afb31e2a5?w=200&h=200&fit=crop',
+                    views: 987,
+                    sales: 9,
+                    revenue: 18900
+                },
+                {
+                    rank: 3,
+                    name: 'Ocean Whispers',
+                    image: 'https://images.unsplash.com/photo-1549887534-1541e9326642?w=200&h=200&fit=crop',
+                    views: 856,
+                    sales: 8,
+                    revenue: 16800
+                },
+                {
+                    rank: 4,
+                    name: 'Urban Landscape',
+                    image: 'https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=200&h=200&fit=crop',
+                    views: 734,
+                    sales: 7,
+                    revenue: 14700
+                },
+                {
+                    rank: 5,
+                    name: 'Nature\'s Symphony',
+                    image: 'https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=200&h=200&fit=crop',
+                    views: 623,
+                    sales: 6,
+                    revenue: 12600
+                }
+            ];
+
+            container.innerHTML = '';
+            topArtworks.forEach(artwork => {
+                const item = document.createElement('div');
+                item.className = 'artwork-rank-item';
+                item.innerHTML = `
+                    <div class="rank-number">${artwork.rank}</div>
+                    <img src="${artwork.image}" alt="${artwork.name}" class="artwork-thumb">
+                    <div class="artwork-info">
+                        <div class="artwork-name">${artwork.name}</div>
+                        <div class="artwork-stats">
+                            <span><i class="fas fa-eye"></i> ${artwork.views} views</span>
+                            <span><i class="fas fa-shopping-cart"></i> ${artwork.sales} sales</span>
+                        </div>
+                    </div>
+                    <div class="artwork-revenue">Rs ${artwork.revenue.toLocaleString()}</div>
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        // Update analytics based on period
+        function updateAnalytics() {
+            // Simulate data changes based on period
+            const multiplier = currentPeriod / 30;
+            
+            // Update stats with animation
+            animateValue('totalViews', 12543, Math.floor(12543 * multiplier), 1000);
+            animateValue('totalLikes', 2847, Math.floor(2847 * multiplier), 1000);
+            
+            // Update conversion rate
+            const conversionRate = (3.2 * multiplier).toFixed(1);
+            document.getElementById('conversionRate').textContent = `${conversionRate}%`;
+            
+            // Update avg order value
+            const avgOrder = Math.floor(2450 * (1 + (multiplier - 1) * 0.5));
+            document.getElementById('avgOrderValue').textContent = `Rs ${avgOrder.toLocaleString()}`;
+            
+            // Recreate charts
+            createSalesChart();
+        }
+
+        // Animate value changes
+        function animateValue(id, start, end, duration) {
+            const element = document.getElementById(id);
+            const range = end - start;
+            const increment = range / (duration / 16);
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
+                    current = end;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current).toLocaleString();
+            }, 16);
+        }
+
+        // Animate stats on load
+        function animateStats() {
+            const statCards = document.querySelectorAll('.stat-card');
+            statCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        card.style.transition = 'all 0.5s ease';
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 50);
+                }, index * 100);
+            });
+        }
+
+        // Export chart function
+        function exportChart() {
+            alert('Export functionality - Download as PDF or CSV');
+        }
+
+        // Load user data
+        async function loadUser() {
+            try {
+                const res = await fetch("http://localhost:5000/home", {
+                    method: "GET",
+                    credentials: "include",
+                    headers: { "Accept": "application/json" }
+                });
+                const data = await res.json();
+
+                if (data.username) {
+                    const initial = data.username.charAt(0).toUpperCase();
+                    document.querySelector(".user-avatar").textContent = initial;
+                }
+            } catch (err) {
+                console.error("Error fetching user:", err);
+            }
+        }
+
+        // Initialize user data
+        loadUser();
+
+        // Notification button
+        document.querySelector('.notification-btn').addEventListener('click', () => {
+            alert('Notifications feature coming soon!');
+        });
+
+        // Add smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Update charts on window resize
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                createSalesChart();
+            }, 250);
+        });
+
+        // Add tooltips to chart bars
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('chart-bar')) {
+                const value = e.target.querySelector('.chart-bar-value').textContent;
+                const label = e.target.querySelector('.chart-bar-label').textContent;
+                alert(`${label}: ${value} sales`);
+            }
+        });
+
+        // Refresh data periodically (every 5 minutes)
+        setInterval(() => {
+            console.log('Refreshing analytics data...');
+            updateAnalytics();
+        }, 300000);
+
+        // Add keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            // Press 'E' to export
+            if (e.key === 'e' || e.key === 'E') {
+                if (!e.target.matches('input, textarea')) {
+                    exportChart();
+                }
+            }
+            
+            // Press 'R' to refresh
+            if (e.key === 'r' || e.key === 'R') {
+                if (!e.target.matches('input, textarea')) {
+                    e.preventDefault();
+                    updateAnalytics();
+                }
+            }
+        });
+
+        // Track page visibility
+        document.addEventListener('visibilitychange', () => {
+            if (!document.hidden) {
+                // Refresh data when user returns to tab
+                updateAnalytics();
+            }
+        });
+
+        // Print functionality
+        window.addEventListener('beforeprint', () => {
+            document.body.classList.add('printing');
+        });
+
+        window.addEventListener('afterprint', () => {
+            document.body.classList.remove('printing');
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all major sections
+        document.querySelectorAll('.chart-card, .performance-card, .top-artworks, .insights-section').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
