@@ -1,0 +1,1711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Abstract Art | Treasury of Flair</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { 
+      font-family:'Poppins',sans-serif; 
+      background:#f5f5f5; 
+      color:#333; 
+      overflow-x:hidden;
+    }
+
+    /* Navbar */
+    nav {
+      background:white;
+      padding:12px 20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      box-shadow:0 2px 10px rgba(0,0,0,0.1);
+      position:fixed;
+      top:0; left:0; right:0;
+      z-index:1000;
+      height:80px;
+    }
+
+    .logo-section {
+      display:flex;
+      align-items:center;
+      gap:15px;
+    }
+
+    .logo {
+      width:50px; height:50px;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-weight:700;
+      font-size:20px;
+    }
+
+    .logo-text h2 { 
+      font-size:20px; 
+      font-weight:600;
+      color:#333;
+      margin-bottom:2px; 
+    }
+    .logo-text p { 
+      font-size:12px; 
+      color:#666; 
+    }
+
+    .nav-links {
+      display:flex; 
+      gap:40px; 
+      align-items:center;
+    }
+
+    .nav-links a {
+      text-decoration:none;
+      color:#666;
+      font-weight:500;
+      padding:8px 16px;
+      border-radius:8px;
+      transition:all 0.3s ease;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color:#8E2DE2;
+      background:rgba(142,45,226,0.1);
+    }
+
+    /* Page Container */
+    .container {
+      max-width:1400px;
+      margin:100px auto 60px;
+      padding:40px;
+    }
+
+    .page-header {
+      text-align:center;
+      margin-bottom:30px;
+    }
+
+    .page-header h1 {
+      font-size:2.5rem;
+      font-weight:600;
+      color:#333;
+      margin-bottom:15px;
+    }
+
+    .page-header p {
+      color:#666;
+      font-size:1.1rem;
+      max-width:700px;
+      margin:0 auto;
+      line-height:1.6;
+    }
+
+    /* Search and Filter Section */
+    .search-filter-section {
+      background:white;
+      padding:25px;
+      border-radius:20px;
+      box-shadow:0 5px 20px rgba(0,0,0,0.1);
+      margin-bottom:30px;
+    }
+
+    .search-bar-container {
+      display:flex;
+      gap:15px;
+      margin-bottom:20px;
+      align-items:center;
+    }
+
+    .search-input-wrapper {
+      position:relative;
+      flex:1;
+    }
+
+    .search-input-wrapper i {
+      position:absolute;
+      left:20px;
+      top:50%;
+      transform:translateY(-50%);
+      color:#666;
+      font-size:16px;
+    }
+
+    .search-input-wrapper input {
+      width:100%;
+      padding:15px 20px 15px 50px;
+      border:2px solid #e0e0e0;
+      border-radius:30px;
+      font-size:15px;
+      outline:none;
+      transition:all 0.3s ease;
+      font-family:'Poppins',sans-serif;
+    }
+
+    .search-input-wrapper input:focus {
+      border-color:#8E2DE2;
+      box-shadow:0 0 0 3px rgba(142,45,226,0.1);
+    }
+
+    .search-button {
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      color:white;
+      border:none;
+      padding:15px 40px;
+      border-radius:30px;
+      font-weight:500;
+      cursor:pointer;
+      transition:all 0.3s ease;
+      font-size:15px;
+      white-space:nowrap;
+    }
+
+    .search-button:hover {
+      transform:translateY(-2px);
+      box-shadow:0 5px 15px rgba(142,45,226,0.3);
+    }
+
+    .filters-row {
+      display:flex;
+      gap:20px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .filter-group {
+      display:flex;
+      align-items:center;
+      gap:15px;
+    }
+
+    .filter-label {
+      font-weight:500;
+      color:#333;
+      font-size:15px;
+      white-space:nowrap;
+    }
+
+    .filter-select {
+      padding:12px 40px 12px 20px;
+      border:2px solid #e0e0e0;
+      border-radius:25px;
+      font-size:14px;
+      outline:none;
+      cursor:pointer;
+      background:white;
+      font-family:'Poppins',sans-serif;
+      font-weight:500;
+      color:#333;
+      transition:all 0.3s ease;
+      appearance:none;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+      background-repeat:no-repeat;
+      background-position:right 15px center;
+      min-width:180px;
+    }
+
+    .filter-select:hover {
+      border-color:#8E2DE2;
+    }
+
+    .filter-select:focus {
+      border-color:#8E2DE2;
+      box-shadow:0 0 0 3px rgba(142,45,226,0.1);
+    }
+
+    .view-toggle {
+      margin-left:auto;
+      display:flex;
+      gap:10px;
+    }
+
+    .view-btn {
+      width:45px;
+      height:45px;
+      border:2px solid #e0e0e0;
+      border-radius:12px;
+      background:white;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#666;
+      transition:all 0.3s ease;
+      font-size:18px;
+    }
+
+    .view-btn:hover, .view-btn.active {
+      border-color:#8E2DE2;
+      color:#8E2DE2;
+      background:rgba(142,45,226,0.05);
+    }
+
+    /* Art Grid */
+    .art-grid {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap:25px;
+      transition:all 0.3s ease;
+    }
+
+    .art-card {
+      background:white;
+      border-radius:20px;
+      box-shadow:0 5px 20px rgba(0,0,0,0.1);
+      overflow:hidden;
+      transition:all 0.3s ease;
+      display:flex;
+      flex-direction:column;
+      position:relative;
+    }
+
+    .art-card::before {
+      content:'';
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      height:4px;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      transform:scaleX(0);
+      transition:transform 0.3s ease;
+    }
+
+    .art-card:hover {
+      transform:translateY(-5px);
+      box-shadow:0 15px 35px rgba(0,0,0,0.15);
+    }
+
+    .art-card:hover::before {
+      transform:scaleX(1);
+    }
+
+    .art-image {
+      width:100%;
+      height:250px;
+      overflow:hidden;
+      background:#e5e7eb;
+    }
+
+    .art-image img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform 0.4s ease;
+      display:block;
+    }
+
+    .art-card:hover .art-image img {
+      transform:scale(1.08);
+    }
+
+    .art-content {
+      padding:25px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      flex:1;
+    }
+
+    .art-title {
+      font-size:1.15rem;
+      font-weight:600;
+      color:#333;
+      margin-bottom:8px;
+    }
+
+    .artist-name {
+      color:#8E2DE2;
+      font-weight:500;
+      margin-bottom:12px;
+      font-size:0.95rem;
+    }
+
+    .art-desc {
+      color:#666;
+      font-size:0.9rem;
+      line-height:1.6;
+      flex-grow:1;
+      margin-bottom:15px;
+    }
+
+    .price {
+      font-weight:600;
+      color:#333;
+      font-size:1.2rem;
+      margin-bottom:15px;
+    }
+
+    .buy-btn {
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      border:none;
+      color:white;
+      padding:12px 20px;
+      border-radius:10px;
+      font-weight:500;
+      cursor:pointer;
+      width:100%;
+      transition:all 0.3s ease;
+      font-size:0.95rem;
+    }
+
+    .buy-btn:hover { 
+      transform:translateY(-1px);
+      box-shadow:0 5px 15px rgba(142,45,226,0.3);
+    }
+
+    /* Details Modal */
+    .modal-overlay {
+      display:none;
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+      background:rgba(0,0,0,0.7);
+      z-index:2000;
+      align-items:center;
+      justify-content:center;
+      backdrop-filter:blur(5px);
+      animation:fadeIn 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      display:flex;
+    }
+
+    @keyframes fadeIn {
+      from { opacity:0; }
+      to { opacity:1; }
+    }
+
+    .modal-container {
+      background:white;
+      border-radius:25px;
+      width:90%;
+      max-width:1000px;
+      max-height:90vh;
+      overflow-y:auto;
+      box-shadow:0 20px 60px rgba(0,0,0,0.3);
+      animation:slideUp 0.4s ease;
+    }
+
+    @keyframes slideUp {
+      from {
+        transform:translateY(50px);
+        opacity:0;
+      }
+      to {
+        transform:translateY(0);
+        opacity:1;
+      }
+    }
+
+    .modal-header {
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      padding:30px 40px;
+      border-radius:25px 25px 0 0;
+      color:white;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .modal-title {
+      font-size:28px;
+      font-weight:600;
+    }
+
+    .modal-close {
+      background:rgba(255,255,255,0.2);
+      border:none;
+      width:40px;
+      height:40px;
+      border-radius:50%;
+      color:white;
+      font-size:24px;
+      cursor:pointer;
+      transition:all 0.3s ease;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .modal-close:hover {
+      background:rgba(255,255,255,0.3);
+      transform:rotate(90deg);
+    }
+
+    .modal-body {
+      padding:40px;
+    }
+
+    .details-grid {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:40px;
+      margin-bottom:40px;
+    }
+
+    .details-image-section {
+      position:relative;
+    }
+
+    .details-main-image {
+      width:100%;
+      height:450px;
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:0 10px 30px rgba(0,0,0,0.15);
+      margin-bottom:15px;
+    }
+
+    .details-main-image img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform 0.3s ease;
+    }
+
+    .details-main-image:hover img {
+      transform:scale(1.05);
+    }
+
+    .image-badge {
+      position:absolute;
+      top:20px;
+      right:20px;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      color:white;
+      padding:8px 20px;
+      border-radius:20px;
+      font-weight:600;
+      font-size:14px;
+      box-shadow:0 5px 15px rgba(142,45,226,0.4);
+    }
+
+    .details-info-section {
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    .details-title {
+      font-size:32px;
+      font-weight:700;
+      color:#333;
+      margin-bottom:10px;
+    }
+
+    .details-artist {
+      font-size:18px;
+      color:#8E2DE2;
+      font-weight:600;
+      margin-bottom:20px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .artist-avatar {
+      width:40px;
+      height:40px;
+      border-radius:50%;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-weight:600;
+    }
+
+    .details-price {
+      font-size:40px;
+      font-weight:700;
+      color:#333;
+      margin-bottom:20px;
+    }
+
+    .details-rating {
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:20px;
+    }
+
+    .stars {
+      color:#FFB800;
+      font-size:20px;
+    }
+
+    .rating-text {
+      color:#666;
+      font-size:14px;
+    }
+
+    .details-description {
+      color:#666;
+      line-height:1.8;
+      margin-bottom:25px;
+      font-size:15px;
+    }
+
+    .details-specs {
+      background:#f9f9f9;
+      padding:25px;
+      border-radius:15px;
+      margin-bottom:25px;
+    }
+
+    .spec-row {
+      display:flex;
+      justify-content:space-between;
+      padding:12px 0;
+      border-bottom:1px solid #e0e0e0;
+    }
+
+    .spec-row:last-child {
+      border-bottom:none;
+    }
+
+    .spec-label {
+      font-weight:600;
+      color:#333;
+    }
+
+    .spec-value {
+      color:#666;
+    }
+
+    .quantity-selector {
+      display:flex;
+      align-items:center;
+      gap:15px;
+      margin-bottom:25px;
+    }
+
+    .quantity-label {
+      font-weight:600;
+      color:#333;
+    }
+
+    .quantity-controls {
+      display:flex;
+      align-items:center;
+      gap:15px;
+      background:#f9f9f9;
+      padding:10px 20px;
+      border-radius:12px;
+    }
+
+    .quantity-btn {
+      width:35px;
+      height:35px;
+      border:none;
+      background:white;
+      border-radius:8px;
+      cursor:pointer;
+      font-size:18px;
+      font-weight:600;
+      color:#8E2DE2;
+      transition:all 0.3s ease;
+      box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .quantity-btn:hover {
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      color:white;
+      transform:scale(1.1);
+    }
+
+    .quantity-value {
+      font-size:18px;
+      font-weight:600;
+      min-width:40px;
+      text-align:center;
+    }
+
+    .action-buttons {
+      display:flex;
+      gap:15px;
+    }
+
+    .btn-add-cart {
+      flex:1;
+      background:white;
+      color:#8E2DE2;
+      border:2px solid #8E2DE2;
+      padding:16px 30px;
+      border-radius:12px;
+      font-weight:600;
+      font-size:16px;
+      cursor:pointer;
+      transition:all 0.3s ease;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+    }
+
+    .btn-add-cart:hover {
+      background:#8E2DE2;
+      color:white;
+      transform:translateY(-2px);
+      box-shadow:0 5px 15px rgba(142,45,226,0.3);
+    }
+
+    .btn-buy-now {
+      flex:1;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      color:white;
+      border:none;
+      padding:16px 30px;
+      border-radius:12px;
+      font-weight:600;
+      font-size:16px;
+      cursor:pointer;
+      transition:all 0.3s ease;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+    }
+
+    .btn-buy-now:hover {
+      transform:translateY(-2px);
+      box-shadow:0 8px 25px rgba(142,45,226,0.4);
+    }
+
+    .details-tabs {
+      border-top:2px solid #f0f0f0;
+      padding-top:30px;
+    }
+
+    .tabs-nav-details {
+      display:flex;
+      gap:30px;
+      margin-bottom:30px;
+      border-bottom:2px solid #f0f0f0;
+    }
+
+    .tab-btn-detail {
+      background:none;
+      border:none;
+      padding:15px 25px;
+      font-size:16px;
+      font-weight:600;
+      color:#666;
+      cursor:pointer;
+      position:relative;
+      transition:all 0.3s ease;
+    }
+
+    .tab-btn-detail:hover {
+      color:#8E2DE2;
+    }
+
+    .tab-btn-detail.active {
+      color:#8E2DE2;
+    }
+
+    .tab-btn-detail.active::after {
+      content:'';
+      position:absolute;
+      bottom:-2px;
+      left:0;
+      right:0;
+      height:3px;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      border-radius:3px;
+    }
+
+    .tab-content-detail {
+      display:none;
+    }
+
+    .tab-content-detail.active {
+      display:block;
+      animation:fadeIn 0.3s ease;
+    }
+
+    .reviews-section {
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    .review-card {
+      background:#f9f9f9;
+      padding:20px;
+      border-radius:15px;
+      border-left:4px solid #8E2DE2;
+    }
+
+    .review-header {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:12px;
+    }
+
+    .reviewer-name {
+      font-weight:600;
+      color:#333;
+    }
+
+    .review-stars {
+      color:#FFB800;
+    }
+
+    .review-text {
+      color:#666;
+      line-height:1.6;
+    }
+
+    .shipping-info {
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    .shipping-item {
+      display:flex;
+      align-items:flex-start;
+      gap:15px;
+      padding:20px;
+      background:#f9f9f9;
+      border-radius:12px;
+    }
+
+    .shipping-icon {
+      width:50px;
+      height:50px;
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-size:24px;
+      flex-shrink:0;
+    }
+
+    .shipping-content h4 {
+      font-weight:600;
+      color:#333;
+      margin-bottom:8px;
+    }
+
+    .shipping-content p {
+      color:#666;
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    /* Animation */
+    @keyframes slideInUp {
+      from {
+        opacity:0;
+        transform:translateY(30px);
+      }
+      to {
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .art-card {
+      animation:slideInUp 0.6s ease-out forwards;
+    }
+
+    /* Responsive */
+    @media (max-width:1024px) {
+      .container { 
+        padding:30px; 
+      }
+      .filters-row {
+        gap:15px;
+      }
+      .filter-select {
+        min-width:150px;
+      }
+      .details-grid {
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width:768px) {
+      .page-header h1 { 
+        font-size:2rem; 
+      }
+      .container { 
+        padding:20px; 
+        margin-top:100px;
+      }
+      .nav-links {
+        gap:20px;
+      }
+      .nav-links a {
+        padding:6px 12px;
+        font-size:0.9rem;
+      }
+      .search-bar-container {
+        flex-direction:column;
+      }
+      .search-button {
+        width:100%;
+      }
+      .filters-row {
+        flex-direction:column;
+        align-items:stretch;
+      }
+      .filter-group {
+        flex-direction:column;
+        align-items:stretch;
+        gap:10px;
+      }
+      .view-toggle {
+        margin-left:0;
+        justify-content:center;
+      }
+      .search-filter-section {
+        padding:20px;
+      }
+      .modal-body {
+        padding:20px;
+      }
+      .details-title {
+        font-size:24px;
+      }
+      .details-price {
+        font-size:32px;
+      }
+      .action-buttons {
+        flex-direction:column;
+      }
+      .tabs-nav-details {
+        gap:15px;
+        overflow-x:auto;
+      }
+      .details-main-image {
+        height:300px;
+      }
+    }
+
+    @media (max-width:480px) {
+      .art-grid { 
+        grid-template-columns:1fr; 
+      }
+      .art-image { 
+        height:200px; 
+      }
+      .page-header h1 {
+        font-size:1.75rem;
+      }
+      .page-header p {
+        font-size:1rem;
+      }
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width:8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background:#f1f1f1;
+      border-radius:10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background:linear-gradient(135deg,#8E2DE2,#FF4B2B);
+      border-radius:10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background:linear-gradient(135deg,#7A28C7,#E63E1B);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo-section">
+      <div class="logo">TF</div>
+      <div class="logo-text">
+        <h2>Treasury of Flair</h2>
+        <p>Marketplace for artists</p>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="home.html">Home</a>
+      <a href="categories_page.html" class="active">Categories</a>
+      <a href="reels.html">Reels</a>
+      <a href="MyOrders.html">My Orders</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="page-header">
+      <h1>Abstract Art Collection</h1>
+      <p>Explore bold expressions of emotion, color, and form - contemporary abstract paintings that challenge perception and ignite imagination.</p>
+    </div>
+
+    <!-- Search and Filter Section -->
+    <div class="search-filter-section">
+      <div class="search-bar-container">
+        <div class="search-input-wrapper">
+          <i class="fas fa-search"></i>
+          <input type="text" id="searchInput" placeholder="Search abstract art, artists, or styles...">
+        </div>
+        <button class="search-button" id="searchBtn">Search</button>
+      </div>
+
+      <div class="filters-row">
+        <div class="filter-group">
+          <span class="filter-label">Sort by:</span>
+          <select class="filter-select" id="sortSelect">
+            <option value="popular">Most Popular</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="newest">Newest First</option>
+            <option value="artist">Artist Name</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <span class="filter-label">Price Range:</span>
+          <select class="filter-select" id="priceSelect">
+            <option value="all">All Prices</option>
+            <option value="0-15000">Under ₹15,000</option>
+            <option value="15000-30000">₹15,000 - ₹30,000</option>
+            <option value="30000-50000">₹30,000 - ₹50,000</option>
+            <option value="50000+">Above ₹50,000</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <span class="filter-label">Style:</span>
+          <select class="filter-select" id="typeSelect">
+            <option value="all">All Styles</option>
+            <option value="geometric">Geometric</option>
+            <option value="expressionist">Expressionist</option>
+            <option value="minimalist">Minimalist</option>
+            <option value="colorfield">Color Field</option>
+          </select>
+        </div>
+
+        <div class="view-toggle">
+          <button class="view-btn active" id="gridViewBtn" title="Grid View">
+            <i class="fas fa-th"></i>
+          </button>
+          <button class="view-btn" id="listViewBtn" title="List View">
+            <i class="fas fa-list"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="art-grid">
+      <!-- Card 1 -->
+      <div class="art-card"
+           data-title="Crimson Dreams"
+           data-artist="Alexandra Rivera"
+           data-price="28500"
+           data-desc="Bold expressionist piece with vibrant reds and deep blacks creating emotional depth."
+           data-full-desc="This powerful expressionist painting captures raw emotion through bold brushstrokes and a striking color palette. Layers of crimson, scarlet, and deep black create a sense of passion and intensity. The textured surface adds dimension, inviting viewers to explore the complex interplay between light and shadow. Perfect for collectors seeking artwork that makes a bold statement."
+           data-dimensions="90cm x 120cm"
+           data-medium="Acrylic on Canvas"
+           data-year="2024"
+           data-style="Abstract Expressionism"
+           data-image="Images/Crimson Dreams.jpeg">
+        <div class="art-image"><img src="Images/Crimson Dreams.jpeg" alt="Abstract painting"></div>
+        <div class="art-content">
+          <div class="art-title">Crimson Dreams</div>
+          <div class="artist-name">By Alexandra Rivera</div>
+          <div class="art-desc">Bold expressionist piece with vibrant reds and deep blacks creating emotional depth.</div>
+          <div class="price">₹28,500</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="art-card"
+           data-title="Geometric Harmony"
+           data-artist="Marcus Chen"
+           data-price="32000"
+           data-desc="Contemporary geometric abstraction with clean lines and balanced composition."
+           data-full-desc="A stunning example of geometric abstraction that explores the relationship between form, color, and space. This meticulously crafted piece features precise shapes and a sophisticated color palette of blues, oranges, and neutrals. The balanced composition creates visual harmony while maintaining dynamic energy. Ideal for modern interiors and collectors of contemporary geometric art."
+           data-dimensions="100cm x 100cm"
+           data-medium="Acrylic on Canvas"
+           data-year="2024"
+           data-style="Geometric Abstraction"
+           data-image="Images/Geometric Harmony.jpeg">
+        <div class="art-image"><img src="Images/Geometric Harmony.jpeg" alt="Abstract painting"></div>
+        <div class="art-content">
+          <div class="art-title">Geometric Harmony</div>
+          <div class="artist-name">By Marcus Chen</div>
+          <div class="art-desc">Contemporary geometric abstraction with clean lines and balanced composition.</div>
+          <div class="price">₹32,000</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="art-card"
+           data-title="Ocean Depths"
+           data-artist="Sofia Andersson"
+           data-price="45000"
+           data-desc="Mesmerizing blue abstract with fluid movements reminiscent of deep ocean currents."
+           data-full-desc="Dive into the depths with this captivating abstract piece that channels the mysterious beauty of the ocean. Multiple layers of blue tones—from cerulean to navy—create depth and movement. The fluid technique mimics water's natural flow, while gold accents suggest sunlight piercing through waves. This large-scale painting brings tranquility and sophistication to any space."
+           data-dimensions="120cm x 150cm"
+           data-medium="Mixed Media on Canvas"
+           data-year="2024"
+           data-style="Fluid Abstract"
+           data-image="Images/Ocean Depths.jpeg">
+        <div class="art-image"><img src="Images/Ocean Depths.jpeg" alt="Abstract painting"></div>
+        <div class="art-content">
+          <div class="art-title">Ocean Depths</div>
+          <div class="artist-name">By Sofia Andersson</div>
+          <div class="art-desc">Mesmerizing blue abstract with fluid movements reminiscent of deep ocean currents.</div>
+          <div class="price">₹45,000</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="art-card"
+           data-title="Sunset Whispers"
+           data-artist="James Patterson"
+           data-price="38500"
+           data-desc="Warm color field painting with gradients of orange, pink, and gold."
+           data-full-desc="This beautiful color field painting evokes the peaceful moments of sunset. Soft transitions between warm hues create a meditative quality, with colors seeming to glow from within. The subtle texture and layering technique add complexity to the seemingly simple composition. A perfect piece for creating calm, contemplative spaces in homes or offices."
+           data-dimensions="90cm x 120cm"
+           data-medium="Oil on Canvas"
+           data-year="2024"
+           data-style="Color Field"
+           data-image="Images/Sunset Whispers.jpeg">
+        <div class="art-image"><img src="Images/Sunset Whispers.jpeg" alt="Abstract painting"></div>
+        <div class="art-content">
+          <div class="art-title">Sunset Whispers</div>
+          <div class="artist-name">By James Patterson</div>
+          <div class="art-desc">Warm color field painting with gradients of orange, pink, and gold.</div>
+          <div class="price">₹38,500</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="art-card"
+           data-title="Urban Chaos"
+           data-artist="Nina Kowalski"
+           data-price="52000"
+           data-desc="Dynamic mixed-media piece capturing the energy and complexity of city life."
+           data-full-desc="An electrifying representation of urban energy, this mixed-media masterpiece combines paint, collage, and texture to create a multi-layered exploration of city life. Vibrant colors clash and harmonize, mimicking the constant motion and sensory overload of metropolitan existence. The complex composition rewards extended viewing, revealing new details with each look."
+           data-dimensions="120cm x 120cm"
+           data-medium="Mixed Media on Canvas"
+           data-year="2024"
+           data-style="Contemporary Abstract"
+           data-image="Images/Urban Chaos.jpeg">
+        <div class="art-image"><img src="Images/Urban Chaos.jpeg" alt="Abstract painting"></div>
+        <div class="art-content">
+          <div class="art-title">Urban Chaos</div>
+          <div class="artist-name">By Nina Kowalski</div>
+          <div class="art-desc">Dynamic mixed-media piece capturing the energy and complexity of city life.</div>
+          <div class="price">₹52,000</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="art-card"
+           data-title="Minimalist Zen"
+           data-artist="Kenji Yoshida"
+           data-price="24000"
+           data-desc="Serene minimalist composition with neutral tones and subtle texture."
+           data-full-desc="Embodying the principles of minimalism and Zen philosophy, this elegant piece finds beauty in simplicity. Neutral tones of cream, taupe, and soft gray create a peaceful atmosphere. The minimal composition features carefully placed elements that balance negative space with subtle texture. Ideal for modern spaces seeking tranquility and sophistication."
+           data-dimensions="80cm x 100cm"
+           data-medium="Acrylic on Canvas"
+           data-year="2024"
+           data-style="Minimalist Abstract"
+           data-image="Images/Minimalist Zen.jpeg">
+        <div class="art-image"><img src="Images/Minimalist Zen.jpeg" alt="Abstract painting"></div>
+        <div class="art-content">
+          <div class="art-title">Minimalist Zen</div>
+          <div class="artist-name">By Kenji Yoshida</div>
+          <div class="art-desc">Serene minimalist composition with neutral tones and subtle texture.</div>
+          <div class="price">₹24,000</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="art-card"
+           data-title="Cosmic Energy"
+           data-artist="Isabella Romano"
+           data-price="48000"
+           data-desc="Explosive abstract with swirling colors suggesting cosmic forces and stellar phenomena."
+           data-full-desc="This breathtaking piece captures the awe-inspiring energy of the cosmos. Swirling masses of purples, blues, and fiery oranges create a sense of motion and power. The layered technique with metallics adds dimension and catches light beautifully. Whether suggesting nebulae, galaxies, or pure energy, this artwork sparks imagination and wonder."
+           data-dimensions="100cm x 140cm"
+           data-medium="Acrylic and Gold Leaf on Canvas"
+           data-year="2024"
+           data-style="Cosmic Abstract"
+           data-image="Images/Cosmic Energy.jpeg">
+        <div class="art-image"><img src="Images/Cosmic Energy.jpeg" alt="Abstract painting"></div>
+        <div class="art-content">
+          <div class="art-title">Cosmic Energy</div>
+          <div class="artist-name">By Isabella Romano</div>
+          <div class="art-desc">Explosive abstract with swirling colors suggesting cosmic forces and stellar phenomena.</div>
+          <div class="price">₹48,000</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="art-card"
+           data-title="Forest Whispers"
+           data-artist="Emma Larsson"
+           data-price="35000"
+           data-desc="Organic abstract with earthy greens and browns evoking natural landscapes."
+           data-full-desc="Nature inspires this organic abstract composition that suggests forest depths and natural textures. Rich greens intermingle with warm browns and touches of gold, creating an earthy palette that brings the outdoors in. The layered application and varied textures evoke moss, bark, and dappled sunlight through leaves. A grounding piece for biophilic design enthusiasts."
+           data-dimensions="90cm x 120cm"
+           data-medium="Mixed Media on Canvas"
+           data-year="2024"
+           data-style="Organic Abstract"
+           data-image="Images/Forest Whispers.jpeg">
+        <div class="art-image"><img src="Images/Forest Whispers.jpeg" alt="Abstract painting"></div>
+        <div class="art-content">
+          <div class="art-title">Forest Whispers</div>
+          <div class="artist-name">By Emma Larsson</div>
+          <div class="art-desc">Organic abstract with earthy greens and browns evoking natural landscapes.</div>
+          <div class="price">₹35,000</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 9 -->
+      <div class="art-card"
+           data-title="Electric Dreams"
+           data-artist="David Kim"
+           data-price="42000"
+           data-desc="High-energy abstract with neon colors and dynamic gestural marks."
+           data-full-desc="This electrifying piece pulses with energy through bold neon colors and dynamic brushwork. Inspired by urban nightlife and digital aesthetics, it features striking contrasts of hot pink, electric blue, and acid yellow against deep blacks. The spontaneous gestural marks create movement and excitement, making it a perfect statement piece for contemporary spaces."
+           data-dimensions="100cm x 120cm"
+           data-medium="Acrylic on Canvas"
+           data-year="2024"
+           data-style="Neo-Expressionism"
+           data-image="Images/Electric Dreams.jpeg">
+        <div class="art-image"><img src="Images/Electric Dreams.jpeg" alt="Abstract painting"></div>
+        <div class="art-content">
+          <div class="art-title">Electric Dreams</div>
+          <div class="artist-name">By David Kim</div>
+          <div class="art-desc">High-energy abstract with neon colors and dynamic gestural marks.</div>
+          <div class="price">₹42,000</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+
+      <!-- Card 10 -->
+      <div class="art-card"
+           data-title="Monochrome Symphony"
+           data-artist="Thomas Mueller"
+           data-price="29000"
+           data-desc="Sophisticated black and white abstract exploring contrast and texture."
+           data-full-desc="This timeless piece proves that color isn't necessary for powerful impact. Working exclusively in black, white, and grays, this abstract explores the full range of tonal values and textural possibilities. Bold marks and delicate details coexist in a carefully balanced composition. The monochromatic palette ensures it complements any color scheme while making a strong artistic statement."
+           data-dimensions="90cm x 90cm"
+           data-medium="Acrylic on Canvas"
+           data-year="2024"
+           data-style="Monochrome Abstract"
+           data-image="Images/Monochrome Symphony.jpeg">
+        <div class="art-image"><img src="Images/Monochrome Symphony.jpeg" alt="Abstract painting"></div>
+        <div class="art-content">
+          <div class="art-title">Monochrome Symphony</div>
+          <div class="artist-name">By Thomas Mueller</div>
+          <div class="art-desc">Sophisticated black and white abstract exploring contrast and texture.</div>
+          <div class="price">₹29,000</div>
+          <button class="buy-btn">View Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Details Modal -->
+  <div class="modal-overlay" id="detailsModal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modalTitle">Artwork Details</h2>
+        <button class="modal-close" onclick="closeDetailsModal()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="details-grid">
+          <!-- Image Section -->
+          <div class="details-image-section">
+            <div class="details-main-image">
+              <img src="" alt="Abstract Art" id="detailsImage">
+            </div>
+            <div class="image-badge" id="statusBadge">Original Artwork</div>
+          </div>
+
+          <!-- Info Section -->
+          <div class="details-info-section">
+            <h1 class="details-title" id="detailsTitle">Art Title</h1>
+            
+            <div class="details-artist">
+              <div class="artist-avatar" id="artistAvatar">A</div>
+              <span id="detailsArtist">Artist Name</span>
+            </div>
+
+            <div class="details-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="rating-text">(4.9/5 from 203 reviews)</span>
+            </div>
+
+            <div class="details-price" id="detailsPrice">₹28,500</div>
+
+            <p class="details-description" id="detailsDescription">
+              Full description of the artwork goes here...
+            </p>
+
+            <div class="details-specs">
+              <div class="spec-row">
+                <span class="spec-label">Dimensions:</span>
+                <span class="spec-value" id="specDimensions">90cm x 120cm</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Medium:</span>
+                <span class="spec-value" id="specMedium">Acrylic on Canvas</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Year:</span>
+                <span class="spec-value" id="specYear">2024</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Style:</span>
+                <span class="spec-value" id="specStyle">Abstract</span>
+              </div>
+            </div>
+
+            <div class="quantity-selector">
+              <span class="quantity-label">Quantity:</span>
+              <div class="quantity-controls">
+                <button class="quantity-btn" onclick="decreaseQuantity()">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <span class="quantity-value" id="quantityValue">1</span>
+                <button class="quantity-btn" onclick="increaseQuantity()">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="action-buttons">
+              <button class="btn-add-cart" onclick="addToCart()">
+                <i class="fas fa-shopping-cart"></i>
+                Add to Cart
+              </button>
+              <button class="btn-buy-now" onclick="buyNow()">
+                <i class="fas fa-bolt"></i>
+                Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tabs Section -->
+        <div class="details-tabs">
+          <div class="tabs-nav-details">
+            <button class="tab-btn-detail active" onclick="switchDetailTab('description')">
+              <i class="fas fa-info-circle"></i> Description
+            </button>
+            <button class="tab-btn-detail" onclick="switchDetailTab('reviews')">
+              <i class="fas fa-star"></i> Reviews
+            </button>
+            <button class="tab-btn-detail" onclick="switchDetailTab('shipping')">
+              <i class="fas fa-truck"></i> Shipping & Care
+            </button>
+          </div>
+
+          <div class="tab-content-detail active" id="tab-description">
+            <p style="color:#666;line-height:1.8;" id="fullDescription">
+              Full artwork description will appear here...
+            </p>
+          </div>
+
+          <div class="tab-content-detail" id="tab-reviews">
+            <div class="reviews-section">
+              <div class="review-card">
+                <div class="review-header">
+                  <span class="reviewer-name">Michael Stevens</span>
+                  <span class="review-stars">★★★★★</span>
+                </div>
+                <p class="review-text">
+                  Absolutely stunning piece! The colors are even more vibrant in person, and the texture adds so much depth. It's become the focal point of our living room. The artist's technique is masterful. Highly recommend!
+                </p>
+              </div>
+
+              <div class="review-card">
+                <div class="review-header">
+                  <span class="reviewer-name">Rachel Thompson</span>
+                  <span class="review-stars">★★★★★</span>
+                </div>
+                <p class="review-text">
+                  This artwork exceeded all my expectations. The quality is exceptional, and it arrived perfectly packaged. I love how it transforms the energy of the room. Worth every penny for such a unique piece.
+                </p>
+              </div>
+
+              <div class="review-card">
+                <div class="review-header">
+                  <span class="reviewer-name">Carlos Martinez</span>
+                  <span class="review-stars">★★★★★</span>
+                </div>
+                <p class="review-text">
+                  Incredible abstract work! The composition is dynamic yet balanced. I appreciate the artist's bold use of color and texture. It sparks conversation every time someone visits. A true investment piece.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-content-detail" id="tab-shipping">
+            <div class="shipping-info">
+              <div class="shipping-item">
+                <div class="shipping-icon">
+                  <i class="fas fa-paint-brush"></i>
+                </div>
+                <div class="shipping-content">
+                  <h4>Artwork Care</h4>
+                  <p>Keep artwork away from direct sunlight to prevent fading. Dust gently with a soft, dry cloth. Avoid hanging in areas with high humidity or temperature fluctuations. For deep cleaning, consult a professional art conservator.</p>
+                </div>
+              </div>
+
+              <div class="shipping-item">
+                <div class="shipping-icon">
+                  <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="shipping-content">
+                  <h4>Certificate of Authenticity</h4>
+                  <p>Each original artwork comes with a signed certificate of authenticity from the artist, including details about the work, creation date, and provenance. This document ensures the value and authenticity of your investment.</p>
+                </div>
+              </div>
+
+              <div class="shipping-item">
+                <div class="shipping-icon">
+                  <i class="fas fa-box-open"></i>
+                </div>
+                <div class="shipping-content">
+                  <h4>Packaging & Handling</h4>
+                  <p>Artwork is professionally packed with protective corners, wrapped in acid-free paper, and cushioned with bubble wrap. Framed pieces include additional corner protection. We ensure your artwork arrives in perfect condition.</p>
+                </div>
+              </div>
+
+              <div class="shipping-item">
+                <div class="shipping-icon">
+                  <i class="fas fa-truck"></i>
+                </div>
+                <div class="shipping-content">
+                  <h4>Shipping Information</h4>
+                  <p>Free shipping on all orders within India. Delivery typically takes 7-10 business days. Express shipping available for an additional fee. Full tracking information provided. Insurance included for all shipments.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentQuantity = 1;
+    let currentProductData = {};
+
+    // Animate cards on load
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.art-card');
+      cards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        
+        setTimeout(() => {
+          card.style.transition = 'all 0.6s ease-out';
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, index * 100);
+      });
+
+      // Add click event to all View Details buttons
+      const buyButtons = document.querySelectorAll('.buy-btn');
+      buyButtons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const card = this.closest('.art-card');
+          openDetailsModal(card);
+        });
+      });
+    });
+
+    // Open details modal
+    function openDetailsModal(card) {
+      const modal = document.getElementById('detailsModal');
+      
+      // Get data from card and store it
+      const title = card.dataset.title;
+      const artist = card.dataset.artist;
+      const price = card.dataset.price;
+      const desc = card.dataset.desc;
+      const fullDesc = card.dataset.fullDesc;
+      const dimensions = card.dataset.dimensions;
+      const medium = card.dataset.medium;
+      const year = card.dataset.year;
+      const style = card.dataset.style;
+      const image = card.dataset.image;
+
+      // Store current product data
+      currentProductData = {
+        title: title,
+        artist: artist,
+        price: price,
+        image: image,
+        quantity: 1
+      };
+
+      // Populate modal
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('detailsTitle').textContent = title;
+      document.getElementById('detailsArtist').textContent = 'By ' + artist;
+      document.getElementById('detailsPrice').textContent = '₹' + parseInt(price).toLocaleString('en-IN');
+      document.getElementById('detailsDescription').textContent = desc;
+      document.getElementById('fullDescription').textContent = fullDesc;
+      document.getElementById('detailsImage').src = image;
+      document.getElementById('specDimensions').textContent = dimensions;
+      document.getElementById('specMedium').textContent = medium;
+      document.getElementById('specYear').textContent = year;
+      document.getElementById('specStyle').textContent = style;
+
+      // Set artist avatar
+      const artistAvatar = document.getElementById('artistAvatar');
+      artistAvatar.textContent = artist.charAt(0).toUpperCase();
+
+      // Reset quantity
+      currentQuantity = 1;
+      document.getElementById('quantityValue').textContent = currentQuantity;
+
+      // Show modal
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Close details modal
+    function closeDetailsModal() {
+      const modal = document.getElementById('detailsModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Quantity controls
+    function increaseQuantity() {
+      if (currentQuantity < 10) {
+        currentQuantity++;
+        document.getElementById('quantityValue').textContent = currentQuantity;
+        currentProductData.quantity = currentQuantity;
+      }
+    }
+
+    function decreaseQuantity() {
+      if (currentQuantity > 1) {
+        currentQuantity--;
+        document.getElementById('quantityValue').textContent = currentQuantity;
+        currentProductData.quantity = currentQuantity;
+      }
+    }
+
+    // Add to cart
+    function addToCart() {
+      const title = document.getElementById('detailsTitle').textContent;
+      alert(`Added ${currentQuantity} x "${title}" to cart!`);
+      // Store in localStorage for cart page
+      let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      cart.push(currentProductData);
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+    // Buy now - Redirect to BuyNow.html with product data
+    function buyNow() {
+      // Update quantity in product data
+      currentProductData.quantity = currentQuantity;
+      
+      // Store product data in localStorage
+      localStorage.setItem('checkoutProduct', JSON.stringify(currentProductData));
+      
+      // Redirect to BuyNow.html
+      window.location.href = 'BuyNow.html';
+    }
+
+    // Switch detail tabs
+    function switchDetailTab(tabName) {
+      // Remove active class from all buttons
+      document.querySelectorAll('.tab-btn-detail').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      
+      // Remove active class from all tab contents
+      document.querySelectorAll('.tab-content-detail').forEach(content => {
+        content.classList.remove('active');
+      });
+
+      // Add active class to clicked button
+      event.target.classList.add('active');
+      
+      // Show corresponding tab content
+      document.getElementById('tab-' + tabName).classList.add('active');
+    }
+
+    // Close modal when clicking outside
+    document.addEventListener('click', (e) => {
+      const modal = document.getElementById('detailsModal');
+      if (e.target === modal) {
+        closeDetailsModal();
+      }
+    });
+
+    // Close modal with ESC key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeDetailsModal();
+      }
+    });
+
+    // Search functionality
+    const searchInput = document.getElementById('searchInput');
+    const searchBtn = document.getElementById('searchBtn');
+    
+    searchBtn.addEventListener('click', performSearch);
+    searchInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        performSearch();
+      }
+    });
+
+    function performSearch() {
+      const query = searchInput.value.toLowerCase().trim();
+      const cards = document.querySelectorAll('.art-card');
+      
+      cards.forEach(card => {
+        const title = card.querySelector('.art-title').textContent.toLowerCase();
+        const artist = card.querySelector('.artist-name').textContent.toLowerCase();
+        const desc = card.querySelector('.art-desc').textContent.toLowerCase();
+        
+        if (title.includes(query) || artist.includes(query) || desc.includes(query) || query === '') {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Sort functionality
+    const sortSelect = document.getElementById('sortSelect');
+    sortSelect.addEventListener('change', sortArtworks);
+
+    function sortArtworks() {
+      const grid = document.querySelector('.art-grid');
+      const cards = Array.from(document.querySelectorAll('.art-card'));
+      const sortValue = sortSelect.value;
+      
+      let sortedCards = [...cards];
+      
+      switch(sortValue) {
+        case 'price-low':
+          sortedCards.sort((a, b) => {
+            const priceA = parseInt(a.querySelector('.price').textContent.replace(/₹|,/g, ''));
+            const priceB = parseInt(b.querySelector('.price').textContent.replace(/₹|,/g, ''));
+            return priceA - priceB;
+          });
+          break;
+        case 'price-high':
+          sortedCards.sort((a, b) => {
+            const priceA = parseInt(a.querySelector('.price').textContent.replace(/₹|,/g, ''));
+            const priceB = parseInt(b.querySelector('.price').textContent.replace(/₹|,/g, ''));
+            return priceB - priceA;
+          });
+          break;
+        case 'artist':
+          sortedCards.sort((a, b) => {
+            const artistA = a.querySelector('.artist-name').textContent;
+            const artistB = b.querySelector('.artist-name').textContent;
+            return artistA.localeCompare(artistB);
+          });
+          break;
+        case 'newest':
+          sortedCards.reverse();
+          break;
+      }
+      
+      // Clear and re-append sorted cards
+      grid.innerHTML = '';
+      sortedCards.forEach(card => grid.appendChild(card));
+    }
+
+    // Price filter functionality
+    const priceSelect = document.getElementById('priceSelect');
+    priceSelect.addEventListener('change', filterByPrice);
+
+    function filterByPrice() {
+      const priceRange = priceSelect.value;
+      const cards = document.querySelectorAll('.art-card');
+      
+      cards.forEach(card => {
+        const price = parseInt(card.querySelector('.price').textContent.replace(/₹|,/g, ''));
+        let show = true;
+        
+        switch(priceRange) {
+          case '0-15000':
+            show = price < 15000;
+            break;
+          case '15000-30000':
+            show = price >= 15000 && price <= 30000;
+            break;
+          case '30000-50000':
+            show = price >= 30000 && price <= 50000;
+            break;
+          case '50000+':
+            show = price > 50000;
+            break;
+        }
+        
+        card.style.display = show ? '' : 'none';
+      });
+    }
+
+    // View toggle functionality
+    const gridViewBtn = document.getElementById('gridViewBtn');
+    const listViewBtn = document.getElementById('listViewBtn');
+    const artGrid = document.querySelector('.art-grid');
+
+    gridViewBtn.addEventListener('click', () => {
+      gridViewBtn.classList.add('active');
+      listViewBtn.classList.remove('active');
+      artGrid.style.gridTemplateColumns = 'repeat(auto-fit, minmax(280px, 1fr))';
+    });
+
+    listViewBtn.addEventListener('click', () => {
+      listViewBtn.classList.add('active');
+      gridViewBtn.classList.remove('active');
+      artGrid.style.gridTemplateColumns = '1fr';
+    });
+  </script>
+</body>
+</html>

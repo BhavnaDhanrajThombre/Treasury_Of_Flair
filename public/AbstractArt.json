@@ -1,0 +1,500 @@
+{
+  "metadata": {
+    "database_name": "Treasury of Flair - Abstract Art Collection",
+    "version": "1.0",
+    "last_updated": "2025-11-14",
+    "total_artworks": 10,
+    "category": "Abstract Art"
+  },
+  "artworks": [
+    {
+      "id": "ABS001",
+      "title": "Crimson Dreams",
+      "artist": {
+        "name": "Alexandra Rivera",
+        "id": "ABS_ART001"
+      },
+      "description": "Bold expressionist piece with vibrant reds and deep blacks creating emotional depth.",
+      "full_description": "This powerful expressionist painting captures raw emotion through bold brushstrokes and a striking color palette. Layers of crimson, scarlet, and deep black create a sense of passion and intensity. The textured surface adds dimension, inviting viewers to explore the complex interplay between light and shadow. Perfect for collectors seeking artwork that makes a bold statement.",
+      "price": {
+        "amount": 28500,
+        "currency": "INR",
+        "formatted": "₹28,500"
+      },
+      "image": {
+        "path": "Images/Crimson Dreams.jpeg",
+        "alt": "Abstract painting"
+      },
+      "category": "Abstract Art",
+      "subcategory": "Expressionist",
+      "type": "expressionist",
+      "tags": ["expressionism", "red", "black", "bold", "emotional"],
+      "availability": "in-stock",
+      "specifications": {
+        "dimensions": "90cm x 120cm",
+        "medium": "Acrylic on Canvas",
+        "year": "2024",
+        "style": "Abstract Expressionism"
+      },
+      "created_date": "2024-10-01",
+      "popularity_score": 9.1
+    },
+    {
+      "id": "ABS002",
+      "title": "Geometric Harmony",
+      "artist": {
+        "name": "Marcus Chen",
+        "id": "ABS_ART002"
+      },
+      "description": "Contemporary geometric abstraction with clean lines and balanced composition.",
+      "full_description": "A stunning example of geometric abstraction that explores the relationship between form, color, and space. This meticulously crafted piece features precise shapes and a sophisticated color palette of blues, oranges, and neutrals. The balanced composition creates visual harmony while maintaining dynamic energy. Ideal for modern interiors and collectors of contemporary geometric art.",
+      "price": {
+        "amount": 32000,
+        "currency": "INR",
+        "formatted": "₹32,000"
+      },
+      "image": {
+        "path": "Images/Geometric Harmony.jpeg",
+        "alt": "Abstract painting"
+      },
+      "category": "Abstract Art",
+      "subcategory": "Geometric",
+      "type": "geometric",
+      "tags": ["geometric", "contemporary", "blue", "orange", "balanced"],
+      "availability": "in-stock",
+      "specifications": {
+        "dimensions": "100cm x 100cm",
+        "medium": "Acrylic on Canvas",
+        "year": "2024",
+        "style": "Geometric Abstraction"
+      },
+      "created_date": "2024-10-05",
+      "popularity_score": 8.9
+    },
+    {
+      "id": "ABS003",
+      "title": "Ocean Depths",
+      "artist": {
+        "name": "Sofia Andersson",
+        "id": "ABS_ART003"
+      },
+      "description": "Mesmerizing blue abstract with fluid movements reminiscent of deep ocean currents.",
+      "full_description": "Dive into the depths with this captivating abstract piece that channels the mysterious beauty of the ocean. Multiple layers of blue tones—from cerulean to navy—create depth and movement. The fluid technique mimics water's natural flow, while gold accents suggest sunlight piercing through waves. This large-scale painting brings tranquility and sophistication to any space.",
+      "price": {
+        "amount": 45000,
+        "currency": "INR",
+        "formatted": "₹45,000"
+      },
+      "image": {
+        "path": "Images/Ocean Depths.jpeg",
+        "alt": "Abstract painting"
+      },
+      "category": "Abstract Art",
+      "subcategory": "Colorfield",
+      "type": "colorfield",
+      "tags": ["ocean", "blue", "fluid", "gold", "tranquil"],
+      "availability": "in-stock",
+      "specifications": {
+        "dimensions": "120cm x 150cm",
+        "medium": "Mixed Media on Canvas",
+        "year": "2024",
+        "style": "Fluid Abstract"
+      },
+      "created_date": "2024-10-10",
+      "popularity_score": 9.4
+    },
+    {
+      "id": "ABS004",
+      "title": "Sunset Whispers",
+      "artist": {
+        "name": "James Patterson",
+        "id": "ABS_ART004"
+      },
+      "description": "Warm color field painting with gradients of orange, pink, and gold.",
+      "full_description": "This beautiful color field painting evokes the peaceful moments of sunset. Soft transitions between warm hues create a meditative quality, with colors seeming to glow from within. The subtle texture and layering technique add complexity to the seemingly simple composition. A perfect piece for creating calm, contemplative spaces in homes or offices.",
+      "price": {
+        "amount": 38500,
+        "currency": "INR",
+        "formatted": "₹38,500"
+      },
+      "image": {
+        "path": "Images/Sunset Whispers.jpeg",
+        "alt": "Abstract painting"
+      },
+      "category": "Abstract Art",
+      "subcategory": "Colorfield",
+      "type": "colorfield",
+      "tags": ["sunset", "warm", "orange", "pink", "meditative"],
+      "availability": "in-stock",
+      "specifications": {
+        "dimensions": "90cm x 120cm",
+        "medium": "Oil on Canvas",
+        "year": "2024",
+        "style": "Color Field"
+      },
+      "created_date": "2024-09-28",
+      "popularity_score": 8.7
+    },
+    {
+      "id": "ABS005",
+      "title": "Urban Chaos",
+      "artist": {
+        "name": "Nina Kowalski",
+        "id": "ABS_ART005"
+      },
+      "description": "Dynamic mixed-media piece capturing the energy and complexity of city life.",
+      "full_description": "An electrifying representation of urban energy, this mixed-media masterpiece combines paint, collage, and texture to create a multi-layered exploration of city life. Vibrant colors clash and harmonize, mimicking the constant motion and sensory overload of metropolitan existence. The complex composition rewards extended viewing, revealing new details with each look.",
+      "price": {
+        "amount": 52000,
+        "currency": "INR",
+        "formatted": "₹52,000"
+      },
+      "image": {
+        "path": "Images/Urban Chaos.jpeg",
+        "alt": "Abstract painting"
+      },
+      "category": "Abstract Art",
+      "subcategory": "Expressionist",
+      "type": "expressionist",
+      "tags": ["urban", "mixed-media", "vibrant", "dynamic", "contemporary"],
+      "availability": "in-stock",
+      "specifications": {
+        "dimensions": "120cm x 120cm",
+        "medium": "Mixed Media on Canvas",
+        "year": "2024",
+        "style": "Contemporary Abstract"
+      },
+      "created_date": "2024-10-15",
+      "popularity_score": 9.2
+    },
+    {
+      "id": "ABS006",
+      "title": "Minimalist Zen",
+      "artist": {
+        "name": "Kenji Yoshida",
+        "id": "ABS_ART006"
+      },
+      "description": "Serene minimalist composition with neutral tones and subtle texture.",
+      "full_description": "Embodying the principles of minimalism and Zen philosophy, this elegant piece finds beauty in simplicity. Neutral tones of cream, taupe, and soft gray create a peaceful atmosphere. The minimal composition features carefully placed elements that balance negative space with subtle texture. Ideal for modern spaces seeking tranquility and sophistication.",
+      "price": {
+        "amount": 24000,
+        "currency": "INR",
+        "formatted": "₹24,000"
+      },
+      "image": {
+        "path": "Images/Minimalist Zen.jpeg",
+        "alt": "Abstract painting"
+      },
+      "category": "Abstract Art",
+      "subcategory": "Minimalist",
+      "type": "minimalist",
+      "tags": ["minimalist", "zen", "neutral", "peaceful", "simple"],
+      "availability": "in-stock",
+      "specifications": {
+        "dimensions": "80cm x 100cm",
+        "medium": "Acrylic on Canvas",
+        "year": "2024",
+        "style": "Minimalist Abstract"
+      },
+      "created_date": "2024-09-20",
+      "popularity_score": 8.5
+    },
+    {
+      "id": "ABS007",
+      "title": "Cosmic Energy",
+      "artist": {
+        "name": "Isabella Romano",
+        "id": "ABS_ART007"
+      },
+      "description": "Explosive abstract with swirling colors suggesting cosmic forces and stellar phenomena.",
+      "full_description": "This breathtaking piece captures the awe-inspiring energy of the cosmos. Swirling masses of purples, blues, and fiery oranges create a sense of motion and power. The layered technique with metallics adds dimension and catches light beautifully. Whether suggesting nebulae, galaxies, or pure energy, this artwork sparks imagination and wonder.",
+      "price": {
+        "amount": 48000,
+        "currency": "INR",
+        "formatted": "₹48,000"
+      },
+      "image": {
+        "path": "Images/Cosmic Energy.jpeg",
+        "alt": "Abstract painting"
+      },
+      "category": "Abstract Art",
+      "subcategory": "Expressionist",
+      "type": "expressionist",
+      "tags": ["cosmic", "purple", "blue", "swirling", "metallic"],
+      "availability": "in-stock",
+      "specifications": {
+        "dimensions": "100cm x 140cm",
+        "medium": "Acrylic and Gold Leaf on Canvas",
+        "year": "2024",
+        "style": "Cosmic Abstract"
+      },
+      "created_date": "2024-10-20",
+      "popularity_score": 9.6
+    },
+    {
+      "id": "ABS008",
+      "title": "Forest Whispers",
+      "artist": {
+        "name": "Emma Larsson",
+        "id": "ABS_ART008"
+      },
+      "description": "Organic abstract with earthy greens and browns evoking natural landscapes.",
+      "full_description": "Nature inspires this organic abstract composition that suggests forest depths and natural textures. Rich greens intermingle with warm browns and touches of gold, creating an earthy palette that brings the outdoors in. The layered application and varied textures evoke moss, bark, and dappled sunlight through leaves. A grounding piece for biophilic design enthusiasts.",
+      "price": {
+        "amount": 35000,
+        "currency": "INR",
+        "formatted": "₹35,000"
+      },
+      "image": {
+        "path": "Images/Forest Whispers.jpeg",
+        "alt": "Abstract painting"
+      },
+      "category": "Abstract Art",
+      "subcategory": "Expressionist",
+      "type": "expressionist",
+      "tags": ["nature", "green", "brown", "organic", "forest"],
+      "availability": "in-stock",
+      "specifications": {
+        "dimensions": "90cm x 120cm",
+        "medium": "Mixed Media on Canvas",
+        "year": "2024",
+        "style": "Organic Abstract"
+      },
+      "created_date": "2024-09-25",
+      "popularity_score": 8.4
+    },
+    {
+      "id": "ABS009",
+      "title": "Electric Dreams",
+      "artist": {
+        "name": "David Kim",
+        "id": "ABS_ART009"
+      },
+      "description": "High-energy abstract with neon colors and dynamic gestural marks.",
+      "full_description": "This electrifying piece pulses with energy through bold neon colors and dynamic brushwork. Inspired by urban nightlife and digital aesthetics, it features striking contrasts of hot pink, electric blue, and acid yellow against deep blacks. The spontaneous gestural marks create movement and excitement, making it a perfect statement piece for contemporary spaces.",
+      "price": {
+        "amount": 42000,
+        "currency": "INR",
+        "formatted": "₹42,000"
+      },
+      "image": {
+        "path": "Images/Electric Dreams.jpeg",
+        "alt": "Abstract painting"
+      },
+      "category": "Abstract Art",
+      "subcategory": "Expressionist",
+      "type": "expressionist",
+      "tags": ["neon", "electric", "pink", "blue", "dynamic"],
+      "availability": "in-stock",
+      "specifications": {
+        "dimensions": "100cm x 120cm",
+        "medium": "Acrylic on Canvas",
+        "year": "2024",
+        "style": "Neo-Expressionism"
+      },
+      "created_date": "2024-10-12",
+      "popularity_score": 9.0
+    },
+    {
+      "id": "ABS010",
+      "title": "Monochrome Symphony",
+      "artist": {
+        "name": "Thomas Mueller",
+        "id": "ABS_ART010"
+      },
+      "description": "Sophisticated black and white abstract exploring contrast and texture.",
+      "full_description": "This timeless piece proves that color isn't necessary for powerful impact. Working exclusively in black, white, and grays, this abstract explores the full range of tonal values and textural possibilities. Bold marks and delicate details coexist in a carefully balanced composition. The monochromatic palette ensures it complements any color scheme while making a strong artistic statement.",
+      "price": {
+        "amount": 29000,
+        "currency": "INR",
+        "formatted": "₹29,000"
+      },
+      "image": {
+        "path": "Images/Monochrome Symphony.jpeg",
+        "alt": "Abstract painting"
+      },
+      "category": "Abstract Art",
+      "subcategory": "Minimalist",
+      "type": "minimalist",
+      "tags": ["monochrome", "black", "white", "contrast", "timeless"],
+      "availability": "in-stock",
+      "specifications": {
+        "dimensions": "90cm x 90cm",
+        "medium": "Acrylic on Canvas",
+        "year": "2024",
+        "style": "Monochrome Abstract"
+      },
+      "created_date": "2024-09-18",
+      "popularity_score": 8.8
+    }
+  ],
+  "artists": [
+    {
+      "id": "ABS_ART001",
+      "name": "Alexandra Rivera",
+      "specialty": "Abstract Expressionism",
+      "bio": "Bold expressionist creating emotionally charged paintings with intense color",
+      "artworks_count": 1
+    },
+    {
+      "id": "ABS_ART002",
+      "name": "Marcus Chen",
+      "specialty": "Geometric Abstraction",
+      "bio": "Contemporary artist exploring form, color, and spatial relationships",
+      "artworks_count": 1
+    },
+    {
+      "id": "ABS_ART003",
+      "name": "Sofia Andersson",
+      "specialty": "Fluid Abstract",
+      "bio": "Specializes in fluid techniques inspired by natural water movements",
+      "artworks_count": 1
+    },
+    {
+      "id": "ABS_ART004",
+      "name": "James Patterson",
+      "specialty": "Color Field",
+      "bio": "Master of color field painting creating meditative atmospheric works",
+      "artworks_count": 1
+    },
+    {
+      "id": "ABS_ART005",
+      "name": "Nina Kowalski",
+      "specialty": "Contemporary Abstract",
+      "bio": "Mixed-media artist capturing urban energy and modern complexity",
+      "artworks_count": 1
+    },
+    {
+      "id": "ABS_ART006",
+      "name": "Kenji Yoshida",
+      "specialty": "Minimalist Abstract",
+      "bio": "Zen-inspired minimalist finding profound beauty in simplicity",
+      "artworks_count": 1
+    },
+    {
+      "id": "ABS_ART007",
+      "name": "Isabella Romano",
+      "specialty": "Cosmic Abstract",
+      "bio": "Creates cosmic-inspired works exploring universal energy and wonder",
+      "artworks_count": 1
+    },
+    {
+      "id": "ABS_ART008",
+      "name": "Emma Larsson",
+      "specialty": "Organic Abstract",
+      "bio": "Nature-inspired abstract artist bringing outdoor beauty inside",
+      "artworks_count": 1
+    },
+    {
+      "id": "ABS_ART009",
+      "name": "David Kim",
+      "specialty": "Neo-Expressionism",
+      "bio": "High-energy artist blending urban aesthetics with bold color",
+      "artworks_count": 1
+    },
+    {
+      "id": "ABS_ART010",
+      "name": "Thomas Mueller",
+      "specialty": "Monochrome Abstract",
+      "bio": "Monochrome specialist exploring tonal values and textural depth",
+      "artworks_count": 1
+    }
+  ],
+  "categories": {
+    "main": "Abstract Art",
+    "subcategories": [
+      "Geometric",
+      "Expressionist",
+      "Minimalist",
+      "Colorfield"
+    ]
+  },
+  "filters": {
+    "price_ranges": [
+      {
+        "id": "all",
+        "label": "All Prices",
+        "min": 0,
+        "max": null
+      },
+      {
+        "id": "0-15000",
+        "label": "Under ₹15,000",
+        "min": 0,
+        "max": 15000
+      },
+      {
+        "id": "15000-30000",
+        "label": "₹15,000 - ₹30,000",
+        "min": 15000,
+        "max": 30000
+      },
+      {
+        "id": "30000-50000",
+        "label": "₹30,000 - ₹50,000",
+        "min": 30000,
+        "max": 50000
+      },
+      {
+        "id": "50000+",
+        "label": "Above ₹50,000",
+        "min": 50000,
+        "max": null
+      }
+    ],
+    "type_options": [
+      {
+        "id": "all",
+        "label": "All Styles"
+      },
+      {
+        "id": "geometric",
+        "label": "Geometric"
+      },
+      {
+        "id": "expressionist",
+        "label": "Expressionist"
+      },
+      {
+        "id": "minimalist",
+        "label": "Minimalist"
+      },
+      {
+        "id": "colorfield",
+        "label": "Color Field"
+      }
+    ],
+    "sort_options": [
+      {
+        "id": "popular",
+        "label": "Most Popular"
+      },
+      {
+        "id": "price-low",
+        "label": "Price: Low to High"
+      },
+      {
+        "id": "price-high",
+        "label": "Price: High to Low"
+      },
+      {
+        "id": "newest",
+        "label": "Newest First"
+      },
+      {
+        "id": "artist",
+        "label": "Artist Name"
+      }
+    ],
+    "availability_options": [
+      {
+        "id": "all",
+        "label": "All Items"
+      },
+      {
+        "id": "in-stock",
+        "label": "In Stock"
+      }
+    ]
+  }
+}
