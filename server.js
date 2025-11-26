@@ -119,6 +119,12 @@ const searchRoutes = require('./artwork_search');
 app.use(cors());
 app.use(express.json());
 
+app.use(express.static(path.join(__dirname, "public")));
+
+// ADD THIS ↓↓↓
+app.use('/Images', express.static(path.join(__dirname, 'Images')));
+
+
 // ✅ Mount the search routes
 app.use('/api/search', searchRoutes);
 

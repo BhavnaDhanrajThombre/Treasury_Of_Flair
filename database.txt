@@ -1,201 +1,151 @@
-mysql> create database tof_app; 
-mysql> USE tof_app;
-Database changed
-mysql>  -- Creating Database for storing user login credentials
-mysql> CREATE TABLE users (
-    ->     id INT AUTO_INCREMENT PRIMARY KEY,
-    ->     name VARCHAR(50) NOT NULL,
-    ->     email VARCHAR(100) NOT NULL UNIQUE,
-    ->     password VARCHAR(255) NOT NULL,
-    ->     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    -> );
-Query OK, 0 rows affected (0.08 sec)
-
-mysql> desc users;
-+------------+--------------+------+-----+-------------------+-------------------+
-| Field      | Type         | Null | Key | Default           | Extra             |
-+------------+--------------+------+-----+-------------------+-------------------+
-| id         | int          | NO   | PRI | NULL              | auto_increment    |
-| name       | varchar(50)  | NO   |     | NULL              |                   |
-| email      | varchar(100) | NO   | UNI | NULL              |                   |
-| password   | varchar(255) | NO   |     | NULL              |                   |
-| created_at | timestamp    | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
-+------------+--------------+------+-----+-------------------+-------------------+
-5 rows in set (0.08 sec)
+create database tof_app; 
+USE tof_app;
 
 ***************************************************************************************************
+Insert the Users login in the Database
+***************************************************************************************************
 
-mysql> -- ✅ Create Unified Artworks Table (Search-Optimized)
-mysql> -- ==========================================================
-mysql> CREATE TABLE artworks (
-    ->   id INT AUTO_INCREMENT PRIMARY KEY,
-    ->   category VARCHAR(100) NOT NULL,         -- e.g. 'Digital Art', 'Paintings', 'Printmaking'
-    ->   title VARCHAR(255) NOT NULL,
-    ->   artist VARCHAR(255) NOT NULL,
-    ->   description TEXT,
-    ->   image_path VARCHAR(500),
-    ->   price INT,
-    ->   availability ENUM('in-stock','limited') DEFAULT 'in-stock',
-    ->   popularity INT DEFAULT 0,
-    ->   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    ->   FULLTEXT KEY ft_title_desc (title, description, artist)
-    -> );
-Query OK, 0 rows affected (0.29 sec)
 
-mysql>
-mysql> -- ==========================================================
-mysql> -- 🎨 Insert All Artworks (Digital Art + Paintings + Printmaking)
-mysql> -- ==========================================================
-mysql> INSERT INTO artworks (category, title, artist, description, image_path, price, availability, popularity)
-    -> VALUES
-    -> -- 🌐 Digital Art
-    -> ('Digital Art', 'Neon Dreams', 'Alex Cipher', 'Cyberpunk-inspired digital illustration featuring neon lights and futuristic cityscapes.', 'Images/Neon Dreams.jpeg', 26500, 'in-stock', 95),
-    -> ('Digital Art', 'Cosmic Guardian', 'Maya Rodriguez', '3D character design blending sci-fi elements with mystical aesthetics.', 'Images/Cosmic Guardian.jpeg', 37200, 'limited', 87),
-    -> ('Digital Art', 'Digital Fragments', 'Kai Nakamura', 'Generative art exploring geometric patterns and vibrant color palettes.', 'Images/Digital Fragments.jpeg', 23150, 'in-stock', 78),
-    -> ('Digital Art', 'Enchanted Forest', 'Sofia Martinez', 'Fantasy digital painting with magical creatures and ethereal lighting effects.', 'Images/Enchanted Forest.jpeg', 31400, 'limited', 90),
-    -> ('Digital Art', 'Beyond Reality', 'David Chen', 'Surreal digital composition merging dreams with digital manipulation techniques.', 'Images/Beyond Reality.jpeg', 34700, 'in-stock', 88),
-    -> ('Digital Art', 'Quantum Collector', 'Zara Williams', 'NFT-style artwork featuring bold colors and modern digital aesthetics.', 'Images/Quantum Collector.jpeg', 45450, 'limited', 93),
-    -> ('Digital Art', 'Future Metropolis', 'Lucas Kim', 'Detailed concept art of futuristic architecture and urban landscapes.', 'Images/Future Metropolis.jpeg', 40500, 'in-stock', 85),
-    -> ('Digital Art', 'Avatar Genesis', 'Emma Thompson', 'Character design illustration with intricate details and dynamic poses.', 'Images/Avatar Genesis.jpeg', 28900, 'in-stock', 80),
-    -> ('Digital Art', 'Glitch Symphony', 'Ryan Park', 'Experimental glitch art combining digital distortion with artistic expression.', 'Images/Glitch Symphony.jpeg', 23950, 'in-stock', 75),
-    -> ('Digital Art', 'Digital Horizons', 'Priya Sharma', 'Breathtaking digital landscape with stunning lighting and atmospheric depth.', 'Images/Digital Horizons.jpeg', 33850, 'limited', 82),
-    ->
-    -> -- 🖌️ Paintings
-    -> ('Paintings', 'Golden Hour Portrait', 'Clara Smith', 'Oil on canvas capturing the warm light of dusk - bold yet delicate strokes.', 'Images/Golden Hour Portrait.jpeg', 250, 'in-stock', 92),
-    -> ('Paintings', 'Whispering Mountains', 'Daniel Grey', 'Soft gradients of mountain air - blending realism and imagination.', 'Images/Whispering Mountains.jpeg', 180, 'in-stock', 88),
-    -> ('Paintings', 'Fragments of Thought', 'Riya Kapoor', 'Acrylic abstraction exploring the chaos and rhythm of human emotion.', 'Images/Fragments of Thought.jpeg', 220, 'limited', 95),
-    -> ('Paintings', 'Dreamy Petals', 'Hana Li', 'Soft watercolor florals that bloom gently across the paper.', 'Images/Dreamy Petals.jpeg', 130, 'in-stock', 80),
-    -> ('Paintings', 'Mindscapes', 'Ethan Cole', 'A surreal oil painting merging inner thoughts with dreamy visuals.', 'Images/Mindscapes.jpeg', 340, 'limited', 97),
-    -> ('Paintings', 'Blue Horizon', 'Lucas James', 'Oil seascape reflecting stillness and motion of the ocean.', 'Images/Blue Horizon.jpeg', 290, 'in-stock', 86),
-    -> ('Paintings', 'Eternal Gaze', 'Noor Rahman', 'Expressive acrylic portrait exploring depth through minimal brushwork.', 'Images/Eternal Gaze.jpeg', 200, 'limited', 83),
-    -> ('Paintings', 'Color Fields', 'Jade Chen', 'Inspired by color field expressionism - silence through pigment.', 'Images/Color Fields.jpeg', 400, 'in-stock', 89),
-    -> ('Paintings', 'Morning at the Lake', 'Amelia Brooks', 'Impressionist brushwork - the still water reflecting dawn light.', 'Images/Morning at the Lake.jpeg', 180, 'in-stock', 85),
-    -> ('Paintings', 'Miniature Wonders', 'Arjun Mehta', 'Fine-detail miniature painting on handmade paper with gold tones.', 'Images/Miniature Wonders.jpeg', 150, 'limited', 91),
-    ->
-    -> -- 🖨️ Printmaking
-    -> ('Printmaking', 'Botanical Study I', 'Eleanor Wright', 'Delicate copper plate etching showcasing intricate botanical details with fine linework.', 'Images/Botanical Study I.jpeg', 8200, 'limited', 8),
-    -> ('Printmaking', 'Urban Rhythm', 'Marcus Taylor', 'Bold screenprint featuring vibrant layers and geometric patterns inspired by city life.', 'Images/Urban Rhythm.jpeg', 12500, 'limited', 9),
-    -> ('Printmaking', 'Mountain Solitude', 'Akiko Tanaka', 'Stone lithograph capturing misty mountain landscapes with subtle tonal variations.', 'Images/Mountain Solitude.jpeg', 15800, 'limited', 9),
-    -> ('Printmaking', 'Forest Tales', 'Henrik Larsen', 'Traditional woodcut print with bold contrasts and expressive carved textures.', 'Images/Forest Tales.jpeg', 9500, 'limited', 8),
-    -> ('Printmaking', 'Abstract Flow', 'Isabella Costa', 'Unique monotype print with fluid ink patterns creating one-of-a-kind impressions.', 'Images/Abstract Flow.jpeg', 18900, 'in-stock', 10),
-    -> ('Printmaking', 'Ocean Waves', 'Rajesh Kumar', 'Dynamic linocut print capturing the movement and energy of ocean waves.', 'Images/Ocean Waves.jpeg', 7800, 'limited', 8),
-    -> ('Printmaking', 'Pop Culture Icons', 'Nina Patel', 'Multi-layered serigraph with bright colors and contemporary pop art references.', 'Images/Pop Culture Icons.jpeg', 14200, 'limited', 9),
-    -> ('Printmaking', 'Twilight Portrait', 'Sofia Alvarez', 'Aquatint etching with rich tonal depth and atmospheric portrait qualities.', 'Images/Twilight Portrait.jpeg', 16500, 'limited', 9),
-    -> ('Printmaking', 'Industrial Dreams', 'Thomas Berg', 'Mixed media print combining etching, screenprint and collage elements.', 'Images/Industrial Dreams.jpeg', 19800, 'limited', 9),
-    -> ('Printmaking', 'Garden Memory', 'Mei Lin', 'Elegant relief print with delicate floral motifs and subtle color gradations.', 'Images/Garden Memory.jpeg', 11400, 'limited', 8);-- ==========================================================
-Query OK, 30 rows affected (0.02 sec)
-Records: 30  Duplicates: 0  Warnings: 0
+CREATE TABLE users (
+         id INT AUTO_INCREMENT PRIMARY KEY,
+         name VARCHAR(50) NOT NULL,
+         email VARCHAR(100) NOT NULL UNIQUE,
+         password VARCHAR(255) NOT NULL,
+         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+     );
 
-mysql> -- View all artworks
-mysql> SELECT * FROM artworks;
-+----+-------------+----------------------+----------------+------------------------------------------------------------------------------------------+----------------------------------+-------+--------------+------------+---------------------+
-| id | category    | title                | artist         | description                                                                              | image_path                       | price | availability | popularity | created_at          |
-+----+-------------+----------------------+----------------+------------------------------------------------------------------------------------------+----------------------------------+-------+--------------+------------+---------------------+
-|  1 | Digital Art | Neon Dreams          | Alex Cipher    | Cyberpunk-inspired digital illustration featuring neon lights and futuristic cityscapes. | Images/Neon Dreams.jpeg          | 26500 | in-stock     |         95 | 2025-10-12 20:43:07 |
-|  2 | Digital Art | Cosmic Guardian      | Maya Rodriguez | 3D character design blending sci-fi elements with mystical aesthetics.                   | Images/Cosmic Guardian.jpeg      | 37200 | limited      |         87 | 2025-10-12 20:43:07 |
-|  3 | Digital Art | Digital Fragments    | Kai Nakamura   | Generative art exploring geometric patterns and vibrant color palettes.                  | Images/Digital Fragments.jpeg    | 23150 | in-stock     |         78 | 2025-10-12 20:43:07 |
-|  4 | Digital Art | Enchanted Forest     | Sofia Martinez | Fantasy digital painting with magical creatures and ethereal lighting effects.           | Images/Enchanted Forest.jpeg     | 31400 | limited      |         90 | 2025-10-12 20:43:07 |
-|  5 | Digital Art | Beyond Reality       | David Chen     | Surreal digital composition merging dreams with digital manipulation techniques.         | Images/Beyond Reality.jpeg       | 34700 | in-stock     |         88 | 2025-10-12 20:43:07 |
-|  6 | Digital Art | Quantum Collector    | Zara Williams  | NFT-style artwork featuring bold colors and modern digital aesthetics.                   | Images/Quantum Collector.jpeg    | 45450 | limited      |         93 | 2025-10-12 20:43:07 |
-|  7 | Digital Art | Future Metropolis    | Lucas Kim      | Detailed concept art of futuristic architecture and urban landscapes.                    | Images/Future Metropolis.jpeg    | 40500 | in-stock     |         85 | 2025-10-12 20:43:07 |
-|  8 | Digital Art | Avatar Genesis       | Emma Thompson  | Character design illustration with intricate details and dynamic poses.                  | Images/Avatar Genesis.jpeg       | 28900 | in-stock     |         80 | 2025-10-12 20:43:07 |
-|  9 | Digital Art | Glitch Symphony      | Ryan Park      | Experimental glitch art combining digital distortion with artistic expression.           | Images/Glitch Symphony.jpeg      | 23950 | in-stock     |         75 | 2025-10-12 20:43:07 |
-| 10 | Digital Art | Digital Horizons     | Priya Sharma   | Breathtaking digital landscape with stunning lighting and atmospheric depth.             | Images/Digital Horizons.jpeg     | 33850 | limited      |         82 | 2025-10-12 20:43:07 |
-| 11 | Paintings   | Golden Hour Portrait | Clara Smith    | Oil on canvas capturing the warm light of dusk - bold yet delicate strokes.              | Images/Golden Hour Portrait.jpeg |   250 | in-stock     |         92 | 2025-10-12 20:43:07 |
-| 12 | Paintings   | Whispering Mountains | Daniel Grey    | Soft gradients of mountain air - blending realism and imagination.                       | Images/Whispering Mountains.jpeg |   180 | in-stock     |         88 | 2025-10-12 20:43:07 |
-| 13 | Paintings   | Fragments of Thought | Riya Kapoor    | Acrylic abstraction exploring the chaos and rhythm of human emotion.                     | Images/Fragments of Thought.jpeg |   220 | limited      |         95 | 2025-10-12 20:43:07 |
-| 14 | Paintings   | Dreamy Petals        | Hana Li        | Soft watercolor florals that bloom gently across the paper.                              | Images/Dreamy Petals.jpeg        |   130 | in-stock     |         80 | 2025-10-12 20:43:07 |
-| 15 | Paintings   | Mindscapes           | Ethan Cole     | A surreal oil painting merging inner thoughts with dreamy visuals.                       | Images/Mindscapes.jpeg           |   340 | limited      |         97 | 2025-10-12 20:43:07 |
-| 16 | Paintings   | Blue Horizon         | Lucas James    | Oil seascape reflecting stillness and motion of the ocean.                               | Images/Blue Horizon.jpeg         |   290 | in-stock     |         86 | 2025-10-12 20:43:07 |
-| 17 | Paintings   | Eternal Gaze         | Noor Rahman    | Expressive acrylic portrait exploring depth through minimal brushwork.                   | Images/Eternal Gaze.jpeg         |   200 | limited      |         83 | 2025-10-12 20:43:07 |
-| 18 | Paintings   | Color Fields         | Jade Chen      | Inspired by color field expressionism - silence through pigment.                         | Images/Color Fields.jpeg         |   400 | in-stock     |         89 | 2025-10-12 20:43:07 |
-| 19 | Paintings   | Morning at the Lake  | Amelia Brooks  | Impressionist brushwork - the still water reflecting dawn light.                         | Images/Morning at the Lake.jpeg  |   180 | in-stock     |         85 | 2025-10-12 20:43:07 |
-| 20 | Paintings   | Miniature Wonders    | Arjun Mehta    | Fine-detail miniature painting on handmade paper with gold tones.                        | Images/Miniature Wonders.jpeg    |   150 | limited      |         91 | 2025-10-12 20:43:07 |
-| 21 | Printmaking | Botanical Study I    | Eleanor Wright | Delicate copper plate etching showcasing intricate botanical details with fine linework. | Images/Botanical Study I.jpeg    |  8200 | limited      |          8 | 2025-10-12 20:43:07 |
-| 22 | Printmaking | Urban Rhythm         | Marcus Taylor  | Bold screenprint featuring vibrant layers and geometric patterns inspired by city life.  | Images/Urban Rhythm.jpeg         | 12500 | limited      |          9 | 2025-10-12 20:43:07 |
-| 23 | Printmaking | Mountain Solitude    | Akiko Tanaka   | Stone lithograph capturing misty mountain landscapes with subtle tonal variations.       | Images/Mountain Solitude.jpeg    | 15800 | limited      |          9 | 2025-10-12 20:43:07 |
-| 24 | Printmaking | Forest Tales         | Henrik Larsen  | Traditional woodcut print with bold contrasts and expressive carved textures.            | Images/Forest Tales.jpeg         |  9500 | limited      |          8 | 2025-10-12 20:43:07 |
-| 25 | Printmaking | Abstract Flow        | Isabella Costa | Unique monotype print with fluid ink patterns creating one-of-a-kind impressions.        | Images/Abstract Flow.jpeg        | 18900 | in-stock     |         10 | 2025-10-12 20:43:07 |
-| 26 | Printmaking | Ocean Waves          | Rajesh Kumar   | Dynamic linocut print capturing the movement and energy of ocean waves.                  | Images/Ocean Waves.jpeg          |  7800 | limited      |          8 | 2025-10-12 20:43:07 |
-| 27 | Printmaking | Pop Culture Icons    | Nina Patel     | Multi-layered serigraph with bright colors and contemporary pop art references.          | Images/Pop Culture Icons.jpeg    | 14200 | limited      |          9 | 2025-10-12 20:43:07 |
-| 28 | Printmaking | Twilight Portrait    | Sofia Alvarez  | Aquatint etching with rich tonal depth and atmospheric portrait qualities.               | Images/Twilight Portrait.jpeg    | 16500 | limited      |          9 | 2025-10-12 20:43:07 |
-| 29 | Printmaking | Industrial Dreams    | Thomas Berg    | Mixed media print combining etching, screenprint and collage elements.                   | Images/Industrial Dreams.jpeg    | 19800 | limited      |          9 | 2025-10-12 20:43:07 |
-| 30 | Printmaking | Garden Memory        | Mei Lin        | Elegant relief print with delicate floral motifs and subtle color gradations.            | Images/Garden Memory.jpeg        | 11400 | limited      |          8 | 2025-10-12 20:43:07 |
-+----+-------------+----------------------+----------------+------------------------------------------------------------------------------------------+----------------------------------+-------+--------------+------------+---------------------+
-30 rows in set (0.00 sec)
+desc users;
+
+***************************************************************************************************
+Insert the Items in the Database
+***************************************************************************************************
+
+
+CREATE TABLE artworks (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    category VARCHAR(100) NOT NULL,    -- Art category (e.g., 'Pop Art', 'Sculpture')
+    title VARCHAR(255) NOT NULL,       -- Title of the artwork
+    artist VARCHAR(255),               -- Artist's name (can be NULL if unknown)
+    description TEXT,                  -- Full description of the piece
+    image_path VARCHAR(500),           -- File path for the image
+    price VARCHAR(100),                -- Price or price range
+    availability VARCHAR(50),          -- Stock status or availability badge
+    popularity INT DEFAULT 0,          -- Relative popularity score
+    INDEX idx_category (category)
+);
+
+INSERT INTO artworks (category, title, artist, description, image_path, price, availability, popularity)
+VALUES
+
+('Abstract Art', 'Crimson Dreams', 'Alexandra Rivera', 'This powerful expressionist painting captures raw emotion through bold brushstrokes and a striking color palette. Layers of crimson, scarlet, and deep black create a sense of passion and intensity. The textured surface adds dimension, inviting viewers to explore the complex interplay between light and shadow. Perfect for collectors seeking artwork that makes a bold statement.', 'Images/Crimson Dreams.jpeg', '28500', 'Classic', 95),
+('Abstract Art', 'Geometric Harmony', 'Marcus Chen', 'A stunning example of geometric abstraction that explores the relationship between form, color, and space. This meticulously crafted piece features precise shapes and a sophisticated color palette of blues, oranges, and neutrals. The balanced composition creates visual harmony while maintaining dynamic energy. Ideal for modern interiors and collectors of contemporary geometric art.', 'Images/Geometric Harmony.jpeg', '32000', 'Trending', 88),
+('Abstract Art', 'Ocean Depths', 'Sofia Andersson', 'Dive into the depths with this captivating abstract piece that channels the mysterious beauty of the ocean. Multiple layers of blue tones—from cerulean to navy—create depth and movement. The fluid technique mimics water''s natural flow, while gold accents suggest sunlight piercing through waves. This large-scale painting brings tranquility and sophistication to any space.', 'Images/Ocean Depths.jpeg', '45000', 'Classic', 92),
+('Abstract Art', 'Sunset Whispers', 'James Patterson', 'This beautiful color field painting evokes the peaceful moments of sunset. Soft transitions between warm hues create a meditative quality, with colors seeming to glow from within. The subtle texture and layering technique add complexity to the seemingly simple composition. A perfect piece for creating calm, contemplative spaces in homes or offices.', 'Images/Sunset Whispers.jpeg', '38500', 'Classic', 85),
+('Abstract Art', 'Urban Chaos', 'Nina Kowalski', 'An electrifying representation of urban energy, this mixed-media masterpiece combines paint, collage, and texture to create a multi-layered exploration of city life. Vibrant colors clash and harmonize, mimicking the constant motion and sensory overload of metropolitan existence. The complex composition rewards extended viewing, revealing new details with each look.', 'Images/Urban Chaos.jpeg', '52000', 'Trending', 97),
+('Abstract Art', 'Minimalist Zen', 'Kenji Yoshida', 'Embodying the principles of minimalism and Zen philosophy, this elegant piece finds beauty in simplicity. Neutral tones of cream, taupe, and soft gray create a peaceful atmosphere. The minimal composition features carefully placed elements that balance negative space with subtle texture. Ideal for modern spaces seeking tranquility and sophistication.', 'Images/Minimalist Zen.jpeg', '24000', 'Classic', 80),
+('Abstract Art', 'Cosmic Energy', 'Isabella Romano', 'This breathtaking piece captures the awe-inspiring energy of the cosmos. Swirling masses of purples, blues, and fiery oranges create a sense of motion and power. The layered technique with metallics adds dimension and catches light beautifully. Whether suggesting nebulae, galaxies, or pure energy, this artwork sparks imagination and wonder.', 'Images/Cosmic Energy.jpeg', '48000', 'Trending', 94),
+('Abstract Art', 'Forest Whispers', 'Emma Larsson', 'Nature inspires this organic abstract composition that suggests forest depths and natural textures. Rich greens intermingle with warm browns and touches of gold, creating an earthy palette that brings the outdoors in. The layered application and varied textures evoke moss, bark, and dappled sunlight through leaves. A grounding piece for biophilic design enthusiasts.', 'Images/Forest Whispers.jpeg', '35000', 'Classic', 83),
+('Abstract Art', 'Electric Dreams', 'David Kim', 'This electrifying piece pulses with energy through bold neon colors and dynamic brushwork. Inspired by urban nightlife and digital aesthetics, it features striking contrasts of hot pink, electric blue, and acid yellow against deep blacks. The spontaneous gestural marks create movement and excitement, making it a perfect statement piece for contemporary spaces.', 'Images/Electric Dreams.jpeg', '42000', 'Trending', 90),
+('Abstract Art', 'Monochrome Symphony', 'Thomas Mueller', 'This timeless piece proves that color isn''t necessary for powerful impact. Working exclusively in black, white, and grays, this abstract explores the full range of tonal values and textural possibilities. Bold marks and delicate details coexist in a carefully balanced composition. The monochromatic palette ensures it complements any color scheme while making a strong artistic statement.', 'Images/Monochrome Symphony.jpeg', '29000', 'Classic', 86),
+
+('Sculpture', 'Eternal Embrace', 'Auguste Rodin', 'Bronze sculpture capturing the timeless beauty of human connection and emotion.', 'Images/Eternal Embrace.jpeg', '285000', 'in-stock', 95),
+('Sculpture', 'Marble Grace', 'Michelangelo Buonarroti', 'Hand-carved white marble sculpture showcasing classical beauty and technical mastery.', 'Images/Marble Grace.jpeg', '450000', 'limited', 92),
+('Sculpture', 'Abstract Flow', 'Barbara Hepworth', 'Contemporary abstract sculpture in polished steel with organic flowing forms.', 'Images/Abstract Flow.jpeg', '195000', 'in-stock', 88),
+('Sculpture', 'Woodland Spirit', 'David Nash', 'Hand-carved oak sculpture celebrating natural forms and wood grain beauty.', 'Images/Woodland Spirit.jpeg', '165000', 'in-stock', 85),
+('Sculpture', 'Ceramic Vessel', 'Lucie Rie', 'Wheel-thrown porcelain sculpture with delicate form and crystalline glaze.', 'Images/Ceramic Vessel.jpeg', '125000', 'limited', 89),
+('Sculpture', 'Urban Geometry', 'Richard Serra', 'Large-scale weathering steel sculpture with bold geometric forms.', 'Images/Urban Geometry.jpeg', '385000', 'in-stock', 91),
+('Sculpture', 'Dancing Figures', 'Alberto Giacometti', 'Elongated bronze figures capturing movement and human fragility.', 'Images/Dancing Figures.jpeg', '220000', 'limited', 93),
+('Sculpture', 'Stone Guardian', 'Isamu Noguchi', 'Granite sculpture blending Eastern philosophy with modernist aesthetics.', 'Images/Stone Guardian.jpeg', '340000', 'in-stock', 87),
+('Sculpture', 'Kinetic Dreams', 'Alexander Calder', 'Mobile sculpture with balanced elements that move with air currents.', 'Images/Kinetic Dreams.jpeg', '275000', 'limited', 94),
+('Sculpture', 'Terra Forma', 'Anish Kapoor', 'Contemporary mixed-media sculpture exploring void and reflection.', 'Images/Terra Forma.jpeg', '425000', 'limited', 90),
+
+('Pottery', 'Blue Horizon Vase', 'Sarah Chen', 'Elegant wheel-thrown vase with stunning cobalt blue glaze and organic form. This exquisite wheel-thrown vase showcases masterful craftsmanship with its elegant proportions and stunning cobalt blue glaze. The organic form flows naturally from base to rim, while the hand-applied glaze creates depth and movement. Perfect as a statement piece or functional vessel for fresh flowers.', 'Images/Blue Horizon Vase.jpeg', '3200', 'in-stock', 95),
+('Pottery', 'Rustic Bowl Set', 'James Anderson', 'Set of three handcrafted bowls with earthy tones and textured finish. This beautiful set of three handcrafted bowls brings warmth and authenticity to any dining experience. Each bowl features a unique textured finish with earthy tones ranging from terracotta to warm browns. Functional art that elevates everyday meals while celebrating the beauty of handmade pottery.', 'Images/Rustic Bowl Set.jpeg', '2850', 'in-stock', 88),
+('Pottery', 'Celestial Platter', 'Maya Patel', 'Large serving platter with cosmic-inspired glaze patterns and gold accents. A stunning centerpiece for any table, this large serving platter features cosmic-inspired glaze patterns that seem to capture the night sky. Hand-painted gold accents add luxury and elegance. Each piece is unique, with the reactive glazes creating one-of-a-kind patterns during firing.', 'Images/Celestial Platter.jpeg', '4100', 'limited', 92),
+('Pottery', 'Minimalist Tea Set', 'Kenji Tanaka', 'Japanese-inspired tea set with clean lines and matte white glaze. This elegant tea set embodies the essence of Japanese minimalism. Includes a teapot and four cups, each thrown on the wheel and finished with a smooth matte white glaze. The clean lines and perfect proportions create a serene tea ceremony experience. Microwave and dishwasher safe.', 'Images/Minimalist Tea Set.jpeg', '5200', 'in-stock', 87),
+('Pottery', 'Ocean Wave Sculpture', 'Lisa Martinez', 'Sculptural ceramic piece capturing the movement of ocean waves. This sculptural ceramic piece captures the dynamic movement of ocean waves in frozen form. Created using hand-building techniques and finished with layered blue and turquoise glazes that create depth and motion. A stunning art piece that brings the energy of the sea into your space.', 'Images/Ocean Wave Sculpture.jpeg', '4750', 'limited', 90),
+('Pottery', 'Terracotta Garden Pot', 'Roberto Silva', 'Hand-thrown terracotta pot with carved geometric patterns. This beautiful hand-thrown terracotta pot features intricate carved geometric patterns that add visual interest while maintaining functionality. Perfect for indoor plants or as an outdoor garden accent. The natural terracotta clay breathes, promoting healthy root growth for your plants.', 'Images/Terracotta Garden Pot.jpeg', '2200', 'in-stock', 85),
+('Pottery', 'Crystalline Glaze Vessel', 'Emma Wilson', 'Unique vessel featuring rare crystalline glaze with stunning formations. An extraordinary piece featuring the rare and unpredictable crystalline glaze technique. During firing, crystals grow on the surface creating stunning, snowflake-like formations that catch and reflect light. Each piece is completely unique, as the crystal formation cannot be controlled, making this a true one-of-a-kind artwork.', 'Images/Crystalline Glaze Vessel.jpeg', '5800', 'limited', 98),
+('Pottery', 'Sage Green Mug Collection', 'David Kim', 'Set of four handmade mugs in calming sage green with ergonomic handles. Start your mornings right with this collection of four handmade mugs. Each mug is wheel-thrown and glazed in a calming sage green that complements any kitchen decor. The ergonomic handles fit comfortably in hand, and the generous size is perfect for coffee, tea, or hot chocolate.', 'Images/Sage Green Mug Collection.jpeg', '1950', 'in-stock', 89),
+('Pottery', 'Raku Fire Spirit', 'Yuki Nakamura', 'Sculptural piece using traditional raku firing technique with metallic luster. This extraordinary sculptural piece is created using the ancient raku firing technique, where the piece is removed from the kiln while red-hot and placed in combustible materials. The result is a mesmerizing metallic luster with copper, gold, and iridescent effects that seem to dance across the surface. A true testament to the unpredictable beauty of fire.', 'Images/Raku Fire Spirit.jpeg', '6500', 'limited', 97),
+('Pottery', 'Artisan Dinner Plates', 'Anna Bergström', 'Set of six dinner plates with hand-painted botanical motifs. Elevate your dining experience with this set of six artisan dinner plates. Each plate is individually thrown on the wheel and hand-painted with delicate botanical motifs inspired by nature. The creamy white base provides the perfect canvas for the soft green and brown illustrations. Food-safe, microwave, and dishwasher friendly.', 'Images/Artisan Dinner Plates.jpeg', '3600', 'in-stock', 91),
+
+ ('Collage & Mixed Media', 'Fragments of Memory', 'Eleanor Grace', 'Fragments of Memory is an evocative paper collage that weaves together vintage photographs, handwritten letters, and ephemera to create a nostalgic narrative about time and remembrance. Each layer tells a story, with carefully chosen papers creating depth and emotional resonance. The piece invites viewers to reflect on their own memories and the passage of time.', 'Images/Fragments of Thought.jpeg', '5600', 'in-stock', 95),
+('Collage & Mixed Media', 'Textile Dreams', 'Amara Singh', 'Textile Dreams celebrates the rich tradition of fabric arts through a contemporary mixed media approach. Hand-embroidered fabrics are layered with paint, beads, and found textiles to create a tactile, dimensional work. The piece explores themes of identity and heritage through the universal language of fabric and thread, creating a bridge between traditional crafts and contemporary art.', 'Images/Textile Dreams.jpeg', '7200', 'limited', 88),
+('Collage & Mixed Media', 'Urban Layers', 'Marcus Chen', 'Urban Layers captures the chaos and energy of city life through dynamic collage techniques. Magazine clippings, newspaper fragments, and graffiti-style spray paint come together to create a visual cacophony that mirrors urban experience. The layered composition rewards close inspection, with hidden details and text fragments revealing themselves upon examination.', 'Images/Urban Layers.jpeg', '6400', 'in-stock', 82),
+('Collage & Mixed Media', 'Found Objects Symphony', 'Isabella Romano', 'Found Objects Symphony transforms everyday discarded items into a poetic assemblage. Vintage keys, copper wire, weathered wood, and other found objects are carefully arranged to create a three-dimensional composition that speaks to themes of memory, function, and beauty in the overlooked. Each object carries its own history, now united in a new narrative.', 'Images/found objects symphony.jpeg', '8900', 'limited', 93),
+('Collage & Mixed Media', 'Nature''s Patchwork', 'Lily Greenwood', 'Nature''s Patchwork brings the beauty of the natural world into artistic form through delicate collage work. Real pressed flowers and leaves are combined with watercolor washes and hand-drawn botanical illustrations to create a piece that celebrates biodiversity and natural beauty. Each element is carefully preserved and arranged to create harmonious composition.', 'Images/Nature''s Patchwork.jpeg', '5800', 'in-stock', 85),
+('Collage & Mixed Media', 'Cultural Tapestry', 'Rajesh Kumar', 'Cultural Tapestry is a celebration of Indian heritage through contemporary mixed media techniques. Traditional textiles, intricate patterns, and gold leaf are combined with modern acrylic painting to create a piece that honors cultural roots while embracing contemporary aesthetics. The work explores themes of identity, tradition, and transformation in a globalized world.', 'Images/Cultural Tapestry.jpeg', '7800', 'limited', 90),
+('Collage & Mixed Media', 'Deconstructed Pages', 'Sophie Laurent', 'Deconstructed Pages gives new life to old books through artistic transformation. Torn pages from vintage books are combined with original ink drawings and tea-stained paper to create layered compositions that honor the written word while creating new visual narratives. The piece speaks to themes of knowledge, time, and the evolution of storytelling.', 'Images/Deconstructed Pages.jpeg', '4900', 'in-stock', 79),
+('Collage & Mixed Media', 'Industrial Poetry', 'James Walker', 'Industrial Poetry finds beauty in the mechanical and discarded. Rusted metal fragments, vintage gears, bolts, and other reclaimed industrial materials are assembled into a sculptural wall piece that celebrates the aesthetic of machinery and industry. The work transforms cold, functional objects into a warm, poetic statement about human ingenuity and the passage of time.', 'Images/Industrial Poetry.jpeg', '8200', 'limited', 86),
+('Collage & Mixed Media', 'Woven Stories', 'Maya Patel', 'Woven Stories integrates traditional fiber arts with contemporary mixed media techniques. Hand-woven elements are combined with embroidery, found fabrics, and painted surfaces to create a rich, textured work. The piece explores how stories are passed down through generations, much like weaving techniques, creating connections between past and present.', 'Images/Woven Stories.jpeg', '6700', 'in-stock', 84),
+('Collage & Mixed Media', 'Ephemeral Moments', 'Thomas Reed', 'Ephemeral Moments transforms everyday ephemera into art that speaks to the beauty of ordinary life. Concert tickets, travel receipts, postcards, stamps, and other paper artifacts are arranged to create a visual diary of experiences and memories. The piece celebrates the small moments that make up a life, preserving the fleeting in permanent form.', 'Images/Ephemeral Moments.jpeg', '5400', 'in-stock', 77),
+
+('Pop Art', 'Marilyn Reimagined', 'Andy Morrison', 'Iconic portrait reimagined with bold colors and contemporary pop sensibility.', 'Images/Marilyn Reimagined.jpeg', '32500', 'in-stock', 90),
+('Pop Art', 'Comic Crush', 'Roy Lichtner', 'Ben-Day dots and bold outlines create a romantic comic book aesthetic.', 'Images/Comic Crush.jpeg', '28900', 'in-stock', 85),
+('Pop Art', 'Soup Can Dreams', 'Campbell Harris', 'Consumer culture commentary through repetitive iconic imagery.', 'Images/Soup Can Dreams.jpeg', '24750', 'in-stock', 88),
+('Pop Art', 'Neon Nights', 'Jasper Kane', 'Urban culture meets pop art in this vibrant street-inspired piece.', 'Images/Neon Nights.jpeg', '35200', 'limited', 92),
+('Pop Art', 'Magazine Collage', 'Hannah Höch', 'Cut-and-paste magazine imagery creating surreal pop narratives.', 'Images/Magazine Collage.jpeg', '27650', 'in-stock', 80),
+('Pop Art', 'Dollar Signs', 'Jean-Michel Base', 'Money, commerce, and capitalism explored through bold graphic design.', 'Images/Dollar Signs.jpeg', '41500', 'limited', 95),
+('Pop Art', 'Retro Vibes', 'Keith Haring', 'Dancing figures and vibrant patterns celebrate joy and movement.', 'Images/Retro Vibes.jpeg', '30400', 'in-stock', 87),
+('Pop Art', 'Pop Icons Grid', 'Peter Blake', 'Celebrity portraits arranged in a colorful grid of cultural commentary.', 'Images/Pop Icons Grid.jpeg', '38900', 'limited', 93),
+('Pop Art', 'Bubble Gum', 'Claes Oldenburg', 'Playful oversized everyday objects rendered in candy-bright colors.', 'Images/Bubble Gum.jpeg', '22300', 'in-stock', 82),
+('Pop Art', 'Digital Pop', 'Takashi Murakami', 'Contemporary pop art merging anime, manga, and commercial aesthetics.', 'Images/Digital Pop.jpeg', '44850', 'limited', 94),
+
+('Textile & Fiber Art', 'Woven Dreams', 'Lakshmi Devi', 'Traditional handwoven tapestry featuring intricate patterns and natural dyes.', 'Images/Woven Dreams.jpeg', '28500', 'in-stock', 90),
+('Textile & Fiber Art', 'Silk Serenity', 'Aisha Kapoor', 'Luxurious silk embroidery with gold thread work and traditional motifs.', 'Images/Silk Serenity.jpeg', '42000', 'limited', 93),
+('Textile & Fiber Art', 'Macramé Mandala', 'Sofia Chen', 'Contemporary macramé wall hanging with geometric mandala design.', 'Images/Macramé Mandala.jpeg', '18750', 'in-stock', 85),
+('Textile & Fiber Art', 'Quilted Memories', 'Margaret Johnson', 'Artisan patchwork quilt with hand-stitched details and vintage fabrics.', 'Images/Quilted Memories.jpeg', '35600', 'in-stock', 88),
+('Textile & Fiber Art', 'Fiber Fusion', 'Kenji Tanaka', 'Mixed media fiber art combining felting, weaving, and embroidery techniques.', 'Images/Fiber Fusion.jpeg', '31200', 'limited', 91),
+('Textile & Fiber Art', 'Batik Blossoms', 'Dewi Sartika', 'Hand-painted batik textile featuring floral motifs and traditional wax-resist dyeing.', 'Images/Batik Blossoms.jpeg', '26800', 'in-stock', 84),
+('Textile & Fiber Art', 'Tapestry Tales', 'Elena Rodriguez', 'Large-scale narrative tapestry depicting stories through woven imagery.', 'Images/Tapestry Tales.jpeg', '48500', 'limited', 95),
+('Textile & Fiber Art', 'Needle & Thread', 'Priya Nair', 'Contemporary embroidery art with abstract designs and vibrant thread colors.', 'Images/Needle & Thread.jpeg', '22400', 'in-stock', 87),
+('Textile & Fiber Art', 'Felted Landscapes', 'Hannah Berg', 'Wet-felted wool artwork depicting natural landscapes with dimensional texture.', 'Images/Felted Landscapes.jpeg', '29900', 'in-stock', 89),
+('Textile & Fiber Art', 'Textile Symphony', 'Rajesh Kumar', 'Museum-quality textile art combining traditional Indian techniques with modern design.', 'Images/Textile Symphony.jpeg', '52000', 'limited', 94),
+
+('Street Art', 'Urban Rebellion', 'BANKZ', 'Bold graffiti piece featuring explosive colors and dynamic letter forms. Urban Rebellion represents the raw energy of street culture through explosive color combinations and dynamic letter forms. This authentic graffiti piece was created with spray paint on canvas, capturing the spontaneity and boldness of urban art. The layered composition creates depth while maintaining the characteristic flow of graffiti writing.', 'Images/Urban Rebellion.jpeg', '45000', 'in-stock', NULL),
+('Street Art', 'City Dreams', 'Luna Martinez', 'Large-scale mural artwork depicting urban landscape with surreal elements. City Dreams is a monumental mural piece that transforms urban landscapes into dreamscapes. This work combines realistic architectural elements with surreal, fantastical additions that challenge our perception of city life. Created using high-quality acrylics and aerosols, this piece brings the energy of large-scale street murals into a collectible format.', 'Images/City Dreams.jpeg', '62000', 'in-stock', NULL),
+('Street Art', 'Revolution Stencil', 'Alex Shadow', 'Multi-layered stencil artwork with powerful political commentary. Revolution Stencil showcases the precision and impact of stencil art at its finest. Using multiple hand-cut stencils and careful layering techniques, this piece delivers powerful social commentary through stark imagery and bold contrasts. The limited edition print maintains the texture and authenticity of the original stencil work.', 'Images/Revolution Stencil.jpeg', '28000', 'in-stock', NULL),
+('Street Art', 'Neon Nights', 'KILO', 'Vibrant graffiti-style piece with neon color palette and wild style lettering. Neon Nights captures the electric energy of nighttime city streets through a dazzling neon color palette and intricate wild-style letter forms. This piece demonstrates advanced graffiti techniques with interlocking letters, 3D effects, and explosive color transitions. A celebration of hip-hop culture and urban aesthetics.', 'Images/Neon Nights.jpeg', '38500', 'in-stock', NULL),
+('Street Art', 'Concrete Jungle', 'Maya Stone', 'Mixed media mural combining photography, paint, and urban textures. Concrete Jungle is an innovative mixed media piece that layers photographic elements with paint and collage to create a complex urban narrative. The work explores themes of gentrification, community, and the changing face of cities. Textures from actual street surfaces add authenticity and depth to this thought-provoking piece.', 'Images/Concrete Jungle.jpeg', '52000', 'in-stock', NULL),
+('Street Art', 'Freedom Fighter', 'Resistance Crew', 'Iconic wheatpaste poster art with bold graphic design and message. Freedom Fighter is a powerful wheatpaste-style artwork that captures the DIY spirit of guerrilla street art. Using high-contrast imagery and bold typography, this piece delivers its message with immediacy and impact. The weathered, layered aesthetic reflects the authentic look of street-level political art.', 'Images/Freedom Fighter.jpeg', '32000', 'in-stock', NULL),
+('Street Art', 'Wildstyle Warriors', 'PHASE2', 'Classic wild-style graffiti with intricate letter connections and arrows. Wildstyle Warriors pays homage to the golden age of graffiti with its complex letter structures, dynamic arrows, and seamless connections. This piece showcases the technical mastery required for authentic wild-style writing. Every element flows into the next, creating a unified composition that rewards close examination.', 'Images/Wildstyle Warriors.jpeg', '48000', 'in-stock', NULL),
+('Street Art', 'Urban Mythology', 'Diego Cruz', 'Narrative mural blending ancient symbols with modern street aesthetics. Urban Mythology creates a bridge between ancient cultural symbols and contemporary street art aesthetics. This large-scale work incorporates indigenous iconography, modern graffiti techniques, and vibrant color theory to tell stories of cultural identity and urban experience. A powerful statement piece that honors heritage while embracing the future.', 'Images/Urban Mythology.jpeg', '58000', 'in-stock', NULL),
+('Street Art', 'Spray Can Chronicles', 'TWIST', 'Abstract graffiti exploring form and color through aerosol techniques. Spray Can Chronicles pushes graffiti into abstract territory, focusing on the pure visual potential of aerosol art. Layers of transparent and opaque colors create depth and movement, while drips and texture showcase the medium''s unique characteristics. This piece celebrates the spray can as a fine art tool.', 'Images/Spray Can Chronicles.jpeg', '42000', 'in-stock', NULL),
+('Street Art', 'Street Prophet', 'OBEY Collective', 'Iconic stencil portrait with bold color blocking and graphic impact. Street Prophet demonstrates the power of stencil art to create iconic imagery. Using bold color blocking and precise cuts, this piece achieves maximum impact with minimal elements. The portrait style and propaganda-inspired aesthetic make it instantly recognizable while delivering a timeless message about art, authority, and urban culture.', 'Images/Street Prophet.jpeg', '35000', 'in-stock', NULL),
+
+
+('Digital Art', 'Neon Dreams', 'Alex Cipher', 'Cyberpunk-inspired digital illustration featuring neon lights and futuristic cityscapes.', 'Images/Neon Dreams.jpeg', '26500', 'in-stock', 95),
+('Digital Art', 'Cosmic Guardian', 'Maya Rodriguez', '3D character design blending sci-fi elements with mystical aesthetics.', 'Images/Cosmic Guardian.jpeg', '37200', 'limited', 87),
+('Digital Art', 'Digital Fragments', 'Kai Nakamura', 'Generative art exploring geometric patterns and vibrant color palettes.', 'Images/Digital Fragments.jpeg', '23150', 'in-stock', 78),
+('Digital Art', 'Enchanted Forest', 'Sofia Martinez', 'Fantasy digital painting with magical creatures and ethereal lighting effects.', 'Images/Enchanted Forest.jpeg', '31400', 'limited', 90),
+('Digital Art', 'Beyond Reality', 'David Chen', 'Surreal digital composition merging dreams with digital manipulation techniques.', 'Images/Beyond Reality.jpeg', '34700', 'in-stock', 88),
+('Digital Art', 'Quantum Collector', 'Zara Williams', 'NFT-style artwork featuring bold colors and modern digital aesthetics.', 'Images/Quantum Collector.jpeg', '45450', 'limited', 93),
+('Digital Art', 'Future Metropolis', 'Lucas Kim', 'Detailed concept art of futuristic architecture and urban landscapes.', 'Images/Future Metropolis.jpeg', '40500', 'in-stock', 85),
+('Digital Art', 'Avatar Genesis', 'Emma Thompson', 'Character design illustration with intricate details and dynamic poses.', 'Images/Avatar Genesis.jpeg', '28900', 'in-stock', 80),
+('Digital Art', 'Glitch Symphony', 'Ryan Park', 'Experimental glitch art combining digital distortion with artistic expression.', 'Images/Glitch Symphony.jpeg', '23950', 'in-stock', 75),
+('Digital Art', 'Digital Horizons', 'Priya Sharma', 'Breathtaking digital landscape with stunning lighting and atmospheric depth.', 'Images/Digital Horizons.jpeg', '33850', 'limited', 82),
+
+('Paintings', 'Golden Hour Portrait', 'Clara Smith', 'Oil on canvas capturing the warm light of dusk - bold yet delicate strokes.', 'Images/Golden Hour Portrait.jpeg', '250', 'in-stock', 92),
+('Paintings', 'Whispering Mountains', 'Daniel Grey', 'Soft gradients of mountain air - blending realism and imagination.', 'Images/Whispering Mountains.jpeg', '180', 'in-stock', 88),
+('Paintings', 'Fragments of Thought', 'Riya Kapoor', 'Acrylic abstraction exploring the chaos and rhythm of human emotion.', 'Images/Fragments of Thought.jpeg', '220', 'limited', 95),
+('Paintings', 'Dreamy Petals', 'Hana Li', 'Soft watercolor florals that bloom gently across the paper.', 'Images/Dreamy Petals.jpeg', '130', 'in-stock', 80),
+('Paintings', 'Mindscapes', 'Ethan Cole', 'A surreal oil painting merging inner thoughts with dreamy visuals.', 'Images/Mindscapes.jpeg', '340', 'limited', 97),
+('Paintings', 'Blue Horizon', 'Lucas James', 'Oil seascape reflecting stillness and motion of the ocean.', 'Images/Blue Horizon.jpeg', '290', 'in-stock', 86),
+('Paintings', 'Eternal Gaze', 'Noor Rahman', 'Expressive acrylic portrait exploring depth through minimal brushwork.', 'Images/Eternal Gaze.jpeg', '200', 'limited', 83),
+('Paintings', 'Color Fields', 'Jade Chen', 'Inspired by color field expressionism - silence through pigment.', 'Images/Color Fields.jpeg', '400', 'in-stock', 89),
+('Paintings', 'Morning at the Lake', 'Amelia Brooks', 'Impressionist brushwork - the still water reflecting dawn light.', 'Images/Morning at the Lake.jpeg', '180', 'in-stock', 85),
+('Paintings', 'Miniature Wonders', 'Arjun Mehta', 'Fine-detail miniature painting on handmade paper with gold tones.', 'Images/Miniature Wonders.jpeg', '150', 'limited', 91),
+
+('Printmaking', 'Botanical Study I', 'Eleanor Wright', 'Delicate copper plate etching showcasing intricate botanical details with fine linework.', 'Images/Botanical Study I.jpeg', '8200', 'limited', 8),
+('Printmaking', 'Urban Rhythm', 'Marcus Taylor', 'Bold screenprint featuring vibrant layers and geometric patterns inspired by city life.', 'Images/Urban Rhythm.jpeg', '12500', 'limited', 9),
+('Printmaking', 'Mountain Solitude', 'Akiko Tanaka', 'Stone lithograph capturing misty mountain landscapes with subtle tonal variations.', 'Images/Mountain Solitude.jpeg', '15800', 'limited', 9),
+('Printmaking', 'Forest Tales', 'Henrik Larsen', 'Traditional woodcut print with bold contrasts and expressive carved textures.', 'Images/Forest Tales.jpeg', '9500', 'limited', 8),
+('Printmaking', 'Abstract Flow', 'Isabella Costa', 'Unique monotype print with fluid ink patterns creating one-of-a-kind impressions.', 'Images/Abstract Flow.jpeg', '18900', 'in-stock', 10),
+('Printmaking', 'Ocean Waves', 'Rajesh Kumar', 'Dynamic linocut print capturing the movement and energy of ocean waves.', 'Images/Ocean Waves.jpeg', '7800', 'limited', 8),
+('Printmaking', 'Pop Culture Icons', 'Nina Patel', 'Multi-layered serigraph with bright colors and contemporary pop art references.', 'Images/Pop Culture Icons.jpeg', '14200', 'limited', 9),
+('Printmaking', 'Twilight Portrait', 'Sofia Alvarez', 'Aquatint etching with rich tonal depth and atmospheric portrait qualities.', 'Images/Twilight Portrait.jpeg', '16500', 'limited', 9),
+('Printmaking', 'Industrial Dreams', 'Thomas Berg', 'Mixed media print combining etching, screenprint and collage elements.', 'Images/Industrial Dreams.jpeg', '19800', 'limited', 9),
+('Printmaking', 'Garden Memory', 'Mei Lin', 'Elegant relief print with delicate floral motifs and subtle color gradations.', 'Images/Garden Memory.jpeg', '11400', 'limited', 8);
+
 ******************************************************************************************************************************************************************
-mysql> -- Products table
-mysql> CREATE TABLE products (
-    ->     id INT AUTO_INCREMENT PRIMARY KEY,
-    ->     name VARCHAR(255) NOT NULL,
-    ->     price INT NOT NULL,
-    ->     category VARCHAR(100),
-    ->     imageUrl VARCHAR(255),
-    ->     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    -> );
-Query OK, 0 rows affected (0.09 sec)
-
-mysql>
-mysql> -- Reels table
-mysql> CREATE TABLE reels (
-    ->     id INT AUTO_INCREMENT PRIMARY KEY,
-    ->     title VARCHAR(255) NOT NULL,
-    ->     videoUrl VARCHAR(255),
-    ->     views INT DEFAULT 0,
-    ->     likes INT DEFAULT 0,
-    ->     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    -> );
-Query OK, 0 rows affected (0.10 sec)
-
-mysql>
-mysql> -- Posts table
-mysql> CREATE TABLE posts (
-    ->     id INT AUTO_INCREMENT PRIMARY KEY,
-    ->     title VARCHAR(255) NOT NULL,
-    ->     imageUrl VARCHAR(255),
-    ->     likes INT DEFAULT 0,
-    ->     comments INT DEFAULT 0,
-    ->     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    -> );
-Query OK, 0 rows affected (0.04 sec)
-
-mysql> desc posts;
-+------------+--------------+------+-----+-------------------+-------------------+
-| Field      | Type         | Null | Key | Default           | Extra             |
-+------------+--------------+------+-----+-------------------+-------------------+
-| id         | int          | NO   | PRI | NULL              | auto_increment    |
-| title      | varchar(255) | NO   |     | NULL              |                   |
-| imageUrl   | varchar(255) | YES  |     | NULL              |                   |
-| likes      | int          | YES  |     | 0                 |                   |
-| comments   | int          | YES  |     | 0                 |                   |
-| created_at | timestamp    | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
-+------------+--------------+------+-----+-------------------+-------------------+
-6 rows in set (0.01 sec)
-
-mysql> desc reel;
-ERROR 1146 (42S02): Table 'tof_app.reel' doesn't exist
-mysql> desc reels;
-+------------+--------------+------+-----+-------------------+-------------------+
-| Field      | Type         | Null | Key | Default           | Extra             |
-+------------+--------------+------+-----+-------------------+-------------------+
-| id         | int          | NO   | PRI | NULL              | auto_increment    |
-| title      | varchar(255) | NO   |     | NULL              |                   |
-| videoUrl   | varchar(255) | YES  |     | NULL              |                   |
-| views      | int          | YES  |     | 0                 |                   |
-| likes      | int          | YES  |     | 0                 |                   |
-| created_at | timestamp    | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
-+------------+--------------+------+-----+-------------------+-------------------+
-6 rows in set (0.00 sec)
-
-mysql> desc products;
-+------------+--------------+------+-----+-------------------+-------------------+
-| Field      | Type         | Null | Key | Default           | Extra             |
-+------------+--------------+------+-----+-------------------+-------------------+
-| id         | int          | NO   | PRI | NULL              | auto_increment    |
-| name       | varchar(255) | NO   |     | NULL              |                   |
-| price      | int          | NO   |     | NULL              |                   |
-| category   | varchar(100) | YES  |     | NULL              |                   |
-| imageUrl   | varchar(255) | YES  |     | NULL              |                   |
-| created_at | timestamp    | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
-+------------+--------------+------+-----+-------------------+-------------------+
-6 rows in set (0.00 sec)

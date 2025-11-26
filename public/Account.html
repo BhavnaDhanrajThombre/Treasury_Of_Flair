@@ -2285,18 +2285,48 @@
             closeSettingsModal();
         }
 
-        function confirmDeleteAccount() {
-            const confirmed = confirm('Are you sure you want to delete your account? This action cannot be undone and all your data will be permanently removed.');
+        // function confirmDeleteAccount() {
+        //     const confirmed = confirm('Are you sure you want to delete your account? This action cannot be undone and all your data will be permanently removed.');
             
-            if (confirmed) {
-                const doubleConfirm = confirm('This is your last warning! Are you absolutely sure you want to delete your account?');
+        //     if (confirmed) {
+        //         const doubleConfirm = confirm('This is your last warning! Are you absolutely sure you want to delete your account?');
                 
-                if (doubleConfirm) {
-                    alert('Account deletion initiated. You will be logged out shortly.');
-                    // Add actual account deletion logic here
-                }
-            }
+        //         if (doubleConfirm) {
+        //             alert('Account deletion initiated. You will be logged out shortly.');
+        //             // Add actual account deletion logic here
+        //         }
+        //     }
+        // }
+
+
+        async function confirmDeleteAccount() {
+    // First confirmation
+    if (!confirm("Are you sure you want to delete your account? This cannot be undone.")) return;
+
+    // Second confirmation
+    if (!confirm("This is your last warning! Are you absolutely sure?")) return;
+
+    try {
+        const response = await fetch('/delete-account', {
+            method: 'DELETE',
+            credentials: 'include' // sends session cookie to backend
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            alert(data.message);           // show success message
+            window.location.href = '/index.html';    // redirect after deletion
+        } else {
+            alert(`Error: ${data.message}`); // show backend error
         }
+    } catch (err) {
+        console.error("Delete account error:", err);
+        alert("An unexpected error occurred.");
+    }
+}
+
+
 
         // Load user data from server
         async function loadUserData() {
