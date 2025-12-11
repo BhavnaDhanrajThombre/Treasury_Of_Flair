@@ -1,20 +1,20 @@
-## Treasury of Flair – Full Stack Art Marketplace
+# Treasury of Flair – Full Stack Art Marketplace
 
 Treasury of Flair is a full-stack web application that provides an online platform for artists to showcase and sell their artworks and for users to purchase both artworks and art-related raw materials. The system includes user authentication, artwork management, order handling, and a raw-materials marketplace.
 
-# Tech Stack
+## Tech Stack
 Frontend :HTML5, CSS3, Javascript (ES6+)
 Backend :Node.js, Express.js
 Database :SQL (for users, artworks, orders, materials, etc.)
 Architecture :RESTful API, Three-tier architecture (Client → Server → Database)
 
-# Features
+## Features
 User Management
 User registration and login
 Password hashing for security
 User roles: Artist, Buyer
 
-# Artwork Module
+## Artwork Module
 Artists upload artworks with images, titles, descriptions, pricing, and categories
 Users browse artworks by category or search
 Artwork search functionality
@@ -26,11 +26,11 @@ Raw Materials Marketplace
 Art supplies listed with descriptions and prices
 Buyers can browse and purchase raw materials
 
-# Profile Section
+## Profile Section
 Artists: Manage uploaded artworks
 Buyers: View purchase history
 
-# API Overview (Sample Endpoints)
+## API Overview (Sample Endpoints)
 Authentication
 POST /api/register
 POST /api/login
@@ -48,7 +48,7 @@ Orders
 POST /api/order
 GET /api/orders/user/:id
 
-# Installation & Setup
+## Installation & Setup
 1. Install Dependencies
 npm install
 
