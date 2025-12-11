@@ -22,37 +22,30 @@ User roles: Artist, Buyer
 
 ## Artwork Module
 Artists upload artworks with images, titles, descriptions, pricing, and categories
+
 Users browse artworks by category or search
+
 Artwork search functionality
+
 Order System
+
 Buyers place orders for artworks
+
 Order tracking and management
+
 Artists view orders related to their artworks
+
 Raw Materials Marketplace
+
 Art supplies listed with descriptions and prices
+
 Buyers can browse and purchase raw materials
 
 ## Profile Section
 Artists: Manage uploaded artworks
+
 Buyers: View purchase history
 
-## API Overview (Sample Endpoints)
-Authentication
-POST /api/register
-POST /api/login
-DELETE /api/user/:id
-
-Artworks
-GET /api/artworks
-GET /api/artworks/:id
-POST /api/artworks/upload
-
-Search
-GET /api/search?query=
-
-Orders
-POST /api/order
-GET /api/orders/user/:id
 
 ## Installation & Setup
 1. Install Dependencies
@@ -61,11 +54,10 @@ npm install
 2. Set Up Database
 
 Import tables from database.txt
+
 Configure DB credentials in server files
 
 3. Start Backend Server
 node server.js
 
-4. Access Application
-http://localhost:5000/
 
