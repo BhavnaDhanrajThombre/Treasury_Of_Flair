@@ -4,14 +4,20 @@ Treasury of Flair is a full-stack web application that provides an online platfo
 
 ## Tech Stack
 Frontend :HTML5, CSS3, Javascript (ES6+)
+
 Backend :Node.js, Express.js
+
 Database :SQL (for users, artworks, orders, materials, etc.)
+
 Architecture :RESTful API, Three-tier architecture (Client → Server → Database)
 
 ## Features
 User Management
+
 User registration and login
+
 Password hashing for security
+
 User roles: Artist, Buyer
 
 ## Artwork Module
