@@ -48,16 +48,18 @@ Buyers: View purchase history
 
 
 ## Installation & Setup
-1. Install Dependencies
+1. Install Dependencies:
+
 npm install
 
-2. Set Up Database
+2. Set Up Database:
 
 Import tables from database.txt
 
 Configure DB credentials in server files
 
-3. Start Backend Server
+3. Start Backend Server:
+
 node server.js
 
 
