@@ -1,35 +1,39 @@
 const path = require("path");
 const express = require("express");
 const mysql = require("mysql2");
-const bcrypt = require("bcrypt");   // password hashing
+const bcrypt = require("bcrypt");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const session = require("express-session");
+const searchRoutes = require('./artwork_search');
 
 const app = express();
+const PORT = 5000;
 
 // --- Middleware ---
 app.use(cors({
-  origin: "http://localhost:5000", // frontend origin (adjust if different)
+  origin: "http://localhost:5000",
   credentials: true
 }));
 app.use(bodyParser.json());
+app.use(express.json());
 app.use(session({
-  secret: "your_secret_key",   // change to strong random string
+  secret: "your_secret_key_change_this", // TODO: Use environment variable
   resave: false,
   saveUninitialized: false,
-  cookie: { secure: false }    // set true only if using HTTPS
+  cookie: { secure: false }
 }));
 
-// ✅ Serve static frontend files (public folder)
+// --- Serve Static Files ---
 app.use(express.static(path.join(__dirname, "public")));
+app.use('/Images', express.static(path.join(__dirname, 'Images')));
 
-// --- MySQL connection ---
+// --- MySQL Connection ---
 const db = mysql.createConnection({
   host: "localhost",
-  user: "root",        // change if needed
-  password: "root",    // change if needed
-  database: "tof_app"  // your DB name
+  user: "root",
+  password: "root",
+  database: "tof_app"
 });
 
 db.connect((err) => {
@@ -40,7 +44,7 @@ db.connect((err) => {
   console.log("Connected to MySQL database.");
 });
 
-// --- Signup route ---
+// --- Authentication Routes ---
 app.post("/signup", async (req, res) => {
   const { name, email, password } = req.body;
 
@@ -65,7 +69,6 @@ app.post("/signup", async (req, res) => {
   }
 });
 
-// --- Login route ---
 app.post("/login", (req, res) => {
   const { identity, password } = req.body;
 
@@ -87,7 +90,6 @@ app.post("/login", (req, res) => {
       return res.status(401).json({ error: "Incorrect password." });
     }
 
-    // ✅ Save user in session
     req.session.username = user.name;
     req.session.email = user.email;
 
@@ -95,7 +97,6 @@ app.post("/login", (req, res) => {
   });
 });
 
-// --- Home route (returns logged-in user info) ---
 app.get("/home", (req, res) => {
   if (req.session.username && req.session.email) {
     res.json({
@@ -107,34 +108,15 @@ app.get("/home", (req, res) => {
   }
 });
 
-// --- Start server ---
-const PORT = 5000;
+// --- API Routes ---
+app.use('/api/search', searchRoutes);
+
+// --- Test Route ---
+app.get('/', (req, res) => {
+  res.send('Server is working!');
+});
+
+// --- Start Server (Only Once!) ---
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
-
-// server.js
-const searchRoutes = require('./artwork_search');
-// ✅ Enable CORS for frontend
-app.use(cors());
-app.use(express.json());
-
-app.use(express.static(path.join(__dirname, "public")));
-
-// ADD THIS ↓↓↓
-app.use('/Images', express.static(path.join(__dirname, 'Images')));
-
-
-// ✅ Mount the search routes
-app.use('/api/search', searchRoutes);
-
-// ✅ Test route to ensure server is running
-app.get('/', (req, res) => {
-    res.send('Server is working!');
-});
-
-// ✅ Start server
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-});
-
